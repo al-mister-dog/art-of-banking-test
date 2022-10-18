@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import CpiDisplay from "./cpi-display";
 
-export default function CpiPriceWeight({ setNewCpi, cpiData, width }) {
+export default function CpiPriceWeight({ setNewCpi, cpiData, width, margin }) {
   const [cpi, setCpi] = useState(cpiData);
   const [inflationIndex, setInflationIndex] = useState(0);
   const [inflationRate, setInflationRate] = useState(0);
