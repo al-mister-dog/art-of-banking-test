@@ -32,7 +32,7 @@ export const Dues = {
   },
   getById(id: number) {
     const allDues = creditData.allIds.map(
-      (id) => creditData.creditAccounts[id]
+      (id) => creditData.accounts[id]
     );
     const relevantDues = allDues.filter(
       (account) =>
@@ -43,7 +43,7 @@ export const Dues = {
   },
   getByIdAndNetted(id: number) {
     const allDues = creditData.allIds.map(
-      (id) => creditData.creditAccounts[id]
+      (id) => creditData.accounts[id]
     );
     const relevantDues = allDues
       .filter(
@@ -56,7 +56,7 @@ export const Dues = {
   },
   getAll(bank: Bank) {
     const accounts: CreditAccount[] = bank.creditIds
-      .map((creditAccountId) => creditData.creditAccounts[creditAccountId])
+      .map((creditAccountId) => creditData.accounts[creditAccountId])
       .filter((account) => account.category === "Dues");
     return accounts;
   },
@@ -183,6 +183,6 @@ export const Dues = {
 
 function mapFilter(party: Bank, cb: (account: CreditAccount) => boolean) {
   return party.creditIds
-    .map((id) => creditData.creditAccounts[id])
+    .map((id) => creditData.accounts[id])
     .filter((account) => cb(account) && account.category === "Dues");
 }

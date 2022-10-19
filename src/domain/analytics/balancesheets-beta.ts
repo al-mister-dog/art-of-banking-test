@@ -1,3 +1,6 @@
+import { BankingSystem } from "../banking-system";
+import { accountData, duesData, creditData } from "../structures/objects";
+
 const system = "centralbank";
 
 export const Balancesheets = {
@@ -168,9 +171,11 @@ export const Balancesheets = {
   },
 
   relevantAccounts(id) {
+    console.log(this.filterAccounts(creditData, id));
     const relevantAccountsArray = [
+      this.filterAccounts(creditData, id),
       this.filterAccounts(duesData, id),
-      this.filterAccounts(depositAccountsData, id),
+      this.filterAccounts(accountData, id),
     ].flatMap((accounts) => accounts);
 
     return relevantAccountsArray;
@@ -178,9 +183,11 @@ export const Balancesheets = {
 
   returnAssets(id) {
     return this.mapByInstrument(
-      this.filterEmptyAccounts(
-        this.relevantAccounts(id).map((account) =>
-          this.returnAsset(account, id)
+      this.addRelationalData(
+        this.filterEmptyAccounts(
+          this.relevantAccounts(id).map((account) =>
+            this.returnAsset(account, id)
+          )
         )
       )
     );
@@ -188,12 +195,40 @@ export const Balancesheets = {
 
   returnLiabilities(id) {
     return this.mapByInstrument(
-      this.filterEmptyAccounts(
-        this.relevantAccounts(id).map((account) =>
-          this.returnLiability(account, id)
+      this.addRelationalData(
+        this.filterEmptyAccounts(
+          this.relevantAccounts(id).map((account) =>
+            this.returnLiability(account, id)
+          )
         )
       )
     );
+  },
+
+  addRelationalData(accountsArray, id) {
+    return accountsArray.map((account) => {
+      if (account.superiorId !== id) {
+        return {
+          ...account,
+          thirdPartyDetail: BankingSystem.getBankById(account.superiorId),
+        };
+      }
+      if (account.subordinateId !== id) {
+        return {
+          ...account,
+          thirdPartyDetail: BankingSystem.getBankById(account.subordinateId),
+        };
+      }
+
+      return { ...account };
+    });
+  },
+
+  get(id) {
+    return {
+      assets: this.getNestedArray(this.returnAssets(id)),
+      liabilities: this.getNestedArray(this.returnLiabilities(id)),
+    };
   },
 
   filterAccounts(data, id: number) {
@@ -216,54 +251,61 @@ export const Balancesheets = {
       return acc;
     }, {});
   },
-};
-const duesData = {
-  accounts: {
-    0: {
-      instrument: "Dues",
-      balance: 15,
-      subordinateId: 0,
-      superiorId: 1,
-    },
-    1: {
-      instrument: "Dues",
-      balance: 25,
-      subordinateId: 0,
-      superiorId: 2,
-    },
-    2: {
-      instrument: "Dues",
-      balance: 25,
-      subordinateId: 3,
-      superiorId: 1,
-    },
+  getNestedArray(object: { [key: string]: any }) {
+    let arr = [];
+    for (const key in object) {
+      arr.push({ instrument: key, accounts: object[key] });
+    }
+    return arr;
   },
-  allIds: [0, 1, 2],
 };
+// const duesData = {
+//   accounts: {
+//     0: {
+//       instrument: "Dues",
+//       balance: 15,
+//       subordinateId: 0,
+//       superiorId: 1,
+//     },
+//     1: {
+//       instrument: "Dues",
+//       balance: 25,
+//       subordinateId: 0,
+//       superiorId: 2,
+//     },
+//     2: {
+//       instrument: "Dues",
+//       balance: 25,
+//       subordinateId: 3,
+//       superiorId: 1,
+//     },
+//   },
+//   allIds: [0, 1, 2],
+// };
 
-const depositAccountsData = {
-  accounts: {
-    0: {
-      id: 1,
-      instrument: "Bank Deposits",
-      balance: -10,
-      subordinateId: 0,
-      superiorId: 1,
-    },
-    1: {
-      id: 2,
-      instrument: "Bank Deposits",
-      balance: 100,
-      subordinateId: 2,
-      superiorId: 3,
-    },
-    2: {
-      id: 3,
-      instrument: "Bank Deposits",
-      balance: -100,
-      subordinateId: 1,
-      superiorId: 3,
-    },
-  },
-  allIds: [0, 1, 2],
-};
+// const depositAccountsData = {
+//   accounts: {
+//     0: {
+//       id: 1,
+//       instrument: "Bank Deposits",
+//       balance: -10,
+//       subordinateId: 0,
+//       superiorId: 1,
+//     },
+//     1: {
+//       id: 2,
+//       instrument: "Bank Deposits",
+//       balance: 100,
+//       subordinateId: 2,
+//       superiorId: 3,
+//     },
+//     2: {
+//       id: 3,
+//       instrument: "Bank Deposits",
+//       balance: -100,
+//       subordinateId: 1,
+//       superiorId: 3,
+//     },
+//   },
+//   allIds: [0, 1, 2],
+// };

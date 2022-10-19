@@ -28,6 +28,7 @@ export const CreditAccounts = {
       type,
       balance,
       category,
+      instrument: category,
       interest,
       interestRate,
       principal,
@@ -37,22 +38,21 @@ export const CreditAccounts = {
       newAccount = { ...newAccount, netted: false };
     }
     const newCreditData = JSON.parse(JSON.stringify(creditData));
-    newCreditData.creditAccounts[newCreditData.id] = newAccount;
+    newCreditData.accounts[newCreditData.id] = newAccount;
     newCreditData.id++;
-
     newCreditData.allIds.push(newAccount.id);
     CreditData.assign(newCreditData);
     BankData.assignCreditIds(subordinate, superior, newAccount.id);
-    if (category === "loans" || category === "Fed Funds") {
+    if (category === "Loans" || category === "Fed Funds") {
       loanRecords.push(newAccount);
     }
   },
   get() {
-    return creditData.creditAccounts;
+    return creditData.accounts;
   },
   getAll(bank: Bank) {
     const accounts: CreditAccount[] = bank.creditIds.map(
-      (creditAccountId) => creditData.creditAccounts[creditAccountId]
+      (creditAccountId) => creditData.accounts[creditAccountId]
     );
     return accounts;
   },
@@ -81,7 +81,7 @@ export const CreditAccounts = {
     }
     newCreditAccount.balance += amount;
 
-    let creditAccounts = { ...creditData.creditAccounts };
+    let creditAccounts = { ...creditData.accounts };
     creditAccounts = { ...creditAccounts, [account.id]: newCreditAccount };
     CreditData.assignAccounts(creditAccounts);
   },
@@ -90,8 +90,8 @@ export const CreditAccounts = {
     const newCreditAccount = { ...account };
     newCreditAccount.balance -= amount;
 
-    if (newCreditAccount.balance <= 0 && newCreditAccount.type === "loans") {
-      let creditAccounts = { ...creditData.creditAccounts };
+    if (newCreditAccount.balance <= 0 && newCreditAccount.type === "Loans") {
+      let creditAccounts = { ...creditData.accounts };
       let invalidatedAccount = {
         ...creditAccounts,
         [account.id]: {},
@@ -99,7 +99,7 @@ export const CreditAccounts = {
       creditAccounts = { ...creditAccounts, [account.id]: invalidatedAccount };
       CreditData.assignAccounts(creditAccounts);
     } else {
-      let creditAccounts = { ...creditData.creditAccounts };
+      let creditAccounts = { ...creditData.accounts };
       creditAccounts = { ...creditAccounts, [account.id]: newCreditAccount };
       CreditData.assignAccounts(creditAccounts);
     }
@@ -108,7 +108,7 @@ export const CreditAccounts = {
   set(account: CreditAccount, amount: number) {
     let newCreditAccount = { ...account };
     newCreditAccount.balance = amount;
-    let creditAccounts = creditData.creditAccounts;
+    let creditAccounts = creditData.accounts;
     creditAccounts = { ...creditAccounts, [account.id]: newCreditAccount };
     CreditData.assignAccounts(creditAccounts);
   },
@@ -116,6 +116,6 @@ export const CreditAccounts = {
 
 function mapFilter(party: Bank, cb: (account: CreditAccount) => boolean) {
   return party.creditIds
-    .map((id) => creditData.creditAccounts[id])
+    .map((id) => creditData.accounts[id])
     .filter((account) => cb(account));
 }

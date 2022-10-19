@@ -29,7 +29,7 @@ export default function PayFedFundsLoan({ bank }: { bank: CardInfo }) {
     setAmount(data[0].owed + data[0].interest);
   }
   const owingBanks = creditData.allIds
-    .map((id) => creditData.creditAccounts[id])
+    .map((id) => creditData.accounts[id])
     .filter(
       (account) =>
         account.subordinateId === bank.cardInfo.id && account.balance > 0

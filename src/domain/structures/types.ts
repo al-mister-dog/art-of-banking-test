@@ -58,6 +58,7 @@ export interface CreditAccount {
   type: string;
   balance: number;
   category: string;
+  instrument?: string;
   netted?: boolean;
   interest?: number;
   interestRate?: number;
@@ -112,7 +113,7 @@ export interface AccountDataObject {
 
 export interface CreditDataObject {
   id: number;
-  creditAccounts: CreditAccounts;
+  accounts: CreditAccounts;
   allIds: number[];
 }
 

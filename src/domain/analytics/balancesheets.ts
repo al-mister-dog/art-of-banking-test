@@ -20,11 +20,11 @@ interface CorrespondingCreditInstruments {
 }
 
 const correspondingCreditInstruments: CorrespondingCreditInstruments = {
-  dues: {
+  Dues: {
     assets: "Due Froms",
     liabilities: "Due Tos",
   },
-  loans: {
+  Loans: {
     assets: "Loan To",
     liabilities: "Loan From",
   },
@@ -149,9 +149,7 @@ export const BalanceSheets = {
     return [...accounts, ...credit];
   },
 
-  getAssetsBeta(bank: Bank) {
-
-  },
+  getAssetsBeta(bank: Bank) {},
 
   getAssetsPlusReserves(bank: Bank) {
     const accounts = this.getAccountAssets(bank);
@@ -159,7 +157,7 @@ export const BalanceSheets = {
     const cashReserves = reservesData.reserves[bank.id];
 
     if (securitiesData.allIds.length > 0) {
-      const securities = securitiesData.securities[bank.id];
+      const securities = securitiesData.accounts[bank.id];
       const security = securities[0];
       const securityPlusInstrument = {
         ...security,
@@ -207,8 +205,6 @@ export const BalanceSheets = {
     const liabilities = this.getLiabilities(bank);
     return { assets, liabilities };
   },
-
-
 
   getAll() {
     const allBanks = Banks.getAll();

@@ -16,7 +16,7 @@ export const Loans = {
       superior,
       amount,
       type,
-      "loans",
+      "Loans",
       interest,
       interestRate,
       amount
@@ -53,8 +53,8 @@ export const Loans = {
 
   getAll(bank: Bank) {
     const accounts: CreditAccount[] = bank.creditIds
-      .map((creditAccountId) => creditData.creditAccounts[creditAccountId])
-      .filter((account) => account.category === "loans");
+      .map((creditAccountId) => creditData.accounts[creditAccountId])
+      .filter((account) => account.category === "Loans");
     return accounts;
   },
 
@@ -80,18 +80,18 @@ export const Loans = {
       (account) =>
         account.subordinateId === bank1.id &&
         account.superiorId === bank2.id &&
-        account.category === "loans" &&
+        account.category === "Loans" &&
         account.balance > 0
     )[0];
   },
 
   getById(id1: number, id2: number) {
-    return Object.keys(creditData.creditAccounts)
-      .map((id) => creditData.creditAccounts[id])
+    return Object.keys(creditData.accounts)
+      .map((id) => creditData.accounts[id])
       .filter((account) => {
         account.subordinateId === id1 &&
           account.superiorId === id2 &&
-          account.category === "loans";
+          account.category === "Loans";
       });
   },
 
@@ -116,6 +116,6 @@ export const Loans = {
 
 function mapFilter(party: Bank, cb: (account: CreditAccount) => boolean) {
   return party.creditIds
-    .map((id) => creditData.creditAccounts[id])
-    .filter((account) => cb(account) && account.category === "loans");
+    .map((id) => creditData.accounts[id])
+    .filter((account) => cb(account) && account.category === "Loans");
 }

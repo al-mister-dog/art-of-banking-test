@@ -24,7 +24,7 @@ export default function NetDues({ bank }: { bank: CardInfo }) {
   }
 
   const owingBanks = creditData.allIds
-    .map((id) => creditData.creditAccounts[id])
+    .map((id) => creditData.accounts[id])
     .filter(
       (account) =>
         account.subordinateId === bank.cardInfo.id &&

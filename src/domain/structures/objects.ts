@@ -38,24 +38,25 @@ export let accountData = {
 
 export let creditData: CreditDataObject = {
   id: 0,
-  creditAccounts: {} as CreditAccounts,
+  accounts: {} as CreditAccounts,
   allIds: [] as number[],
 };
 
 export let loanData = {
   id: 0,
-  loanAccounts: {} as LoanAccounts,
+  accounts: {} as LoanAccounts,
   allIds: [] as number[],
 };
 
 export let duesData = {
   id: 0,
-  duesAccounts: {} as DuesAccounts,
+  accounts: {} as DuesAccounts,
+  allIds: [],
 };
 
 export let securitiesData = {
   id: 0,
-  securities: {} as SecuritiesAccounts,
+  accounts: {} as SecuritiesAccounts,
   allIds: [],
 };
 
@@ -100,9 +101,9 @@ export const SecuritiesData = {
     securitiesData = { ...newSecuritesData };
   },
   assignSecuritiesAccounts(securities: SecuritiesAccount) {
-    let newSecurities = { ...securitiesData.securities };
+    let newSecurities = { ...securitiesData.accounts };
     newSecurities = { ...newSecurities, [securities.id]: securities };
-    securitiesData = { ...securitiesData, securities: newSecurities };
+    securitiesData = { ...securitiesData, accounts: newSecurities };
   },
 };
 
@@ -119,14 +120,14 @@ export const CreditData = {
   assign(newCreditData: CreditDataObject) {
     creditData = { ...newCreditData };
   },
-  assignAccounts(creditAccounts: CreditAccounts) {
-    creditData = { ...creditData, creditAccounts };
+  assignAccounts(accounts: CreditAccounts) {
+    creditData = { ...creditData, accounts };
   },
 };
 
 export const DuesData = {
-  assign(duesAccounts: DuesAccounts) {
-    duesData = { ...duesData, duesAccounts };
+  assign(accounts: DuesAccounts) {
+    duesData = { ...duesData, accounts };
   },
 };
 
@@ -207,11 +208,12 @@ export function clearBankData() {
   };
   duesData = {
     id: 0,
-    duesAccounts: {} as DuesAccounts,
+    accounts: {} as DuesAccounts,
+    allIds: [],
   };
   creditData = {
     id: 0,
-    creditAccounts: {} as CreditAccounts,
+    accounts: {} as CreditAccounts,
     allIds: [] as number[],
   };
   records = {
@@ -245,9 +247,9 @@ export function clearBankData() {
   };
   loanData = {
     id: 0,
-    loanAccounts: {} as LoanAccounts,
+    accounts: {} as LoanAccounts,
     allIds: [] as number[],
   };
   loanRecords = [];
-  securitiesData = { id: 0, securities: {} as SecuritiesAccounts, allIds: [] };
+  securitiesData = { id: 0, accounts: {} as SecuritiesAccounts, allIds: [] };
 }

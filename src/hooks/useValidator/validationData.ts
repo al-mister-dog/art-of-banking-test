@@ -143,7 +143,7 @@ const validatorsByLecture = {
       },
       getLoan(customer: CardInfo, amount: number, selectedBank: string) {
         const owingBanks = creditData.allIds
-          .map((id) => creditData.creditAccounts[id])
+          .map((id) => creditData.accounts[id])
           .filter(
             (account) =>
               account.subordinateId === customer.cardInfo.id &&
@@ -160,7 +160,7 @@ const validatorsByLecture = {
       },
       repayLoan(customer: CardInfo, amount: number, selectedBank: string) {
         const loans = creditData.allIds
-          .map((id) => creditData.creditAccounts[id])
+          .map((id) => creditData.accounts[id])
           .filter(
             (account) =>
               account.subordinateId === customer.cardInfo.id &&
@@ -241,7 +241,7 @@ const validatorsByLecture = {
     bank: {
       payDues(bank: CardInfo, amount: number, selectedBank: string) {
         const dues = creditData.allIds
-          .map((id) => creditData.creditAccounts[id])
+          .map((id) => creditData.accounts[id])
           .filter(
             (account) =>
               account.subordinateId === bank.cardInfo.id &&
@@ -297,7 +297,7 @@ const validatorsByLecture = {
     bank: {
       settleDues(bank: CardInfo, amount: number, selectedBank: string) {
         const dues = creditData.allIds
-          .map((id) => creditData.creditAccounts[id])
+          .map((id) => creditData.accounts[id])
           .filter(
             (account) =>
               account.subordinateId === bank.cardInfo.id &&
@@ -381,7 +381,7 @@ const validatorsByLecture = {
         selectedBank: string
       ) {
         const owingBanks = creditData.allIds
-          .map((id) => creditData.creditAccounts[id])
+          .map((id) => creditData.accounts[id])
           .filter(
             (account) =>
               account.subordinateId === customer.cardInfo.id &&

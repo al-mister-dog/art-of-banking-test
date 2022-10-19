@@ -110,7 +110,7 @@ function NextStep({ bank, selectedBank }) {
   const dispatch = useAppDispatch();
   const [paymentType, setPaymentType] = useState("credit");
 
-  const accountInfo = { ...creditData.creditAccounts[selectedBank] };
+  const accountInfo = { ...creditData.accounts[selectedBank] };
   const amount = accountInfo.balance;
   let otherBank = null;
   let isDebtor = false;
@@ -213,7 +213,7 @@ function NextStep({ bank, selectedBank }) {
 
 function NextStepCH({ bank, selectedBank }) {
   const dispatch = useAppDispatch();
-  const accountInfo = { ...creditData.creditAccounts[selectedBank] };
+  const accountInfo = { ...creditData.accounts[selectedBank] };
   const amount = accountInfo.balance;
   let otherBank = null;
   let isDebtor = false;

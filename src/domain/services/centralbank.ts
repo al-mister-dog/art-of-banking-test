@@ -103,8 +103,8 @@ export const CentralBank = {
     Record.fedFundsLoan(bank1, bank2, amount, interestRate);
   },
   repayLoan(bank1: Bank, bank2: Bank, amount: number) {
-    const account = Object.keys(creditData.creditAccounts)
-      .map((id) => creditData.creditAccounts[id])
+    const account = Object.keys(creditData.accounts)
+      .map((id) => creditData.accounts[id])
       .filter(
         (account) =>
           account.subordinateId === bank1.id && account.superiorId === bank2.id

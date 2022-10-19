@@ -14,6 +14,7 @@ export const Accounts = {
       subordinateId: subordinate.id,
       superiorId: superior.id,
       type,
+      instrument: type,
       balance,
       category: type,
     };
@@ -116,7 +117,6 @@ export const Accounts = {
     }
   },
   increaseCorrespondingTreasuries(customer: Bank, amount: number) {
-    
     let account = Accounts.getTreasuries(customer.id);
     if (account) {
       let newAccount = { ...account };

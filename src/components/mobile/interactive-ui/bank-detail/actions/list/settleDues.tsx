@@ -115,7 +115,7 @@ function NextStep({ bank, selectedBank }) {
   const theme = useMantineTheme();
   const [paymentType, setPaymentType] = useState("credit");
 
-  const accountInfo = { ...creditData.creditAccounts[selectedBank] };
+  const accountInfo = { ...creditData.accounts[selectedBank] };
   const amount = accountInfo.balance;
   let otherBank = null;
   let isDebtor = false;
@@ -223,7 +223,7 @@ function NextStepCH({ bank, selectedBank }) {
   const dispatch = useAppDispatch();
   const setOpened = useContext(DrawerContext);
 
-  const accountInfo = { ...creditData.creditAccounts[selectedBank] };
+  const accountInfo = { ...creditData.accounts[selectedBank] };
   const amount = accountInfo.balance;
   let otherBank = null;
   let isDebtor = false;
