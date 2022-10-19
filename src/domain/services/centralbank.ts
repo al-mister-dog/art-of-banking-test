@@ -4,8 +4,14 @@ import { Loans } from "./loans";
 import { mapObject } from "../helpers";
 import { Record } from "./records";
 import { CreditAccounts } from "./credit-accounts";
-import { bankData, accountData, creditData } from "../structures/objects";
+import {
+  bankData,
+  accountData,
+  creditData,
+  securitiesData,
+} from "../structures/objects";
 import { Bank } from "../structures/types";
+import { Securities } from "./securities";
 
 export const CentralBank = {
   createAccount(bank1: Bank, bank2: Bank, amount: number = 0) {
@@ -90,7 +96,7 @@ export const CentralBank = {
       bank1,
       bank2,
       amount,
-      "fed funds",
+      "Fed Funds",
       interest,
       interestRate
     );
@@ -108,5 +114,25 @@ export const CentralBank = {
       CreditAccounts.decreaseCorrespondingCredit(account[0], amount);
       Record.repayFedFundsLoan(bank1, bank2, amount);
     }
+  },
+  sellSecurities(bank1: Bank, amount: number) {
+    const centralbank = bankData.banks[0];
+    Securities.decreaseTreasuries(centralbank, amount);
+    Securities.increaseTreasuries(bank1, amount);
+    Accounts.decreaseCorrespondingBalance(bank1, centralbank, amount);
+  },
+  buySecurities(bank1: Bank, amount: number) {
+    const centralbank = bankData.banks[0];
+    Securities.increaseTreasuries(centralbank, amount);
+    Securities.decreaseTreasuries(bank1, amount);
+    Accounts.increaseCorrespondingBalance(bank1, centralbank, amount);
+  },
+  addTreasuries(bank1: Bank, amount: number) {
+    const centralbank = bankData.banks[0];
+    Accounts.createAccount(bank1, centralbank, "Treasury Bills", amount);
+  },
+  addTreasuriesCentralBank(amount: number) {
+    const centralbank = bankData.banks[0];
+    Securities.addSecurities(centralbank, "Treasury Bills", amount);
   },
 };

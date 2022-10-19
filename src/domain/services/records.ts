@@ -567,7 +567,7 @@ export const Record = {
   },
   fedFundsLoan(bank1, bank2, amount, interestRate) {
     const record1 = {
-      instrumentType: "fed funds",
+      instrumentType: "Fed Funds",
       notationType: "issuance",
       amount: amount,
       id: bank2.id,
@@ -575,7 +575,7 @@ export const Record = {
       name: bank2.name,
     };
     const record2 = {
-      instrumentType: "fed funds",
+      instrumentType: "Fed Funds",
       notationType: "issuance",
       amount: amount,
       id: bank1.id,
@@ -603,7 +603,7 @@ export const Record = {
   },
   repayFedFundsLoan(bank1, bank2, amount) {
     const duesLiabilityRecord1 = {
-      instrumentType: "fed funds",
+      instrumentType: "Fed Funds",
       notationType: "setOff",
       amount: amount,
       id: bank2.id,
@@ -611,7 +611,7 @@ export const Record = {
       name: bank2.name,
     };
     const duesAssetRecord2 = {
-      instrumentType: "fed funds",
+      instrumentType: "Fed Funds",
       notationType: "setOff",
       amount: amount,
       id: bank1.id,

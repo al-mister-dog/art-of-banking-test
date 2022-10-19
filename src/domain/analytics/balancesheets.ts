@@ -1,7 +1,12 @@
 import { CreditAccounts } from "../services/credit-accounts";
 import { Banks } from "../services/bank";
 import { System } from "../system";
-import { accountData, creditData, reservesData } from "../structures/objects";
+import {
+  accountData,
+  creditData,
+  reservesData,
+  securitiesData,
+} from "../structures/objects";
 import { Account, Bank, CreditAccount } from "../structures/types";
 
 interface CorrespondingInstruments {
@@ -23,7 +28,7 @@ const correspondingCreditInstruments: CorrespondingCreditInstruments = {
     assets: "Loan To",
     liabilities: "Loan From",
   },
-  "fed funds": {
+  "Fed Funds": {
     assets: "fed funds to",
     liabilities: "fed funds from",
   },
@@ -43,7 +48,7 @@ export const BalanceSheets = {
           ? "Daylight Overdrafts"
           : "Bank Overdrafts",
       "Daylight Overdrafts": "Bank Deposits",
-      bankOverdrafts: "Bank Deposits",
+      "Bank Overdrafts": "Bank Deposits",
       "CH Certificates": "CH Loans",
       "CH Loans": "CH Certificates",
     };
@@ -91,7 +96,11 @@ export const BalanceSheets = {
       if (account.superiorId === bank.id && account.balance >= 0) {
         return account;
       }
-      if (account.subordinateId === bank.id && account.balance <= 0) {
+      if (
+        account.subordinateId === bank.id &&
+        account.balance <= 0 &&
+        account.type !== "Treasury Bills"
+      ) {
         return this.parseOverdraft(account);
       }
     });
@@ -116,7 +125,7 @@ export const BalanceSheets = {
 
   getCreditLiabilities(bank: Bank) {
     const creditAccounts: CreditAccount[] = CreditAccounts.getAll(bank);
-    
+
     const dueFromAccounts = creditAccounts
       .filter(
         (creditAccount) =>
@@ -140,10 +149,31 @@ export const BalanceSheets = {
     return [...accounts, ...credit];
   },
 
+  getAssetsBeta(bank: Bank) {
+
+  },
+
   getAssetsPlusReserves(bank: Bank) {
     const accounts = this.getAccountAssets(bank);
     const credit = this.getCreditAssets(bank);
     const cashReserves = reservesData.reserves[bank.id];
+
+    if (securitiesData.allIds.length > 0) {
+      const securities = securitiesData.securities[bank.id];
+      const security = securities[0];
+      const securityPlusInstrument = {
+        ...security,
+        instrument: security.type,
+        category: security.type,
+      };
+
+      return [
+        ...accounts,
+        ...credit,
+        { ...cashReserves },
+        { ...securityPlusInstrument },
+      ];
+    }
     return [...accounts, ...credit, { ...cashReserves }];
   },
 
@@ -172,6 +202,14 @@ export const BalanceSheets = {
     };
   },
 
+  getBalancesheet(bank: Bank) {
+    const assets = this.getAssets(bank);
+    const liabilities = this.getLiabilities(bank);
+    return { assets, liabilities };
+  },
+
+
+
   getAll() {
     const allBanks = Banks.getAll();
     const allBalanceSheets = allBanks.map((bank) => {
@@ -184,7 +222,7 @@ export const BalanceSheets = {
         liabilities,
       };
     });
-    return allBanks;
+    return allBalanceSheets;
   },
 };
 

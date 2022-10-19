@@ -10,6 +10,8 @@ import TransferToBank from "./list/transferToBank";
 import GetFedFundsLoan from "./list/getFedFundsLoan";
 import PayFedFundsLoan from "./list/payFedFundsLoan";
 import { CardInfo } from "../../types";
+import SellTreasuries from "./list/sellTreasuries";
+import BuyTreasuries from "./list/buyTreasuries";
 
 export default function ActionForms({
   action,
@@ -21,7 +23,7 @@ export default function ActionForms({
   const reserves = bank.balanceSheet.assets.find(
     (asset) => asset.instrument === reserves
   );
-  
+
   if (action === null) {
     return <></>;
   }
@@ -68,5 +70,13 @@ export default function ActionForms({
 
   if (action === "payFedFundsLoan") {
     return <PayFedFundsLoan bank={bank} />;
+  }
+
+  if (action === "sellSecurities") {
+    return <SellTreasuries bank={bank} />;
+  }
+
+  if (action === "buySecurities") {
+    return <BuyTreasuries bank={bank} />;
   }
 }

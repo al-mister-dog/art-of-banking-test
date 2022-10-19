@@ -184,4 +184,14 @@ export const sliderSettings = {
       overdraft: 100,
     },
   },
+  19: {
+    sliderSettings: {
+      overdraft: false,
+      reserveRequirement: true,
+      interestRate: false,
+    },
+    sliderFixtures: {
+      overdraft: 100,
+    },
+  },
 };

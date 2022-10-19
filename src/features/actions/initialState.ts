@@ -44,10 +44,26 @@ const actionLists = {
     customer: [{ value: "transfer", label: "Transfer Money to Someone" }],
   },
   6: {
+    centralbank: [],
+    bank: [
+      { value: "bankTransfer", label: "Transfer Money to Bank" },
+      { value: "getFedFundsLoan", label: "Get Fed Funds Loan" },
+      { value: "payFedFundsLoan", label: "Pay Back a Fed Funds Loan" },
+    ],
+    customer: [
+      { value: "deposit", label: "Deposit Cash into Bank" },
+      { value: "withdraw", label: "Withdraw Money from Bank" },
+      { value: "transfer", label: "Transfer Money to Someone" },
+    ],
+  },
+  7: {
     centralbank: [
-      
+      { value: "buySecurities", label: "Buy Treasury Securities" },
+      { value: "sellSecurities", label: "Sell Treasury Securities" },
     ],
     bank: [
+      // { value: "buySecurities", label: "Buy Treasury Securities" },
+      // { value: "sellSecurities", label: "Sell Treasury Securities" },
       { value: "bankTransfer", label: "Transfer Money to Bank" },
       { value: "getFedFundsLoan", label: "Get Fed Funds Loan" },
       { value: "payFedFundsLoan", label: "Pay Back a Fed Funds Loan" },
@@ -80,6 +96,7 @@ export const actions = {
   16: actionLists[6],
   17: actionLists[6],
   18: actionLists[6],
+  19: actionLists[7],
 };
 
 const initialActionData = actions[0];

@@ -34,6 +34,13 @@ export interface ReservesAccount {
   cashReserves: number;
 }
 
+export interface SecuritiesAccount {
+  id: number;
+  balance: number;
+  type: string;
+  maturity?: number;
+}
+
 export interface DuesAccount {
   id: number;
   subordinateId: number;
@@ -73,6 +80,10 @@ export interface LoanAccounts {
 
 export interface ReservesAccounts {
   [key: string]: ReservesAccount;
+}
+
+export interface SecuritiesAccounts {
+  [key: string]: SecuritiesAccount[];
 }
 
 export interface DuesAccounts {

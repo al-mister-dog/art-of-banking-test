@@ -104,6 +104,8 @@ export const banksSlice = createSlice({
       banksSlice.caseReducers.setState(state);
       banksSlice.caseReducers.updateRecords(state);
     },
+
+    //CLEARINGHOUSE
     payDues: (state, { payload }) => {
       const { amount, b1, b2 } = payload;
       Dues.decrease(b1, b2, "Customer Deposits", amount);
@@ -134,6 +136,8 @@ export const banksSlice = createSlice({
       banksSlice.caseReducers.setState(state);
       banksSlice.caseReducers.updateRecords(state);
     },
+
+    //CORRESPONDENT
     creditBank: (state, { payload }) => {
       const { amount, b1, b2 } = payload;
       Banks.creditAccount(b1, b2, amount);
@@ -150,6 +154,8 @@ export const banksSlice = createSlice({
       banksSlice.caseReducers.setState(state);
       banksSlice.caseReducers.updateRecords(state);
     },
+
+    //FED
     getFedFundsLoan: (state, { payload }) => {
       const { amount, interest, interestRate, b1, b2 } = payload;
       CentralBank.getLoan(b1, b2, amount, interest, interestRate);
@@ -162,6 +168,20 @@ export const banksSlice = createSlice({
       const { amount, b1, b2 } = payload;
       CentralBank.repayLoan(b1, b2, amount);
       CentralBank.transfer(b1, b2, amount);
+      GraphData.setCentralBankGraphData();
+      banksSlice.caseReducers.setState(state);
+      banksSlice.caseReducers.updateRecords(state);
+    },
+    buySecurities: (state, { payload }) => {
+      const { amount, b1 } = payload;
+      CentralBank.buySecurities(b1, amount);
+      GraphData.setCentralBankGraphData();
+      banksSlice.caseReducers.setState(state);
+      banksSlice.caseReducers.updateRecords(state);
+    },
+    sellSecurities: (state, { payload }) => {
+      const { amount, b1 } = payload;
+      CentralBank.sellSecurities(b1, amount);
       GraphData.setCentralBankGraphData();
       banksSlice.caseReducers.setState(state);
       banksSlice.caseReducers.updateRecords(state);
@@ -230,6 +250,8 @@ export const {
   debitClearinghouse,
   getFedFundsLoan,
   repayFedFundsLoan,
+  buySecurities,
+  sellSecurities,
   setLoading,
 } = banksSlice.actions;
 

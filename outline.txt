@@ -1,0 +1,65 @@
+appendix: {
+    correspondingInstrument: can have a negative value
+}
+
+instruments: {
+    "Customer Deposits": {
+        type: deposit,
+        correspondingInstrument: "Overdraft",
+    },
+    "Bank Deposits": {
+        type: deposit,
+        correspondingInstrument: "Daylight Overdraft" || "Overdraft",
+    },
+    "CH Certificates": {
+        type: deposit,
+        correspondingInstrument: "Ch Loans",
+    }
+    "Treasury Bills": {
+        type: securities,
+        correspondingInstrument: false,
+    },
+    "Due Tos": {
+        type: debt,
+        correspondingInstrument: false,
+    },
+    "Due Froms": {
+        type: debt,
+        correspondingInstrument: false,
+    },
+    "Cash Reserves" : {
+        type: reserves,
+        correspondingInstrument: false,
+    },
+    "Gold": {
+        type: reserves,
+        correspondingInstrument: false,
+    },
+    "Fed Funds": {
+        type: loan,
+        correspondingInstrument: false,
+        exchangingInstrument: "Bank Deposits"
+    },
+    "Loan": {
+        type: loan,
+        correspondingInstrument: false,
+        exchangingInstrument: "Customer Deposits",
+    },
+    "Repo": {
+        type: collatoralizedLoan,
+        correspondingInstrument: "reverse",
+        exchangingInstrument: "Bank Deposit",
+    }
+}
+
+
+defineLiability() {
+
+}
+
+if it is a corresponding instrument 
+it goes thru the double check
+
+
+
+

@@ -20,4 +20,5 @@ export const introductoryTexts = {
   16: theFedText.step3,
   17: theFedText.step4,
   18: theFedText.step5,
+  19: theFedText.step6
 };

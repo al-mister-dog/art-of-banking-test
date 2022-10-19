@@ -1,4 +1,3 @@
-
 import { Reserves } from "../../domain/services/reserves";
 import { creditData } from "../../domain/structures/objects";
 import {
@@ -352,7 +351,14 @@ const validatorsByLecture = {
     },
   },
   fed: {
-    centralbank: {},
+    centralbank: {
+      buySecurities() {
+        return check.validate();
+      },
+      sellSecurities() {
+        return check.validate();
+      },
+    },
     bank: {
       bankTransfer(
         customer: CardInfo,
@@ -415,6 +421,12 @@ const validatorsByLecture = {
             // .sufficentDeposits(customerDeposits, amount, customer.cardInfo.name)
             .validate()
         );
+      },
+      buySecurities() {
+        return check.validate();
+      },
+      sellSecurities() {
+        return check.validate();
       },
     },
     customer: {
@@ -481,4 +493,5 @@ export const validatorsById = {
   16: validatorsByLecture.fed,
   17: validatorsByLecture.fed,
   18: validatorsByLecture.fed,
+  19: validatorsByLecture.fed,
 };

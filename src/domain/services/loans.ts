@@ -44,7 +44,7 @@ export const Loans = {
       superior,
       amount,
       type,
-      "fed funds",
+      "Fed Funds",
       interest,
       interestRate,
       amount

@@ -1,0 +1,48 @@
+TREASURIES
+swapped for deposits
+
+1
+      Central Bank                         Bank
+assets      | liabilities        assets     | liabilities
+             deposits:           deposits:
+             bank 100            cBank 100
+             treasuries:    
+             500    
+
+2
+sellTreasuries: 50
+      Central Bank                         Bank
+assets      | liabilities        assets     | liabilities
+             deposits:           deposits:
+             bank 50             cBank 50
+             treasuries:         treasuries:    
+             450                 50    
+
+3
+buyTreasuries: 50
+      Central Bank                         Bank
+assets      | liabilities        assets     | liabilities
+             deposits:           deposits:
+             bank 100            cBank 100
+             treasuries:         treasuries:    
+             500                 0    
+
+
+a new instrument is required here
+Securities
+{
+    id: bank1
+    type: "treasuries",
+    amount: 50,
+    maturity: 1 (day)
+}
+
+they are like classical reserves
+except they have a maturity date
+
+SOLUTION TO TARGET
+add interest rate to treasury bill
+add this interest rate to volume weighted median
+tada 
+
+

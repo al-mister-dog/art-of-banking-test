@@ -1,5 +1,5 @@
-import { forwardRef, useContext } from "react";
-import { useMediaQuery } from "@mantine/hooks";
+import { forwardRef } from "react";
+
 import {
   Button,
   Group,
@@ -10,7 +10,6 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { CardInfo } from "../../../types";
-
 
 interface Props {
   bank: CardInfo;
@@ -59,15 +58,13 @@ export default function FixedAmount({
         onChange={setSubject}
       />
 
-
-        <Button
-          color={`${bank.color}`}
-          onClick={dispatchFunction}
-          disabled={validation.disabled}
-        >
-          {btnText}
-        </Button>
-      
+      <Button
+        color={`${bank.color}`}
+        onClick={dispatchFunction}
+        disabled={validation.disabled}
+      >
+        {btnText}
+      </Button>
     </Stack>
   );
 }

@@ -3,7 +3,7 @@ import { setActions } from "../../features/actions/actionsSlice";
 import { setup } from "../../features/banks/banksSlice";
 import { refreshSettings } from "../../features/settings/settingsSlice";
 import { useEffect } from "react";
-import { createStyles, LoadingOverlay } from "@mantine/core";
+import { LoadingOverlay } from "@mantine/core";
 import { introductoryTexts } from "../../config/parts";
 import { getRouteObjectData } from "../../helpers/routeMethods";
 import { lectureRoutes } from "../../config/routes/lectureRoutes";
@@ -12,21 +12,6 @@ import { mediaQuery } from "../../config/media-query";
 import { useMediaQuery } from "@mantine/hooks";
 import LecturePageDesktop from "../../components/desktop/lecture-page";
 import LecturePageMobile from "../../components/mobile/lecture-page";
-
-const useStyles = createStyles((theme) => ({
-  assignmentContainer: {
-    backgroundColor: theme.colors.violet[0],
-    paddingBottom: "200px",
-    marginBottom: -25,
-  },
-  keyTermsContainer: {
-    backgroundColor: theme.colors.red[0],
-    paddingBottom: "50px",
-  },
-  balanceSheets: {
-    padding: 16,
-  },
-}));
 
 export default function LecturePath({
   slug,
@@ -45,7 +30,7 @@ export default function LecturePath({
 
   const loaded = useLoaded();
   const isMobile = useMediaQuery(mediaQuery);
-
+  
   if (loaded) {
     return isMobile ? (
       <LecturePageMobile
@@ -80,7 +65,7 @@ export async function getStaticProps(context) {
   const { slug } = context.params;
   const data = getRouteObjectData(slug);
   const { id, title, keyTermsIds } = data;
-
+  
   return {
     props: {
       slug,

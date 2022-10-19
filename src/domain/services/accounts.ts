@@ -18,8 +18,8 @@ export const Accounts = {
       category: type,
     };
 
-    let newAccountData = { ...accountData };
-    newAccountData.accounts[newAccountData.id] = newAccount;
+    let newAccountData = JSON.parse(JSON.stringify(accountData));
+    newAccountData.accounts[newAccountData.id] = { ...newAccount };
     newAccountData.id++;
     newAccountData.allIds.push(newAccount.id);
     AccountData.assign(newAccountData);
@@ -34,6 +34,7 @@ export const Accounts = {
     );
     return accounts;
   },
+
   getFirstSubordinateAccount(bank: Bank) {
     const subordinateAccounts: Account[] = mapFilter(
       bank,
@@ -76,6 +77,22 @@ export const Accounts = {
         (account) => account.subordinateId === id1 && account.superiorId === id2
       )[0];
   },
+  getBankDepositsAccount(id1: number) {
+    return accountData.allIds
+      .map((id) => accountData.accounts[id])
+      .filter(
+        (account) =>
+          account.subordinateId === id1 && account.type === "Bank Deposits"
+      )[0];
+  },
+  getTreasuries(id1: number) {
+    return accountData.allIds
+      .map((id) => accountData.accounts[id])
+      .filter(
+        (account) =>
+          account.subordinateId === id1 && account.type === "Treasury Bills"
+      )[0];
+  },
   increaseCorrespondingBalance(customer: Bank, bank: Bank, amount: number) {
     let account = Accounts.getAccount(customer, bank);
 
@@ -90,6 +107,28 @@ export const Accounts = {
 
   decreaseCorrespondingBalance(customer: Bank, bank: Bank, amount: number) {
     let account = Accounts.getAccount(customer, bank);
+    if (account) {
+      let newAccount = { ...account };
+      newAccount.balance -= amount;
+      let newAccounts = { ...accountData.accounts };
+      newAccounts = { ...newAccounts, [account.id]: newAccount };
+      AccountData.assignAccounts(newAccounts);
+    }
+  },
+  increaseCorrespondingTreasuries(customer: Bank, amount: number) {
+    
+    let account = Accounts.getTreasuries(customer.id);
+    if (account) {
+      let newAccount = { ...account };
+      newAccount.balance += amount;
+      let newAccounts = { ...accountData.accounts };
+      newAccounts = { ...newAccounts, [account.id]: newAccount };
+      AccountData.assignAccounts(newAccounts);
+    }
+  },
+
+  decreaseCorrespondingTreasuries(customer: Bank, amount: number) {
+    let account = Accounts.getTreasuries(customer.id);
     if (account) {
       let newAccount = { ...account };
       newAccount.balance -= amount;

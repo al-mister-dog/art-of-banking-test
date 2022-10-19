@@ -11,7 +11,9 @@ import {
   Records,
   ReservesAccount,
   ReservesAccounts,
+  SecuritiesAccounts,
   CreditDataObject,
+  SecuritiesAccount,
 } from "./types";
 
 export let system: SystemType = "national";
@@ -51,12 +53,18 @@ export let duesData = {
   duesAccounts: {} as DuesAccounts,
 };
 
+export let securitiesData = {
+  id: 0,
+  securities: {} as SecuritiesAccounts,
+  allIds: [],
+};
+
 export const BankData = {
   assign(newBankData: BankDataObject) {
     bankData = { ...newBankData };
   },
   assignAccountIds(bank1: Bank, bank2: Bank, accountId: number) {
-    let newBankData = { ...bankData };
+    let newBankData = JSON.parse(JSON.stringify(bankData));
     newBankData.banks[bank1.id].accountIds = [...bank1.accountIds, accountId];
     newBankData.banks[bank2.id].accountIds = [...bank2.accountIds, accountId];
     this.assign(newBankData);
@@ -84,6 +92,17 @@ export const ReservesData = {
     let newReserves = { ...reservesData.reserves };
     newReserves = { ...newReserves, [reserves.id]: reserves };
     reservesData = { ...reservesData, reserves: newReserves };
+  },
+};
+
+export const SecuritiesData = {
+  assign(newSecuritesData: any) {
+    securitiesData = { ...newSecuritesData };
+  },
+  assignSecuritiesAccounts(securities: SecuritiesAccount) {
+    let newSecurities = { ...securitiesData.securities };
+    newSecurities = { ...newSecurities, [securities.id]: securities };
+    securitiesData = { ...securitiesData, securities: newSecurities };
   },
 };
 
@@ -230,4 +249,5 @@ export function clearBankData() {
     allIds: [] as number[],
   };
   loanRecords = [];
+  securitiesData = { id: 0, securities: {} as SecuritiesAccounts, allIds: [] };
 }

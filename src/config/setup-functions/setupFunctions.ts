@@ -2,15 +2,11 @@ import { CentralBank } from "../../domain/services/centralbank";
 import { Banks } from "../../domain/services/bank";
 import { BankingSystem } from "../../domain/banking-system";
 import { Customer } from "../../domain/services/customer";
-import { Display } from "../../domain/analytics/display";
 import { GraphData } from "../../domain/analytics/graph-data";
 import { Record } from "../../domain/services/records";
-import {
-  analytics,
-  bankData,
-  clearBankData,
-} from "../../domain/structures/objects";
+import { bankData, clearBankData } from "../../domain/structures/objects";
 import { System } from "../../domain/system";
+import { Securities } from "../../domain/services/securities";
 
 export type SetupFunctions = { [key: string]: any };
 export const setupFunctions: SetupFunctions = {
@@ -313,9 +309,29 @@ export const setupFunctions: SetupFunctions = {
   },
   19() {
     clearBankData();
-    BankingSystem.createBank("Bank 1", "bank");
-    BankingSystem.createBank("Customer 1", "customer");
-    Customer.createAccount(bankData.banks[1], bankData.banks[0], 100);
+    System.setSystem("centralbank");
+    BankingSystem.createBank("Bank 1", "bank", 0, 100);
+    BankingSystem.createBank("Bank 2", "bank", 0, 100);
+    BankingSystem.createBank("Bank 3", "bank", 0, 100);
+    BankingSystem.createBank("Bank 4", "bank", 0, 100);
+    Securities.createSecurity(bankData.banks[0], "Treasury Bills", 400);
+    Securities.createSecurity(bankData.banks[1], "Treasury Bills", 100);
+    Securities.createSecurity(bankData.banks[2], "Treasury Bills", 100);
+    Securities.createSecurity(bankData.banks[3], "Treasury Bills", 100);
+    Securities.createSecurity(bankData.banks[4], "Treasury Bills", 100);
+    CentralBank.getLoan(bankData.banks[1], bankData.banks[2], 10, 5, 5);
+    CentralBank.transfer(bankData.banks[1], bankData.banks[2], 10);
+    CentralBank.repayLoan(bankData.banks[1], bankData.banks[2], 15);
+    CentralBank.getLoan(bankData.banks[2], bankData.banks[3], 10, 10, 10);
+    CentralBank.transfer(bankData.banks[2], bankData.banks[3], 10);
+    CentralBank.getLoan(bankData.banks[3], bankData.banks[4], 10, 15, 15);
+    CentralBank.transfer(bankData.banks[3], bankData.banks[4], 10);
+    CentralBank.getLoan(bankData.banks[4], bankData.banks[1], 10, 20, 20);
+    CentralBank.transfer(bankData.banks[4], bankData.banks[1], 10);
+    CentralBank.getLoan(bankData.banks[1], bankData.banks[2], 60, 25, 25);
+    CentralBank.transfer(bankData.banks[1], bankData.banks[2], 60);
+    GraphData.setCentralBankGraphData();
+    Record.setRound();
   },
 };
 

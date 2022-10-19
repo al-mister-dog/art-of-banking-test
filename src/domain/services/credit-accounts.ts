@@ -43,7 +43,7 @@ export const CreditAccounts = {
     newCreditData.allIds.push(newAccount.id);
     CreditData.assign(newCreditData);
     BankData.assignCreditIds(subordinate, superior, newAccount.id);
-    if (category === "loans" || category === "fed funds") {
+    if (category === "loans" || category === "Fed Funds") {
       loanRecords.push(newAccount);
     }
   },

@@ -8,7 +8,7 @@ export default function ApiCall() {
         
       );
       const data = await response.json();
-      console.log(data);
+      
     }
     getData();
   }, []);
