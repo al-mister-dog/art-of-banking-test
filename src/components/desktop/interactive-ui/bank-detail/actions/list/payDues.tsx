@@ -29,7 +29,7 @@ export default function PayDues({ bank }: { bank: CardInfo }) {
     .filter(
       (account) =>
         account.subordinateId === bank.cardInfo.id &&
-        account.category === "dues"
+        account.category === "Dues"
     )
     .map((account) => {
       const bank = Banks.getById(account.superiorId);

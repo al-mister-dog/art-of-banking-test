@@ -246,7 +246,7 @@ const validatorsByLecture = {
             (account) =>
               account.subordinateId === bank.cardInfo.id &&
               account.superiorId === parseInt(selectedBank) &&
-              account.category === "dues"
+              account.category === "Dues"
           );
         if (dues.length > 0) {
           const duesAmount = dues[0].balance;
@@ -302,7 +302,7 @@ const validatorsByLecture = {
             (account) =>
               account.subordinateId === bank.cardInfo.id &&
               account.superiorId === parseInt(selectedBank) &&
-              account.category === "dues"
+              account.category === "Dues"
           );
         if (dues.length > 0) {
           const duesAmount = dues[0].balance;

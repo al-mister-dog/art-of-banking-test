@@ -33,7 +33,7 @@ export const CreditAccounts = {
       principal,
     };
 
-    if (category === "dues") {
+    if (category === "Dues") {
       newAccount = { ...newAccount, netted: false };
     }
     const newCreditData = JSON.parse(JSON.stringify(creditData));

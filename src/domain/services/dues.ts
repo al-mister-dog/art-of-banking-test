@@ -9,7 +9,7 @@ import { Bank, CreditAccount } from "../structures/types";
 
 export const Dues = {
   create(subordinate: Bank, superior: Bank, amount: number, type: string) {
-    CreditAccounts.create(subordinate, superior, amount, type, "dues");
+    CreditAccounts.create(subordinate, superior, amount, type, "Dues");
   },
 
   get(bank1: Bank, bank2: Bank) {
@@ -27,7 +27,7 @@ export const Dues = {
           account.superiorId === bank2.id) ||
         (account.superiorId === bank1.id &&
           account.subordinateId === bank2.id &&
-          account.category === "dues")
+          account.category === "Dues")
     );
   },
   getById(id: number) {
@@ -51,13 +51,13 @@ export const Dues = {
           (account.subordinateId === id || account.superiorId === id) &&
           account.balance > 0
       )
-      .filter((account) => account.category === "dues" && account.netted);
+      .filter((account) => account.category === "Dues" && account.netted);
     return relevantDues;
   },
   getAll(bank: Bank) {
     const accounts: CreditAccount[] = bank.creditIds
       .map((creditAccountId) => creditData.creditAccounts[creditAccountId])
-      .filter((account) => account.category === "dues");
+      .filter((account) => account.category === "Dues");
     return accounts;
   },
 
@@ -184,5 +184,5 @@ export const Dues = {
 function mapFilter(party: Bank, cb: (account: CreditAccount) => boolean) {
   return party.creditIds
     .map((id) => creditData.creditAccounts[id])
-    .filter((account) => cb(account) && account.category === "dues");
+    .filter((account) => cb(account) && account.category === "Dues");
 }
