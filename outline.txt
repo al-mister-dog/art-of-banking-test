@@ -179,4 +179,15 @@ const instruments = {
 
 
 bank create
-seperate default accounts
+seperate default accounts /
+
+sort out difference between type and instrument.
+A 'due' should be a type
+A due represents an instrument
+however on the balance sheet it 
+
+in system there is a delineation between CH Certificates and Customer Deposits
+is this neccesarry??
+
+lets test it
+seems fine

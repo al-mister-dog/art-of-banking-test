@@ -15,7 +15,6 @@ export const CreditAccounts = {
     subordinate: Bank,
     superior: Bank,
     balance = 0,
-    type: string,
     category: string,
     interest?: number,
     interestRate?: number,
@@ -25,7 +24,7 @@ export const CreditAccounts = {
       id: creditData.id,
       subordinateId: subordinate.id,
       superiorId: superior.id,
-      type,
+      type: category,
       balance,
       category,
       instrument: category,
@@ -33,7 +32,7 @@ export const CreditAccounts = {
       interestRate,
       principal,
     };
-
+    console.log(newAccount)
     if (category === "Dues") {
       newAccount = { ...newAccount, netted: false };
     }

@@ -44,15 +44,15 @@ export const System = {
   handleDues(bank1: Bank, bank2: Bank, amount: number) {
     const systemType: SystemObjectFunctions = {
       national: function (): void {
-        Dues.increase(bank1, bank2, "Customer Deposits", amount);
+        Dues.increase(bank1, bank2, amount);
       },
       correspondent: function (): void {
-        Dues.increase(bank1, bank2, "Customer Deposits", amount);
+        Dues.increase(bank1, bank2, amount);
       },
       clearinghouse: function (): void {
         const clearinghouse = Clearinghouse.get();
-        Dues.increase(bank1, clearinghouse, "CH Certificates", amount);
-        Dues.increase(clearinghouse, bank2, "CH Certificates", amount);
+        Dues.increase(bank1, clearinghouse, amount);
+        Dues.increase(clearinghouse, bank2, amount);
       },
       centralbank: function (): void {
         CentralBank.transfer(bank1, bank2, amount);
@@ -72,13 +72,13 @@ export const System = {
     const systemType: SystemObjectFunctions = {
       national: function (): void {
         if (Dues.owed(bank1, bank2)) {
-          Dues.decrease(bank1, bank2, "Bank Deposits", amount);
+          Dues.decrease(bank1, bank2, amount);
         }
       },
       correspondent: function (): void {
         Dues.owed(bank1, bank2);
         if (Dues.owed(bank1, bank2)) {
-          Dues.decrease(bank1, bank2, "Bank Deposits", amount);
+          Dues.decrease(bank1, bank2, amount);
         }
       },
       clearinghouse: function (): void {
@@ -106,12 +106,7 @@ export const System = {
       centralbank: function (): void {
         if (bank.type === "bank") {
           const centralbank = bankData.banks[0];
-          Accounts.create(
-            bank,
-            centralbank,
-            "Bank Deposits",
-            initialDeposit
-          );
+          Accounts.create(bank, centralbank, "Bank Deposits", initialDeposit);
         }
       },
       chips: function (): void {},

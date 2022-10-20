@@ -8,8 +8,8 @@ import { creditData } from "../structures/objects";
 import { Bank, CreditAccount } from "../structures/types";
 
 export const Dues = {
-  create(subordinate: Bank, superior: Bank, amount: number, type: string) {
-    CreditAccounts.create(subordinate, superior, amount, type, "Dues");
+  create(subordinate: Bank, superior: Bank, amount: number) {
+    CreditAccounts.create(subordinate, superior, amount, "Dues");
   },
 
   get(bank1: Bank, bank2: Bank) {
@@ -31,9 +31,7 @@ export const Dues = {
     );
   },
   getById(id: number) {
-    const allDues = creditData.allIds.map(
-      (id) => creditData.accounts[id]
-    );
+    const allDues = creditData.allIds.map((id) => creditData.accounts[id]);
     const relevantDues = allDues.filter(
       (account) =>
         (account.subordinateId === id || account.superiorId === id) &&
@@ -42,9 +40,7 @@ export const Dues = {
     return relevantDues;
   },
   getByIdAndNetted(id: number) {
-    const allDues = creditData.allIds.map(
-      (id) => creditData.accounts[id]
-    );
+    const allDues = creditData.allIds.map((id) => creditData.accounts[id]);
     const relevantDues = allDues
       .filter(
         (account) =>
@@ -77,17 +73,17 @@ export const Dues = {
     return supAccounts;
   },
 
-  increase(bank1: Bank, bank2: Bank, type: string, amount: number) {
+  increase(bank1: Bank, bank2: Bank, amount: number) {
     let account = Dues.get(bank1, bank2);
     if (account) {
       CreditAccounts.increaseCorrespondingCredit(account, amount);
     } else {
-      Dues.create(bank1, bank2, amount, type);
+      Dues.create(bank1, bank2, amount);
     }
     Record.increaseDues(bank1, bank2, amount);
   },
 
-  decrease(bank1: Bank, bank2: Bank, type: string, amount: number) {
+  decrease(bank1: Bank, bank2: Bank, amount: number) {
     let account = Dues.get(bank1, bank2);
 
     if (account) {
@@ -95,7 +91,7 @@ export const Dues = {
       Reserves.decreaseReserves(bank1, amount);
       Reserves.increaseReserves(bank2, amount);
     } else {
-      Dues.create(bank1, bank2, amount, type);
+      Dues.create(bank1, bank2, amount);
     }
     Record.decreaseDues(bank1, bank2, amount);
   },

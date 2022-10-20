@@ -18,7 +18,7 @@ export const Accounts = {
       balance,
       category: type,
     };
-
+    console.log(newAccount)
     let newAccountData = JSON.parse(JSON.stringify(accountData));
     newAccountData.accounts[newAccountData.id] = { ...newAccount };
     newAccountData.id++;
