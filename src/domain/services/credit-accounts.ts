@@ -28,7 +28,7 @@ export const CreditAccounts = {
       instrument,
       interest,
       interestRate,
-      principal,
+      principal: balance,
     };
     
     if (instrument === "Dues") {
@@ -87,7 +87,10 @@ export const CreditAccounts = {
     const newCreditAccount = { ...account };
     newCreditAccount.balance -= amount;
 
-    if (newCreditAccount.balance <= 0 && newCreditAccount.instrument === "Loans") {
+    if (
+      newCreditAccount.balance <= 0 &&
+      newCreditAccount.instrument === "Loans"
+    ) {
       let creditAccounts = { ...creditData.accounts };
       let invalidatedAccount = {
         ...creditAccounts,

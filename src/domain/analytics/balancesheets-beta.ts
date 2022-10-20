@@ -1,5 +1,5 @@
 import { BankingSystem } from "../banking-system";
-import { accountData, creditData } from "../structures/objects";
+import { accountData, creditData, securitiesData } from "../structures/objects";
 
 const system = "centralbank";
 
@@ -171,6 +171,7 @@ export const Balancesheets = {
   },
 
   relevantAccounts(id) {
+    console.log(JSON.stringify(securitiesData.accounts))
     const relevantAccountsArray = [
       this.filterAccounts(creditData, id),
       this.filterAccounts(accountData, id),
@@ -233,7 +234,9 @@ export const Balancesheets = {
     return data.allIds
       .map((id) => data.accounts[id])
       .filter(
-        (account) => account.subordinateId == id || account.superiorId === id
+        (account) =>
+          (account.subordinateId == id && account.balance !== 0) ||
+          (account.superiorId === id && account.balance !== 0)
       );
   },
 

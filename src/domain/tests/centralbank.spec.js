@@ -63,8 +63,6 @@ describe("treasury securities", () => {
     CentralBank.buySecurities(bankData.banks[1], 50);
     CentralBank.getLoan(bankData.banks[1], bankData.banks[2], 10, 5, 5);
     CentralBank.transfer(bankData.banks[1], bankData.banks[2], 10);
-    // console.log(Display.balanceSheet(bankData.banks[1]))
-    // console.log(BalanceSheets.getBalancesheet(bankData.banks[1]))
   });
 });
 

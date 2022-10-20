@@ -304,5 +304,4 @@ function mapByInstrument(balanceSheetArray: any[]) {
   }, {});
 }
 
-console.log(returnAssets(1));
-console.log(returnLiabilities(1));
+

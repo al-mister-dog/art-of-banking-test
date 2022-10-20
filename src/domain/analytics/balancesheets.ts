@@ -109,7 +109,6 @@ export const BalanceSheets = {
 
   getCreditAssets(bank: Bank) {
     const creditAccounts: CreditAccount[] = CreditAccounts.getAll(bank);
-
     const dueToAccounts = creditAccounts
       .filter(
         (account) => account.superiorId === bank.id && account.balance > 0 //CHANGED
