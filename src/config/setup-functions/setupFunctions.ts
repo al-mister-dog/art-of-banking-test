@@ -60,7 +60,7 @@ export const setupFunctions: SetupFunctions = {
   5() {
     clearBankData();
     System.setSystem("national");
-    BankingSystem.createBank("Bank 1", "bank", 100);
+    BankingSystem.createBank("Bank 1", "bank");
     BankingSystem.createBank("Customer 1", "customer", 100);
     BankingSystem.createBank("Customer 2", "customer", 100);
     Customer.createAccount(bankData.banks[1], bankData.banks[0], 100);
