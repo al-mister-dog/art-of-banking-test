@@ -48,12 +48,6 @@ export let loanData = {
   allIds: [] as number[],
 };
 
-export let duesData = {
-  id: 0,
-  accounts: {} as DuesAccounts,
-  allIds: [],
-};
-
 export let securitiesData = {
   id: 0,
   accounts: {} as SecuritiesAccounts,
@@ -122,12 +116,6 @@ export const CreditData = {
   },
   assignAccounts(accounts: CreditAccounts) {
     creditData = { ...creditData, accounts };
-  },
-};
-
-export const DuesData = {
-  assign(accounts: DuesAccounts) {
-    duesData = { ...duesData, accounts };
   },
 };
 
@@ -205,11 +193,6 @@ export function clearBankData() {
     id: 0,
     accounts: {} as ReservesAccounts,
     allIds: [] as number[],
-  };
-  duesData = {
-    id: 0,
-    accounts: {} as DuesAccounts,
-    allIds: [],
   };
   creditData = {
     id: 0,

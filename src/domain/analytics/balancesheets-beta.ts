@@ -1,5 +1,5 @@
 import { BankingSystem } from "../banking-system";
-import { accountData, duesData, creditData } from "../structures/objects";
+import { accountData, creditData } from "../structures/objects";
 
 const system = "centralbank";
 
@@ -173,7 +173,6 @@ export const Balancesheets = {
   relevantAccounts(id) {
     const relevantAccountsArray = [
       this.filterAccounts(creditData, id),
-      this.filterAccounts(duesData, id),
       this.filterAccounts(accountData, id),
     ].flatMap((accounts) => accounts);
 
@@ -258,53 +257,3 @@ export const Balancesheets = {
     return arr;
   },
 };
-// const duesData = {
-//   accounts: {
-//     0: {
-//       instrument: "Dues",
-//       balance: 15,
-//       subordinateId: 0,
-//       superiorId: 1,
-//     },
-//     1: {
-//       instrument: "Dues",
-//       balance: 25,
-//       subordinateId: 0,
-//       superiorId: 2,
-//     },
-//     2: {
-//       instrument: "Dues",
-//       balance: 25,
-//       subordinateId: 3,
-//       superiorId: 1,
-//     },
-//   },
-//   allIds: [0, 1, 2],
-// };
-
-// const depositAccountsData = {
-//   accounts: {
-//     0: {
-//       id: 1,
-//       instrument: "Bank Deposits",
-//       balance: -10,
-//       subordinateId: 0,
-//       superiorId: 1,
-//     },
-//     1: {
-//       id: 2,
-//       instrument: "Bank Deposits",
-//       balance: 100,
-//       subordinateId: 2,
-//       superiorId: 3,
-//     },
-//     2: {
-//       id: 3,
-//       instrument: "Bank Deposits",
-//       balance: -100,
-//       subordinateId: 1,
-//       superiorId: 3,
-//     },
-//   },
-//   allIds: [0, 1, 2],
-// };

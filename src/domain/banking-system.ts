@@ -14,32 +14,10 @@ export const BankingSystem = {
     reserves: number = 0,
     initialDeposit?: number
   ) {
-    const newBank = {
-      id: bankData.id,
-      name,
-      type,
-      accountIds: [],
-      creditIds: [],
-    };
     this.addReservesAccount(reserves);
-    let newBankData = JSON.parse(JSON.stringify(bankData));
-
-    records.parties[newBankData.id] = {
-      id: newBankData.id,
-      records: { assets: [], liabilities: [] },
-    };
-    records.partyLogs[newBankData.id] = {
-      id: newBankData.id,
-      log: [],
-    };
-
-    let banks = newBankData.banks;
-    banks = { ...banks, [newBank.id]: newBank };
-    newBankData.banks = banks;
-    newBankData.allIds.push(bankData.id);
-    newBankData.id++;
-    BankData.assign(newBankData);
-    System.joinSystem(newBank, initialDeposit);
+    this.addRecords();
+    this.addBank(name, type, initialDeposit);
+    bankData.id++;
   },
   getBank(bank: Bank) {
     return bankData.banks[bank.id];
@@ -58,5 +36,34 @@ export const BankingSystem = {
     reservesData.accounts[reservesData.id] = newReserves;
     reservesData.allIds.push(reservesData.id);
     reservesData.id++;
+  },
+  addRecords() {
+    const id = records.id;
+    records.parties[id] = {
+      id,
+      records: { assets: [], liabilities: [] },
+    };
+    records.partyLogs[id] = {
+      id,
+      log: [],
+    };
+    records.id++;
+  },
+  addBank(name: string, type: string, initialDeposit?: number) {
+    const id = bankData.id;
+    const newBank = {
+      id,
+      name,
+      type,
+      accountIds: [],
+      creditIds: [],
+    };
+    let newBankData = JSON.parse(JSON.stringify(bankData));
+    let banks = newBankData.banks;
+    banks = { ...banks, [id]: newBank };
+    newBankData.banks = banks;
+    newBankData.allIds.push(bankData.id);
+    BankData.assign(newBankData);
+    System.joinSystem(newBank, initialDeposit);
   },
 };

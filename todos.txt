@@ -1,0 +1,1 @@
+sort out button placement on bank-detail desktop

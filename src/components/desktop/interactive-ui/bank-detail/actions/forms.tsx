@@ -20,10 +20,6 @@ export default function ActionForms({
   action: string | null;
   bank: CardInfo;
 }) {
-  const reserves = bank.balanceSheet.assets.find(
-    (asset) => asset.instrument === reserves
-  );
-
   if (action === null) {
     return <></>;
   }
