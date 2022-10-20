@@ -17,7 +17,7 @@ export interface Account {
   id: number;
   subordinateId: number;
   superiorId: number;
-  type: string;
+  instrument: string;
   balance: number;
 }
 
@@ -25,7 +25,7 @@ export interface LoanAccount {
   id: number;
   subordinateId: number;
   superiorId: number;
-  type: string;
+  instrument: string;
   balance: number;
 }
 
@@ -40,7 +40,7 @@ export interface ReservesAccount {
 export interface SecuritiesAccount {
   id: number;
   balance: number;
-  type: string;
+  instrument: string;
   maturity?: number;
 }
 
@@ -48,7 +48,7 @@ export interface DuesAccount {
   id: number;
   subordinateId: number;
   superiorId: number;
-  type: string;
+  instrument: string;
   balance: number;
   category: string;
   netted?: boolean;
@@ -58,9 +58,7 @@ export interface CreditAccount {
   id: number;
   subordinateId: number;
   superiorId: number;
-  type: string;
   balance: number;
-  category: string;
   instrument?: string;
   netted?: boolean;
   interest?: number;

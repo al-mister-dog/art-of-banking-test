@@ -46,7 +46,8 @@ export const GraphData = {
 
     const creditData = newCreditData.data
       .filter(
-        (acc) => acc.type !== "Fed Funds" || acc.category === "Bank Deposits"
+        (acc) =>
+          acc.instrument !== "Fed Funds" || acc.instrument === "Bank Deposits"
       )
       .reduce(
         (a, c) => {
@@ -55,7 +56,7 @@ export const GraphData = {
         { balance: 0 }
       ).balance;
     const newReservesData = newCreditData.data
-      .filter((acc) => acc.category === "Bank Deposits")
+      .filter((acc) => acc.instrument === "Bank Deposits")
       .reduce(
         (a, c) => {
           return { balance: a.balance + c.balance };
@@ -65,7 +66,8 @@ export const GraphData = {
 
     const privateCredit = newCreditData.data
       .filter(
-        (acc) => acc.type === "Fed Funds" || acc.category === "Bank Deposits"
+        (acc) =>
+          acc.instrument === "Fed Funds" || acc.instrument === "Bank Deposits"
       )
       .reduce(
         (a, c) => {

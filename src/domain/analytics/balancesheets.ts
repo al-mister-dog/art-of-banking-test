@@ -58,7 +58,7 @@ export const BalanceSheets = {
   parseOverdraft(account: Account) {
     return {
       ...account,
-      category: this.getCorrespondingInstruments(account.type),
+      instrument: this.getCorrespondingInstruments(account.instrument),
       balance: -account.balance,
     };
   },
@@ -67,7 +67,7 @@ export const BalanceSheets = {
     return accounts.map((account) => {
       return {
         ...account,
-        category: this.getCorrespondingInstruments(account.type),
+        instrument: this.getCorrespondingInstruments(account.instrument),
         balance: -account.balance,
       };
     });
@@ -99,7 +99,7 @@ export const BalanceSheets = {
       if (
         account.subordinateId === bank.id &&
         account.balance <= 0 &&
-        account.type !== "Treasury Bills"
+        account.instrument !== "Treasury Bills"
       ) {
         return this.parseOverdraft(account);
       }
@@ -117,7 +117,7 @@ export const BalanceSheets = {
       .map((account) => {
         return {
           ...account,
-          category: correspondingCreditInstruments[account.category].assets,
+          instrument: correspondingCreditInstruments[account.instrument].assets,
         };
       });
     return dueToAccounts;
@@ -134,8 +134,8 @@ export const BalanceSheets = {
       .map((account) => {
         return {
           ...account,
-          category:
-            correspondingCreditInstruments[account.category].liabilities,
+          instrument:
+            correspondingCreditInstruments[account.instrument].liabilities,
         };
       });
 
@@ -161,8 +161,7 @@ export const BalanceSheets = {
       const security = securities[0];
       const securityPlusInstrument = {
         ...security,
-        instrument: security.type,
-        category: security.type,
+        instrument: security.instrument,
       };
 
       return [

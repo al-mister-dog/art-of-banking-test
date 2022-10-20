@@ -15,28 +15,20 @@ export const Loans = {
       subordinate,
       superior,
       amount,
-      type,
       "Loans",
       interest,
-      interestRate,
-      amount
+      interestRate
     );
   },
-  
-  createMortgage(
-    subordinate: Bank,
-    superior: Bank,
-    amount: number,
-    type: string
-  ) {
-    CreditAccounts.create(subordinate, superior, amount, type, "Mortgage");
+
+  createMortgage(subordinate: Bank, superior: Bank, amount: number) {
+    CreditAccounts.create(subordinate, superior, amount, "Mortgage");
   },
 
   createFedFunds(
     subordinate: Bank,
     superior: Bank,
     amount: number,
-    type: string,
     interest: number,
     interestRate: number
   ) {
@@ -44,18 +36,16 @@ export const Loans = {
       subordinate,
       superior,
       amount,
-      type,
       "Fed Funds",
       interest,
-      interestRate,
-      amount
+      interestRate
     );
   },
 
   getAll(bank: Bank) {
     const accounts: CreditAccount[] = bank.creditIds
       .map((creditAccountId) => creditData.accounts[creditAccountId])
-      .filter((account) => account.category === "Loans");
+      .filter((account) => account.instrument === "Loans");
     return accounts;
   },
 
@@ -81,7 +71,7 @@ export const Loans = {
       (account) =>
         account.subordinateId === bank1.id &&
         account.superiorId === bank2.id &&
-        account.category === "Loans" &&
+        account.instrument === "Loans" &&
         account.balance > 0
     )[0];
   },
@@ -92,7 +82,7 @@ export const Loans = {
       .filter((account) => {
         account.subordinateId === id1 &&
           account.superiorId === id2 &&
-          account.category === "Loans";
+          account.instrument === "Loans";
       });
   },
 
@@ -118,5 +108,5 @@ export const Loans = {
 function mapFilter(party: Bank, cb: (account: CreditAccount) => boolean) {
   return party.creditIds
     .map((id) => creditData.accounts[id])
-    .filter((account) => cb(account) && account.category === "Loans");
+    .filter((account) => cb(account) && account.instrument === "Loans");
 }

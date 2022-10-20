@@ -92,14 +92,7 @@ export const CentralBank = {
     interest: number,
     interestRate: number
   ) {
-    Loans.createFedFunds(
-      bank1,
-      bank2,
-      amount,
-      "Fed Funds",
-      interest,
-      interestRate
-    );
+    Loans.createFedFunds(bank1, bank2, amount, interest, interestRate);
     Record.fedFundsLoan(bank1, bank2, amount, interestRate);
   },
   repayLoan(bank1: Bank, bank2: Bank, amount: number) {

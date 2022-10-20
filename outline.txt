@@ -191,3 +191,6 @@ is this neccesarry??
 
 lets test it
 seems fine
+
+
+RESERVE REQUIREMENT FUNCTIONALITY DOESNT WORK

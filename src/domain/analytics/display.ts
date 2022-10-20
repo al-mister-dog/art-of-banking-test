@@ -24,7 +24,7 @@ export const Display = {
 
   addDetails(bank: Bank, balanceSheetArray: any[]) {
     return balanceSheetArray.map((account) => {
-      return account.category === "Reserves"
+      return account.instrument === "Reserves"
         ? this.addReserves(account)
         : this.addRelation(bank, account);
     });
@@ -62,9 +62,9 @@ export const Display = {
 
 function mapBalanceToCategory(balanceSheetArray: any[]) {
   return balanceSheetArray.reduce((acc, cur) => {
-    acc[cur.category]
-      ? acc[cur.category].push(cur)
-      : (acc[cur.category] = [cur]);
+    acc[cur.instrument]
+      ? acc[cur.instrument].push(cur)
+      : (acc[cur.instrument] = [cur]);
     return acc;
   }, {});
 }

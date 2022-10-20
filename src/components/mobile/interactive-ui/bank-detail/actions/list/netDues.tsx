@@ -8,7 +8,6 @@ import { CardInfo } from "../../../types";
 import FixedAction from "../compositions/fixed-action";
 import { Text } from "@mantine/core";
 
-
 export default function NetDues({ bank }: { bank: CardInfo }) {
   const dispatch = useAppDispatch();
   const [selectedBank, setSelectedBank] = useState<string | null>(null);
@@ -28,7 +27,7 @@ export default function NetDues({ bank }: { bank: CardInfo }) {
     .filter(
       (account) =>
         account.subordinateId === bank.cardInfo.id &&
-        account.category === "Dues" &&
+        account.instrument === "Dues" &&
         !account.netted
     )
     .map((account) => {

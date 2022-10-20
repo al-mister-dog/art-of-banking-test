@@ -88,7 +88,7 @@ export const Customer = {
     Reserves.increaseReserves(bank, amount);
   },
   getMortgage(customer: Bank, bank: Bank, amount: number) {
-    Loans.createMortgage(customer, bank, amount, "Mortgage");
+    Loans.createMortgage(customer, bank, amount);
     Accounts.increaseCorrespondingBalance(customer, bank, amount);
   },
   repayMortgage(customer: Bank, bank: Bank, amount: number) {

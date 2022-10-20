@@ -15,7 +15,7 @@ export const CreditAccounts = {
     subordinate: Bank,
     superior: Bank,
     balance = 0,
-    category: string,
+    instrument: string,
     interest?: number,
     interestRate?: number,
     principal?: number
@@ -24,16 +24,14 @@ export const CreditAccounts = {
       id: creditData.id,
       subordinateId: subordinate.id,
       superiorId: superior.id,
-      type: category,
       balance,
-      category,
-      instrument: category,
+      instrument,
       interest,
       interestRate,
       principal,
     };
-    console.log(newAccount)
-    if (category === "Dues") {
+    
+    if (instrument === "Dues") {
       newAccount = { ...newAccount, netted: false };
     }
     const newCreditData = JSON.parse(JSON.stringify(creditData));
@@ -42,7 +40,7 @@ export const CreditAccounts = {
     newCreditData.allIds.push(newAccount.id);
     CreditData.assign(newCreditData);
     BankData.assignCreditIds(subordinate, superior, newAccount.id);
-    if (category === "Loans" || category === "Fed Funds") {
+    if (instrument === "Loans" || instrument === "Fed Funds") {
       loanRecords.push(newAccount);
     }
   },
@@ -89,7 +87,7 @@ export const CreditAccounts = {
     const newCreditAccount = { ...account };
     newCreditAccount.balance -= amount;
 
-    if (newCreditAccount.balance <= 0 && newCreditAccount.type === "Loans") {
+    if (newCreditAccount.balance <= 0 && newCreditAccount.instrument === "Loans") {
       let creditAccounts = { ...creditData.accounts };
       let invalidatedAccount = {
         ...creditAccounts,

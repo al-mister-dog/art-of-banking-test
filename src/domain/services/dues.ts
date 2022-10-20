@@ -27,7 +27,7 @@ export const Dues = {
           account.superiorId === bank2.id) ||
         (account.superiorId === bank1.id &&
           account.subordinateId === bank2.id &&
-          account.category === "Dues")
+          account.instrument === "Dues")
     );
   },
   getById(id: number) {
@@ -47,13 +47,13 @@ export const Dues = {
           (account.subordinateId === id || account.superiorId === id) &&
           account.balance > 0
       )
-      .filter((account) => account.category === "Dues" && account.netted);
+      .filter((account) => account.instrument === "Dues" && account.netted);
     return relevantDues;
   },
   getAll(bank: Bank) {
     const accounts: CreditAccount[] = bank.creditIds
       .map((creditAccountId) => creditData.accounts[creditAccountId])
-      .filter((account) => account.category === "Dues");
+      .filter((account) => account.instrument === "Dues");
     return accounts;
   },
 
@@ -180,5 +180,5 @@ export const Dues = {
 function mapFilter(party: Bank, cb: (account: CreditAccount) => boolean) {
   return party.creditIds
     .map((id) => creditData.accounts[id])
-    .filter((account) => cb(account) && account.category === "Dues");
+    .filter((account) => cb(account) && account.instrument === "Dues");
 }

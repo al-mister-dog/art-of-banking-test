@@ -27,7 +27,7 @@ export default function NetDues({ bank }: { bank: CardInfo }) {
     .filter(
       (account) =>
         account.subordinateId === bank.cardInfo.id &&
-        account.category === "Dues" &&
+        account.instrument === "Dues" &&
         !account.netted
     )
     .map((account) => {

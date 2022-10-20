@@ -6,19 +6,16 @@ export const Accounts = {
   create(
     subordinate: Bank,
     superior: Bank,
-    type: string,
+    instrument: string,
     balance: number = 0
   ) {
     const newAccount = {
       id: accountData.id,
       subordinateId: subordinate.id,
       superiorId: superior.id,
-      type,
-      instrument: type,
+      instrument,
       balance,
-      category: type,
     };
-    console.log(newAccount)
     let newAccountData = JSON.parse(JSON.stringify(accountData));
     newAccountData.accounts[newAccountData.id] = { ...newAccount };
     newAccountData.id++;
@@ -83,7 +80,8 @@ export const Accounts = {
       .map((id) => accountData.accounts[id])
       .filter(
         (account) =>
-          account.subordinateId === id1 && account.type === "Bank Deposits"
+          account.subordinateId === id1 &&
+          account.instrument === "Bank Deposits"
       )[0];
   },
   getTreasuries(id1: number) {
@@ -91,7 +89,8 @@ export const Accounts = {
       .map((id) => accountData.accounts[id])
       .filter(
         (account) =>
-          account.subordinateId === id1 && account.type === "Treasury Bills"
+          account.subordinateId === id1 &&
+          account.instrument === "Treasury Bills"
       )[0];
   },
   increaseCorrespondingBalance(customer: Bank, bank: Bank, amount: number) {
