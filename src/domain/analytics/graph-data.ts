@@ -17,7 +17,7 @@ export const GraphData = {
 
     customers.forEach((customer) => {
       const customerTs = {
-        reserves: Reserves.getReserves(customer).cashReserves,
+        reserves: Reserves.getReserves(customer).balance,
         deposits: Accounts.getAllSubordinateAccounts(customer)[0].balance,
       };
       if (!analytics.graphs.nationalData[customer.id]) {
@@ -30,7 +30,7 @@ export const GraphData = {
 
     banks.forEach((bank) => {
       const bankTs = {
-        reserves: Reserves.getReserves(bank).cashReserves,
+        reserves: Reserves.getReserves(bank).balance,
         deposits: Totals.getTotalCustomerDepositLiabilites(bank),
       };
       if (!analytics.graphs.nationalData[bank.id]) {
@@ -102,14 +102,14 @@ export const GraphData = {
     const banks = parties.filter((party) => party.type === "bank");
     const bankReservesData = banks
       .map((bank) => {
-        return reservesData.reserves[bank.id];
+        return reservesData.accounts[bank.id];
       })
       .reduce(
         (a, c) => {
-          return { cashReserves: a.cashReserves + c.cashReserves };
+          return { balance: a.balance + c.balance };
         },
-        { cashReserves: 0 }
-      ).cashReserves;
+        { balance: 0 }
+      ).balance;
 
     const creditData = newCreditData.data.reduce(
       (a, c) => {

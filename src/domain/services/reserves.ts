@@ -3,19 +3,19 @@ import { Bank } from "../structures/types";
 
 export const Reserves = {
   getReserves(bank: Bank) {
-    return reservesData.reserves[bank.id];
+    return reservesData.accounts[bank.id];
   },
   getReservesById(id: number) {
-    return reservesData.reserves[id];
+    return reservesData.accounts[id];
   },
   increaseReserves(bank: Bank, amount: number) {
-    let reserves = { ...reservesData.reserves[bank.id] };
-    reserves.cashReserves += amount;
+    let reserves = { ...reservesData.accounts[bank.id] };
+    reserves.balance += amount;
     ReservesData.assignReservesAccounts(reserves);
   },
   decreaseReserves(bank: Bank, amount: number) {
-    let reserves = { ...reservesData.reserves[bank.id] };
-    reserves.cashReserves -= amount;
+    let reserves = { ...reservesData.accounts[bank.id] };
+    reserves.balance -= amount;
     ReservesData.assignReservesAccounts(reserves);
   },
 };

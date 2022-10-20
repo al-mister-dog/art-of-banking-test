@@ -32,7 +32,7 @@ export interface BanksState {
 const initialState: BanksState = {
   banks: initialBankData.banks,
   accounts: initialBankData.accounts,
-  creditAccounts: initialBankData.accounts,
+  creditAccounts: initialBankData.creditAccounts,
   reserves: initialBankData.reserves,
   analytics: analytics,
   loading: true,
@@ -189,8 +189,8 @@ export const banksSlice = createSlice({
     setState: (state) => {
       state.banks = bankData.banks;
       state.accounts = accountData.accounts;
-      state.accounts = creditData.accounts;
-      state.reserves = reservesData.reserves;
+      state.creditAccounts = creditData.accounts;
+      state.reserves = reservesData.accounts;
 
       banksSlice.caseReducers.updateAnalytics(state);
     },

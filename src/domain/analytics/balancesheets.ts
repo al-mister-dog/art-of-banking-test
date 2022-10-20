@@ -154,7 +154,7 @@ export const BalanceSheets = {
   getAssetsPlusReserves(bank: Bank) {
     const accounts = this.getAccountAssets(bank);
     const credit = this.getCreditAssets(bank);
-    const cashReserves = reservesData.reserves[bank.id];
+    const cashReserves = reservesData.accounts[bank.id];
 
     if (securitiesData.allIds.length > 0) {
       const securities = securitiesData.accounts[bank.id];

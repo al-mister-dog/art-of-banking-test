@@ -23,8 +23,8 @@ function BalanceSheetsContainer() {
 
   function getCardInfo(bank: Bank): CardInfo {
     const cardInfo = { ...bank };
-    // const balanceSheet = Display.balanceSheet(cardInfo);
-    const balanceSheet = Balancesheets.get(bank.id);
+    const balanceSheet = Display.balanceSheet(cardInfo);
+    // const balanceSheet = Balancesheets.get(bank.id);
     const color = colors[`${bank.type}`] as keyof Colors;
     return { cardInfo, balanceSheet, color };
   }

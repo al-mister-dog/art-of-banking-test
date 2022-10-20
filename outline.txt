@@ -20,13 +20,14 @@ instruments: {
         correspondingInstrument: false,
     },
     "Due Tos": {
-        type: debt,
+        type: dues,
         correspondingInstrument: false,
     },
     "Due Froms": {
-        type: debt,
+        type: dues,
         correspondingInstrument: false,
     },
+    "Dues"
     "Cash Reserves" : {
         type: reserves,
         correspondingInstrument: false,
@@ -161,3 +162,21 @@ const instruments = {
         swap: instruments.find(i => i.type === "Securities")
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bank create
+seperate default accounts

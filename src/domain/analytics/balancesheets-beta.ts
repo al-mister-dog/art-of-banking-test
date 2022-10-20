@@ -171,7 +171,6 @@ export const Balancesheets = {
   },
 
   relevantAccounts(id) {
-    console.log(this.filterAccounts(creditData, id));
     const relevantAccountsArray = [
       this.filterAccounts(creditData, id),
       this.filterAccounts(duesData, id),

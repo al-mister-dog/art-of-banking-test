@@ -21,11 +21,7 @@ export const BankingSystem = {
       accountIds: [],
       creditIds: [],
     };
-    const newReserves = {
-      id: reservesData.id,
-      cashReserves: reserves,
-      category: "Reserves",
-    };
+    this.addReservesAccount(reserves);
     let newBankData = JSON.parse(JSON.stringify(bankData));
 
     records.parties[newBankData.id] = {
@@ -43,10 +39,6 @@ export const BankingSystem = {
     newBankData.allIds.push(bankData.id);
     newBankData.id++;
     BankData.assign(newBankData);
-    reservesData.reserves[reservesData.id] = newReserves;
-    reservesData.allIds.push(reservesData.id);
-    reservesData.id++;
-
     System.joinSystem(newBank, initialDeposit);
   },
   getBank(bank: Bank) {
@@ -54,5 +46,17 @@ export const BankingSystem = {
   },
   getBankById(id: number) {
     return bankData.banks[id];
+  },
+  addReservesAccount(reserves) {
+    const newReserves = {
+      id: reservesData.id,
+      cashReserves: reserves,
+      balance: reserves,
+      category: "Reserves",
+      instrument: "Reserves",
+    };
+    reservesData.accounts[reservesData.id] = newReserves;
+    reservesData.allIds.push(reservesData.id);
+    reservesData.id++;
   },
 };

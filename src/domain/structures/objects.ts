@@ -26,7 +26,7 @@ export let bankData: BankDataObject = {
 
 export let reservesData = {
   id: 0,
-  reserves: {} as ReservesAccounts,
+  accounts: {} as ReservesAccounts,
   allIds: [],
 };
 
@@ -90,9 +90,9 @@ export const ReservesData = {
     reservesData = { ...newReservesData };
   },
   assignReservesAccounts(reserves: ReservesAccount) {
-    let newReserves = { ...reservesData.reserves };
+    let newReserves = { ...reservesData.accounts };
     newReserves = { ...newReserves, [reserves.id]: reserves };
-    reservesData = { ...reservesData, reserves: newReserves };
+    reservesData = { ...reservesData, accounts: newReserves };
   },
 };
 
@@ -203,7 +203,7 @@ export function clearBankData() {
   };
   reservesData = {
     id: 0,
-    reserves: {} as ReservesAccounts,
+    accounts: {} as ReservesAccounts,
     allIds: [] as number[],
   };
   duesData = {

@@ -17,7 +17,7 @@ const validatorsByLecture = {
         return check
           .requiredFields(selectedBank, amount)
           .sufficientReserves(
-            customerReserves.cashReserves,
+            customerReserves.balance,
             amount,
             customer.cardInfo.name
           )
@@ -55,7 +55,7 @@ const validatorsByLecture = {
         return check
           .requiredFields(selectedBank, amount)
           .sufficientReserves(
-            customerReserves.cashReserves,
+            customerReserves.balance,
             amount,
             customer.cardInfo.name
           )
@@ -103,7 +103,7 @@ const validatorsByLecture = {
         return check
           .requiredFields(selectedBank, amount)
           .sufficientReserves(
-            customerReserves.cashReserves,
+            customerReserves.balance,
             amount,
             customer.cardInfo.name
           )
@@ -193,7 +193,7 @@ const validatorsByLecture = {
         return check
           .requiredFields(selectedBank, amount)
           .sufficientReserves(
-            customerReserves.cashReserves,
+            customerReserves.balance,
             amount,
             customer.cardInfo.name
           )
@@ -435,7 +435,7 @@ const validatorsByLecture = {
         return check
           .requiredFields(selectedBank, amount)
           .sufficientReserves(
-            customerReserves.cashReserves,
+            customerReserves.balance,
             amount,
             customer.cardInfo.name
           )

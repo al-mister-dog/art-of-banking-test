@@ -5,7 +5,7 @@ import { CardInfo } from "../types";
 
 export function getCustomerReserves(customer: CardInfo) {
   const customerReserves = Reserves.getReservesById(customer.cardInfo.id);
-  return customerReserves.cashReserves;
+  return customerReserves.balance;
 }
 
 export function getWithdrawDetails(customer: CardInfo) {
@@ -14,7 +14,7 @@ export function getWithdrawDetails(customer: CardInfo) {
   const customerBankReserves = Reserves.getReservesById(bank.id);
   return {
     customerDeposits: customerDeposits.balance,
-    bankReserves: customerBankReserves.cashReserves,
+    bankReserves: customerBankReserves.balance,
     bank,
   };
 }
@@ -36,7 +36,7 @@ export function getTransferDetails(customer: CardInfo) {
   const customerBankReserves = Reserves.getReservesById(bank.id);
   return {
     customerDeposits: customerDeposits.balance,
-    bankReserves: customerBankReserves.cashReserves,
+    bankReserves: customerBankReserves.balance,
     bank,
   };
 }

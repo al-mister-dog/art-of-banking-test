@@ -68,7 +68,7 @@ export const Totals = {
   },
   getTotalReserves() {
     const totalReserves = reservesData.allIds
-      .map((id) => reservesData.reserves[id].cashReserves)
+      .map((id) => reservesData.accounts[id].balance)
       .reduce((acc, cur) => acc + cur);
     return totalReserves;
   },
@@ -99,11 +99,7 @@ function mapReduceBalance(accounts: Account[] | DuesAccount[]) {
 function mapReduceBalanceAndReserves(accounts: any[]) {
   return accounts
     .map((account) => {
-      if (!account.balance) {
-        // if current object is a reserves account
-        return account.cashReserves;
-      }
       return account.balance;
     })
-    .reduce((acc, cur) => acc + cur);
+    .reduce((acc, cur) => acc + cur, 0);
 }

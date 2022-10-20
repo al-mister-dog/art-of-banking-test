@@ -18,7 +18,7 @@ export const Display = {
   addReserves(account: any) {
     return {
       ...account,
-      balance: account.cashReserves,
+      balance: account.balance,
     };
   },
 
@@ -48,6 +48,7 @@ export const Display = {
       BalanceSheets.getAssetsAndLiabilitiesPlusReserves(bank);
     return { assets, liabilities };
   },
+  
   balanceSheetObject(bank: Bank) {
     const { assets, liabilities } =
       BalanceSheets.getAssetsAndLiabilitiesPlusReserves(bank);

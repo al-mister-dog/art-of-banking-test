@@ -32,6 +32,9 @@ export interface LoanAccount {
 export interface ReservesAccount {
   id: number;
   cashReserves: number;
+  balance: number;
+  category: string;
+  instrument: string;
 }
 
 export interface SecuritiesAccount {

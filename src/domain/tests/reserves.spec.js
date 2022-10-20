@@ -58,35 +58,35 @@ describe("reserves", () => {
       test("customer can add reserves on initialization", () => {
         setupParties();
         const reservesAccount = Reserves.getReserves(bankData.banks[2]);
-        expect(reservesAccount.cashReserves).toBe(100);
+        expect(reservesAccount.balance).toBe(100);
       });
       test("depositing into bank should decrease customer cash reserves", () => {
         setupParties();
         Customer.createAccount(bankData.banks[2], bankData.banks[0]);
-        expect(Reserves.getReserves(bankData.banks[2]).cashReserves).toBe(100);
+        expect(Reserves.getReserves(bankData.banks[2]).balance).toBe(100);
         Customer.deposit(bankData.banks[2], bankData.banks[0], 50);
-        expect(Reserves.getReserves(bankData.banks[2]).cashReserves).toBe(50);
+        expect(Reserves.getReserves(bankData.banks[2]).balance).toBe(50);
       });
       test("depositing into bank should increase bank cash reserves", () => {
         setupParties();
         Customer.createAccount(bankData.banks[2], bankData.banks[0]);
-        expect(Reserves.getReserves(bankData.banks[0]).cashReserves).toBe(100);
+        expect(Reserves.getReserves(bankData.banks[0]).balance).toBe(100);
         Customer.deposit(bankData.banks[2], bankData.banks[0], 50);
-        expect(Reserves.getReserves(bankData.banks[0]).cashReserves).toBe(150);
+        expect(Reserves.getReserves(bankData.banks[0]).balance).toBe(150);
       });
       test("withdrawing from bank should increase customer cash reserves", () => {
         setupParties();
         Customer.createAccount(bankData.banks[2], bankData.banks[0]);
-        expect(Reserves.getReserves(bankData.banks[2]).cashReserves).toBe(100);
+        expect(Reserves.getReserves(bankData.banks[2]).balance).toBe(100);
         Customer.withdraw(bankData.banks[2], bankData.banks[0], 50);
-        expect(Reserves.getReserves(bankData.banks[2]).cashReserves).toBe(150);
+        expect(Reserves.getReserves(bankData.banks[2]).balance).toBe(150);
       });
       test("withdrawing from bank should decrease bank cash reserves", () => {
         setupParties();
         Customer.createAccount(bankData.banks[2], bankData.banks[0]);
-        expect(Reserves.getReserves(bankData.banks[0]).cashReserves).toBe(100);
+        expect(Reserves.getReserves(bankData.banks[0]).balance).toBe(100);
         Customer.withdraw(bankData.banks[2], bankData.banks[0], 50);
-        expect(Reserves.getReserves(bankData.banks[0]).cashReserves).toBe(50);
+        expect(Reserves.getReserves(bankData.banks[0]).balance).toBe(50);
       });
     });
   });
