@@ -22,6 +22,7 @@ export const Loans = {
       amount
     );
   },
+  
   createMortgage(
     subordinate: Bank,
     superior: Bank,

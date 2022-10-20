@@ -9,7 +9,7 @@ import { Bank } from "../structures/types";
 
 export const Banks = {
   createAccount(bank1: Bank, bank2: Bank, amount: number = 0) {
-    Accounts.createAccount(bank1, bank2, "Bank Deposits", amount);
+    Accounts.create(bank1, bank2, "Bank Deposits", amount);
     if (amount) {
       Reserves.decreaseReserves(bank1, amount);
       Reserves.increaseReserves(bank2, amount);
@@ -90,10 +90,10 @@ export const Banks = {
   },
 
   getLoan(bank1: Bank, bank2: Bank, amount: number) {
-    Loans.create(bank1, bank2, amount, "bank1Deposits");
+    Loans.create(bank1, bank2, amount, "Bank Deposits");
     Accounts.increaseCorrespondingBalance(bank1, bank2, amount);
   },
   repayLoanFromAccount(bank1: Bank, bank2: Bank, amount: number) {
-    Loans.decrease(bank1, bank2, amount, "bank1Deposits");
+    Loans.decrease(bank1, bank2, amount, "Bank Deposits");
   },
 };

@@ -100,13 +100,13 @@ export const System = {
       clearinghouse: function (): void {
         if (bank.type === "bank") {
           const clearinghouse = bankData.banks[0];
-          Accounts.createAccount(bank, clearinghouse, "CH Certificates", 100);
+          Accounts.create(bank, clearinghouse, "CH Certificates", 100);
         }
       },
       centralbank: function (): void {
         if (bank.type === "bank") {
           const centralbank = bankData.banks[0];
-          Accounts.createAccount(
+          Accounts.create(
             bank,
             centralbank,
             "Bank Deposits",

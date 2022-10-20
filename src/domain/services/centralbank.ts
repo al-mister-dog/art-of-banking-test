@@ -15,7 +15,7 @@ import { Securities } from "./securities";
 
 export const CentralBank = {
   createAccount(bank1: Bank, bank2: Bank, amount: number = 0) {
-    Accounts.createAccount(bank1, bank2, "Bank Deposits", amount);
+    Accounts.create(bank1, bank2, "Bank Deposits", amount);
     if (amount) {
       Reserves.decreaseReserves(bank1, amount);
       Reserves.increaseReserves(bank2, amount);
@@ -129,7 +129,7 @@ export const CentralBank = {
   },
   addTreasuries(bank1: Bank, amount: number) {
     const centralbank = bankData.banks[0];
-    Accounts.createAccount(bank1, centralbank, "Treasury Bills", amount);
+    Accounts.create(bank1, centralbank, "Treasury Bills", amount);
   },
   addTreasuriesCentralBank(amount: number) {
     const centralbank = bankData.banks[0];

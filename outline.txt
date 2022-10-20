@@ -63,3 +63,101 @@ it goes thru the double check
 
 
 
+
+
+
+type/category/instrument
+
+type can refer to the type of Bank
+
+type seems to be getting mixed up with category
+
+balance-display.tsx
+account.category === "Reserves"
+
+balancesheets.ts
+account.type !== "Treasury Bills"
+
+balancesheets.ts
+instrument: security.type,
+category: security.type,
+
+graph-data
+(acc) => acc.type !== "Fed Funds" || acc.category === "Bank Deposits"
+
+.filter((acc) => acc.category === "Bank Deposits")
+
+totals
+account.type === "Customer Deposits" &&
+
+accounts
+account.subordinateId === id1 && account.type === "Bank Deposits"
+
+credit-accounts
+if (newCreditAccount.balance <= 0 && newCreditAccount.type === "Loans") {
+
+customer
+Accounts.create(customer, bank, "Customer Deposits", amount);
+
+dues.spec.js
+expect(dues.type).toBe("Customer Deposits");
+
+
+
+
+category
+account.category === "Dues" &&
+
+ return balanceSheetArray.reduce((acc, cur) => {
+    acc[cur.category]
+      ? acc[cur.category].push(cur)
+      : (acc[cur.category] = [cur]);
+    return acc;
+  }, {});
+
+
+.filter((acc) => acc.category === "Bank Deposits")
+
+(acc) => acc.type === "Fed Funds" || acc.category === "Bank Deposits"
+
+
+account.category === "Reserves"
+acc.category === "Bank Deposits"
+account.category === "Dues"
+
+const types = ["Reserves", "Securities", "Deposits", "Dues", "Loans"]
+const instruments = {
+    "Gold": {
+        type: "Reserves"
+    },
+    "Cash Reserves": {
+        type: "Reserves",
+    },
+    "Treasury Bills": {
+        type: "Securities",
+    },
+    "Bonds": {
+        type: "Securities"
+    }
+    "Bank Deposits": {
+        type: "Deposits"
+    },
+    "Customer Deposits": {
+        type: "Deposits"
+    }
+    "CH Certificates": {
+        type: "Deposits"
+    },
+    "Fed Funds: {
+        type: "Loan",
+        swap: "Bank Deposits"
+    },
+    "Bank Loans": {
+        type: "Loan",
+        swap: "Customer Deposits"
+    },
+    "Repos": {
+        type: "Loan",
+        swap: instruments.find(i => i.type === "Securities")
+    }
+}

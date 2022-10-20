@@ -3,7 +3,7 @@ import { accountData, AccountData, BankData } from "../structures/objects";
 import { Bank, Account } from "../structures/types";
 
 export const Accounts = {
-  createAccount(
+  create(
     subordinate: Bank,
     superior: Bank,
     type: string,

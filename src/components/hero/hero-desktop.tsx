@@ -44,12 +44,13 @@ export default function HeroDesktop() {
               letterSpacing: "3px",
               position: "absolute",
               bottom: 0,
-              left: 0,
+              left: -55,
               paddingRight: "50px",
             }}
-            size={50}
-            align="right"
+            size={60}
+            align="left"
             className="hero-headline"
+            
           >
             Art of Banking
           </Title>
@@ -72,35 +73,42 @@ export default function HeroDesktop() {
         >
           <Text
             className="hero-text-1"
-            size="lg"
+            size="xl"
             weight="bold"
             style={{ color: "#312A45" }}
             align="right"
+            mb="md"
           >
             The world economy is made from the fabric of global
           </Text>
           <Text
             className="hero-text-2"
-            size="lg"
+            size="xl"
             style={{ color: "#312A45" }}
-            align="right"
+            align="center"
+            mb="md"
+            ml={25}
           >
             <span style={{ fontWeight: "bold" }}>finance.</span> The fabric of
             global finance is an
           </Text>
           <Text
             className="hero-text-3"
-            size="lg"
+            size="xl"
             style={{ color: "#312A45" }}
-            align="right"
+            align="center"
+            mb="md"
+            ml={65}
           >
             interlocking matrix of corporate
           </Text>
           <Text
             className="hero-text-4"
-            size="lg"
+            size="xl"
             style={{ color: "#312A45" }}
-            align="right"
+            align="center"
+            mb="md"
+            ml={40}
           >
             balance sheets.
           </Text>

@@ -21,7 +21,7 @@ export const Customer = {
     return { ...bank[0] };
   },
   createAccount(customer: Bank, bank: Bank, amount?: number) {
-    Accounts.createAccount(customer, bank, "Customer Deposits", amount);
+    Accounts.create(customer, bank, "Customer Deposits", amount);
     if (amount) {
       Reserves.decreaseReserves(customer, amount);
       Reserves.increaseReserves(bank, amount);
