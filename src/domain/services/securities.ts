@@ -20,22 +20,22 @@ export const Securities = {
   },
   increaseTreasuries(bank: Bank, amount: number) {
     const bankAccount = securitiesData.accounts[bank.id].filter(
-      (account) => account.type === "Treasury Bills"
+      (account) => account.instrument === "Treasury Bills"
     )[0];
     bankAccount.balance += amount;
   },
   decreaseTreasuries(bank: Bank, amount: number) {
     const bankAccount = securitiesData.accounts[bank.id].filter(
-      (account) => account.type === "Treasury Bills"
+      (account) => account.instrument === "Treasury Bills"
     )[0];
     if (bankAccount.balance - amount >= 0)
     bankAccount.balance -= amount;
   },
-  createSecurity(bank: Bank, type: string, amount: number) {
+  createSecurity(bank: Bank, instrument: string, amount: number) {
     const newSecurity = {
       id: bank.id,
       balance: amount,
-      type,
+      instrument,
       maturity: 1,
     };
     let securities = { ...securitiesData.accounts[bank.id] };

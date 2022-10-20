@@ -10,11 +10,13 @@ import { System } from "../../../../../domain/system";
 export default function BalanceSheetRowHeading({ side, id, textColor, bank }) {
   const { colorSettings, displaySettings } = useAppSelector(selectSettings);
   const theme = useMantineTheme();
-  if (
+
+  const bankInFedSystem = (side, bank) =>
     System.getSystem() === "centralbank" &&
     side.instrument === "Reserves" &&
-    bank.cardInfo.type !== "customer"
-  ) {
+    bank.cardInfo.type !== "customer";
+
+  if (bankInFedSystem(side, bank)) {
     return;
   }
 

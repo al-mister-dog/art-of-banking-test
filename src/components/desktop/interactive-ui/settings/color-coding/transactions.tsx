@@ -46,11 +46,13 @@ export default function SpreadsheetMenu() {
           name="ColorCoding"
         >
           <Radio
+            styles={{ labelWrapper: { display: "flex" } }}
             color="violet"
             value="each"
             label={<Text size="xs">Each Transaction</Text>}
           />
           <Radio
+            styles={{ labelWrapper: { display: "flex" } }}
             color="violet"
             value="all"
             label={<Text size="xs">All Transactions</Text>}

@@ -6,65 +6,65 @@ const system = "centralbank";
 export const Balancesheets = {
   instruments: {
     "Customer Deposits": {
-      type: "deposit",
+      type: "Deposit",
       correspondingInstrument: "Overdraft",
     },
     "Bank Deposits": {
-      type: "deposit",
+      type: "Deposit",
       correspondingInstrument:
         system === "centralbank" ? "Daylight Overdraft" : "Overdraft",
     },
     "CH Certificates": {
-      type: "deposit",
+      type: "Deposit",
       correspondingInstrument: "Ch Loans",
     },
     "Treasury Bills": {
-      type: "securities",
+      type: "Securities",
       correspondingInstrument: false,
     },
     "Due Tos": {
-      type: "debt",
+      type: "Debt",
       correspondingInstrument: false,
     },
     "Due Froms": {
-      type: "debt",
+      type: "Debt",
       correspondingInstrument: false,
     },
     Dues: {
-      type: "debt",
+      type: "Debt",
       correspondingInstrument: false,
       asAsset: "Due From",
       asLiability: "Due To",
     },
     "Cash Reserves": {
-      type: "reserves",
+      type: "Reserves",
       correspondingInstrument: false,
     },
     Gold: {
-      type: "reserves",
+      type: "Reserves",
       correspondingInstrument: false,
     },
     "Fed Funds": {
-      type: "loan",
+      type: "Loan",
       correspondingInstrument: false,
       exchangingInstrument: "Bank Deposits",
       asAsset: "Fed Funds To",
       asLiability: "Fed Funds From",
     },
-    Loan: {
-      type: "loan",
+    Loans: {
+      type: "Loan",
       correspondingInstrument: false,
       exchangingInstrument: "Customer Deposits",
       asAsset: "Loan To",
       asLiability: "Loan From",
     },
     Repo: {
-      type: "collatoralizedLoan",
+      type: "Collatoralized Loan",
       correspondingInstrument: "reverse",
       exchangingInstrument: "Bank Deposit",
     },
     Mortgage: {
-      type: "collatoralizedLoan",
+      type: "Collatoralized Loan",
       correspondingInstrument: "property",
       exchangingInstrument: "Bank Deposit",
       asAsset: "Mortgage To",

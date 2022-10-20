@@ -9,6 +9,7 @@ export default function ToggleOrder({ bank, order, setOrder }) {
       </Text>
       <Radio.Group name="sortBy" value={order} onChange={setOrder}>
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           size="xs"
           color={`${bank.color}`}
           value="newest"
@@ -19,6 +20,7 @@ export default function ToggleOrder({ bank, order, setOrder }) {
           }
         />
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           size="xs"
           color={`${bank.color}`}
           value="oldest"

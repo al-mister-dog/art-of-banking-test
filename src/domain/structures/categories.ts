@@ -1,40 +1,4 @@
 export const instruments = {
-  Gold: {
-    type: "Reserves",
-  },
-  "Cash Reserves": {
-    type: "Reserves",
-  },
-  "Treasury Bills": {
-    type: "Securities",
-  },
-  Bonds: {
-    type: "Securities",
-  },
-  "Bank Deposits": {
-    type: "Deposits",
-  },
-  "Customer Deposits": {
-    type: "Deposits",
-  },
-  "CH Certificates": {
-    type: "Deposits",
-  },
-  "Fed Funds": {
-    type: "Loan",
-    swap: "Bank Deposits",
-  },
-  "Bank Loans": {
-    type: "Loan",
-    swap: "Customer Deposits",
-  },
-  Repos: {
-    type: "Loan",
-    swap: "Securities",
-  },
-};
-
-export const instruments2 = {
   "Cash Reserves": {
     type: "Reserves",
     correspondingInstrument: false,
@@ -79,8 +43,8 @@ export const instruments2 = {
     asAsset: "Fed Funds To",
     asLiability: "Fed Funds From",
   },
-  Loan: {
-    type: "Loan",
+  Loans: {
+    type: "Loans",
     correspondingInstrument: false,
     exchangingInstrument: "Customer Deposits",
     asAsset: "Loan To",

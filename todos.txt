@@ -1,1 +1,8 @@
-sort out button placement on bank-detail desktop
+sort out button placement on bank-detail desktop /
+buy property option
+
+if there is less money then interest rates will be higher, because there is more concern that
+a borrower will not be able to pay the loan, and thus the loan is disincentivised
+
+if there is more money then interest rates will be lower, because there is more confidence that
+a borrower will be able to pay back the loan, and thus the loan is incentivised

@@ -20,7 +20,7 @@ import Spreadsheet from "../../../../displays/spreadsheet";
 export default function SpreadsheetMenu({ setOpened }) {
   const dispatch = useAppDispatch();
   const { spreadsheetSettings } = useAppSelector(selectSettings);
-  
+
   const [spreadSheetOpened, setSpreadSheetOpened] = useState(false);
   const [aboutOpened, setAboutOpened] = useState(false);
 
@@ -44,11 +44,13 @@ export default function SpreadsheetMenu({ setOpened }) {
           label="Spreadsheet Colors"
         >
           <Radio
+            styles={{ labelWrapper: { display: "flex" } }}
             color="violet"
             value="each"
             label={<Text size="xs">Each Transaction</Text>}
           />
           <Radio
+            styles={{ labelWrapper: { display: "flex" } }}
             color="violet"
             value="all"
             label={<Text size="xs">All Transactions</Text>}

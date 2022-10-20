@@ -192,12 +192,14 @@ function NextStep({ bank, selectedBank }) {
         }
       >
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           size="xs"
           color={`${bank.color}`}
           value="credit"
           label={<Text size="xs">{creditLabel}</Text>}
         />
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           size="xs"
           color={`${bank.color}`}
           value="debit"

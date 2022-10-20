@@ -30,18 +30,21 @@ export default function DisplayRadioGroup() {
         name="Display"
       >
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="balances"
           label={<Text size="xs">Balances</Text>}
         />
 
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="taccounts"
           label={<Text size="xs">T-Accounts</Text>}
         />
 
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="spreadsheet"
           label={<Text size="xs">Spreadsheet</Text>}

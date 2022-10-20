@@ -8,7 +8,6 @@ import {
   Stack,
   Text,
   useMantineTheme,
-  createStyles,
 } from "@mantine/core";
 
 import { System } from "../../../../../../domain/system";
@@ -107,16 +106,9 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
   )
 );
 
-const useStyles = createStyles(() => ({
-  labelWrapper: {
-    display: "flex",
-  },
-}));
-
 function NextStep({ bank, selectedBank }) {
   const dispatch = useAppDispatch();
   const [paymentType, setPaymentType] = useState("credit");
-  const { classes } = useStyles();
 
   const accountInfo = { ...creditData.accounts[selectedBank] };
   const amount = accountInfo.balance;
@@ -195,7 +187,7 @@ function NextStep({ bank, selectedBank }) {
         }
       >
         <Radio
-          classNames={{ labelWrapper: classes.labelWrapper }}
+          styles={{ labelWrapper: { display: "flex" } }}
           size="xs"
           color={`${bank.color}`}
           value="credit"
@@ -203,15 +195,11 @@ function NextStep({ bank, selectedBank }) {
           // label={creditLabel}
         />
         <Radio
-        classNames={{ labelWrapper: classes.labelWrapper }}
+          styles={{ labelWrapper: { display: "flex" } }}
           size="xs"
           color={`${bank.color}`}
           value="debit"
-          label={
-            <Text size="xs">
-              {debitLabel}
-            </Text>
-          }
+          label={<Text size="xs">{debitLabel}</Text>}
           // label={debitLabel}
         />
       </Radio.Group>

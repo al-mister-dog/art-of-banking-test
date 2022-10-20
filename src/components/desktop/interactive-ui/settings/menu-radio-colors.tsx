@@ -31,21 +31,29 @@ export default function ColorsMenu({ setOpened }) {
         label="Balances Color Coding"
       >
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="static"
           label={<Text size="xs">Each Transaction</Text>}
         />
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="round"
           label={<Text size="xs">All Transactions</Text>}
         />
         <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="flash"
           label={<Text size="xs">Flash</Text>}
         />
-        <Radio color="violet" value="off" label={<Text size="xs">Off</Text>} />
+        <Radio
+          styles={{ labelWrapper: { display: "flex" } }}
+          color="violet"
+          value="off"
+          label={<Text size="xs">Off</Text>}
+        />
       </Radio.Group>
 
       <Button
