@@ -56,8 +56,8 @@ export default function SidePanel({ bank }: { bank: CardInfo }) {
           <Tabs.Tab value="actions">
             <Text color={theme.colors[bank.color][9]}>Actions</Text>
           </Tabs.Tab>
-          <Tabs.Tab value="charts">
-            <Text color={theme.colors[bank.color][9]}>Charts</Text>
+          <Tabs.Tab value="accounts">
+            <Text color={theme.colors[bank.color][9]}>Accounts</Text>
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="records" pt="xs">
@@ -68,8 +68,8 @@ export default function SidePanel({ bank }: { bank: CardInfo }) {
           <ActionsPanel bank={bank} />
         </Tabs.Panel>
 
-        <Tabs.Panel value="charts" pt="xs">
-          Charts tab content
+        <Tabs.Panel value="accounts" pt="xs">
+          Accounts tab content
           <LineChart bank={bank} />
         </Tabs.Panel>
       </Tabs>

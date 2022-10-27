@@ -21,6 +21,8 @@ export const Balancesheets = {
     "Treasury Bills": {
       type: "Securities",
       correspondingInstrument: false,
+      asAsset: "Treasury Bills",
+      asLiability: "Treasury Bills",
     },
     "Due Tos": {
       type: "Debt",
@@ -171,15 +173,32 @@ export const Balancesheets = {
   },
 
   relevantAccounts(id) {
-    console.log(JSON.stringify(securitiesData.accounts))
     const relevantAccountsArray = [
-      this.filterAccounts(creditData, id),
-      this.filterAccounts(accountData, id),
+      this.filteredSecurities(id),
+      this.filteredAccounts(creditData, id),
+      this.filteredAccounts(accountData, id),
+    ].flatMap((accounts) => accounts);
+    return relevantAccountsArray;
+  },
+
+  relevantAssets(id) {
+    const relevantAccountsArray = [
+      this.filteredSecurities(id),
+      // this.filteredReserves(id),
+      this.filteredAccounts(creditData, id),
+      this.filteredAccounts(accountData, id),
     ].flatMap((accounts) => accounts);
 
     return relevantAccountsArray;
   },
+  relevantLiabilities(id) {
+    const relevantAccountsArray = [
+      this.filteredAccounts(creditData, id),
+      this.filteredAccounts(accountData, id),
+    ].flatMap((accounts) => accounts);
 
+    return relevantAccountsArray;
+  },
   returnAssets(id) {
     return this.mapByInstrument(
       this.addRelationalData(
@@ -187,7 +206,8 @@ export const Balancesheets = {
           this.relevantAccounts(id).map((account) =>
             this.returnAsset(account, id)
           )
-        )
+        ),
+        id
       )
     );
   },
@@ -199,7 +219,8 @@ export const Balancesheets = {
           this.relevantAccounts(id).map((account) =>
             this.returnLiability(account, id)
           )
-        )
+        ),
+        id
       )
     );
   },
@@ -230,14 +251,29 @@ export const Balancesheets = {
     };
   },
 
-  filterAccounts(data, id: number) {
+  getAccounts(id) {
+    console.log(id)
+    return {
+      assets: this.getNestedArray(this.returnAssets(id)),
+      liabilities: this.getNestedArray(this.returnLiabilities(id)),
+    };
+  },
+
+  filteredAccounts(data, id: number) {
     return data.allIds
       .map((id) => data.accounts[id])
       .filter(
         (account) =>
           (account.subordinateId == id && account.balance !== 0) ||
-          (account.superiorId === id && account.balance !== 0)
+          (account.superiorId === id &&
+            account.balance !== 0 &&
+            Object.keys(account).length !== 0)
       );
+  },
+
+  filteredSecurities(id) {
+    const securities = securitiesData.accounts[id];
+    return securities ? securities : [];
   },
 
   filterEmptyAccounts(accountArray) {

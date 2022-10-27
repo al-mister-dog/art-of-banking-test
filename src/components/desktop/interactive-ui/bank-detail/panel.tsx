@@ -11,6 +11,7 @@ import { CardInfo } from "../types";
 import ActionsPanel from "./actions/panel";
 import React from "react";
 import RecordsPanel from "./records/panel";
+import AccountsPanel from "./accounts/panel";
 
 const useStyles = createStyles((theme) => ({
   header: { padding: "5px" },
@@ -56,8 +57,8 @@ function SidePanel({ bank }: { bank: CardInfo }) {
           <Tabs.Tab value="actions">
             <Text color={theme.colors[bank.color][9]}>Actions</Text>
           </Tabs.Tab>
-          <Tabs.Tab value="charts">
-            <Text color={theme.colors[bank.color][9]}>Charts</Text>
+          <Tabs.Tab value="accounts">
+            <Text color={theme.colors[bank.color][9]}>Accounts</Text>
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="records" pt="xs">
@@ -67,9 +68,8 @@ function SidePanel({ bank }: { bank: CardInfo }) {
           <ActionsPanel bank={bank} />
         </Tabs.Panel>
 
-        <Tabs.Panel value="charts" pt="xs">
-          Charts tab content
-          {/* <LineChart bank={bank} /> */}
+        <Tabs.Panel value="accounts" pt="xs">
+          <AccountsPanel bank={bank} />
         </Tabs.Panel>
       </Tabs>
     </Card>
