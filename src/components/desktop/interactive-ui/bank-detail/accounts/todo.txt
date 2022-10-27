@@ -1,0 +1,15 @@
+on mount the component will grab all accounts
+get all accounts including corresponding instruments
+
+different accounts will have different relevant information to put in table
+
+each account will be headed by its instrument.
+if instrument equal table name, render component
+
+corresponding instrument accounts
+there should be the account itself plus balance whether positive or negative
+it should also have the overdraft equivelent if balance > 0
+
+operations could be added
+
+also sorting and filtering should be an option
