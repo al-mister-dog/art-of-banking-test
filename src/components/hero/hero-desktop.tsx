@@ -44,13 +44,12 @@ export default function HeroDesktop() {
               letterSpacing: "3px",
               position: "absolute",
               bottom: 0,
-              left: -55,
+              left: 0,
               paddingRight: "50px",
             }}
-            size={60}
-            align="left"
+            size={50}
+            align="right"
             className="hero-headline"
-            
           >
             Art of Banking
           </Title>
@@ -73,48 +72,41 @@ export default function HeroDesktop() {
         >
           <Text
             className="hero-text-1"
-            size="xl"
+            size="lg"
             weight="bold"
             style={{ color: "#312A45" }}
             align="right"
-            mb="md"
           >
             The world economy is made from the fabric of global
           </Text>
           <Text
             className="hero-text-2"
-            size="xl"
+            size="lg"
             style={{ color: "#312A45" }}
-            align="center"
-            mb="md"
-            ml={25}
+            align="right"
           >
             <span style={{ fontWeight: "bold" }}>finance.</span> The fabric of
             global finance is an
           </Text>
           <Text
             className="hero-text-3"
-            size="xl"
+            size="lg"
             style={{ color: "#312A45" }}
-            align="center"
-            mb="md"
-            ml={65}
+            align="right"
           >
             interlocking matrix of corporate
           </Text>
           <Text
             className="hero-text-4"
-            size="xl"
+            size="lg"
             style={{ color: "#312A45" }}
-            align="center"
-            mb="md"
-            ml={40}
+            align="right"
           >
             balance sheets.
           </Text>
         </div>
       </SimpleGrid>
-       <div
+      <div
         style={{
           height: "100vh",
           backgroundColor: backgroundViolet,
@@ -142,7 +134,13 @@ export default function HeroDesktop() {
           </LazyShow>
         </div>
       </div>
-      <div style={{ background: backgroundRed, height: "200vh", overflowX: "hidden" }}>
+      <div
+        style={{
+          background: backgroundRed,
+          height: "200vh",
+          overflowX: "hidden",
+        }}
+      >
         <Divide
           direction="right bottom"
           colorOne={backgroundViolet}
@@ -190,7 +188,7 @@ export default function HeroDesktop() {
             </Title>
           </LazyShow>
         </div>
-      </div> 
+      </div>
     </>
   );
 }
