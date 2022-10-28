@@ -335,21 +335,3 @@ export const setupFunctions: SetupFunctions = {
   },
 };
 
-// 10() {
-//   clearBankData();
-//   System.setSystem("correspondent")
-//   BankingSystem.createBank("Bank 1", "bank");
-//   BankingSystem.createBank("Bank 2", "bank");
-//   Banks.createAccount(bankData.banks[0], bankData.banks[1], 100)
-//   Banks.createAccount(bankData.banks[1], bankData.banks[0], 100)
-//   BankingSystem.createBank("Customer 1", "customer", 100);
-//   BankingSystem.createBank("Customer 2", "customer", 100);
-//   Customer.createAccount(bankData.banks[2], bankData.banks[0], 100);
-//   Customer.createAccount(bankData.banks[3], bankData.banks[1], 100);
-//   Customer.transfer(20, bankData.banks[2], bankData.banks[3], bankData.banks[0], bankData.banks[1])
-//   Customer.transfer(30,  bankData.banks[3], bankData.banks[2], bankData.banks[1], bankData.banks[0])
-//   Customer.transfer(10, bankData.banks[2], bankData.banks[3], bankData.banks[0], bankData.banks[1])
-//   Customer.transfer(20,  bankData.banks[3], bankData.banks[2], bankData.banks[1], bankData.banks[0])
-//   Customer.transfer(40, bankData.banks[2], bankData.banks[3], bankData.banks[0], bankData.banks[1])
-//   Customer.transfer(40,  bankData.banks[3], bankData.banks[2], bankData.banks[1], bankData.banks[0])
-// },

@@ -164,7 +164,16 @@ export const theFedText = {
   step6: {
     lectureTitle: `The Fed`,
     title: `Fed Funds Rate: Target`,
-    paragraphs: [`paragraph`],
-    assignment: `assignment`,
+    paragraphs: [
+      `If a bank finds that it is doing much more lending than it is borrowing, the bank stands to lose a lot of money should the investment fail. This type of risk is called exposure. A bank can limit its exposure by increasing the interest rates on its loans. The opposite is also true; if a bank is borrowing more than it is lending then it can encourage more investors by giving loans at a lower interest rate. So the Fed Funds rate is a market rate.`,
+      `Where does the Federal Reserve come into this? It is common to hear that the Federal Reserve 'sets the interest rate'. But the Fed is not a participant in the Fed Funds Market. Instead the Fed has a target rate that it influences by manipulating the quantity of reserves in the system as a whole. The underlying quantity of reserves in the Fed Funds market influences the amount of credit expansion.`,
+      `The Federal Reserve can increase or decrease the money supply by performing 'open-market operations' such as participating in the Repo market. The Repo market will be covered in the next chapter, so instead we will give a simplified example using Treasury Bills. Treasury Bills are promises to pay cash from the government at a specified date in the future. They can't be spent straight away but will have accrued interest on maturity. This makes Treasury Bills a low risk investment.`,
+      `Banks will purchase these Treasury Bills from the fed in exchange for their own reserves. Because reserves have gone out of the system and back into the central bank, there are fewer reserves in the system over all. Less reserves in the system as a whole means banks will be discouraged from lending their own reserves, and therefore raising their interest rates. More reserves in the system as a whole means banks will be encouraged to invest, and therefore lower their interest rates. The Federal Reserve can increase overall reserves by buying treasury bills from other banks, giving banks dollar reserves, which they can now lend in the Fed Funds market. `,
+      `To conclude this chapter it is worth pointing out that so far, these loans are unsecured, meaning that there's no guarantee that a bank will get back the reserves they lent out. In the next chapter we will cover Repurchase Agreement Loans (Repos), which are a sort of swap involving Fed Funds and Treasury Bill Securities as collateral. Repos make up a huge amount of the worlds money supply and are another crucial step in grasping the larger picture of money and banking.
+    `,
+    ],
+    assignment: `Buy and sell treasury bills in order to manipulate the amount of reserves in the system. At this point in the building of this website, there 
+    is no decision making functionality in the banks, so it is up to the user to decide whether to raise the interest target or not.
+    In the next chapter, banks will start making their own decisions whether to lend or not!`,
   },
 };

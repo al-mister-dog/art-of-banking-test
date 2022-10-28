@@ -12,4 +12,8 @@ it should also have the overdraft equivelent if balance > 0
 
 operations could be added
 
-also sorting and filtering should be an option
+also sorting and filtering should be an 
+
+
+
+merge customer and bank deposit accounts ?

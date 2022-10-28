@@ -3,7 +3,7 @@ import { accountData, creditData, securitiesData } from "../structures/objects";
 
 const system = "centralbank";
 
-export const Balancesheets = {
+export const Accounts = {
   instruments: {
     "Customer Deposits": {
       type: "Deposit",
@@ -148,28 +148,14 @@ export const Balancesheets = {
 
   addLiability(account, id) {
     return this.isCorrespondingInstrument(account)
-      ? this.correspondingLiability(account, id)
+      ? { ...account, balance: account.balance, instrument: account.instrument }
       : this.nonCorrespondingLiability(account, id);
   },
 
   addAsset(account, id) {
     return this.isCorrespondingInstrument(account)
-      ? this.correspondingAsset(account, id)
+      ? { ...account, balance: account.balance, instrument: account.instrument }
       : this.nonCorrespondingAsset(account, id);
-  },
-
-  returnLiability(account, id) {
-    const instrument = {
-      ...this.addLiability(account, id),
-    };
-    return instrument;
-  },
-
-  returnAsset(account, id) {
-    const instrument = {
-      ...this.addAsset(account, id),
-    };
-    return instrument;
   },
 
   relevantAccounts(id) {
@@ -178,33 +164,16 @@ export const Balancesheets = {
       this.filteredAccounts(creditData, id),
       this.filteredAccounts(accountData, id),
     ].flatMap((accounts) => accounts);
-    return relevantAccountsArray;
-  },
-
-  relevantAssets(id) {
-    const relevantAccountsArray = [
-      this.filteredSecurities(id),
-      // this.filteredReserves(id),
-      this.filteredAccounts(creditData, id),
-      this.filteredAccounts(accountData, id),
-    ].flatMap((accounts) => accounts);
 
     return relevantAccountsArray;
   },
-  relevantLiabilities(id) {
-    const relevantAccountsArray = [
-      this.filteredAccounts(creditData, id),
-      this.filteredAccounts(accountData, id),
-    ].flatMap((accounts) => accounts);
 
-    return relevantAccountsArray;
-  },
-  returnAssets(id) {
+  accounts(id) {
     return this.mapByInstrument(
       this.addRelationalData(
         this.filterEmptyAccounts(
           this.relevantAccounts(id).map((account) =>
-            this.returnAsset(account, id)
+            this.returnAccount(account, id)
           )
         ),
         id
@@ -212,17 +181,12 @@ export const Balancesheets = {
     );
   },
 
-  returnLiabilities(id) {
-    return this.mapByInstrument(
-      this.addRelationalData(
-        this.filterEmptyAccounts(
-          this.relevantAccounts(id).map((account) =>
-            this.returnLiability(account, id)
-          )
-        ),
-        id
-      )
-    );
+  returnAccount(account) {
+    return {
+      ...account,
+      balance: account.balance,
+      instrument: account.instrument,
+    };
   },
 
   addRelationalData(accountsArray, id) {
@@ -244,24 +208,28 @@ export const Balancesheets = {
     });
   },
 
-  get(id) {
-    return {
-      assets: this.getNestedArray(this.returnAssets(id)),
-      liabilities: this.getNestedArray(this.returnLiabilities(id)),
-    };
+  accountAsset(account, id) {
+    return this.isAccountHolder(account, id) ? this.returnAccount(account) : {};
   },
 
+  accountLiability(account, id) {
+    return this.isAccountHolder(account, id) ? {} : this.returnAccount(account);
+  },
 
+  getAccounts(id) {
+    return {
+      accounts: this.getNestedArray(this.accounts(id)),
+    };
+  },
+  //getAccounts > accounts > relevantAccounts >
 
   filteredAccounts(data, id: number) {
     return data.allIds
       .map((id) => data.accounts[id])
       .filter(
         (account) =>
-          (account.subordinateId == id && account.balance !== 0) ||
-          (account.superiorId === id &&
-            account.balance !== 0 &&
-            Object.keys(account).length !== 0)
+          (account.subordinateId == id || account.superiorId === id) &&
+          Object.keys(account).length !== 0
       );
   },
 

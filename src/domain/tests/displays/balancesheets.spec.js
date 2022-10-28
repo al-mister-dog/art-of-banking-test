@@ -1,5 +1,5 @@
 import { System } from "../../system";
-import {Balancesheets} from "../../analytics/balancesheets-beta"
+import { Balancesheets } from "../../analytics/balancesheets-beta";
 import { BankingSystem } from "../../banking-system";
 import { Customer } from "../../services/customer";
 import { Display } from "../../analytics/display";
@@ -52,7 +52,7 @@ describe("displays for component rendering", () => {
     );
     const balanceSheetDisplay = Display.balanceSheet(bankData.banks[0]);
     // expect(balanceSheetDisplay).toEqual(balanceSheetDisplay5);
-    console.log(JSON.stringify(Balancesheets.get(2)))
+
     // console.log(JSON.stringify(Balancesheets.get(3)))
   });
 });

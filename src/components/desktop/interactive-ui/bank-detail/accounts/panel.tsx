@@ -1,63 +1,84 @@
-import { Button, Collapse } from "@mantine/core";
+import { Box, Button, Collapse } from "@mantine/core";
 import { useState } from "react";
-import { Balancesheets } from "../../../../../domain/analytics/balancesheets-beta";
-import TreasuryBills from "./treasurybills";
-import DepositAccounts from "./depositaccounts";
+import { Accounts } from "../../../../../domain/analytics/accounts";
+import uuid from "react-uuid";
+import TreasuryBills from "./tables/treasurybills";
+import DepositAccounts from "./tables/depositaccounts";
+import CustomerAccounts from "./tables/depositaccounts";
+import FedFunds from "./tables/fedfunds";
+import Loans from "./tables/loans";
 
-function AccountsButton({ bank, onClick, children }) {
+import DuesAccounts from "./tables/dues";
+
+function AccountsDisplay({ bank, label, children }) {
+  const [opened, setOpened] = useState(false);
   return (
-    <Button
-      style={{ width: "100%", marginTop: "5px" }}
-      color={bank.color}
-      variant="outline"
-      radius="xs"
-      onClick={onClick}
-    >
-      {children}
-    </Button>
+    <>
+      <Button
+        style={{ width: "100%", marginTop: "5px" }}
+        color={bank.color}
+        variant={opened ? "filled" : "outline"}
+        radius="xs"
+        onClick={() => setOpened((o) => !o)}
+      >
+        {label}
+      </Button>
+      <Collapse
+        in={opened}
+        transitionDuration={100}
+        transitionTimingFunction="linear"
+      >
+        {children}
+      </Collapse>
+    </>
   );
 }
 
-function AccountsDisplay({}) {
-  return <></>;
-}
-
 export default function AccountsPanel({ bank }) {
-  const [treasuriesOpened, setTreasuriesOpened] = useState(false);
-  const [depositAccountsOpened, setDepositAccountsOpened] = useState(false);
+  const allAccounts = Accounts.getAccounts(bank.cardInfo.id);
 
-  const allAccounts = Balancesheets.getAccounts(bank.cardInfo.id);
-  const treasuries = allAccounts.liabilities[0];
-  const depositAccounts = allAccounts.liabilities[1];
+  // const assets = allAccounts.assets;
+  // const liabilities = allAccounts.liabilities;
+
+  // const treasuries = allAccounts.liabilities[0];
+  // const depositAccounts = allAccounts.liabilities[1];
 
   return (
-    <>
-      <AccountsButton
-        bank={bank}
-        onClick={() => setTreasuriesOpened((o) => !o)}
-      >
-        Treasury Bills
-      </AccountsButton>
-      <Collapse
-        in={treasuriesOpened}
-        transitionDuration={200}
-        transitionTimingFunction="linear"
-      >
-        <TreasuryBills treasuries={treasuries} />
-      </Collapse>
-      <AccountsButton
-        bank={bank}
-        onClick={() => setDepositAccountsOpened((o) => !o)}
-      >
-        Deposit Accounts
-      </AccountsButton>
-      <Collapse
-        in={depositAccountsOpened}
-        transitionDuration={200}
-        transitionTimingFunction="linear"
-      >
-        <DepositAccounts depositAccounts={depositAccounts} />
-      </Collapse>
-    </>
+    <Box style={{ maxHeight: "18.2rem", overflowX: "auto" }}>
+      {allAccounts.accounts.map((accs) => (
+        <div key={uuid()}>
+          {accs.instrument === "Bank Deposits" && (
+            <AccountsDisplay bank={bank} label="Deposit Accounts">
+              <DepositAccounts bank={bank} accounts={accs} />
+            </AccountsDisplay>
+          )}
+          {accs.instrument === "Customer Deposits" && (
+            <AccountsDisplay bank={bank} label="Customer Accounts">
+              <CustomerAccounts bank={bank} accounts={accs} />
+            </AccountsDisplay>
+          )}
+          {accs.instrument === "Treasury Bills" && (
+            <AccountsDisplay bank={bank} label="Treasury Bills">
+              <TreasuryBills accounts={accs} />
+            </AccountsDisplay>
+          )}
+          {accs.instrument === "Dues" && (
+            <AccountsDisplay bank={bank} label="Dues">
+              <DuesAccounts bank={bank} accounts={accs} />
+            </AccountsDisplay>
+          )}
+          {accs.instrument === "Fed Funds" && (
+            <AccountsDisplay bank={bank} label="Fed Funds">
+              <FedFunds bank={bank} accounts={accs} />
+            </AccountsDisplay>
+          )}
+          {accs.instrument === "Loans" && (
+            <AccountsDisplay bank={bank} label="Loans">
+              <Loans bank={bank} accounts={accs} />
+            </AccountsDisplay>
+          )}
+        </div>
+      ))}
+    </Box>
   );
 }
