@@ -1,4 +1,4 @@
-import { createStyles } from "@mantine/core";
+import { Box, createStyles } from "@mantine/core";
 import { Card, Text, Title } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -31,9 +31,24 @@ export default function Assignment({ assignment }) {
             paddingRight: 16,
           }}
         >
-          <Text size="md" weight="bold" italic>
-            {assignment}
-          </Text>
+          {assignment.slice(0, 7) === "Sources" ? (
+            <Box pb="xl">
+              <Text size="lg" weight="bold">
+                Sources
+              </Text>
+
+              {assignment
+                .split(":")
+                .slice(1)
+                .map((src) => (
+                  <Text italic size="lg" >{src}</Text>
+                ))}
+            </Box>
+          ) : (
+            <Text size="lg" weight="bold" italic>
+              {assignment}
+            </Text>
+          )}
         </div>
       </div>
     </div>

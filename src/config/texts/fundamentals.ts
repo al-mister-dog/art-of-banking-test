@@ -3,57 +3,61 @@ export const fundamentalsText = {
     lectureTitle: `fundamentals`,
     title: `Banking Fundamentals: Balance Sheets`,
     paragraphs: [
-      `For someone unfamiliar to the world of banking and finance, the whole thing can seem 
-      very confusing. Not only is banking and economics seemingly very complex (the Financial 
-      Times is full of special jargon, charts and graphs), but most people base their understanding
-      of this world from polemical news articles, social media, or the general public without 
-      ever having wondered how bankers themselves see it.`,
-      `To think like a banker is simply to think in terms of balance sheets, and making sure 
-      the numbers on both sides amount to the same number. The banker is primarily concerned 
-      with making sure that their ingoings match their outgoings. These balance sheets will 
-      belong not only to banks, but businesses, governments, customers etc. Everyone is bank 
-      and everyone has a balance sheet.`,
+      `If you have ever opened up a copy of the Financial Times you will have most probably been
+    confronted with a lot of jargon and confusing graphs. Terms like LDIs, bond yields 
+    and interest-rate swaps may well leave you scratching your head. Of course, his isn't 
+    just some made up language, but it can be an obstacle for anyone trying to gain a better 
+    understanding of how finance, economy, money and the world in general works.`,
+      `This chapter aims to guide you through the esoteric world of money and banking by 
+    starting the journey somewhere familiar, the local bank. We will analyse the 
+    balancesheet of a bank and the balancesheet of a customer, revealing what goes on
+    behind the scenes of such seemingly innocuous activities as depositing cash, making 
+    transfers and running an overdraft.`,
+      `Later we will build on the intuition gained in this chapter and apply it to
+    activities that take place not between banks and customers, but between banks and other 
+    banks. You will begin to realise that a lot of the technical practices that are 
+    the subject of the Broad-Sheet papers are in fact not too different from the practices
+    that take place between you and your local bank.`,
+      `Hopefuly by the end of the course you should be able to read through the Financial 
+    Times without having to get the dictionary out.`,
     ],
-    assignment: `Sources: Allyn Young - The Mystery of Money
-    Clearinghouse loan certificates as interbank loans in the United States, 1860–1913 - Christopher Hoag,
-    Money and Banking - Perry Mehrling`,
+    assignment: `Sources: Allyn Young - The Mystery of Money: Money and Banking - Perry Mehrling`,
   },
 
   step2: {
     lectureTitle: `fundamentals`,
     title: `Balance Sheets and Bank Deposits`,
     paragraphs: [
-      `A balance sheet is a T shaped graph that has two sides. One side consists
-      of assets, and the other side consists of liabilities. Assets are things that
-      you own, like money or a car, and liabilities are things that you
-      owe to someone else, which could also be money or a mortgages etc.
-      Please note that in this example the bank's liabilities are 'deposits' and
-      the customer's assets are also 'deposits'. Both the bank and the customer have
-      cash as an assets, which counts towards their reserves, but the customer's cash 
-      is not shown here (maybe its in their back pocket).But what is the difference between cash 
-      and deposits? `,
-      `It seems like common sense to assume when we deposit cash at the bank, the money 
-      is waiting in a vault inside the bank for us somewhere as cash to withdraw. 
-      The truth is a little more complicated, but not too much. When a customer puts their 
-      money in a bank, they receive a deposit in return. A deposit is actually different 
-      to the cash that the customer puts in the bank. A deposit means money that the bank 
-      owes to its customer, and which the customer can demand at any point to be redeemed in cash.
-      In fact there are much more deposits than there is cash money. According to the 
-      Bank of England, only 4% of the money in the UK is cash; 96% is deposits. The same is true
-      in many countries in the world. The money is digital.`,
-      `In your local bank branch it is certain that there is more money in deposits (which are just 
-      numbers in a database) than there is cash in the vaults. Fortunately not everyone is going 
-      to go the bank to withdraw their money all at once, otherwise the bank would not be able 
-      to follow on their promise to redeem the customer's deposits on demand. During times of 
-      financial uncertainty there may be large queues outside banks, 
-      with people trying to withdraw their deposits as cash (try googling 'Northern Rock').
-      This illustrates the fact that there is in fact some uncertainty as to the status of deposits 
-      compared to cash. You could say that one money is better than the other. As will become clearer as you go
-      through each module in the course, there are many types of money, and they line up in a hierarchy!
-      Hopefuly this serves as a simple illustration of that fact.`,
+      `Whether you are a customer, a corporation, a bank or a government, you will have 
+      in-comings and out-goings. You have things that you own and things that you owe. 
+      In banking, the things you own are called assets, and the things that you owe to
+      others are called liabilities. For each spending-unit (a customer or a bank etc), 
+      we can imagine a balancesheet representing their assets and liabilities, with assets 
+      shown on the left hand side of the table, and liabilities on the right hand side of
+      the table. If we take the example of a bank and customer, what are their assets and 
+      liabilities?`,
+      `A customer will most commonly have two types of assets. These are cash reserves and 
+      deposits. We could say that the customer's cash reserves include the money in their wallet
+      or any other cash to hand. They can use this money instantly to buy things like groceries etc.
+      Deposits are money that a customer has in a bank, and these are also assets. There are however
+      some key differences between deposits and cash. `,
+      `Rather than being actual cash, deposits represent a promise by your bank to pay you cash.
+      When you deposit your cash at the bank, that cash belongs to the bank, and they could spend
+      it if they wished. What they give you in return is a claim on the bank, in cash, for the 
+      amount of deposits you have in your account. This may seem a little pedantic, but these 
+      small differences are crucial to understand as we begin to follow the many paths that money
+      takes.`,
+      `Deposits are an asset of the customer, yet at the same time they are a liability of the bank.
+      For a bank, deposits represent the money that the bank owes you at any time, on demand. 
+      It is useful to remember that "a customer's asset is a bank's liability"; this is a principal of
+      double-entry bookkeeping. The cash that was given to the bank in exchange for deposits is now an
+      asset of the bank. And it is useful to bear in mind that there are far more deposits than there
+      is cash in circulation. If every customer at a branch wanted to redeem their deposits in cash, 
+      the bank would not have the reserves to do so. This is an aspect of "fractional reserve banking",
+      which in these lectures, is taken as a key feature (not a bug) of banking.`,
     ],
     assignment: `Get Customer 1 to deposit and withdraw cash into and from their bank, and take notice 
-    of the difference in the customer's and the bank's balance sheets. To reset balance sheets click the
+    of what changes on the customer's and the bank's balance sheets. To reset balance sheets click the
     refresh icon in the settings panel. `,
   },
   step3: {

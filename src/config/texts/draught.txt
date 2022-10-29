@@ -1,0 +1,49 @@
+      FUNDAMENTALS
+      introduction
+      [`If you have ever opened up a copy of the Financial Times you will most probably have been
+      confronted with a lot of jargon words and confusing graphs. Terms like LDIs, bond yields 
+      and interest-rate swaps may well leave you scratching your head. This isn't just some 
+      made up language of course, but it is an obstacle for anyone trying to gain a better 
+      understanding of how finance, economy, money and the world in general works. `
+      ,
+      `These lectures aim to guide you through the esoteric world of money and banking by 
+      starting the journey somewhere familiar, the local bank. We will analyse the 
+      balancesheet of a bank and the balancesheet of a customer, revealing what goes on
+      behind the scenes of seemingly innocuous activities of depositing cash, making 
+      transfers and running an overdraft.`
+      ,
+      `Later on we will build on the intuition gained in this chapter and apply it to
+      activities that take place not between banks and customers, but banks and other 
+      banks. You will begin to realise that a lot of the technical practices that are 
+      the subject of Broad-Sheet papers are in fact not too different to the practices
+      that take place between you and your local bank.`
+      ,
+      `Hopefuly by the end of the course you should be able to read through the Financial 
+      Times without having to get the dictionary out.`]
+
+      balancesheets and deposits
+      `Whether you are a customer, a corporation, a bank or a government, you will have 
+      in-comings and out-goings. You have things that you own and things that you owe. 
+      In banking, the things you own are called assets, and the things that you owe to
+      others are called liabilities. If we take the example of a bank and customer, what 
+      are their assets and liabilities?`,
+      `A customer will most commonly have two types of assets. These are cash reserves and 
+      deposits. We could say that the customer's cash reserves include the money in their wallet
+      or any other cash to hand. They can use this money instantly to buy things like groceries etc.
+      Deposits are money that a customer has in a bank, and these are also assets. There are however
+      some key differences between deposits and cash. `,
+      `Rather than being actual cash, deposits represent a promise by your bank to pay you cash.
+      When you deposit your cash at the bank, that cash belongs to the bank, and they could spend
+      it if they wished. What they give you in return is a claim on the bank, in cash, for the 
+      amount of deposits you have in your account. This may seem a little pedantic, but these 
+      small differences are crucial to understand as we begin to follow the many paths that money
+      takes.`,
+      `Deposits are an asset of the customer, yet at the same time they are a liability of the bank.
+      For a bank, deposits represent the money that the bank owes you at any time, on demand. 
+      It useful to remember that "a customer's asset is a bank's liability". This is a principal of
+      double-entry bookkeeping. The cash that was given to the bank in exchange for deposits is an
+      asset of the bank. And it is useful to bear in mind that there are far more deposits than there
+      is cash in circulation. If every customer at a branch wanted to redeem their deposits in cash, 
+      the bank would not have the reserves to do so. This is an aspect of "fractional reserve banking",
+      which in these lectures, is taken as a key feature of banking.`
+      

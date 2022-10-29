@@ -43,9 +43,23 @@ export default function Assignment({ assignment }) {
             paddingRight: "25rem",
           }}
         >
-          <Text size="lg" weight="bold" italic>
-            {assignment}
-          </Text>
+          {assignment.slice(0, 7) === "Sources" ? (
+            <>
+              <Text size="lg" weight="bold">
+                Sources
+              </Text>
+              {assignment
+                .split(":")
+                .shift()
+                .map((src) => (
+                  <Text size="lg">{src}</Text>
+                ))}
+            </>
+          ) : (
+            <Text size="lg" weight="bold" italic>
+              {assignment}
+            </Text>
+          )}
         </div>
       </div>
     </div>

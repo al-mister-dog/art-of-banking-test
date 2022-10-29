@@ -1,5 +1,10 @@
 import { BankingSystem } from "../banking-system";
-import { accountData, creditData, securitiesData } from "../structures/objects";
+import {
+  accountData,
+  creditData,
+  reservesData,
+  securitiesData,
+} from "../structures/objects";
 
 const system = "centralbank";
 
@@ -188,7 +193,6 @@ export const Balancesheets = {
       this.filteredAccounts(creditData, id),
       this.filteredAccounts(accountData, id),
     ].flatMap((accounts) => accounts);
-
     return relevantAccountsArray;
   },
   relevantLiabilities(id) {
@@ -202,11 +206,12 @@ export const Balancesheets = {
   returnAssets(id) {
     return this.mapByInstrument(
       this.addRelationalData(
-        this.filterEmptyAccounts(
-          this.relevantAccounts(id).map((account) =>
+        this.filterEmptyAccounts([
+          ...this.relevantAccounts(id).map((account) =>
             this.returnAsset(account, id)
-          )
-        ),
+          ),
+          this.reserves(id),
+        ]),
         id
       )
     );
@@ -251,8 +256,6 @@ export const Balancesheets = {
     };
   },
 
-
-
   filteredAccounts(data, id: number) {
     return data.allIds
       .map((id) => data.accounts[id])
@@ -272,6 +275,10 @@ export const Balancesheets = {
 
   filterEmptyAccounts(accountArray) {
     return accountArray.filter((account) => Object.keys(account).length !== 0);
+  },
+
+  reserves(id) {
+    return reservesData.accounts[id];
   },
 
   mapByInstrument(balanceSheetArray: any[]) {

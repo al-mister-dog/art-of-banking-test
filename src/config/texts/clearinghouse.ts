@@ -15,8 +15,7 @@ export const clearinghouseText = {
       to be dominated by JP Morgan, in 1853, and onwards to the Federal Reserve Act of 
       1913.`,
     ],
-    assignment: `Sources: CF Dunbar - Chapters on the Theory and History of Banking, 
-    Christopher Hoag - Clearinghouse loan certificates as interbank loans in the United States, 1860–1913, 
+    assignment: `Sources: CF Dunbar - Chapters on the Theory and History of Banking: Christopher Hoag - Clearinghouse loan certificates as interbank loans in the United States, 1860–1913: 
     James Graham Cannon - Clearing House Loan Certificates and Substitutes for Money Used During the Panic of 1907`,
   },
 

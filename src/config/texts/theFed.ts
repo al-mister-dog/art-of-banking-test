@@ -25,7 +25,7 @@ export const theFedText = {
       that is on the balance sheet of the Fed. It is important now to follow the money from balance
       sheet to balance sheet as we explore further how exactly banking works.`,
     ],
-    assignment: `Sources: Marcia Stigum - Stigum's Money Market, The Federal Funds Market since the Financial Crisis - Ben Craig`,
+    assignment: `Sources: Marcia Stigum - Stigum's Money Market: The Federal Funds Market since the Financial Crisis - Ben Craig: New York Fed - Domestic Market Operations`,
   },
 
   step2: {
