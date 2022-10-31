@@ -53,8 +53,8 @@ export default function Assignment({ assignment, nextLecture }) {
               {assignment
                 .split(":")
                 .slice(1)
-                .map((src) => (
-                  <Text size="lg">{src}</Text>
+                .map((src, i) => (
+                  <Text key={i} size="lg">{src}</Text>
                 ))}
             </>
           ) : (
