@@ -4,6 +4,7 @@ import ChartsAndSettings from "./charts-and-settings";
 import Toolbar from "./interactive-ui/settings/toolbar";
 import KeyTerms from "../lectures/article/lecture-index/key-terms";
 import Article from "./lectures/article";
+import NextLectureLink from "../shared-ui/next-lecture-link";
 
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
@@ -56,10 +57,20 @@ export default function LecturePath({
               <BalanceSheets />
               <ChartsAndSettings />
             </div>
+            {keyTermsIds.length === 0 && (
+              <div style={{ padding: "50px", backgroundColor: "inherit" }}>
+                <NextLectureLink nextLecture={nextLecture} />
+              </div>
+            )}
           </div>
-          <div className={classes.keyTermsContainer}>
-            <KeyTerms ids={keyTermsIds} />
-          </div>
+          {keyTermsIds.length > 0 && (
+            <div className={classes.keyTermsContainer}>
+              <KeyTerms ids={keyTermsIds} />
+              <div style={{ padding: "50px", backgroundColor: "inherit" }}>
+                <NextLectureLink nextLecture={nextLecture} />
+              </div>
+            </div>
+          )}
         </>
       )}
     </>
