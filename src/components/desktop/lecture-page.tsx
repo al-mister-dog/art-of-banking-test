@@ -3,7 +3,7 @@ import BalanceSheets from "./interactive-ui/cards/card-list";
 import ChartsAndSettings from "./charts-and-settings";
 import Toolbar from "./interactive-ui/settings/toolbar";
 import KeyTerms from "../lectures/article/lecture-index/key-terms";
-import Article from "../lectures/article/Article";
+import Article from "./lectures/article";
 
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
@@ -26,11 +26,18 @@ export default function LecturePath({
   text,
   assignment,
   keyTermsIds,
+  nextLecture,
 }) {
   const { classes } = useStyles();
   return (
     <>
-      <Article slug={slug} title={title} text={text} assignment={assignment} />
+      <Article
+        slug={slug}
+        title={title}
+        text={text}
+        assignment={assignment}
+        nextLecture={nextLecture}
+      />
       {title !== "Introduction" && (
         <>
           <div className={classes.assignmentContainer}>

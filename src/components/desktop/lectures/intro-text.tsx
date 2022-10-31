@@ -6,9 +6,25 @@ interface IntroProps {
 export default function IntroText({ text }: IntroProps) {
   return (
     <>
-      <Spoiler maxHeight={120} showLabel="Read More" hideLabel="Hide">
+      <Spoiler
+        maxHeight={120}
+        showLabel={
+          <Text italic color="violet">
+            Read More
+          </Text>
+        }
+        hideLabel={
+          <Text italic color="violet">
+            Hide
+          </Text>
+        }
+      >
         {text.map((t) => (
-          <Text key={t} size="xl" sx={{letterSpacing: "1px", marginBottom: "25px"}}>
+          <Text
+            key={t}
+            size="xl"
+            sx={{ letterSpacing: "1px", marginBottom: "25px" }}
+          >
             {t}
           </Text>
         ))}

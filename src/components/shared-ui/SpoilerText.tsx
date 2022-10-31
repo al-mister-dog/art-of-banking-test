@@ -1,12 +1,15 @@
 import { Spoiler, Text } from "@mantine/core";
-import React from "react";
 
 interface IntroProps {
   text: string[];
 }
-export default function Main({ text }: IntroProps) {
+export default function SpoilerText({ text }: IntroProps) {
   return (
-    <Spoiler maxHeight={120} showLabel="Read More" hideLabel="Hide">
+    <Spoiler
+      maxHeight={120}
+      showLabel={<Text color="violet">Read More</Text>}
+      hideLabel={<Text color="violet">Hide</Text>}
+    >
       {text.map((t) => (
         <Text
           key={t}

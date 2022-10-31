@@ -1,13 +1,18 @@
 import { Title, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 import Link from "next/link";
+import { mediaQuery } from "../../../config/media-query";
 
 export default function Intro({ title, text, nextPath }) {
+  const isMobile = useMediaQuery(mediaQuery);
   return (
     <>
       <div
         style={{
-          padding: `0px 200px 0px 50px`,
+          padding: `0px ${isMobile ? "5px" : "200px"} 0px ${
+            isMobile ? "5px" : "50px"
+          }`,
           marginTop: "200px",
         }}
       >

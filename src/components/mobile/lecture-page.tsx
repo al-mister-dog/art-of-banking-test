@@ -1,9 +1,11 @@
-import { createStyles } from "@mantine/core";
+import { Text, createStyles } from "@mantine/core";
 import Toolbar from "./interactive-ui/settings/toolbar";
 import Article from "./lectures/article";
 import KeyTerms from "./lectures/key-terms";
 import BalanceSheets from "./interactive-ui/cards/card-list";
 import Charts from "./charts";
+import Link from "next/link";
+import { useNextPage } from "../../hooks/useNextPage";
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
     backgroundColor: theme.colors.violet[0],
@@ -25,12 +27,19 @@ export default function LecturePageMobile({
   text,
   assignment,
   keyTermsIds,
+  nextLecture,
 }) {
   const { classes } = useStyles();
-
+  let link = useNextPage(nextLecture);
   return (
     <>
-      <Article slug={slug} title={title} text={text} assignment={assignment} />
+      <Article
+        slug={slug}
+        title={title}
+        text={text}
+        assignment={assignment}
+        nextLecture={nextLecture}
+      />
       {title !== "Introduction" && (
         <>
           <div className={classes.assignmentContainer}>

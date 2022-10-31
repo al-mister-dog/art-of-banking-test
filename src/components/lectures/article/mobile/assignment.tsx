@@ -49,6 +49,7 @@ export default function Assignment({ assignment }) {
               {assignment}
             </Text>
           )}
+          
         </div>
       </div>
     </div>

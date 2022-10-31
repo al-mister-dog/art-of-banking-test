@@ -16,6 +16,7 @@ import LecturePageMobile from "../../components/mobile/lecture-page";
 export default function LecturePath({
   slug,
   id,
+  lectureId,
   title,
   introductoryTexts,
   keyTermsIds,
@@ -30,7 +31,7 @@ export default function LecturePath({
 
   const loaded = useLoaded();
   const isMobile = useMediaQuery(mediaQuery);
-  
+  const nextLecture = { id, lectureId };
   if (loaded) {
     return isMobile ? (
       <LecturePageMobile
@@ -39,6 +40,7 @@ export default function LecturePath({
         text={paragraphs}
         assignment={assignment}
         keyTermsIds={keyTermsIds}
+        nextLecture={nextLecture}
       />
     ) : (
       <LecturePageDesktop
@@ -47,6 +49,7 @@ export default function LecturePath({
         text={paragraphs}
         assignment={assignment}
         keyTermsIds={keyTermsIds}
+        nextLecture={nextLecture}
       />
     );
   }
@@ -64,12 +67,13 @@ export default function LecturePath({
 export async function getStaticProps(context) {
   const { slug } = context.params;
   const data = getRouteObjectData(slug);
-  const { id, title, keyTermsIds } = data;
-  
+  const { id, lectureId, title, keyTermsIds } = data;
+
   return {
     props: {
       slug,
       id,
+      lectureId,
       title,
       introductoryTexts: introductoryTexts[id],
       keyTermsIds,

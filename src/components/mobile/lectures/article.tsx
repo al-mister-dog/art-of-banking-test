@@ -1,8 +1,14 @@
 import Assignment from "./assignment";
-import Main from "./main";
+import Main from "../../shared-ui/SpoilerText";
 import Title from "./title";
 
-export default function Article({ slug, title, text, assignment }) {
+export default function Article({
+  slug,
+  title,
+  text,
+  assignment,
+  nextLecture,
+}) {
   return (
     <>
       <div
@@ -18,7 +24,7 @@ export default function Article({ slug, title, text, assignment }) {
       </div>
 
       <div style={{ marginTop: "200px" }}>
-        <Assignment assignment={assignment} />
+        <Assignment assignment={assignment} nextLecture={nextLecture} />
       </div>
     </>
   );

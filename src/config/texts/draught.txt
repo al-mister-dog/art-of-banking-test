@@ -47,3 +47,18 @@
       the bank would not have the reserves to do so. This is an aspect of "fractional reserve banking",
       which in these lectures, is taken as a key feature of banking.`
       
+
+minSubArray(arr, target) {
+  let currentSum = 0;
+  let windowStart = 0;
+  let minWindowSize = Number.MAX_VALUE;
+  for (let i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+    while (current >= target/STILL >= target) {
+      minWindowSize = Math.min(minWindowSize, currentWindowSize);
+      currentSum -= arr[windowStart]; //remove num at windowstart index
+      windowStart++;
+    }
+  }
+  return minWindowSize;
+}

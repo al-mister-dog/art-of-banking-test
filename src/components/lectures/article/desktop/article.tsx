@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
     marginTop: "200px",
   },
 }));
-export default function Article({ slug, title, text, assignment }) {
+export default function Article({ slug, title, text, assignment, nextLecture }) {
   return (
     <>
       <div

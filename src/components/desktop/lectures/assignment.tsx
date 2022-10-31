@@ -1,10 +1,11 @@
 import { createStyles } from "@mantine/core";
 import { Text, Title } from "@mantine/core";
+import Link from "next/link";
+import { useNextPage } from "../../../hooks/useNextPage";
 
 const useStyles = createStyles((theme) => ({
   title: {
     padding: 16,
-
     marginBottom: 0,
     display: "inline-block",
     background: theme.colors.violet[0],
@@ -14,6 +15,7 @@ const useStyles = createStyles((theme) => ({
   },
   card: {
     paddingTop: 25,
+    paddingBottom: 50,
     background: theme.colors.violet[0],
   },
   desktopWidth: {
@@ -21,9 +23,9 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: "50px",
   },
 }));
-export default function Assignment({ assignment }) {
+export default function Assignment({ assignment, nextLecture }) {
   const { classes } = useStyles();
-
+  
   return (
     <div>
       <Title
@@ -50,7 +52,7 @@ export default function Assignment({ assignment }) {
               </Text>
               {assignment
                 .split(":")
-                .shift()
+                .slice(1)
                 .map((src) => (
                   <Text size="lg">{src}</Text>
                 ))}
