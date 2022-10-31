@@ -1,6 +1,6 @@
 import { createStyles } from "@mantine/core";
 import Assignment from "./assignment";
-import Main from "./main";
+import Main from "../../../shared-ui/SpoilerText";
 import Title from "../title";
 
 const useStyles = createStyles((theme) => ({
