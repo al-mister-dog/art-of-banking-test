@@ -1,15 +1,14 @@
-import { createStyles } from "@mantine/core";
 import Assignment from "./assignment";
 import Main from "../../../shared-ui/SpoilerText";
 import Title from "../title";
 
-const useStyles = createStyles((theme) => ({
-  articleContainer: { padding: 16 },
-  assignmentContainer: {
-    marginTop: "200px",
-  },
-}));
-export default function Article({ slug, title, text, assignment, nextLecture }) {
+export default function Article({
+  slug,
+  title,
+  text,
+  assignment,
+  nextLecture,
+}) {
   return (
     <>
       <div

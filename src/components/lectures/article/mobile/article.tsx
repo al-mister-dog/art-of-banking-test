@@ -1,5 +1,5 @@
 import Assignment from "./assignment";
-import Main from "./main";
+import Main from "../../../shared-ui/SpoilerText";
 import Title from "../title";
 
 export default function Article({ slug, title, text, assignment }) {
