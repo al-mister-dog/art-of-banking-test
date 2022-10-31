@@ -51,8 +51,8 @@ export const lectureRoutes = {
         },
         {
           id: 6,
-          title: "Sandbox",
-          path: "/fundamentals/sandbox",
+          title: "Conclusion",
+          path: "/fundamentals/conclusion",
           lectureId: 0,
           keyTermsIds: [0, 1, 2],
         },
@@ -107,8 +107,8 @@ export const lectureRoutes = {
         },
         {
           id: 13,
-          title: "Sandbox",
-          path: "/towards-a-central-bank/sandbox",
+          title: "Conclusion",
+          path: "/towards-a-central-bank/conclusion",
           lectureId: 1,
           keyTermsIds: [0, 1, 2],
         },

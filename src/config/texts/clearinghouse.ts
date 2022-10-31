@@ -167,7 +167,10 @@ export const clearinghouseText = {
   },
   step7: {
     lectureTitle: `Clearing House`,
-    title: `Playground`,
+    title: `Conclusion`,
     paragraphs: [``],
+    assignment: `One bank has run debts that exceed the Clearing House reserves. Can you find out who? In this
+    example, any money that would have previously been considered as part of a 'clearinghouse overdraft' has been allocated between
+    member banks as Clearinghouse loan certificates`,
   },
 };

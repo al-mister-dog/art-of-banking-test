@@ -64,46 +64,66 @@ export const fundamentalsText = {
     lectureTitle: `fundamentals`,
     title: `Deposit Transfers`,
     paragraphs: [
-      `We have seen how a bank takes a customer's money and exchanges them for deposits. On the bank's balance sheet, the deposits are counted as liabilities and the cash is part of the reserves on the assets side of the balance sheet.
-      We will now look at bank transfers. We transfer money when we want or have to give someone money in payment.
-      Outside of the banking system we could do this by simply handing the other person cash. But inside of
-      the banking system this is done by online transfer, or by check. And in this case we are not transfering cash but instead
-      we are transfering the deposits from our account into their account.`,
-      `So what happens in the balance sheets when customers make transfers? If a bank has two customers, both depositing £100, the bank would have £200 in reserves and £200 of deposits, which the bank owes to its customers. If Customer One transfered some of their deposits to Customer Two, no change would occur in the bank's total assets or liabilities, even though a change between the accounts of customer One and customer Two has occured.
-      As we will see later, it is a different situation when customers transfer deposits to customers with a different bank account to their own.`,
+      `So far we have looked at the difference between cash and deposits, and how deposits are the 
+    liability of the bank and the asset of the customer. A customer can transfer these deposits
+    to another customer. What they are transfering is not cash but deposits i.e. a transfer of
+    the claim on a bank to cash money. `,
+      `At this point in the course we are only concerned with the transfer of deposits between 
+    account holders at the same bank. With this in mind we can create a simple picture of what
+    happens to all balances (of the bank and the two customers) when a transfer takes place. 
+    On the balancesheets, there is a decrease in Customer One's account, and an increase in 
+    Customer Two's account. For the bank there is no change in the amount of deposits that it
+    ultimately owned. If both customers have $50 in their account and Customer One transfers 
+    $20 to Customer Two, the bank still owes $100. No change has occured. `,
+      `As far as the bank is concerned, this is an ideal situation, because it does not need to
+    worry about where it is going to get extra funds from to make good on its promise to pay.
+    Later when we deal with transfers between customers with accounts at different banks, we 
+    will see that this becomes are more complicated situation for both banks.`,
     ],
-    assignment: `Here we have a bank with two customers, who have 100 pounds in cash ready to be deposited at the bank. Watch what happens to the bank’s balance sheet and the customers' accounts when they transfer their money to eachother.`,
+    assignment: `Here we have a bank with two customers, who have $100 in cash ready to be deposited at the bank. Watch what happens to the bank’s balance sheet and the customers' accounts when they transfer their money to eachother.`,
   },
   step4: {
     lectureTitle: `fundamentals`,
     title: `Credit and Overdrafts`,
     paragraphs: [
-      `Credit is simply a promise to pay at a future date. I could write you an IOU on a piece
-      of paper in exchange for goods or services and that would count as credit. For banks, 
-      deposits are a form of credit. They are promises to pay cash on demand at a future date.
-      This is often forgotten as deposit transfers are the main form of retail purchase and 
-      most people are happy with receiving deposits in their accounts as payment. Cash and 
-      deposits are almost interchangeable`,
-      `If a customer at a bank withdraws more money than is in their account, or if they transfer
-      more than is in their account to someone else, they run a negative balance. This negative
-      balance is called an overdraft. In this case the customer now owes the bank. Because of this
-      a customer overdraft is an liability of the customer and an asset of the bank. For the bank,
-      an overdraft represents money that they will receive from the customer in the future. This 
-      can be paid back either in cash or through someone else transfering deposits into their account.`,
-      `Overdrafts are simply deposits, a promise to pay, except this time by the customer to the bank.
-      This means that overdrafts are also a form of credit. A promise to pay at a future date.
-      Because credit is just a promise to pay and not the final means of settlement, the amount 
-      of credit in a system expands much quicker than cash can (cash needs to be printed etc). 
-      It is up to the bank issuing the overdraft for how long credit can expand before the money
-      needs calling in.`,
-      `We now introduce a line chart below that represents the amount of credit is in a bank at 
-      any given moment. Lets say the bank starts with zero money. If a Customer Deposits $100 in 
+      `In the real world, deposit transfers are the main form of retail purchase and 
+      most people are happy with receiving deposits in their accounts as payment. Shops
+      that only accept cash are becoming rarer and rarer. Cash and deposits are almost interchangeable.
+      So when does the difference between these two types of money become more apparent?`,
+      `
+      One of the main differences can be seen with overdrafts. If a pair of shoes costs $100 and
+      a customer has only $50 cash, it would be impossible to buy these shoes if cash were the only
+      form of money available. However, in a world with deposits, a customer can instead buy the shoes using their 
+      debit card, and instead of the bank refusing the purchase they will allow the customer to run 
+      a negative balance on their deposit account. This negative balance is called an overdraft.`,
+      `What does this look like on our balance sheets? When a customer's balance is negative 
+      the customer now owes the bank money. Because of this, a customer-overdraft is a liability of 
+      the customer and an asset of the bank. For the bank, an overdraft represents money that they 
+      will receive from the customer in the future. This can be paid back either in cash or through 
+      someone else transfering deposits into the customer's account.`,
+      `An overdraft is a form of credit. Credit is simply a promise to pay at a future date, an 
+      IOU. For banks, deposits are a form of credit. As we have discussed, deposits are promises 
+      to pay cash on demand at a future date. Overdrafts are also a promise to pay, except this time 
+      by the customer to the bank.`,
+      `Because credit is just a promise to pay and not the final means of settlement, the amount 
+      of credit there is depends on how much money people are willing to wait out on before calling it in. 
+      Credit doesn't neccesarily rely on the amount of real money (or gold) that is lying around. Because of 
+      this, the amount of credit in an economy will expand much quicker than cash can. It is quicker
+      to make a promise than it is to make good on that promise, as well as the fact that physical money, 
+      or gold, or even cryptocurrency takes time and effort to create. In the case of overdrafts, it is 
+      up to the bank issuing the overdraft for how long this credit can expand before the money needs 
+      calling in, as well as deciding whether they will charge a fee for incurring an overdraft.`,
+      `We now introduce a chart below in which one line represents the amount of credit there is in a bank at 
+      any given moment. The other line represents reserves, or the amount of 'real' money there is in this
+      system. Lets say the bank starts with zero money. If a Customer Deposits $100 in 
       the bank, the bank owes $100 in deposits and therefore the amount of credit in the system is
-      $100. If the customer withdraws $50, there is $50 of credit in the system. If a Customer Deposits
-      $100 in the bank and transfers it to another customer of the same bank, the credit stays at $100.
-      However if a customer transfers more money than is in their account, the credit expands further.
-      The only way to contract the amount of credit is for the customer to pay back their overdraft. 
-      We will be thinking about the expansion and contraction of credit much more as we go along, but
+      $100. There is also $100 reserves. If the customer withdraws $50, there is $50 of credit 
+      in the system and $50 reserves. If a Customer deposits $100 in the bank and transfers it to another 
+      customer of the same bank, the credit stays at $100. However if a customer transfers more money than is in their account, say $50, the credit 
+      expands by $100 (not $50; the bank owes the other customer $50 and the first customer owes the 
+      bank $100). Reserves however stay the same as no extra cash was put into the system.
+      The only way to contract the amount of credit to the amount of reserves is for the customer to pay 
+      back their overdraft. We will be thinking about the expansion and contraction of credit much more as we go along, but
       this is a good starting point.
       `,
     ],
@@ -115,26 +135,24 @@ export const fundamentalsText = {
     lectureTitle: `fundamentals`,
     title: `Loans`,
     paragraphs: [
-      `Just like overdrafts, loans are both a form of credit and an expansion of the balancesheet. 
-      The way we think of the process of taking out a loan goes like this. A customer asks for a loan,
-      and the bank provides the customer with the money under the condition that the customer pays it
-      back with interest. In this model, money is moving from the bank to the customer and back to the bank.
-      However for a bank the process goes more like this. A customer asks for a loan and the bank adds
-      deposits to the liabilities side of the balance sheet while at the same time adding deposits to the 
-      assets side of the balance sheet. The assets that have been added denote the same amount of deposits
-      that are due to the bank at a future data, plus interest. `,
-      `To a bank, deposits are just the promise to pay money to a customer at a future date, and are infact
-      a deferment of final settlement. Because of this a bank can simply add, or create, deposits, so long
-      as the bank is confident that at some point in the future they will have the means of redeeming 
-      the deposits in cash. Likewise a loan means the bank is confident that a customer will one day redeem
-      the loan in cash or with a deposit transfer. As we will see later, a deposit transfer into a bank represents
-      a promise from some other bank of redeeming these deposits in money at a future date.`,
-      `Looking at things from this perspective shows us the ability to create money out of thin air. However
-      this creation comes with the responsibility of the parties involved to contract credit and make sure
-      that all payments are eventually settled. The idea of future settlements underpins the core mechanisms of
+      `Overdrafts at most tend to be around a couple of thousand dollars. But what if a customer was
+      starting a business, which needed a quick injection of money to get off the ground? A bank can
+      offer this customer much more deposits in the form of a loan. With a loan, a bank increases 
+      a customer's deposit account on the condition that this money is paid back with interest at a 
+      future date.`,
+      `On our balance sheets this takes the form of an increase of customer assets and banks liabilities.
+      However, because this money needs to be paid back in the future, there is also an increase of 
+      bank assets and customer liabilities. An increase in both party's assets and liabilities is known
+      as an expansion on both sides of the balance sheet.`,
+      `In some economics circles, this is known as 'creating money from thin air', and always comes with
+      an element of risk. The creation of money through loans comes with the responsibility of the parties
+      involved to contract this credit down through repayment, or to allow the real money to rise and 
+      meet this expansion. The amount of money rising to meet credit expansion is known as growth, and
+      is often seen as the ideal consequence of credit expansion. The primary focus however is that 
+      all payments are eventually settled. The idea of future settlements underpins the core mechanisms of
       finance, creating growth in economies (monetarily speaking) but must be handled carefuly as inability 
-      to pay, given enough cases, can result in financial catastrophe!`,
-      ``,
+      to pay, given enough cases, can result in economic catastrophe, as seen in the financial crisis
+      of 2008, in which one of the main factors was the inability to settle payments for various reasons.`,
     ],
     assignment: `Assignment: Have a customer take out a loan. Is there a way for this customer to pay it back?`,
   },
@@ -142,16 +160,18 @@ export const fundamentalsText = {
     lectureTitle: `fundamentals`,
     title: `Constraint`,
     paragraphs: [
-      `Because cash is many ways seen as the final form of settlement, a bank must ensure that
+      `In order to try reduce the risk involved in loan creations and overdrafts etc, various 
+      constraints may be put on banks, by the government or even the banks themselves. constraints
+      however are also naturally imposed, due to the dual role a bank plays as a profit making 
+      instution and a payments facilitator.`,
+      `Because cash is in many ways seen as the final form of settlement, a bank must ensure that
       it can redeem its customers on a day to day basis. The surest way of doing this would be
       to keep all the cash deposited in a vault, in case all the customers decide to all take out
       their money at the same time. Of course, this is unlikely and the bank would like to use 
-      these funds for investments elsewhere. But bank runs (the scenario illustrated in the previous
-      sentence) can and do happen.`,
+      these funds for investments elsewhere. But bank-runs can and do happen.`,
       `This then is one of many constraints a bank faces. Traditionally banks are required to keep
-      a fraction of total Customer Deposits as reserves. For example if total Customer Deposits were
-      $10000, a bank may be required by law to keep $2500 in reserve to meet its daily demands. This 
-      is called fractional reserve banking.`,
+      a fraction of total customer deposits as reserves. For example if total customer deposits were
+      $10000, a bank may be required by law to keep $2500 in reserve to meet its daily demands.`,
       `We have seen by playing with overdrafts how credit can expand and contract. Credit expansion 
       means there is lots of investment going on, and lots of payments being made. However this 
       is a precarious position for a bank if suddenly everyone gets spooked and wants to redeem their
@@ -164,22 +184,13 @@ export const fundamentalsText = {
     lectureTitle: `fundamentals`,
     title: `Conclusion`,
     paragraphs: [
-      `Because cash is many ways seen as the final form of settlement, a bank must ensure that
-      it can redeem its customers on a day to day basis. The surest way of doing this would be
-      to keep all the cash deposited in a vault, in case all the customers decide to all take out
-      their money at the same time. Of course, this is unlikely and the bank would like to use 
-      these funds for investments elsewhere. But bank runs (the scenario illustrated in the previous
-      sentence) can and do happen.`,
-      `This then is one of many constraints a bank faces. Traditionally banks are required to keep
-      a fraction of total Customer Deposits as reserves. For example if total Customer Deposits were
-      $10000, a bank may be required by law to keep $2500 in reserve to meet its daily demands. This 
-      is called fractional reserve banking.`,
-      `We have seen by playing with overdrafts how credit can expand and contract. Credit expansion 
-      means there is lots of investment going on, and lots of payments being made. However this 
-      is a precarious position for a bank if suddenly everyone gets spooked and wants to redeem their
-      deposits as cash. On the other hand, if credit doesn't expand, growth becomes much slower or 
-      even impossible. The art of banking requires striking a balance between constraint and elasticity.`,
+      `So far we have covered the basics of balancesheets, the difference between cash and loans, 
+      loans, overdrafts, credit expansion and constraint. In the next lecture we will see what 
+      happens when banks deal with these issues on a nation-wide scale, facilitating transfers
+      between customers from other banks, and how these issues are simplified by introducing a 
+      banker's bank, something like an overseeing authority or one big bank.`,
     ],
-    assignment: `Change the reserve requirement and see how it effects the elasticity of the system.`,
+    assignment: `Play around with deposits, withdrawals, transfers, overdrafts and loans, as well 
+    as constraints and credit expansion.`,
   },
 };

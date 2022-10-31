@@ -12,25 +12,31 @@ export function useNextPage(ids: IdProps) {
   let title = "";
 
   const thisLecture = lectureRoutes.routes[lectureId];
+  const isLastChapter = !thisLecture.routes
+    .map((route) => route.id)
+    .includes(id + 1);
+  const isLastLecture = lectureRoutes.routes[lectureId + 1] === undefined;
 
-  if (lectureRoutes.routes[lectureId + 1] === undefined) {
-    path === `/${lectureRoutes.routes[0].path.split(`/`)[2]}`;
-    title = "Back to Lectures";
-  } else if (!thisLecture.routes.map((route) => route.id).includes(id + 1)) {
-    path = `/${lectureRoutes.routes[lectureId + 1].path.split(`/`)[2]}`;
-    title = lectureRoutes.routes[lectureId + 1].title;
-  } else {
+  function getNextChapterLink() {
     path = thisLecture.routes.find((route) => route.id === id + 1).path;
     title = thisLecture.routes.find((route) => route.id === id + 1).title;
-    if (!path) {
-      path === `/${lectureRoutes.routes[0].path.split(`/`)[2]}`;
-      title = lectureRoutes.routes[0].title;
-    }
   }
-  return { path, title };
-}
 
-/**
- *
- *
- */
+  function getNextLectureLink() {
+    path = `/${lectureRoutes.routes[lectureId + 1].path.split(`/`)[2]}`;
+    title = lectureRoutes.routes[lectureId + 1].title;
+  }
+
+  function getIntroductionLink() {
+    path === `/${lectureRoutes.routes[0].path.split(`/`)[2]}`;
+    title = "Back to Lectures";
+  }
+
+  if (isLastChapter) {
+    isLastLecture ? getIntroductionLink() : getNextLectureLink();
+    return { path, title };
+  } else {
+    getNextChapterLink();
+    return { path, title };
+  }
+}
