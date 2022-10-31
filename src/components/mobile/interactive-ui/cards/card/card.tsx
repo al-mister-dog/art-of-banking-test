@@ -16,62 +16,16 @@ import {
 import BankDetail from "../../bank-detail/panel";
 import BalanceSheetRowHeading from "../balances/balance-sheet-heading";
 import SpreadsheetList from "../balances/balance-displays/spreadsheet-list";
+import { useHover } from "@mantine/hooks";
 
 export const DrawerContext = createContext((v: boolean) => {});
 
-export const useStyles = createStyles((theme) => ({
-  card: {
-    backgroundColor: theme.colors.violet[1],
-    paddingBottom: "0px",
-    width: "100%",
-    height: "11.75rem",
-    margin: "auto",
-  },
-  header: { padding: "3px", cursor: "pointer" },
-  grape: {
-    backgroundColor: theme.colors.grape,
-    "&:hover": {
-      backgroundColor: theme.colors.grape[3],
-    },
-  },
-  violet: {
-    backgroundColor: theme.colors.violet,
-    "&:hover": {
-      backgroundColor: theme.colors.violet[3],
-    },
-  },
-  indigo: {
-    backgroundColor: theme.colors.violet,
-    "&:hover": {
-      backgroundColor: theme.colors.violet[3],
-    },
-  },
-  pink: {
-    backgroundColor: theme.colors.pink,
-    "&:hover": {
-      backgroundColor: theme.colors.pink[3],
-    },
-  },
-  teal: {
-    backgroundColor: theme.colors.teal,
-    "&:hover": {
-      backgroundColor: theme.colors.teal[3],
-    },
-  },
-  blue: {
-    backgroundColor: theme.colors.blue,
-    "&:hover": {
-      backgroundColor: theme.colors.blue[3],
-    },
-  },
-}));
-
 export default function CardUI({ bank }: { bank: CardInfo }) {
-  const theme = useMantineTheme();
-  const [opened, setOpened] = useState(false);
-  const { classes } = useStyles();
   const { displaySettings, spreadsheetSettings } =
     useAppSelector(selectSettings);
+  const [opened, setOpened] = useState(false);
+  const { hovered, ref } = useHover();
+  const theme = useMantineTheme();
 
   let spreadsheetBalances = { assets: undefined, liabilities: undefined };
   if (spreadsheetSettings.each) {
@@ -81,96 +35,103 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
   }
 
   return (
-    <Card
-      key={bank.cardInfo.id}
-      shadow="sm"
-      p="sm"
-      radius="xs"
-      className={classes.card}
-    >
-      <Card.Section
-        className={`${classes.header} ${classes[bank.color]}`}
+    <>
+      <Card
+        key={bank.cardInfo.id}
+        ref={ref}
+        shadow="sm"
+        p="sm"
+        radius="xs"
+        style={{
+          backgroundColor: theme.colors.violet[1],
+          paddingBottom: "0px",
+          width: "100%",
+          height: "11.75rem",
+          margin: "auto",
+          border: hovered ? `2px solid ${theme.colors[bank.color][2]}` : "",
+        }}
         onClick={() => setOpened(true)}
       >
-        <Center>
-          <Title order={4} color="white">
-            {bank.cardInfo.name}
-          </Title>
-        </Center>
-      </Card.Section>
-      <Card.Section>
-        <SimpleGrid
-          cols={2}
-          sx={{
-            borderBottom: `1px solid ${theme.colors[bank.color][2]}`,
-            height: "1.25rem",
-          }}
-        >
-          <Text
-            size="xs"
-            weight="bold"
-            align="center"
-            color={`${theme.colors[bank.color][9]}`}
-          >
-            Assets
-          </Text>
-          <Text
-            size="xs"
-            weight="bold"
-            align="center"
-            color={`${theme.colors[bank.color][9]}`}
-          >
-            Liabilities
-          </Text>
-        </SimpleGrid>
-      </Card.Section>
-      <Card.Section style={{ padding: "5px" }}>
-        {displaySettings.spreadsheet &&
-        spreadsheetBalances.assets !== undefined ? (
-          <SpreadsheetList
-            assets={spreadsheetBalances.assets}
-            liabilities={spreadsheetBalances.liabilities}
-            bank={bank}
-          />
-        ) : (
+        <Card.Section style={{ padding: "3px", cursor: "pointer" }}>
+          <Center>
+            <Title order={4} color={theme.colors[bank.color][9]}>
+              {bank.cardInfo.name}
+            </Title>
+          </Center>
+        </Card.Section>
+        <Card.Section>
           <SimpleGrid
             cols={2}
-            style={{ height: "7.5rem", overflowX: "hidden" }}
+            sx={{
+              borderBottom: `1px solid ${theme.colors[bank.color][2]}`,
+              height: "1.25rem",
+            }}
           >
-            <div
-              style={{
-                borderRight: `1px solid ${theme.colors[bank.color][2]}`,
-              }}
+            <Text
+              size="xs"
+              weight="bold"
+              align="center"
+              color={`${theme.colors[bank.color][9]}`}
             >
-              {bank.balanceSheet.assets.map((asset: any) => {
-                return (
-                  <BalanceSheetRowHeading
-                    key={asset.instrument}
-                    side={asset}
-                    id={bank.cardInfo.id}
-                    textColor={bank.color}
-                    bank={bank}
-                  />
-                );
-              })}
-            </div>
-            <div>
-              {bank.balanceSheet.liabilities.map((liability: any) => {
-                return (
-                  <BalanceSheetRowHeading
-                    key={liability.instrument}
-                    side={liability}
-                    id={bank.cardInfo.id}
-                    textColor={bank.color}
-                    bank={bank}
-                  />
-                );
-              })}
-            </div>
+              Assets
+            </Text>
+            <Text
+              size="xs"
+              weight="bold"
+              align="center"
+              color={`${theme.colors[bank.color][9]}`}
+            >
+              Liabilities
+            </Text>
           </SimpleGrid>
-        )}
-      </Card.Section>
-
+        </Card.Section>
+        <Card.Section style={{ padding: "5px" }}>
+          {displaySettings.spreadsheet &&
+          spreadsheetBalances.assets !== undefined ? (
+            <SpreadsheetList
+              assets={spreadsheetBalances.assets}
+              liabilities={spreadsheetBalances.liabilities}
+              bank={bank}
+            />
+          ) : (
+            <SimpleGrid
+              cols={2}
+              style={{ height: "7.5rem", overflowX: "hidden" }}
+            >
+              <div
+                style={{
+                  borderRight: `1px solid ${theme.colors[bank.color][2]}`,
+                }}
+              >
+                {bank.balanceSheet.assets.map((asset: any) => {
+                  return (
+                    <BalanceSheetRowHeading
+                      key={asset.instrument}
+                      side={asset}
+                      id={bank.cardInfo.id}
+                      textColor={bank.color}
+                      bank={bank}
+                    />
+                  );
+                })}
+              </div>
+              <div>
+                {bank.balanceSheet.liabilities.map((liability: any) => {
+                  return (
+                    <BalanceSheetRowHeading
+                      key={liability.instrument}
+                      side={liability}
+                      id={bank.cardInfo.id}
+                      textColor={bank.color}
+                      bank={bank}
+                    />
+                  );
+                })}
+              </div>
+            </SimpleGrid>
+          )}
+        </Card.Section>
+      </Card>
       <DrawerContext.Provider value={setOpened}>
         <Drawer
           opened={opened}
@@ -181,6 +142,6 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
           <BankDetail bank={bank} />
         </Drawer>
       </DrawerContext.Provider>
-    </Card>
+    </>
   );
 }

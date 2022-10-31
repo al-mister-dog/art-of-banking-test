@@ -1,6 +1,7 @@
 import { Text } from "@mantine/core";
 import Link from "next/link";
-import { useNextPage } from "../../../hooks/useNextPage";
+import { useNextPage } from "../../hooks/useNextPage";
+
 export default function NextLectureLink({ nextLecture }) {
   let link = useNextPage(nextLecture);
   return (

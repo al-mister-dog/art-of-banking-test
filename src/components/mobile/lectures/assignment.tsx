@@ -1,8 +1,7 @@
 import { createStyles } from "@mantine/core";
 import { Text, Title } from "@mantine/core";
-import Link from "next/link";
 import { useNextPage } from "../../../hooks/useNextPage";
-import { PlayerTrackNext } from "tabler-icons-react";
+import NextLectureLink from "../../shared-ui/next-lecture-link";
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -37,13 +36,7 @@ export default function Assignment({ assignment, nextLecture }) {
           <Text size="md" weight="bold" italic>
             {assignment}
           </Text>
-          {/* <PlayerTrackNext strokeWidth={2} style={{padding: 0, margin:0, bottom: 0}} color={"black"} /> */}
-          <Text italic weight="bold" color="violet">
-            <Link href={`/lectures${link.path}`}>
-              {`Next Lecture: ${link.title}`}
-            </Link>
-          </Text>
-          
+          <NextLectureLink nextLecture={nextLecture} />
         </div>
       </div>
     </div>
