@@ -18,6 +18,7 @@ import {
   Button,
   createStyles,
   Radio,
+  Table,
 } from "@mantine/core";
 import { RadioGroup } from "@mantine/core/lib/Radio/RadioGroup/RadioGroup";
 
@@ -183,8 +184,27 @@ export default function CentralBank() {
             Calculate
           </Button>
         </Box>
-        <Box sx={{ height: 600, width: "70%", margin: "auto" }}>
-          {JSON.stringify(graphResult)}
+        <Box sx={{ height: "50%", width: "70%", margin: "auto", overflow: "auto" }}>
+          <Table verticalSpacing="xs" fontSize="xs">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Interest</th>
+                <th>Real Interest</th>
+                <th>Simple Interest</th>
+              </tr>
+            </thead>
+            <tbody>
+              {graphResult.map((element) => (
+                <tr key={element.year}>
+                  <td>{element.year}</td>
+                  <td>{element.interest}</td>
+                  <td>{element["real interest"]}</td>
+                  <td>{element["simple interest"]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </Box>
       </Paper>
     </>

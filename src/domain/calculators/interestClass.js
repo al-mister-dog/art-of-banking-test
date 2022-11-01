@@ -191,3 +191,81 @@ export default class InterestCalculator {
     );
   }
 }
+
+
+
+
+// interface Data {
+//   interest: number;
+//   accruedInterest: number;
+//   balance: number;
+// }
+
+// const annualy = 1;
+// const semiAnnualy = 2;
+// const quarterly = 4;
+// const monthly = 12;
+
+// function compoundInterest(
+//   balance: number,
+//   rate: number,
+//   times: number,
+//   amount: number = 0,
+//   accruedInterest: number = 0,
+//   array: Data[] = []
+// ) {
+//   if (amount >= times) {
+//     return array;
+//   }
+
+//   let interest = (balance * rate) / 100;
+
+//   for (let i = 0; i < quarterly; i++) {
+//     let normalInterest = balance / 100;
+//     let compoundInterest = (interest * rate) / 100;
+//     let result = normalInterest + compoundInterest;
+//     // console.log(result);
+//   }
+
+//   balance = balance + interest;
+  
+//   console.log(balance)
+//   accruedInterest = accruedInterest + interest;
+
+//   let data = {
+//     interest,
+//     accruedInterest,
+//     balance: balance,
+//   };
+
+//   array.push(data);
+
+//   amount++;
+//   return compoundInterest(balance, rate, times, amount, accruedInterest, array);
+// }
+
+// const compoundInterestResults = compoundInterest(100, 2, 10).map((data) => {
+//   data.interest = data.interest.toFixed(2);
+//   data.accruedInterest = data.accruedInterest.toFixed(2);
+//   data.balance = data.balance.toFixed(2);
+//   return data;
+// });
+
+// console.log(compoundInterestResults);
+
+// function compoundInterval(principal, rate, times, compoundInterval) {
+//   let cInterest = (principal / 100) * rate;
+//   for (let i = 0; i < compoundInterval; i++) {
+//     cInterest += cInterest;
+//   }
+// }
+
+// compoundInterval(1, 5, 10, semiAnnualy);
+
+// /**
+//  * A compounding period is the span of time between when interest was last compounded and
+//  * when it will be compounded again. For example, annual compounding means that a full year
+//  * will pass before interest is compounded again.  When interest compounding occurs,
+//  * interest is added to the principal on a loan. A lender may engage in more aggressive
+//  * monthly or quarterly compounding, which increases the amount to be repaid by the borrower.
+//  */

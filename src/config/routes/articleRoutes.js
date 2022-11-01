@@ -12,4 +12,17 @@ export const articleRoutes = [
       },
     ],
   },
+  {
+    id: 1,
+    title: "Interest",
+    path: "/articles/interest",
+    routes: [
+      {
+        id: 1,
+        articleId: 1,
+        title: "Compound Interest",
+        path: "/interest/compound-interest",
+      },
+    ],
+  },
 ];
