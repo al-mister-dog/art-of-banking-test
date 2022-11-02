@@ -105,6 +105,7 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
         type="number"
         placeholder={`${years}`}
         label="Years"
+        max={100}
         onChange={(e) => setYears(e.target.value)}
       />
       <CompoundPeriod
@@ -116,7 +117,13 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
         variant="filled"
         className={classes.calculateBtn}
         onClick={() =>
-          getCompoundInterest(principal, interestRate, years, compoundPeriod)
+          getCompoundInterest(
+            principal,
+            interestRate,
+            inflationRate,
+            years,
+            compoundPeriod
+          )
         }
       >
         Calculate

@@ -12,17 +12,8 @@ import {
 
 export default function CompoundInterestChart({ data }) {
   return (
-    <Box
-      style={{
-        width: "95%",
-        marginTop: "25px"
-      }}
-    >
-      <Text size={15} ml={8}>
-        Compound Interest Rates Over {data.length} years
-      </Text>
-
-      <ResponsiveContainer>
+    <Box style={{ width: "85%", margin: "auto", marginTop: "10px" }}>
+      <ResponsiveContainer height={300}>
         <LineChart
           data={data}
           margin={{
@@ -33,26 +24,71 @@ export default function CompoundInterestChart({ data }) {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" />
-          <YAxis />
+          <XAxis
+            dataKey="year"
+            style={{
+              fontSize: "0.7rem",
+              fontFamily: "Poppins",
+            }}
+          />
+          <YAxis
+            style={{
+              fontSize: "0.7rem",
+              fontFamily: "Poppins",
+            }}
+          />
           <Tooltip />
-          <Legend />
+          <Legend
+            wrapperStyle={{ fontSize: "0.8rem", fontFamily: "Poppins", fontWeight: "bold" }}
+          />
+
           <Line
+            strokeWidth={2}
+            name="Interest"
             type="monotone"
             dataKey="interest"
             stroke="#c92a2a"
             activeDot={{ r: 8 }}
           />
           <Line
+            strokeWidth={2}
+            name="/adjusted"
+            type="monotone"
+            dataKey="realInterest"
+            stroke="#ff8787"
+            activeDot={{ r: 8 }}
+          />
+          <Line
+            strokeWidth={2}
+            name="Accrued"
             type="monotone"
             dataKey="accruedInterest"
             stroke="#1864ab"
             activeDot={{ r: 8 }}
           />
+
           <Line
+            strokeWidth={2}
+            name="/adjusted"
+            type="monotone"
+            dataKey="realAccruedInterest"
+            stroke="#4dabf7"
+            activeDot={{ r: 8 }}
+          />
+          <Line
+            strokeWidth={2}
+            name="Balance"
             type="monotone"
             dataKey="balance"
             stroke="#e67700"
+            activeDot={{ r: 8 }}
+          />
+          <Line
+            strokeWidth={2}
+            name="/adjusted"
+            type="monotone"
+            dataKey="realBalance"
+            stroke="#ffa94d"
             activeDot={{ r: 8 }}
           />
         </LineChart>

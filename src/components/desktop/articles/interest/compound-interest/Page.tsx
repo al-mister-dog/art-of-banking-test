@@ -1,25 +1,57 @@
 import { useState } from "react";
 
-import { Paper, Box } from "@mantine/core";
-import { compoundInterest } from "../../../../../domain/calculators/compoundInterest";
+import { Paper, Box, Title, Text, useMantineTheme } from "@mantine/core";
+import {
+  compoundInterest,
+  initialData,
+} from "../../../../../domain/calculators/compoundInterest";
 import Calculator from "./calculator";
 import Table from "./table";
 import Chart from "./chart";
 
-export default function CompoundInterestCalculator() {
-  const [graphResult, setGraphResult] = useState([]);
+const cpLabels = {
+  1: "Annually",
+  2: "Semi-Annually",
+  4: "Quarterly",
+  12: "Monthly",
+  52: "Weekly",
+  365: "Daily",
+};
 
-  function getCompoundInterest(principal, interestRate, years, compoundPeriod) {
+export default function CompoundInterestCalculator() {
+  const [graphResult, setGraphResult] = useState<any>(initialData);
+  const [cpLabel, setCpLabel] = useState(cpLabels[1]);
+  const [interestLabel, setInterestLabel] = useState(0);
+  const [inflationLabel, setInflationLabel] = useState(0);
+
+  const theme = useMantineTheme();
+
+  function getCompoundInterest(
+    principal,
+    interestRate,
+    inflationRate,
+    years,
+    compoundPeriod
+  ) {
     const graphData = compoundInterest(
       parseInt(principal),
       parseInt(interestRate),
+      parseInt(inflationRate),
       parseInt(years),
       compoundPeriod
     );
+
     setGraphResult(graphData);
+    setCpLabel(cpLabels[compoundPeriod]);
+    setInterestLabel(interestRate);
+    setInflationLabel(inflationRate);
   }
+
   return (
     <>
+      <Box ml={25} mt={200}>
+        <Title>Compound Interest</Title>
+      </Box>
       <Paper
         style={{
           width: "70vw",
@@ -27,6 +59,8 @@ export default function CompoundInterestCalculator() {
           margin: "auto",
           marginTop: "2rem",
           display: "flex",
+          flexDirection: "row",
+          backgroundColor: theme.colors.violet[1],
         }}
       >
         <Box
@@ -34,7 +68,7 @@ export default function CompoundInterestCalculator() {
             width: "30%",
             margin: "auto",
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <Calculator getCompoundInterest={getCompoundInterest} />
@@ -44,11 +78,21 @@ export default function CompoundInterestCalculator() {
           sx={{
             width: "70%",
             margin: "auto",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
+          <Text size="xs" weight="bold" ml={35}>
+            Compound Interest Rate Over {graphResult.length} years:{" "}
+            {interestLabel}% interest, {cpLabel} /{" "}
+            <span style={{ color: theme.colors.red[9] }}>
+              {inflationLabel}% inflation
+            </span>
+          </Text>
           <Box
             sx={{
               height: "50%",
+              width: "100%",
               margin: "auto",
             }}
           >
@@ -56,7 +100,8 @@ export default function CompoundInterestCalculator() {
           </Box>
           <Box
             sx={{
-              height: "50%",
+              minHeight: "50%",
+              width: "100%",
               margin: "auto",
             }}
           >
