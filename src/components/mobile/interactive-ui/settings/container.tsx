@@ -17,7 +17,7 @@ export default function SettingsMobile({ setOpened }) {
   return (
     <>
       <Center>
-        <Title order={4}>Settings</Title>
+        <Title order={5}>Settings</Title>
       </Center>
       <div
         style={{
