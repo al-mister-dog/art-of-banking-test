@@ -12,13 +12,20 @@ import {
 
 export default function SimpleInterestChart({ data }) {
   return (
-    <Box style={{ width: "85%", margin: "auto", marginTop: "10px" }}>
+    <Box
+      style={{
+        width: "95%",
+
+        marginTop: "10px",
+        padding: "0px",
+      }}
+    >
       <ResponsiveContainer height={300}>
         <LineChart
           data={data}
           margin={{
             top: 5,
-            right: 0,
+            right: 1,
             left: -20,
             bottom: 0,
           }}

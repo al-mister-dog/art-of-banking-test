@@ -1,11 +1,6 @@
 import { useState } from "react";
 
-import {
-  Box,
-  Button,
-  createStyles,
-  NumberInput,
-} from "@mantine/core";
+import { Box, Button, createStyles, NumberInput, Stack } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   paper: {
@@ -45,55 +40,61 @@ export default function SimpleInterestCalculator({ getSimpleInterest }) {
   const [interestRate, setInterestRate] = useState(0.05);
   const [years, setYears] = useState(10);
   return (
-    <Box style={{ display: "flex", flexDirection: "column" }}>
-      <NumberInput
-        label="Principal"
-        radius="xs"
-        min={0}
-        max={9999}
-        value={principal}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 9999) {
-            val = 9999;
-          }
-          setPrincipal(val);
-        }}
-      />
-      <NumberInput
-        label="Interest Rate (%)"
-        radius="xs"
-        min={0}
-        max={100}
-        value={interestRate}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 100) {
-            val = 100;
-          }
-          setInterestRate(val);
-        }}
-      />
+    <>
+      <Box style={{ display: "flex" }}>
+        <NumberInput
+          label="Principal"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={9999}
+          value={principal}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 9999) {
+              val = 9999;
+            }
+            setPrincipal(val);
+          }}
+        />
+        <NumberInput
+          label="Interest Rate (%)"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={100}
+          value={interestRate}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 100) {
+              val = 100;
+            }
+            setInterestRate(val);
+          }}
+        />
 
-      <NumberInput
-        label="Years"
-        radius="xs"
-        min={0}
-        max={100}
-        value={years}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 100) {
-            val = 100;
-          }
-          setYears(val);
-        }}
-      />
+        <NumberInput
+          label="Years"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={100}
+          value={years}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 100) {
+              val = 100;
+            }
+            setYears(val);
+          }}
+        />
+      </Box>
 
       <Button
+        style={{ width: "100%" }}
         variant="filled"
         color="blue"
         className={classes.calculateBtn}
@@ -101,6 +102,6 @@ export default function SimpleInterestCalculator({ getSimpleInterest }) {
       >
         Calculate
       </Button>
-    </Box>
+    </>
   );
 }

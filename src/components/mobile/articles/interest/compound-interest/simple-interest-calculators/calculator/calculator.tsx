@@ -27,37 +27,21 @@ export default function SimpleInterestCalculator() {
 
   return (
     <Box
+      pt={25}
       style={{
-        width: "70vw",
-        height: "80vh",
+        width: "100vw",
         margin: "auto",
         marginTop: "2rem",
-        display: "flex",
-        flexDirection: "row",
         backgroundColor: theme.colors.indigo[0],
       }}
     >
-      <Box
-        sx={{
-          width: "30%",
-          margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <Box sx={{ padding: "5px" }}>
         <Inputs getSimpleInterest={getSimpleInterest} />
       </Box>
 
-      <Box
-        sx={{
-          width: "70%",
-          margin: "auto",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Box ml={80}>
-          <Text size="xs" weight="bold">
+      <Box mt={25} pb={25}>
+        <Box>
+          <Text size="xs" weight="bold" align="center">
             Rate of Return Over {graphResult.length} years at {interestLabel}%
             interest
           </Text>
@@ -68,7 +52,6 @@ export default function SimpleInterestCalculator() {
             width: "100%",
             margin: "auto",
           }}
-          ml={20}
         >
           <Table graphResult={graphResult} />
         </Box>
@@ -77,6 +60,7 @@ export default function SimpleInterestCalculator() {
             minHeight: "50%",
             width: "100%",
             margin: "auto",
+            marginTop: "25px",
           }}
         >
           <Chart data={graphResult} />
