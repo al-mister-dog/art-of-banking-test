@@ -13,8 +13,10 @@ import CompoundInterestCalculator from "./compound-interest-calculators/calculat
 export default function CompoundInterestPage() {
   return (
     <>
-      <Box ml={25} mt={200}>
-        <Title>Compound Interest</Title>
+      <Box mt={200}>
+        <Center>
+          <Title>Compound Interest</Title>
+        </Center>
       </Box>
       <Text>
         Compound interest is a form of interest on a loan or investment that

@@ -28,8 +28,10 @@ export default function CPI() {
 
   return (
     <>
-      <Box ml={0} mt={200}>
-        <Title>Consumer Price Index</Title>
+      <Box mt={200}>
+        <Center>
+          <Title>Consumer Price Index</Title>
+        </Center>
       </Box>
 
       <Box mt={100} mb={50}>
