@@ -37,10 +37,6 @@ const useStyles = createStyles(() => ({
     width: 200,
     marginBottom: 10,
   },
-  calculateBtn: {
-    width: 200,
-    marginTop: 25,
-  },
 }));
 
 export const compoundPeriods = [
@@ -79,77 +75,85 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
   const [years, setYears] = useState(10);
   return (
     <Box style={{ display: "flex", flexDirection: "column" }}>
-      <NumberInput
-        label="Principal"
-        radius="xs"
-        min={0}
-        max={9999}
-        value={principal}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 9999) {
-            val = 9999;
-          }
-          setPrincipal(val);
-        }}
-      />
-      <NumberInput
-        label="Interest Rate (%)"
-        radius="xs"
-        min={0}
-        max={100}
-        value={interestRate}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 100) {
-            val = 100;
-          }
-          setInterestRate(val);
-        }}
-      />
-
-      <NumberInput
-        label="Inflation Rate (%)"
-        radius="xs"
-        min={0}
-        max={100}
-        value={inflationRate}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 100) {
-            val = 100;
-          }
-          setInflationRate(val);
-        }}
-      />
-
-      <NumberInput
-        label="Years"
-        radius="xs"
-        min={0}
-        max={100}
-        value={years}
-        onChange={(val) => {
-          if (isNaN(val)) {
-            val = 0;
-          } else if (val > 100) {
-            val = 100;
-          }
-          setYears(val);
-        }}
-      />
-      <CompoundPeriod
-        value={compoundPeriod}
-        setValue={setCompoundPeriod}
-        data={compoundPeriods}
-      />
+      <Box style={{ display: "flex", justifyContent: "space-around" }}>
+        <NumberInput
+          label="Principal"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={9999}
+          value={principal}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 9999) {
+              val = 9999;
+            }
+            setPrincipal(val);
+          }}
+        />
+        <NumberInput
+          label="Interest Rate (%)"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={100}
+          value={interestRate}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 100) {
+              val = 100;
+            }
+            setInterestRate(val);
+          }}
+        />
+      </Box>
+      <Box style={{ display: "flex", justifyContent: "space-around" }}>
+        <NumberInput
+          label="Inflation Rate (%)"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={100}
+          value={inflationRate}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 100) {
+              val = 100;
+            }
+            setInflationRate(val);
+          }}
+        />
+        <NumberInput
+          label="Years"
+          radius="xs"
+          size="xs"
+          min={0}
+          max={100}
+          value={years}
+          onChange={(val) => {
+            if (isNaN(val)) {
+              val = 0;
+            } else if (val > 100) {
+              val = 100;
+            }
+            setYears(val);
+          }}
+        />
+      </Box>
+      <Box style={{ display: "flex", justifyContent: "space-around" }}>
+        <CompoundPeriod
+          value={compoundPeriod}
+          setValue={setCompoundPeriod}
+          data={compoundPeriods}
+        />
+      </Box>
       <Button
         variant="filled"
         color="violet"
-        className={classes.calculateBtn}
+        style={{ width: "100%" }}
         onClick={() =>
           getCompoundInterest(
             principal,
@@ -170,7 +174,8 @@ function CompoundPeriod({ value, setValue, data }) {
   return (
     <Select
       label="Compound Period"
-      style={{ width: 200, marginBottom: 10 }}
+      size="xs"
+      style={{ width: "50%", marginBottom: 10 }}
       value={value}
       onChange={setValue}
       data={data}

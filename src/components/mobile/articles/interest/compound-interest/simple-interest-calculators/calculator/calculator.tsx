@@ -35,7 +35,7 @@ export default function SimpleInterestCalculator() {
         backgroundColor: theme.colors.indigo[0],
       }}
     >
-      <Box sx={{ padding: "5px" }}>
+      <Box p={5}>
         <Inputs getSimpleInterest={getSimpleInterest} />
       </Box>
 
@@ -59,7 +59,6 @@ export default function SimpleInterestCalculator() {
           sx={{
             minHeight: "50%",
             width: "100%",
-            margin: "auto",
             marginTop: "25px",
           }}
         >

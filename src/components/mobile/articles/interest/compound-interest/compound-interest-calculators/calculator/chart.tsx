@@ -1,4 +1,4 @@
-import { Center, Text, Box } from "@mantine/core";
+import { Box } from "@mantine/core";
 import {
   LineChart,
   Line,
@@ -12,7 +12,7 @@ import {
 
 export default function CompoundInterestChart({ data }) {
   return (
-    <Box style={{ width: "85%", margin: "auto", marginTop: "10px" }}>
+    <Box style={{ marginTop: "10px" }}>
       <ResponsiveContainer height={300}>
         <LineChart
           data={data}
@@ -39,7 +39,11 @@ export default function CompoundInterestChart({ data }) {
           />
           <Tooltip />
           <Legend
-            wrapperStyle={{ fontSize: "0.8rem", fontFamily: "Poppins", fontWeight: "bold" }}
+            wrapperStyle={{
+              fontSize: "0.8rem",
+              fontFamily: "Poppins",
+              fontWeight: "bold",
+            }}
           />
 
           <Line
