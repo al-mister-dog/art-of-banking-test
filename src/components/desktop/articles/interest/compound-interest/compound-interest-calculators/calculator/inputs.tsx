@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Select } from "@mantine/core";
+import { NumberInput, Select } from "@mantine/core";
 
 import {
   Paper,
@@ -72,41 +72,74 @@ export const compoundPeriods = [
 
 export default function CompoundInterestCalculator({ getCompoundInterest }) {
   const { classes } = useStyles();
-  const [principal, setPrincipal] = useState("1000");
-  const [interestRate, setInterestRate] = useState("0.05");
-  const [inflationRate, setInflationRate] = useState("0.02");
+  const [principal, setPrincipal] = useState(1000);
+  const [interestRate, setInterestRate] = useState(0.05);
+  const [inflationRate, setInflationRate] = useState(0.02);
   const [compoundPeriod, setCompoundPeriod] = useState(1);
-  const [years, setYears] = useState("10");
+  const [years, setYears] = useState(10);
   return (
     <Box style={{ display: "flex", flexDirection: "column" }}>
-      <TextInput
-        className={classes.textField}
-        type="number"
-        placeholder={principal}
+      <NumberInput
         label="Principal"
-        onChange={(e) => setPrincipal(e.target.value)}
+        radius="xs"
+        min={0}
+        max={9999}
+        value={principal}
+        onChange={(val) => {
+          if (isNaN(val)) {
+            val = 0;
+          } else if (val > 9999) {
+            val = 9999;
+          }
+          setPrincipal(val);
+        }}
       />
-      <TextInput
-        className={classes.textField}
-        type="number"
-        placeholder={interestRate}
+      <NumberInput
         label="Interest Rate (%)"
-        onChange={(e) => setInterestRate(e.target.value)}
-      />
-      <TextInput
-        className={classes.textField}
-        type="number"
-        placeholder={inflationRate}
-        label="Inflation Rate (%)"
-        onChange={(e) => setInflationRate(e.target.value)}
-      />
-      <TextInput
-        className={classes.textField}
-        type="number"
-        placeholder={`${years}`}
-        label="Years"
+        radius="xs"
+        min={0}
         max={100}
-        onChange={(e) => setYears(e.target.value)}
+        value={interestRate}
+        onChange={(val) => {
+          if (isNaN(val)) {
+            val = 0;
+          } else if (val > 100) {
+            val = 100;
+          }
+          setInterestRate(val);
+        }}
+      />
+
+      <NumberInput
+        label="Inflation Rate (%)"
+        radius="xs"
+        min={0}
+        max={100}
+        value={inflationRate}
+        onChange={(val) => {
+          if (isNaN(val)) {
+            val = 0;
+          } else if (val > 100) {
+            val = 100;
+          }
+          setInflationRate(val);
+        }}
+      />
+
+      <NumberInput
+        label="Years"
+        radius="xs"
+        min={0}
+        max={100}
+        value={years}
+        onChange={(val) => {
+          if (isNaN(val)) {
+            val = 0;
+          } else if (val > 100) {
+            val = 100;
+          }
+          setYears(val);
+        }}
       />
       <CompoundPeriod
         value={compoundPeriod}
@@ -115,6 +148,7 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
       />
       <Button
         variant="filled"
+        color="violet"
         className={classes.calculateBtn}
         onClick={() =>
           getCompoundInterest(

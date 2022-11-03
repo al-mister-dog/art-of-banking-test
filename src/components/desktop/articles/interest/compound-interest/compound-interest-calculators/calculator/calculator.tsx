@@ -4,7 +4,7 @@ import { Box, Text, useMantineTheme } from "@mantine/core";
 import {
   compoundInterest,
   initialData,
-} from "../../../../../../domain/calculators/compoundInterest";
+} from "../../../../../../../domain/calculators/compoundInterest";
 import Inputs from "./inputs";
 import Table from "./table";
 import Chart from "./chart";
@@ -27,17 +27,17 @@ export default function CompoundInterestCalculator() {
   const theme = useMantineTheme();
 
   function getCompoundInterest(
-    principal,
-    interestRate,
-    inflationRate,
-    years,
-    compoundPeriod
+    principal: number,
+    interestRate: number,
+    inflationRate: number,
+    years: number,
+    compoundPeriod: number
   ) {
     const graphData = compoundInterest(
-      parseInt(principal),
-      parseInt(interestRate),
-      parseInt(inflationRate),
-      parseInt(years),
+      principal,
+      interestRate,
+      inflationRate,
+      years,
       compoundPeriod
     );
 
@@ -56,7 +56,7 @@ export default function CompoundInterestCalculator() {
         marginTop: "2rem",
         display: "flex",
         flexDirection: "row",
-        border: `1px solid ${theme.colors.violet[1]}`,
+        backgroundColor: theme.colors.violet[0],
       }}
     >
       <Box

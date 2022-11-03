@@ -1,14 +1,14 @@
 import { Box, Center, Title } from "@mantine/core";
 import Caption from "../../texts/Caption";
 import SubTitle from "../../texts/Subtitle";
-import Text from "../../texts/Text";
-import SimpleInterestFormula from "./simple-interest-calculator/simple-interest-formula";
-import TotalInterestFormula from "./simple-interest-calculator/total-interest-formula";
-import SimpleInterestIteration from "./simple-interest-calculator/iteration";
-import SimpleInterestCalculator from "./simple-interest-calculator/calculator";
-import CompoundInterestFormula from "./compound-interest-calculator/compound-interest-formula";
-import CompoundInterestIteration from "./compound-interest-calculator/iteration";
-import CompoundInterestCalculator from "./compound-interest-calculator/calculator";
+import Text from "../../texts/Text-Two";
+import SimpleInterestFormula from "./simple-interest-calculators/simple-interest-formula";
+import TotalInterestFormula from "./simple-interest-calculators/total-interest-formula";
+import SimpleInterestIteration from "./simple-interest-calculators/iteration";
+import SimpleInterestCalculator from "./simple-interest-calculators/calculator/calculator";
+import CompoundInterestFormula from "./compound-interest-calculators/formula";
+import CompoundInterestIteration from "./compound-interest-calculators/iteration";
+import CompoundInterestCalculator from "./compound-interest-calculators/calculator/calculator";
 
 export function CompoundInterestPage() {
   return (
@@ -18,29 +18,29 @@ export function CompoundInterestPage() {
       </Box>
       <Text>
         Compound interest is a form of interest on a loan or investment that
-        grows in intervals of time.
-      </Text>
-      <Text>
-        To understand the difference between compound interest and regular
-        interest lets define simple interest and look at a simple interest
-        calculator.
+        grows in intervals of time. The idea of compound interest has been
+        around for thousands of years in various forms. The first part of this
+        series will look solely at the mechanics of compound interest, and later
+        we will look at compound interest in various social and historical
+        contexts. We will define the very basic principles of interest formulas
+        and learn to calculate compound interest using different variables.
       </Text>
       <br></br>
       <Center>
         <SubTitle>Simple Interest</SubTitle>
       </Center>
-
       <Text>
-        The interest rate is simply a percentage of the initial amount. For
-        example if the initial amount is 100 and the interest rate is 5, the
-        amount of interest would also be 5.
+        To understand the difference between compound interest and regular
+        interest lets define simple interest and look at a simple interest
+        calculator. The interest rate is simply a percentage of the initial
+        amount. For example if the initial amount is 100 and the interest rate
+        is 5, the amount of interest would also be 5.
       </Text>
       <SimpleInterestFormula />
       <Text>
         Therefore the total amount after interest is the initial amount plus the
         interest.
       </Text>
-
       <TotalInterestFormula />
       <Text>
         However this is just the interest added to the total for one time.
@@ -81,6 +81,12 @@ export function CompoundInterestPage() {
         extreme the larger the amount of times that interest is compounded.
       </Text>
       <CompoundInterestIteration />
+      <Center>
+        <SubTitle>Compound Intervals</SubTitle>
+      </Center>
+      <Center>
+        <SubTitle>Adjusting for Inflation (Real vs Nominal Interest)</SubTitle>
+      </Center>
       <CompoundInterestCalculator />
     </>
   );

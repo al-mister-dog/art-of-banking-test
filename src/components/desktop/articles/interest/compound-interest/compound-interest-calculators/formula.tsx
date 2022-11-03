@@ -8,6 +8,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import Container from "./widget-container";
 
 export default function SimpleInterestCalculator() {
   const [interest, setInterest] = useState(5);
@@ -16,14 +17,7 @@ export default function SimpleInterestCalculator() {
   const firstIteration = (principal / 100) * interest;
   const secondIteration = ((principal + firstIteration) / 100) * interest;
   return (
-    <Box
-      style={{
-        width: "70vw",
-        margin: "auto",
-        marginTop: "-25px",
-        padding: "25px",
-        border: `1px solid ${theme.colors.violet[1]}`,
-      }}
+    <Container
     >
       <Grid grow>
         <Grid.Col
@@ -112,6 +106,6 @@ export default function SimpleInterestCalculator() {
           </SimpleGrid>
         </Grid.Col>
       </Grid>
-    </Box>
+    </Container>
   );
 }

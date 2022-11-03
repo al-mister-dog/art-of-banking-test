@@ -1,28 +1,25 @@
 import { useState } from "react";
-
 import { Box, Text, useMantineTheme } from "@mantine/core";
 import {
   simpleInterest,
   initialData,
-} from "../../../../../../domain/calculators/simpleInterest";
+} from "../../../../../../../domain/calculators/simpleInterest";
 import Inputs from "./inputs";
 import Table from "./table";
 import Chart from "./chart";
 
 export default function SimpleInterestCalculator() {
   const [graphResult, setGraphResult] = useState<any>(initialData);
-
   const [interestLabel, setInterestLabel] = useState(0);
-  const [inflationLabel, setInflationLabel] = useState(0);
 
   const theme = useMantineTheme();
 
-  function getSimpleInterest(principal, interestRate, years) {
-    const graphData = simpleInterest(
-      parseInt(principal),
-      parseInt(interestRate),
-      parseInt(years)
-    );
+  function getSimpleInterest(
+    principal: number,
+    interestRate: number,
+    years: number
+  ) {
+    const graphData = simpleInterest(principal, interestRate, years);
 
     setGraphResult(graphData);
     setInterestLabel(interestRate);
@@ -37,7 +34,7 @@ export default function SimpleInterestCalculator() {
         marginTop: "2rem",
         display: "flex",
         flexDirection: "row",
-        border: `1px solid ${theme.colors.violet[1]}`,
+        backgroundColor: theme.colors.indigo[0],
       }}
     >
       <Box
@@ -61,7 +58,8 @@ export default function SimpleInterestCalculator() {
       >
         <Box ml={80}>
           <Text size="xs" weight="bold">
-            Rate of Return Over {graphResult.length} years:{" "}
+            Rate of Return Over {graphResult.length} years at {interestLabel}%
+            interest
           </Text>
         </Box>
         <Box
