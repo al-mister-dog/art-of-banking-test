@@ -4,7 +4,10 @@ export default function CompoundInterestTable({ graphResult }) {
   const theme = useMantineTheme();
   return (
     <Table
-      verticalSpacing="xs"
+      verticalSpacing={1}
+      striped
+      withBorder
+      withColumnBorders
       fontSize="xs"
       style={{ width: "85%", margin: "auto", marginBottom: "10px" }}
     >

@@ -1,7 +1,6 @@
-import { Box, useMantineTheme } from "@mantine/core";
+import { Box } from "@mantine/core";
 
 export default function WidgetContainer({ color, children }) {
-  const theme = useMantineTheme();
   return (
     <Box
       style={{
