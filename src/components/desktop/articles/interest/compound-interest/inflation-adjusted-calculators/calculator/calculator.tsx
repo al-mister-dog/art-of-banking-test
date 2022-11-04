@@ -51,7 +51,7 @@ export default function CompoundInterestCalculator() {
     <Box
       style={{
         width: "70vw",
-        height: "82vh",
+        height: "90vh",
         margin: "auto",
         marginTop: "2rem",
         display: "flex",
