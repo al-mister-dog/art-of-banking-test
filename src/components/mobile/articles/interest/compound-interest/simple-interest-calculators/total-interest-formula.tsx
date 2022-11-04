@@ -1,15 +1,12 @@
+import { useState } from "react";
 import {
   Box,
   Center,
-  Grid,
   NumberInput,
-  SimpleGrid,
-  Text,
   Title,
   useMantineTheme,
 } from "@mantine/core";
-import { useState } from "react";
-import Container from "./widget-container";
+import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export default function SimpleInterestCalculator() {
   const [interest, setInterest] = useState(5);
@@ -19,7 +16,7 @@ export default function SimpleInterestCalculator() {
 
   const output = (principal / 100) * interest;
   return (
-    <Container>
+    <Container color={theme.colors.indigo[0]}>
       <Box style={{ display: "flex", justifyContent: "space-around" }}>
         <NumberInput
           label="Principal Amount"
@@ -38,7 +35,6 @@ export default function SimpleInterestCalculator() {
           }}
         />
         <NumberInput
-          defaultValue={18}
           label="Interest Rate"
           radius="xs"
           size="xs"

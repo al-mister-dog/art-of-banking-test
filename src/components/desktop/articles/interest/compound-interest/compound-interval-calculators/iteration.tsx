@@ -8,7 +8,7 @@ import {
   Title,
   useMantineTheme,
 } from "@mantine/core";
-import Container from "./widget-container";
+import Container from "../../../../../shared-ui/widget-container/desktop";
 
 export const compoundPeriods = [
   {
@@ -52,7 +52,7 @@ export default function SimpleInterestCalculator() {
     principal *
     Math.pow(1 + rate / compoundPeriod / 100, compoundPeriod * iterations);
   return (
-    <Container>
+    <Container color={theme.colors.grape[0]}>
       <Grid grow>
         <Grid.Col span={4}>
           <Box

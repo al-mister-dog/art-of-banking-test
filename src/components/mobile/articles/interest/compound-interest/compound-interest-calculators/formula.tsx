@@ -9,7 +9,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
-import Container from "./widget-container";
+import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export default function SimpleInterestCalculator() {
   const [interest, setInterest] = useState(5);
@@ -18,7 +18,7 @@ export default function SimpleInterestCalculator() {
   const firstIteration = (principal / 100) * interest;
   const secondIteration = ((principal + firstIteration) / 100) * interest;
   return (
-    <Container>
+    <Container color={theme.colors.violet[0]}>
       <Box
         style={{
           display: "flex",
@@ -26,7 +26,6 @@ export default function SimpleInterestCalculator() {
         }}
       >
         <NumberInput
-          defaultValue={18}
           label="Principal Amount"
           radius="xs"
           size="xs"

@@ -9,7 +9,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
-import Container from "./widget-container";
+import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export const compoundPeriods = [
   {
@@ -45,7 +45,7 @@ export default function SimpleInterestCalculator() {
   const theme = useMantineTheme();
 
   return (
-    <Container>
+    <Container color={theme.colors.grape[0]}>
       <Box
         style={{
           display: "flex",
@@ -75,7 +75,7 @@ export default function SimpleInterestCalculator() {
         />
       </Box>
       <Center>
-        <Title order={5} mt="sm" >
+        <Title order={5} mt="sm">
           {rate}% / {compoundPeriod} = {(rate / compoundPeriod).toFixed(2)}%
         </Title>
       </Center>

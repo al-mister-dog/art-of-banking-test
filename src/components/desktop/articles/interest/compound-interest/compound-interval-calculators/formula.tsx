@@ -8,7 +8,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
-import Container from "./widget-container";
+import Container from "../../../../../shared-ui/widget-container/desktop";
 
 export const compoundPeriods = [
   {
@@ -42,9 +42,9 @@ export default function SimpleInterestCalculator() {
   const [compoundPeriod, setCompoundPeriod] = useState(2);
 
   const theme = useMantineTheme();
-  
+
   return (
-    <Container>
+    <Container color={theme.colors.grape[0]}>
       <Grid grow>
         <Grid.Col
           span={2}

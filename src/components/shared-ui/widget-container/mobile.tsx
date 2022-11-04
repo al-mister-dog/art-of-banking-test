@@ -1,14 +1,14 @@
 import { Box, useMantineTheme } from "@mantine/core";
 
-export default function WidgetContainer({ children }) {
+export default function WidgetContainer({ color, children }) {
   const theme = useMantineTheme();
   return (
     <Box
       style={{
-        width: "70vw",
+        width: "100vw",
         margin: "auto",
         padding: "25px",
-        backgroundColor: theme.colors.indigo[0],
+        backgroundColor: color,
       }}
     >
       {children}

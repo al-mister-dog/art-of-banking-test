@@ -8,7 +8,6 @@ export default function TextComponent({ children }) {
       style={{
         padding: "30px",
         letterSpacing: "1px",
-        marginBottom: "25px",
         color: colors.text,
       }}
     >

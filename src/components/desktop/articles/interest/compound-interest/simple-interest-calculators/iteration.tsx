@@ -7,7 +7,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
-import Container from "./widget-container";
+import Container from "../../../../../shared-ui/widget-container/desktop";
 
 export default function SimpleInterestCalculator() {
   const [rate, setRate] = useState(10);
@@ -18,7 +18,7 @@ export default function SimpleInterestCalculator() {
 
   const output = principal + (principal / 100) * (rate * iterations);
   return (
-    <Container>
+    <Container color={theme.colors.indigo[0]}>
       <Grid grow>
         <Grid.Col
           span={4}

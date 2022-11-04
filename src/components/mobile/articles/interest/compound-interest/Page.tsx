@@ -42,11 +42,13 @@ export default function CompoundInterestPage() {
         is 5, the amount of interest would also be 5.
       </Text>
       <SimpleInterestFormula />
+      <br></br>
       <Text>
         Therefore the total amount after interest is the initial amount plus the
         interest.
       </Text>
       <TotalInterestFormula />
+      <br></br>
       <Text>
         However this is just the interest added to the total for one time.
         Usually, interest will be added more than once. If a loan was left
@@ -55,13 +57,14 @@ export default function CompoundInterestPage() {
         doubling of the intitial amount.
       </Text>
       <SimpleInterestIteration />
+      <br></br>
       <Text>
         Below is a simple interest calculator to find the sum total of a
         loan/investment that has been incremented using simple interest.
       </Text>
       <SimpleInterestCalculator />
-      <div style={{ marginTop: 100 }}></div>
-      <Center>
+
+      <Center mt={100}>
         <SubTitle>Compound Interest</SubTitle>
       </Center>
       <Text>
@@ -80,18 +83,21 @@ export default function CompoundInterestPage() {
         go round. Lets apply this concept to our previous examples.
       </Text>
       <CompoundInterestFormula />
+      <br></br>
       <Text>
         Lets compare the sum totals of simple interest and compound interest
         over time. You will see that the difference between the two becomes more
         extreme the larger the amount of times that interest is compounded.
       </Text>
       <CompoundInterestIteration />
+      <br></br>
       <Text>
         Below is a compound interest calculator to find the sum total of a
         loan/investment that has been incremented using compound interest
         annually.
       </Text>
       <CompoundInterestCalculator />
+
       <Center mt={100}>
         <SubTitle>Compound Intervals</SubTitle>
       </Center>
@@ -107,6 +113,7 @@ export default function CompoundInterestPage() {
         10 and a semi-annual compound interval, the interest rate would be 5.
       </Text>
       <CompoundIntervalFormula />
+      <br></br>
       <Text>
         Lets compare the sum totals of simple interest, annually compounding
         interest, and compounding interest at various intervals over time. The
@@ -116,11 +123,13 @@ export default function CompoundInterestPage() {
         a year, the larger the number that the interest rate is divided by.
       </Text>
       <CompoundIntervalIteration />
+      <br></br>
       <Text>
         Below is a compound interest calculator to find the sum total of a
         loan/investment that has been incremented at various intervals annually.
       </Text>
       <CompoundIntervalCalculator />
+
       <Center mt={100}>
         <SubTitle>Adjusting for Inflation (Real vs Nominal Interest)</SubTitle>
       </Center>
@@ -135,6 +144,7 @@ export default function CompoundInterestPage() {
         and the rate of inflation is 2%, then the real interest rate is 3%.
       </Text>
       <InflationAdjustedFormula />
+      <br></br>
       <Text>
         As just mentioned, this is deceptively simple. You may have noticed that
         if you set the inflation rate higher than the interest rate you end up
@@ -149,6 +159,7 @@ export default function CompoundInterestPage() {
         adjusted for inflation.
       </Text>
       <InflationAdjustedCalculator />
+      <Box mt={100} />
     </>
   );
 }
