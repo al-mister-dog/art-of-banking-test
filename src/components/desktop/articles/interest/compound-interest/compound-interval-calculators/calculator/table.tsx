@@ -1,7 +1,7 @@
 import { Table, useMantineTheme } from "@mantine/core";
 
 export default function CompoundInterestTable({ graphResult }) {
-  const theme = useMantineTheme();
+  
   return (
     <Table
       verticalSpacing="xs"

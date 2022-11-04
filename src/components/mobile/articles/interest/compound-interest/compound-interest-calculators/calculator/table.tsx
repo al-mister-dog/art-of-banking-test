@@ -39,33 +39,9 @@ export default function CompoundInterestTable({ graphResult }) {
             }}
           >
             <td>{element.year}</td>
-            <td>
-              <span style={{ color: theme.colors.green[9] }}>
-                ${element.interest}
-              </span>{" "}
-              /{" "}
-              <span style={{ color: theme.colors.red[9] }}>
-                ${element.realInterest}
-              </span>
-            </td>
-            <td>
-              <span style={{ color: theme.colors.green[9] }}>
-                ${element.accruedInterest}
-              </span>{" "}
-              /{" "}
-              <span style={{ color: theme.colors.red[9] }}>
-                ${element.realAccruedInterest}
-              </span>
-            </td>
-            <td>
-              <span style={{ color: theme.colors.green[9] }}>
-                ${element.balance}
-              </span>{" "}
-              /{" "}
-              <span style={{ color: theme.colors.red[9] }}>
-                ${element.realBalance}
-              </span>
-            </td>
+            <td>${element.interest}</td>
+            <td>${element.accruedInterest}</td>
+            <td>${element.balance}</td>
           </tr>
         ))}
       </tbody>

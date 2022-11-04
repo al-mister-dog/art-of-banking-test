@@ -39,7 +39,11 @@ export default function CompoundInterestChart({ data }) {
           />
           <Tooltip />
           <Legend
-            wrapperStyle={{ fontSize: "0.8rem", fontFamily: "Poppins", fontWeight: "bold" }}
+            wrapperStyle={{
+              fontSize: "0.8rem",
+              fontFamily: "Poppins",
+              fontWeight: "bold",
+            }}
           />
 
           <Line
@@ -50,14 +54,7 @@ export default function CompoundInterestChart({ data }) {
             stroke="#c92a2a"
             activeDot={{ r: 8 }}
           />
-          <Line
-            strokeWidth={2}
-            name="/adjusted"
-            type="monotone"
-            dataKey="realInterest"
-            stroke="#ff8787"
-            activeDot={{ r: 8 }}
-          />
+
           <Line
             strokeWidth={2}
             name="Accrued"
@@ -69,26 +66,10 @@ export default function CompoundInterestChart({ data }) {
 
           <Line
             strokeWidth={2}
-            name="/adjusted"
-            type="monotone"
-            dataKey="realAccruedInterest"
-            stroke="#4dabf7"
-            activeDot={{ r: 8 }}
-          />
-          <Line
-            strokeWidth={2}
             name="Balance"
             type="monotone"
             dataKey="balance"
             stroke="#e67700"
-            activeDot={{ r: 8 }}
-          />
-          <Line
-            strokeWidth={2}
-            name="/adjusted"
-            type="monotone"
-            dataKey="realBalance"
-            stroke="#ffa94d"
             activeDot={{ r: 8 }}
           />
         </LineChart>

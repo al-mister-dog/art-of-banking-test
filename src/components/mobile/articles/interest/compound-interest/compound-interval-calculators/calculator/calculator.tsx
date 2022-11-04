@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { Box, Text, useMantineTheme } from "@mantine/core";
 import {
   compoundInterest,
@@ -49,36 +48,20 @@ export default function CompoundInterestCalculator() {
 
   return (
     <Box
+      pt={25}
       style={{
-        width: "70vw",
-        height: "80vh",
+        width: "100vw",
         margin: "auto",
         marginTop: "2rem",
-        display: "flex",
-        flexDirection: "row",
-        backgroundColor: theme.colors.violet[0],
+        backgroundColor: theme.colors.grape[0],
       }}
     >
-      <Box
-        sx={{
-          width: "30%",
-          margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <Box p={5}>
         <Inputs getCompoundInterest={getCompoundInterest} />
       </Box>
 
-      <Box
-        sx={{
-          width: "70%",
-          margin: "auto",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Box ml={80}>
+      <Box mt={25} pb={25}>
+        <Box>
           <Text size="xs" weight="bold">
             Compound Interest Rate Over {graphResult.length} years:{" "}
             {interestLabel}% interest, {cpLabel}
@@ -90,7 +73,6 @@ export default function CompoundInterestCalculator() {
             width: "100%",
             margin: "auto",
           }}
-          ml={20}
         >
           <Table graphResult={graphResult} />
         </Box>
@@ -98,7 +80,7 @@ export default function CompoundInterestCalculator() {
           sx={{
             minHeight: "50%",
             width: "100%",
-            margin: "auto",
+            marginTop: "25px",
           }}
         >
           <Chart data={graphResult} />

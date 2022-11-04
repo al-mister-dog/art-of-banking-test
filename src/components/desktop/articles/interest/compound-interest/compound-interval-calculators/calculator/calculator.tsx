@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { Box, Text, useMantineTheme } from "@mantine/core";
 import {
   compoundInterest,
@@ -56,7 +55,7 @@ export default function CompoundInterestCalculator() {
         marginTop: "2rem",
         display: "flex",
         flexDirection: "row",
-        backgroundColor: theme.colors.violet[0],
+        backgroundColor: theme.colors.grape[0],
       }}
     >
       <Box

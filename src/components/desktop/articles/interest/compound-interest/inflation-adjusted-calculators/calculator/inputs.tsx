@@ -111,6 +111,22 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
       />
 
       <NumberInput
+        label="Inflation Rate (%)"
+        radius="xs"
+        min={0}
+        max={100}
+        value={inflationRate}
+        onChange={(val) => {
+          if (isNaN(val)) {
+            val = 0;
+          } else if (val > 100) {
+            val = 100;
+          }
+          setInflationRate(val);
+        }}
+      />
+
+      <NumberInput
         label="Years"
         radius="xs"
         min={0}
@@ -124,6 +140,11 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
           }
           setYears(val);
         }}
+      />
+      <CompoundPeriod
+        value={compoundPeriod}
+        setValue={setCompoundPeriod}
+        data={compoundPeriods}
       />
       <Button
         variant="filled"
@@ -142,5 +163,17 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
         Calculate
       </Button>
     </Box>
+  );
+}
+
+function CompoundPeriod({ value, setValue, data }) {
+  return (
+    <Select
+      label="Compound Period"
+      style={{ width: 200, marginBottom: 10 }}
+      value={value}
+      onChange={setValue}
+      data={data}
+    />
   );
 }

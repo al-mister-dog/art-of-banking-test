@@ -81,7 +81,10 @@ export default function CompoundInterestCalculator() {
         <Box ml={80}>
           <Text size="xs" weight="bold">
             Compound Interest Rate Over {graphResult.length} years:{" "}
-            {interestLabel}% interest, {cpLabel}
+            {interestLabel}% interest, {cpLabel} /{" "}
+            <span style={{ color: theme.colors.red[9] }}>
+              {inflationLabel}% inflation
+            </span>
           </Text>
         </Box>
         <Box

@@ -74,7 +74,7 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
   const { classes } = useStyles();
   const [principal, setPrincipal] = useState(1000);
   const [interestRate, setInterestRate] = useState(0.05);
-  const [inflationRate, setInflationRate] = useState(0.02);
+  const [inflationRate, setInflationRate] = useState(0);
   const [compoundPeriod, setCompoundPeriod] = useState(1);
   const [years, setYears] = useState(10);
   return (
@@ -125,9 +125,14 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
           setYears(val);
         }}
       />
+      <CompoundPeriod
+        value={compoundPeriod}
+        setValue={setCompoundPeriod}
+        data={compoundPeriods}
+      />
       <Button
         variant="filled"
-        color="violet"
+        color="grape"
         className={classes.calculateBtn}
         onClick={() =>
           getCompoundInterest(
@@ -142,5 +147,17 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
         Calculate
       </Button>
     </Box>
+  );
+}
+
+function CompoundPeriod({ value, setValue, data }) {
+  return (
+    <Select
+      label="Compound Period"
+      style={{ width: 200, marginBottom: 10 }}
+      value={value}
+      onChange={setValue}
+      data={data}
+    />
   );
 }

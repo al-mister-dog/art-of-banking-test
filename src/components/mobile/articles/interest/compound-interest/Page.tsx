@@ -9,6 +9,11 @@ import SimpleInterestCalculator from "./simple-interest-calculators/calculator/c
 import CompoundInterestFormula from "./compound-interest-calculators/formula";
 import CompoundInterestIteration from "./compound-interest-calculators/iteration";
 import CompoundInterestCalculator from "./compound-interest-calculators/calculator/calculator";
+import CompoundIntervalFormula from "./compound-interval-calculators/formula";
+import CompoundIntervalIteration from "./compound-interval-calculators/iteration";
+import CompoundIntervalCalculator from "./compound-interval-calculators/calculator/calculator";
+import InflationAdjustedFormula from "./inflation-adjusted-calculators/formula";
+import InflationAdjustedCalculator from "./inflation-adjusted-calculators/calculator/calculator";
 
 export default function CompoundInterestPage() {
   return (
@@ -83,13 +88,69 @@ export default function CompoundInterestPage() {
         extreme the larger the amount of times that interest is compounded.
       </Text>
       <CompoundInterestIteration />
-      <Center>
+      <Text>
+        Below is a compound interest calculator to find the sum total of a
+        loan/investment that has been incremented using compound interest
+        annually.
+      </Text>
+      <CompoundInterestCalculator />
+      <Center mt={100}>
         <SubTitle>Compound Intervals</SubTitle>
       </Center>
-      <Center>
+      <Text>
+        So far we have illustrated what happens when we compound the interest
+        each year at a certain percentage, so over ten years of annually
+        compounding interest, there are ten compounding intervals. However many
+        loans and investments have interests that compound multiple times a
+        year, for example twice a year. This would mean that over ten years,
+        there would be twenty compounding intervals. This would raise the sum
+        total by an extreme amount, so the the interest rate is also divided by
+        the number of compound intervals in a year. So with an interest rate of
+        10 and a semi-annual compound interval, the interest rate would be 5.
+      </Text>
+      <CompoundIntervalFormula />
+      <Text>
+        Lets compare the sum totals of simple interest, annually compounding
+        interest, and compounding interest at various intervals over time. The
+        difference between annual compounding and other compounding intervals is
+        not as large as the difference between compounding interest and simple
+        interest. This is because the larger the number of compounding intervals
+        a year, the larger the number that the interest rate is divided by.
+      </Text>
+      <CompoundIntervalIteration />
+      <Text>
+        Below is a compound interest calculator to find the sum total of a
+        loan/investment that has been incremented at various intervals annually.
+      </Text>
+      <CompoundIntervalCalculator />
+      <Center mt={100}>
         <SubTitle>Adjusting for Inflation (Real vs Nominal Interest)</SubTitle>
       </Center>
-      <CompoundInterestCalculator />
+      <Text>
+        Adjusting for inflation is deceptively simple. Take the usual interest
+        rate we have been working with (
+        <span style={{ fontStyle: "italic" }}>
+          the <strong>Nominal Interest Rate</strong>
+        </span>
+        ) and subtract it by the inflation rate. This gives you the{" "}
+        <strong>Real Interest Rate</strong>. If the nominal interest rate is 5%
+        and the rate of inflation is 2%, then the real interest rate is 3%.
+      </Text>
+      <InflationAdjustedFormula />
+      <Text>
+        As just mentioned, this is deceptively simple. You may have noticed that
+        if you set the inflation rate higher than the interest rate you end up
+        with negative figures. This means that an investor can stand to lose
+        purchasing power from an investment. It also means that debtors can use
+        inflation to pay off debts. Real interest is often factored into
+        government borrowing for this reason. Also no one knows what the
+        inflation rate is going to be over time. This brings up lots of
+        questions which will be explored in another article. Below is a compound
+        interest calculator to find the sum total of a loan/investment that has
+        been incremented at various intervals annually, as well as being
+        adjusted for inflation.
+      </Text>
+      <InflationAdjustedCalculator />
     </>
   );
 }

@@ -1,7 +1,47 @@
 import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
 
-import { Box, Button } from "@mantine/core";
+import {
+  Paper,
+  Box,
+  TextInput,
+  Button,
+  createStyles,
+  Table,
+  Center,
+} from "@mantine/core";
+
+const useStyles = createStyles(() => ({
+  paper: {
+    backgroundColor: "#fdfbf7",
+    width: "70vw",
+    height: "80vh",
+    padding: "25px",
+    margin: "auto",
+    marginTop: "2rem",
+    display: "flex",
+    alignItems: "flex-start",
+  },
+  box: {
+    width: "100%",
+    height: 300,
+    "@media (max-width: 620px)": {
+      marginTop: "50px",
+    },
+  },
+  form: {
+    width: 300,
+    padding: 25,
+  },
+  textField: {
+    width: 200,
+    marginBottom: 10,
+  },
+  calculateBtn: {
+    width: 200,
+    marginTop: 25,
+  },
+}));
 
 export const compoundPeriods = [
   {
@@ -31,9 +71,10 @@ export const compoundPeriods = [
 ];
 
 export default function CompoundInterestCalculator({ getCompoundInterest }) {
+  const { classes } = useStyles();
   const [principal, setPrincipal] = useState(1000);
   const [interestRate, setInterestRate] = useState(0.05);
-  const [inflationRate, setInflationRate] = useState(0.02);
+  const [inflationRate, setInflationRate] = useState(0);
   const [compoundPeriod, setCompoundPeriod] = useState(1);
   const [years, setYears] = useState(10);
   return (
@@ -89,12 +130,16 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
             setYears(val);
           }}
         />
+        <CompoundPeriod
+          value={compoundPeriod}
+          setValue={setCompoundPeriod}
+          data={compoundPeriods}
+        />
       </Box>
-
       <Button
         variant="filled"
-        color="violet"
-        style={{ width: "100%", marginTop: 10 }}
+        color="grape"
+        style={{width: "100%", marginTop: 10}}
         onClick={() =>
           getCompoundInterest(
             principal,
@@ -108,5 +153,17 @@ export default function CompoundInterestCalculator({ getCompoundInterest }) {
         Calculate
       </Button>
     </Box>
+  );
+}
+
+function CompoundPeriod({ value, setValue, data }) {
+  return (
+    <Select
+      label="Compound Period"
+      size="xs"
+      value={value}
+      onChange={setValue}
+      data={data}
+    />
   );
 }
