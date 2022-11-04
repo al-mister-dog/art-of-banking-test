@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { Box, Text, useMantineTheme } from "@mantine/core";
+import { Box, Tabs, Text, useMantineTheme } from "@mantine/core";
 import {
-  compoundInterest,
-  initialData,
+  compoundInterval,
+  initialDataTwo,
 } from "../../../../../../../domain/calculators/compoundInterest";
 import Inputs from "./inputs";
 import Table from "./table";
@@ -19,7 +19,7 @@ const cpLabels = {
 };
 
 export default function CompoundInterestCalculator() {
-  const [graphResult, setGraphResult] = useState<any>(initialData);
+  const [graphResult, setGraphResult] = useState<any>(initialDataTwo);
   const [cpLabel, setCpLabel] = useState(cpLabels[1]);
   const [interestLabel, setInterestLabel] = useState(0);
   const [inflationLabel, setInflationLabel] = useState(0);
@@ -33,7 +33,7 @@ export default function CompoundInterestCalculator() {
     years: number,
     compoundPeriod: number
   ) {
-    const graphData = compoundInterest(
+    const graphData = compoundInterval(
       principal,
       interestRate,
       inflationRate,
@@ -71,7 +71,8 @@ export default function CompoundInterestCalculator() {
             </span>
           </Text>
         </Box>
-        <Box
+        <ResultsTabs graphResults={graphResult} compoundPeriod={cpLabel} />
+        {/* <Box
           sx={{
             height: "50%",
             width: "100%",
@@ -88,8 +89,90 @@ export default function CompoundInterestCalculator() {
           }}
         >
           <Chart data={graphResult} />
-        </Box>
+        </Box> */}
       </Box>
     </Box>
+  );
+}
+
+function ResultsTabs({ graphResults, compoundPeriod }) {
+  return (
+    <Tabs color="grape" defaultValue="Yearly">
+      <Tabs.List position="center">
+        <Tabs.Tab value="Yearly">Yearly</Tabs.Tab>
+        <Tabs.Tab value="Monthly">Monthly</Tabs.Tab>
+        <Tabs.Tab value="CompoundPeriod">Compound Period</Tabs.Tab>
+      </Tabs.List>
+
+      <Tabs.Panel value="Yearly" pt="xs">
+        <Box
+          sx={{
+            height: "50%",
+            width: "100%",
+            margin: "auto",
+          }}
+        >
+          <Table graphResult={graphResults.yearly} interval="Year" />
+        </Box>
+        <Box
+          sx={{
+            minHeight: "50%",
+            width: "100%",
+            marginTop: "25px",
+          }}
+        >
+          <Chart data={graphResults.yearly} />
+        </Box>
+      </Tabs.Panel>
+
+      <Tabs.Panel value="Monthly" pt="xs">
+        <Box
+          sx={{
+            height: "50%",
+            width: "100%",
+            margin: "auto",
+          }}
+        >
+          <Table
+            graphResult={graphResults.monthly}
+            interval="Month"
+            compoundPeriod={compoundPeriod}
+          />
+        </Box>
+        <Box
+          sx={{
+            minHeight: "50%",
+            width: "100%",
+            marginTop: "25px",
+          }}
+        >
+          <Chart data={graphResults.monthly} />
+        </Box>
+      </Tabs.Panel>
+
+      <Tabs.Panel value="CompoundPeriod" pt="xs">
+        <Box
+          sx={{
+            height: "50%",
+            width: "100%",
+            margin: "auto",
+          }}
+        >
+          <Table
+            graphResult={graphResults.periodically}
+            interval="Compound Period"
+          />
+        </Box>
+        <Box
+          sx={{
+            minHeight: "50%",
+            width: "100%",
+            marginTop: "25px",
+          }}
+        >
+          <Chart data={graphResults.periodically} />
+        </Box>
+      </Tabs.Panel>
+    </Tabs>
   );
 }
