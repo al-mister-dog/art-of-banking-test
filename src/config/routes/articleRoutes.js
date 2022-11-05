@@ -23,6 +23,12 @@ export const articleRoutes = [
         title: "Compound Interest",
         path: "/interest/compound-interest",
       },
+      {
+        id: 2,
+        articleId: 2,
+        title: "Compound Interest Doubling",
+        path: "/interest/compound-interest-doubling",
+      },
     ],
   },
 ];
