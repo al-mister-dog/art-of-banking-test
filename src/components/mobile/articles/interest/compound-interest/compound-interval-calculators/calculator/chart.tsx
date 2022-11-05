@@ -56,14 +56,6 @@ export default function CompoundInterestChart({ data }) {
           />
           <Line
             strokeWidth={2}
-            name="/adjusted"
-            type="monotone"
-            dataKey="realInterest"
-            stroke="#ff8787"
-            activeDot={{ r: 8 }}
-          />
-          <Line
-            strokeWidth={2}
             name="Accrued"
             type="monotone"
             dataKey="accruedInterest"
@@ -73,26 +65,10 @@ export default function CompoundInterestChart({ data }) {
 
           <Line
             strokeWidth={2}
-            name="/adjusted"
-            type="monotone"
-            dataKey="realAccruedInterest"
-            stroke="#4dabf7"
-            activeDot={{ r: 8 }}
-          />
-          <Line
-            strokeWidth={2}
             name="Balance"
             type="monotone"
             dataKey="balance"
             stroke="#e67700"
-            activeDot={{ r: 8 }}
-          />
-          <Line
-            strokeWidth={2}
-            name="/adjusted"
-            type="monotone"
-            dataKey="realBalance"
-            stroke="#ffa94d"
             activeDot={{ r: 8 }}
           />
         </LineChart>
