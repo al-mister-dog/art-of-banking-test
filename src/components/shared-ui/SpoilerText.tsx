@@ -13,7 +13,6 @@ export default function SpoilerText({ text }: IntroProps) {
       {text.map((t) => (
         <Text
           key={t}
-          size="xl"
           sx={{
             letterSpacing: "1px",
             marginBottom: "25px",

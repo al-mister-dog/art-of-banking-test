@@ -4,7 +4,8 @@ import Article from "./lectures/article";
 import KeyTerms from "./lectures/key-terms";
 import BalanceSheets from "./interactive-ui/cards/card-list";
 import Charts from "./charts";
-import Link from "next/link";
+import NextLectureLink from "../shared-ui/next-lecture-link";
+
 import { useNextPage } from "../../hooks/useNextPage";
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
@@ -61,6 +62,9 @@ export default function LecturePageMobile({
           </div>
           <div className={classes.keyTermsContainer}>
             <KeyTerms ids={keyTermsIds} />
+            <div style={{ padding: "50px", backgroundColor: "inherit" }}>
+              <NextLectureLink nextLecture={nextLecture} />
+            </div>
           </div>
         </>
       )}

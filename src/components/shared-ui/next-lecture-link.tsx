@@ -7,7 +7,7 @@ export default function NextLectureLink({ nextLecture }) {
   return (
     <Text italic weight="bold" color="violet">
       <Link href={`/lectures${link.path}`}>
-        {`Next Lecture: ${link.title}`}
+        {`Next Lecture: ${link.title}...`} 
       </Link>
     </Text>
   );

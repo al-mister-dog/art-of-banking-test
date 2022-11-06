@@ -1,4 +1,5 @@
-import { Breadcrumbs, Text, Title } from "@mantine/core";
+import { Breadcrumbs, Text } from "@mantine/core";
+import Title from "../../shared-ui/texts/Title";
 import Link from "next/link";
 
 export default function LectureTitle({ slug, title }) {
