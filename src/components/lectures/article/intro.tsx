@@ -1,8 +1,8 @@
-import { Title, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-
+import { Text } from "@mantine/core";
 import Link from "next/link";
 import { mediaQuery } from "../../../config/media-query";
+import Title from "../../shared-ui/texts/Title";
 
 export default function Intro({ title, text, nextPath }) {
   const isMobile = useMediaQuery(mediaQuery);
