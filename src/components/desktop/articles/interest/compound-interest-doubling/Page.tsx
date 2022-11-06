@@ -1,5 +1,6 @@
-import { Box, Center, Title, useMantineTheme } from "@mantine/core";
+import { Box, Center,  useMantineTheme } from "@mantine/core";
 import Caption from "../../texts/Caption";
+import Title from "../../../../shared-ui/texts/Title"
 import SubTitle from "../../../../shared-ui/texts/Subtitle";
 import Text from "../../../../shared-ui/texts/Text-Two";
 import Link from "next/link";
