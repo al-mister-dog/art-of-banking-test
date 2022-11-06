@@ -1,10 +1,9 @@
-import { Title } from "@mantine/core";
 import { colors } from "../../../config/colorPalette";
-
+import { Title } from "@mantine/core";
 export default function TitleComponent({ children }) {
   return (
-    <Title order={1} style={{ color: colors.text }}>
+    <h1 style={{ color: colors.text }}>
       {children}
-    </Title>
+    </h1>
   );
 }

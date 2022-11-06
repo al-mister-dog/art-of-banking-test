@@ -4,11 +4,10 @@ import {
   Grid,
   NumberInput,
   SimpleGrid,
-  Text,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/desktop";
 
 export default function SimpleInterestCalculator() {
@@ -67,13 +66,15 @@ export default function SimpleInterestCalculator() {
           </Box>
         </Grid.Col>
         <Grid.Col span={4}>
-          <SimpleGrid cols={2}>
-            <Title order={5} mt="sm" ml="xl">
-              Initial Amount: {principal}
-            </Title>
-            <Title order={5} mt="sm" mr="xl">
-              Total after interest: {principal + output}
-            </Title>
+          <SimpleGrid cols={2} mt={20}>
+            <Center>
+              <WidgetCaption>Initial Amount: {principal}</WidgetCaption>
+            </Center>
+            <Center>
+              <WidgetCaption>
+                Total after interest: {principal + output}
+              </WidgetCaption>
+            </Center>
           </SimpleGrid>
         </Grid.Col>
       </Grid>

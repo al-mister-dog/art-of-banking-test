@@ -6,6 +6,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export default function SimpleInterestCalculator() {
@@ -73,15 +74,15 @@ export default function SimpleInterestCalculator() {
           }}
         />
       </Box>
-      <Center>
-        <Title order={5} mt="sm" ml="xl">
+      <Center mt={20}>
+        <WidgetCaption>
           ({principal} / 100) x ({interest} - {inflation}) = {output.toFixed(2)}
-        </Title>
+        </WidgetCaption>
       </Center>
-      <Center>
-        <Title order={5} mt="sm" ml="xl">
+      <Center mt={20}>
+        <WidgetCaption>
           ${output.toFixed(2)} is {interest - inflation}% of ${principal}
-        </Title>
+        </WidgetCaption>
       </Center>
     </Container>
   );

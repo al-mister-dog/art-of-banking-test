@@ -1,5 +1,5 @@
-import { Box, Center, Title } from "@mantine/core";
-import Caption from "../../texts/Caption";
+import { Box, Center } from "@mantine/core";
+import Title from "../../../../shared-ui/texts/Title";
 import SubTitle from "../../../../shared-ui/texts/Subtitle";
 import Text from "../../../../shared-ui/texts/Text-Two";
 import SimpleInterestFormula from "./simple-interest-calculators/simple-interest-formula";

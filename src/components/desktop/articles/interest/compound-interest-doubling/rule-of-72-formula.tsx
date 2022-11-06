@@ -1,12 +1,13 @@
 import {
   Box,
+  Center,
   Grid,
   NumberInput,
   SimpleGrid,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../shared-ui/widget-container/desktop";
 
 export default function RuleOf72Formula() {
@@ -64,14 +65,18 @@ export default function RuleOf72Formula() {
           </Box>
         </Grid.Col>
         <Grid.Col span={4}>
-          <SimpleGrid cols={2}>
-            <Title order={5} mt="sm" ml="xl">
-              72 / {rate} = {Math.round(output)}
-            </Title>
-            <Title order={5} mt="sm" ml="xl">
-              At {rate}% interest ${principal} will double in approximately {""}
-              {Math.round(output)} years
-            </Title>
+          <SimpleGrid cols={2} mt={20}>
+            <Center>
+              <WidgetCaption>
+                72 / {rate} = {Math.round(output)}
+              </WidgetCaption>
+            </Center>
+            <Center>
+              <WidgetCaption>
+                At {rate}% interest ${principal} will double in approximately{" "}
+                {Math.round(output)} years
+              </WidgetCaption>
+            </Center>
           </SimpleGrid>
         </Grid.Col>
       </Grid>

@@ -1,12 +1,13 @@
 import {
   Box,
+  Center,
   Grid,
   NumberInput,
   SimpleGrid,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/desktop";
 
 export default function SimpleInterestCalculator() {
@@ -64,13 +65,18 @@ export default function SimpleInterestCalculator() {
           </Box>
         </Grid.Col>
         <Grid.Col span={4}>
-          <SimpleGrid cols={2}>
-            <Title order={5} mt="sm" ml="xl">
-              ({principal} / 100) x {rate} = {output.toFixed(2)}
-            </Title>
-            <Title order={5} mt="sm" ml="xl">
-              ${output.toFixed(2)} is {rate}% of ${principal}
-            </Title>
+          <SimpleGrid cols={2} mt={20}>
+            <Center>
+              <WidgetCaption>
+                ({principal} / 100) x {rate} = {output.toFixed(2)}
+              </WidgetCaption>
+            </Center>
+
+            <Center>
+              <WidgetCaption>
+                ${output.toFixed(2)} is {rate}% of ${principal}
+              </WidgetCaption>
+            </Center>
           </SimpleGrid>
         </Grid.Col>
       </Grid>

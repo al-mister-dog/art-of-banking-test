@@ -4,10 +4,10 @@ import {
   NumberInput,
   SimpleGrid,
   Text,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/desktop";
 
 export default function SimpleInterestCalculator() {
@@ -69,38 +69,38 @@ export default function SimpleInterestCalculator() {
           <SimpleGrid cols={2}>
             <div>
               <Text>1st Iteration:</Text>
-              <Title order={5}>
+              <WidgetCaption>
                 ({principal} / 100) x {interest} = {firstIteration.toFixed(2)}
-              </Title>
-              <Title order={5}>
+              </WidgetCaption>
+              <WidgetCaption>
                 ${firstIteration.toFixed(2)} is {interest}% of ${principal}
-              </Title>
-              <Title order={5}>
+              </WidgetCaption>
+              <WidgetCaption>
                 Total: $
                 <span style={{ color: theme.colors.green[9] }}>
                   {(principal + firstIteration).toFixed(2)}
                 </span>
-              </Title>
+              </WidgetCaption>
             </div>
             <div>
               <Text>2nd Iteration:</Text>
-              <Title order={5}>
+              <WidgetCaption>
                 (
                 <span style={{ color: theme.colors.green[9] }}>
                   {(principal + firstIteration).toFixed(2)}
                 </span>{" "}
                 / 100) x {interest} = {secondIteration.toFixed(2)}
-              </Title>
-              <Title order={5}>
+              </WidgetCaption>
+              <WidgetCaption>
                 ${secondIteration.toFixed(2)} is {interest}% of $
                 <span style={{ color: theme.colors.green[9] }}>
                   {(principal + firstIteration).toFixed(2)}
                 </span>
-              </Title>
-              <Title order={5}>
+              </WidgetCaption>
+              <WidgetCaption>
                 Total: $
                 {(principal + firstIteration + secondIteration).toFixed(2)}
-              </Title>
+              </WidgetCaption>
             </div>
           </SimpleGrid>
         </Grid.Col>

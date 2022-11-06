@@ -1,5 +1,6 @@
-import { Box, Center, Title } from "@mantine/core";
+import { Box, Center } from "@mantine/core";
 import Caption from "../../../../shared-ui/texts/Caption";
+import Title from "../../../../shared-ui/texts/Title";
 import SubTitle from "../../../../shared-ui/texts/Subtitle";
 import Text from "../../../../shared-ui/texts/Text-Mobile";
 import SimpleInterestFormula from "./simple-interest-calculators/simple-interest-formula";
@@ -19,7 +20,9 @@ export default function CompoundInterestPage() {
   return (
     <>
       <Box mt={200}>
-        <Title p={30}>Compound Interest</Title>
+        <Center>
+          <Title>Compound Interest</Title>
+        </Center>
       </Box>
       <Text>
         Compound interest is a form of interest on a loan or investment that

@@ -1,0 +1,30 @@
+WHAT DO WE NEED TO KNOW ABOUT MESOPOTAMIAN COMPOUND INTEREST
+
+the rate remained stable. for how long
+how was this rate derived
+what was the rate for silver
+what was the rate for barley
+what is the formula
+can an interesting graph be made from this
+what were the social consequences
+
+
+the rate remained stable. for how long
+throughout the course of mesopotamian society, the interest rate remained stable at around 
+20 percent for silver and 33 1/3 for barley.
+
+Tablet AO 6770 (c. 2000 BCE, in the Louvre in Paris)
+In effect, Tablet AO 6770 asks the question: “How long does it take a
+principal to double at 20% APR compounded annually?” 
+
+In the Louvre in Paris there is a clay tablet dating back from 2000 BC. The cla
+
+
+SOURCES 
+Compound Doubling
+Saad Taha Bakir: Communications in Mathematical Finance, vol. 5, no. 2, 2016, 1-11
+Michael Hudson: Journal of the Economic and Social History of the Orient 43 (Spring 2000):132-161
+
+Renaisance Banking
+Colin Drumm: Medieval Monetary Theory
+

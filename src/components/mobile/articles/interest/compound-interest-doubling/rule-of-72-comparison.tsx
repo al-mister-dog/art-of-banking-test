@@ -8,6 +8,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../shared-ui/widget-container/mobile";
 
 export default function SimpleInterestCalculator() {
@@ -74,21 +75,21 @@ export default function SimpleInterestCalculator() {
 
       <SimpleGrid cols={2}>
         <div>
-          <Text mt="sm" ml="md">
+          <Text mt="sm">
             Rule of 72
           </Text>
-          <Title order={5} mt="sm" ml="md">
+          <WidgetCaption>
             72 / {rate} = {Math.round(ruleOutput)} (years)
-          </Title>
+          </WidgetCaption>
         </div>
         <div>
-          <Text mt="sm" ml="md">
+          <Text mt="sm">
             (A = P(1+r)^t)
           </Text>
-          <Title order={5} mt="sm" ml="md">
+          <WidgetCaption>
             Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
             {compoundInterestOutput.toFixed(2)}
-          </Title>
+          </WidgetCaption>
         </div>
       </SimpleGrid>
     </Container>

@@ -1,14 +1,6 @@
-import {
-  Box,
-  Center,
-  Grid,
-  NumberInput,
-  SimpleGrid,
-  Text,
-  Title,
-  useMantineTheme,
-} from "@mantine/core";
+import { Box, Center, NumberInput, Text, useMantineTheme } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export default function SimpleInterestCalculator() {
@@ -65,22 +57,22 @@ export default function SimpleInterestCalculator() {
           <Text>1st Iteration:</Text>
         </Center>
         <Center>
-          <Title order={5}>
+          <WidgetCaption>
             ({principal} / 100) x {interest} = {firstIteration.toFixed(2)}
-          </Title>
+          </WidgetCaption>
         </Center>
         <Center>
-          <Title order={5}>
+          <WidgetCaption>
             ${firstIteration.toFixed(2)} is {interest}% of ${principal}
-          </Title>
+          </WidgetCaption>
         </Center>
         <Center>
-          <Title order={5}>
+          <WidgetCaption>
             Total: $
             <span style={{ color: theme.colors.green[9] }}>
               {(principal + firstIteration).toFixed(2)}
             </span>
-          </Title>
+          </WidgetCaption>
         </Center>
       </Box>
       <Box mt="md">
@@ -88,26 +80,26 @@ export default function SimpleInterestCalculator() {
           <Text align="left">2nd Iteration:</Text>
         </Center>
         <Center>
-          <Title order={5} align="left">
+          <WidgetCaption>
             (
             <span style={{ color: theme.colors.green[9] }}>
               {(principal + firstIteration).toFixed(2)}
             </span>
             / 100) x {interest} = {secondIteration.toFixed(2)}
-          </Title>
+          </WidgetCaption>
         </Center>
         <Center>
-          <Title order={5} align="left">
+          <WidgetCaption>
             ${secondIteration.toFixed(2)} is {interest}% of $
             <span style={{ color: theme.colors.green[9] }}>
               {(principal + firstIteration).toFixed(2)}
             </span>
-          </Title>
+          </WidgetCaption>
         </Center>
         <Center>
-          <Title order={5} align="left">
+          <WidgetCaption>
             Total: ${(principal + firstIteration + secondIteration).toFixed(2)}
-          </Title>
+          </WidgetCaption>
         </Center>
       </Box>
     </Container>

@@ -5,10 +5,10 @@ import {
   NumberInput,
   Select,
   Text,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
 import Container from "../../../../../shared-ui/widget-container/desktop";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 
 export const compoundPeriods = [
   {
@@ -140,25 +140,25 @@ export default function SimpleInterestCalculator() {
             <Text size="xs" mt="lg">
               Simple Interest
             </Text>
-            <Title order={5}>
+            <WidgetCaption>
               Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
               {simpleInterestOutput.toFixed(2)}
-            </Title>
+            </WidgetCaption>
             <Text size="xs" mt="lg">
               Compound Interval: Annually
             </Text>
-            <Title order={5}>
+            <WidgetCaption>
               Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
               {compoundInterestOutput.toFixed(2)}
-            </Title>
+            </WidgetCaption>
             <Text size="xs" mt="lg">
               Compound Interval :{" "}
               {compoundPeriods.find((c) => c.value === compoundPeriod).label}
             </Text>
-            <Title order={5}>
+            <WidgetCaption>
               Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
               {compoundIntervalOutput.toFixed(2)}
-            </Title>
+            </WidgetCaption>
           </Box>
         </Grid.Col>
       </Grid>

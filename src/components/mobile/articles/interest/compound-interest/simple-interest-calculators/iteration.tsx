@@ -6,6 +6,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState } from "react";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export default function SimpleInterestCalculator() {
@@ -72,17 +73,15 @@ export default function SimpleInterestCalculator() {
           }}
         />
       </Box>
-      <Center>
-        <Title order={5} mt="sm" align="left">
-          Initial Amount: {principal}
-        </Title>
+      <Center mt={20}>
+        <WidgetCaption>Initial Amount: {principal}</WidgetCaption>
       </Center>
 
-      <Center>
-        <Title order={5} mt="sm" align="left">
+      <Center mt={20}>
+        <WidgetCaption>
           Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
           {output}
-        </Title>
+        </WidgetCaption>
       </Center>
     </Container>
   );

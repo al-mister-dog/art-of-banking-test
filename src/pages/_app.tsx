@@ -24,7 +24,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           withNormalizeCSS
           theme={{
             colorScheme: "light",
-            fontFamily: `"Poppins", "EB Garamond", "Roboto"`,
+            fontFamily: "Poppins, EB Garamond, Roboto",
           }}
         >
           <Layout>

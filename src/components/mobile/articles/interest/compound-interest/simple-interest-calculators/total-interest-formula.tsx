@@ -1,12 +1,7 @@
 import { useState } from "react";
-import {
-  Box,
-  Center,
-  NumberInput,
-  Title,
-  useMantineTheme,
-} from "@mantine/core";
+import { Box, Center, NumberInput, useMantineTheme } from "@mantine/core";
 import Container from "../../../../../shared-ui/widget-container/mobile";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 
 export default function SimpleInterestCalculator() {
   const [interest, setInterest] = useState(5);
@@ -51,15 +46,13 @@ export default function SimpleInterestCalculator() {
           }}
         />
       </Box>
-      <Center>
-        <Title order={5} mt="sm" align="left">
-          Initial Amount: {principal}
-        </Title>
+      <Center mt={20}>
+        <WidgetCaption>Initial Amount: {principal}</WidgetCaption>
       </Center>
-      <Center>
-        <Title order={5} mt="sm" align="left">
+      <Center mt={20}>
+        <WidgetCaption>
           Total after interest: {principal + output}
-        </Title>
+        </WidgetCaption>
       </Center>
     </Container>
   );

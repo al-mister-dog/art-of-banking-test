@@ -1,14 +1,13 @@
+import { useState } from "react";
 import {
   Box,
   Center,
-  Grid,
   NumberInput,
   Select,
-  SimpleGrid,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
-import { useState } from "react";
+
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 import Container from "../../../../../shared-ui/widget-container/mobile";
 
 export const compoundPeriods = [
@@ -75,9 +74,9 @@ export default function SimpleInterestCalculator() {
         />
       </Box>
       <Center>
-        <Title order={5} mt="sm">
+        <WidgetCaption>
           {rate}% / {compoundPeriod} = {(rate / compoundPeriod).toFixed(2)}%
-        </Title>
+        </WidgetCaption>
       </Center>
     </Container>
   );

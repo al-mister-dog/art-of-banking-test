@@ -1,13 +1,7 @@
 import { useState } from "react";
-import {
-  Box,
-  Grid,
-  NumberInput,
-  Text,
-  Title,
-  useMantineTheme,
-} from "@mantine/core";
+import { Box, Grid, NumberInput, Text, useMantineTheme } from "@mantine/core";
 import Container from "../../../../../shared-ui/widget-container/desktop";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 
 export default function SimpleInterestCalculator() {
   const [rate, setRate] = useState(10);
@@ -103,17 +97,17 @@ export default function SimpleInterestCalculator() {
             <Text size="xs" mt="lg">
               Simple Interest
             </Text>
-            <Title order={5}>
+            <WidgetCaption>
               Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
               {simpleInterestOutput.toFixed(2)}
-            </Title>
+            </WidgetCaption>
             <Text size="xs" mt="lg">
               Compound Interest
             </Text>
-            <Title order={5}>
+            <WidgetCaption>
               Total After {iterations} {iterations === 1 ? "Year" : "Years"}: $
               {compoundInterestOutput.toFixed(2)}
-            </Title>
+            </WidgetCaption>
           </Box>
         </Grid.Col>
       </Grid>

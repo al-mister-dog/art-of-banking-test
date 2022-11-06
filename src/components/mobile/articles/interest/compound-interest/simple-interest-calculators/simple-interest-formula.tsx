@@ -7,6 +7,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import Container from "../../../../../shared-ui/widget-container/mobile";
+import WidgetCaption from "../../../../../shared-ui/texts/Widget-Caption";
 
 export default function SimpleInterestCalculator() {
   const [rate, setRate] = useState(5);
@@ -53,15 +54,15 @@ export default function SimpleInterestCalculator() {
           }}
         />
       </Box>
-      <Center>
-        <Title order={5} mt="sm" align="left">
+      <Center mt={20}>
+        <WidgetCaption>
           ({principal} / 100) x {rate} = {output.toFixed(2)}
-        </Title>
+        </WidgetCaption>
       </Center>
-      <Center>
-        <Title order={5} mt="sm" align="left">
+      <Center mt={20}>
+        <WidgetCaption>
           ${output.toFixed(2)} is {rate}% of ${principal}
-        </Title>
+        </WidgetCaption>
       </Center>
     </Container>
   );

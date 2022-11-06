@@ -55,6 +55,13 @@ export default function CompoundInterestPage() {
       <Center mt={100}>
         <SubTitle>Ancient Mesopotamia</SubTitle>
       </Center>
+      <Text>
+        'Interestingly', in contrast the ever varying rates of lending in
+        mondern times, annual interest in Mesoptamia remained stable for over a
+        thousand years, Annual interest rates of 10% up to 33% on loans were
+        common in Mesopotamia in early periods. 
+      </Text>
     </>
   );
+  
 }
