@@ -1,4 +1,4 @@
-import { Box, Center } from "@mantine/core";
+import { Box, Center, useMantineTheme } from "@mantine/core";
 import Title from "../../../../shared-ui/texts/Title";
 import SubTitle from "../../../../shared-ui/texts/Subtitle";
 import ArticleText from "../../../../shared-ui/texts/Article-Text";
@@ -14,8 +14,11 @@ import CompoundIntervalIteration from "./compound-interval-calculators/iteration
 import CompoundIntervalCalculator from "./compound-interval-calculators/calculator/calculator";
 import InflationAdjustedFormula from "./inflation-adjusted-calculators/formula";
 import InflationAdjustedCalculator from "./inflation-adjusted-calculators/calculator/calculator";
+import Caption from "../../../../shared-ui/texts/Caption";
+import Link from "next/link";
 
 export default function CompoundInterestPage() {
+  const theme = useMantineTheme();
   return (
     <>
       <Box ml={25} mt={200}>
@@ -157,6 +160,17 @@ export default function CompoundInterestPage() {
         adjusted for inflation.
       </ArticleText>
       <InflationAdjustedCalculator />
+      <Box mt={100} />
+      <Box p={25}>
+        <SubTitle>
+          Want to dive deeper into the topic of compound interest?, see our{" "}
+          <Link href="compound-interest-doubling">
+            <a style={{ color: theme.colors.violet[9] }}>
+              compound interest doubling article. . .
+            </a>
+          </Link>
+        </SubTitle>
+      </Box>
     </>
   );
 }
