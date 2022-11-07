@@ -6,8 +6,12 @@ import ArticleText from "../../../../shared-ui/texts/Article-Text";
 import Link from "next/link";
 import RuleOf72Formula from "./rule-of-72-formula";
 import RuleOf72Comparison from "./rule-of-72-comparison";
+import { Bold } from "tabler-icons-react";
+import Inversions from "./inversions";
+import ExactDoublingFormula from "./exact-doubling-formula";
+import ExactDoublingComparison from "./exact-doubling-comparison";
 
-export default function CompoundInterestPage() {
+export default function CompoundInterestDoubling() {
   const theme = useMantineTheme();
   return (
     <>
@@ -52,6 +56,70 @@ export default function CompoundInterestPage() {
       <Center mt={100}>
         <SubTitle>Exact Doubling Time Formula</SubTitle>
       </Center>
+      <ArticleText>
+        To work out the exact doubling time, a little maths is involved and we
+        will need to understand inverses, exponents and logarithms. Don't worry
+        if maths is not your strong suit, the important thing to take home is
+        that such a formula has been worked out!
+      </ArticleText>
+      <ArticleText>
+        Inverses are common in mathematics. For example the inverse of addition
+        is subtraction and the inverse of multlipication is division. Other
+        inverses include square roots being the inverse of squaring, and
+        importantly for us, logarithms being the inverse of exponents. Exponents
+        are calculated by using a base number and an exponent.
+      </ArticleText>
+      <Inversions />
+      <ArticleText>
+        To calculate an exponentiation, we raise the base number to the power of
+        the exponent. A <strong>power</strong> is the amount of times we want to
+        use a number in a calculation. Lets say the base number is 2 and the
+        power is 3. 2 to the power of 3 (2^3) is 8, because we multiply the
+        number 2 three times. <strong>2 * 2 * 2 = 8</strong>. We can already see
+        how this might relate to our compounding periods, with the power
+        representing the number of iterations we perform a calculation.
+      </ArticleText>
+      <ArticleText>
+        A <strong>logarithm</strong> is the inverse of this. If 2 to the power
+        of 3 equals 8, then the log of 8 equals 3, given a base log of 2. How
+        can this be applied to compound doubling? Imagine we have a principal,
+        and we want to know how many compounding intervals it will take for that
+        principal to double given a certain interest rate. or we could say, if
+        the principal is 1, how many times must we add interest x for that
+        number to become 2? This is another way of saying, if the number we are
+        looking for is 2, what does the exponent need to be given a base log of
+        the interest rate?
+      </ArticleText>
+      <ArticleText>
+        Let's take an interest rate of 2. Given an interest rate of two, we
+        would add (2 / 100) to 1 (principal). This gives us 1.02, and we want to
+        raise this number x amount of times before this number adds up to 2,
+        which represents the principal having been doubled. the trouble is we
+        dont know this number in advance. this is why we use a logarithmic
+        formula to get the number of iterations. The formula (simplified) would
+        be log(2)/log(1.02) or log(doubled principal) / log(principal + (100 /
+        interest rate)) applying this formula gives us the number 35. 35 is our
+        doubling rate! Now if we raised the decimalised interest rate (1.02) to
+        the power of 35 we will get 2, which is the principal being doubled. for
+        anyone who knows algebra the formula (simplified) is log2/log(1 + r)
+        with r being the interest rate.
+      </ArticleText>
+      <ExactDoublingFormula />
+      <ArticleText>
+        Lets compare the answer given by the exact doubling time formula with a
+        formula that calculates the sum total of compound interest x amount of
+        years.
+      </ArticleText>
+      <ExactDoublingComparison />
+      <ArticleText>
+        Notice how the exact answer is almost always a decimal number. To figure
+        out what this number would be in years, months and weeks etc, we would
+        have to further refine our answer to convert our calculations using the{" "}
+        <strong>sexigesimal system</strong> of numbers also known as base 60.
+        Base 60 is how we measure time, which was handed down to us from ancient
+        Mesopotamia. We will know look at how compound interest doubling was
+        calculated in ancient Mesopotamia.
+      </ArticleText>
 
       <Center mt={100}>
         <SubTitle>Ancient Mesopotamia</SubTitle>

@@ -1,11 +1,5 @@
-import { Box, Center } from "@mantine/core";
-
-import { useMantineTheme } from "@mantine/core";
 import { useState } from "react";
-import Title from "../../../../shared-ui/texts/Title";
-import SubTitle from "../../../../shared-ui/texts/Subtitle";
-import ArticleText from "../../../../shared-ui/texts/Text-Mobile";
-import Caption from "../../../../shared-ui/texts/Caption";
+import { Box, Center, useMantineTheme } from "@mantine/core";
 import { inflationByYear, cpiData, getCpi } from "./calculator";
 import Change from "./charts/change";
 import ChangeDynamic from "./charts/change-dynamic";
@@ -14,6 +8,10 @@ import RateDynamic from "./charts/rate-dynamic";
 import CpiPrice from "./cpi-price";
 import CpiPriceWeight from "./cpi-price-weight";
 import CpiWeight from "./cpi-weight";
+import Title from "../../../../shared-ui/texts/Title";
+import SubTitle from "../../../../shared-ui/texts/Subtitle";
+import ArticleText from "../../../../shared-ui/texts/Text-Mobile";
+import Caption from "../../../../shared-ui/texts/Caption";
 
 export default function CPI() {
   const [inflationRate, setInflationRate] = useState(inflationByYear);
