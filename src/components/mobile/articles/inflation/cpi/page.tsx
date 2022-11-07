@@ -1,10 +1,11 @@
-import { Box, Center, SimpleGrid, Title } from "@mantine/core";
+import { Box, Center } from "@mantine/core";
 
 import { useMantineTheme } from "@mantine/core";
 import { useState } from "react";
-import Caption from "../../texts/Caption";
-import Text from "../../texts/Text";
-import SubTitle from "../../texts/Subtitle";
+import Title from "../../../../shared-ui/texts/Title";
+import SubTitle from "../../../../shared-ui/texts/Subtitle";
+import ArticleText from "../../../../shared-ui/texts/Text-Mobile";
+import Caption from "../../../../shared-ui/texts/Caption";
 import { inflationByYear, cpiData, getCpi } from "./calculator";
 import Change from "./charts/change";
 import ChangeDynamic from "./charts/change-dynamic";
@@ -49,15 +50,15 @@ export default function CPI() {
           rateinflation.com
         </a>
       </Caption>
-      <Text>
+      <ArticleText>
         Inflation can be described the decline of purchasing power of a given
         currency over time. A quantitative estimate of the rate at which the
         decline in purchasing power occurs can be reflected in the increase of
         an average price level of a basket of selected goods and services in an
         economy over some period of time (ie. Consumer Price Index or CPI)
-      </Text>
+      </ArticleText>
       <br></br>
-      <Text>
+      <ArticleText>
         The Consumer Price Index (CPI) is a measure that examines the weighted
         average of prices of a basket of consumer goods and services, such as
         transportation, food, and medical care. It is calculated by taking price
@@ -65,12 +66,12 @@ export default function CPI() {
         them. Changes in the CPI are used to assess price changes associated
         with the cost of living. The CPI is one of the most frequently used
         statistics for identifying periods of inflation or deflation.
-      </Text>
+      </ArticleText>
       <br></br>
       <Center>
         <SubTitle>Price Change</SubTitle>
       </Center>
-      <Text>
+      <ArticleText>
         Prices may increase for a number of reasons. They can be roughly divided
         into two categories: cost-push and demand-pull. Demand-pull inflation is
         when consumer demand outpaces the available supply of many types of
@@ -79,14 +80,14 @@ export default function CPI() {
         levels fall. Either will drive up prices—as long as demand remains the
         same. Shortages or cost increases in labor, raw materials, and capital
         goods create cost-push inflation.
-      </Text>
+      </ArticleText>
       <Caption>Insert explanation of how to use widget</Caption>
       <CpiPrice />
       <br></br>
       <Center>
         <SubTitle>Cpi Weight</SubTitle>
       </Center>
-      <Text>
+      <ArticleText>
         The weights are based on the relative importance of the product to
         households – for example, if a household spends 8% of their income on
         chocolate, and 25% on transport, the weights would be 8 and 25
@@ -102,17 +103,17 @@ export default function CPI() {
         services are rising less fast than for everything else. If you adjust
         the weights to downgrade the lower level of spending on travel, you
         produce a higher inflation number.
-      </Text>
+      </ArticleText>
       <Caption>Insert explanation of how to use widget</Caption>
       <CpiWeight />
-      <Text>
+      <ArticleText>
         In early 2021, a worldwide increase in inflation began to occur. It has
         been attributed to various causes, including pandemic-related fiscal and
         monetary stimulus, supply shortages (including chip shortages and energy
         shortages), price gouging and as of 2022, the Russian invasion of
         Ukraine. Below is a chart showing the rate of change and the inflation
         rate from 2000 to 2020.
-      </Text>
+      </ArticleText>
       <Caption>
         If the bulk of inflation was due solely to price increases (and its
         weighting by economists), how much change must occur to reach the Bank
