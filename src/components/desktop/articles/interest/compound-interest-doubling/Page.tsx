@@ -138,7 +138,7 @@ export default function CompoundInterestDoubling() {
         <SubTitle>Ancient Mesopotamia</SubTitle>
       </Center>
       <ArticleText>
-        'Interestingly', in contrast the ever varying rates of lending in
+        'Interestingly', in contrast to the ever varying rates of lending in
         mondern times (at the time of writing, the interest rate keeps going up
         after enjoying near zero rates for around a decade), annual interest in
         Mesoptamia remained stable for over a thousand years. Annual interest
