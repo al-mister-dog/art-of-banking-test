@@ -138,9 +138,12 @@ export default function CompoundInterestPage() {
       </Center>
       <Text>
         'Interestingly', in contrast the ever varying rates of lending in
-        mondern times, annual interest in Mesoptamia remained stable for over a
-        thousand years, Annual interest rates of 10% up to 33% on loans were
-        common in Mesopotamia in early periods.
+        mondern times (at the time of writing, the interest rate keeps going up
+        after enjoying near zero rates for around a decade), annual interest in
+        Mesoptamia remained stable for over a thousand years. Annual interest
+        rates of 10% up to 33% on loans were common in Mesopotamia in early
+        periods. What were the reasons to keep the interest rate so stable how
+        do we know what methods they used to work out compound doubling time?
       </Text>
     </>
   );
