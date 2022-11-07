@@ -22,10 +22,20 @@ export default function ExactDoublingComparison() {
     const rate = r / 100;
     return (Math.log(2) / Math.log(1 + rate)).toFixed(2);
   }
+
+  function parseDate(value) {
+    const totalDays = value * 365;
+    const years = Math.floor(totalDays / 365);
+    const months = Math.floor((totalDays - years * 365) / 30);
+    const days = Math.floor(totalDays - years * 365 - months * 30);
+    const result = years + " years, " + months + " months, " + days + " days";
+    return result;
+  }
+
   const doublingTime = getDoublingTime(rate);
   const compoundInterestOutput =
     principal * Math.pow(1 + rate / 100, iterations);
-
+  const date = parseDate(doublingTime);
   return (
     <Container color={theme.colors.indigo[0]}>
       <Box
@@ -87,8 +97,7 @@ export default function ExactDoublingComparison() {
         <div>
           <Text mt="sm">Exact Doubling Time Formula</Text>
           <WidgetCaption>
-            At {rate}% interest ${principal} will double in exactly{" "}
-            {doublingTime} years
+            At {rate}% interest ${principal} will double in exactly {date}
           </WidgetCaption>
         </div>
         <div>

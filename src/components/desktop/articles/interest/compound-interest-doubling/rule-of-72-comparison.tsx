@@ -14,7 +14,7 @@ import Container from "../../../../shared-ui/widget-container/desktop";
 export default function SimpleInterestCalculator() {
   const [rate, setRate] = useState(10);
   const [principal, setPrincipal] = useState(100);
-  const [iterations, setIterations] = useState(10);
+  const [iterations, setIterations] = useState(7);
 
   const theme = useMantineTheme();
   const ruleOutput = 72 / rate;
