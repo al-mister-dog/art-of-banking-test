@@ -3,6 +3,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import banksReducer from "../features/banks/banksSlice";
 import lecturesReducer from "../features/actions/actionsSlice";
 import settingsReducer from "../features/settings/settingsSlice";
+import renaissanceReducer from "../features/renaissance/renaissanceSlice"
 
 export function makeStore() {
   return configureStore({
@@ -10,6 +11,7 @@ export function makeStore() {
       banks: banksReducer,
       lectures: lecturesReducer,
       settings: settingsReducer,
+      renaissance: renaissanceReducer,
     },
   });
 }
