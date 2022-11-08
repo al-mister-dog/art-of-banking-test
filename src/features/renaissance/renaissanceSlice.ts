@@ -217,14 +217,10 @@ export const renaissanceSlice = createSlice({
 
 export const { trade, drawBill, remitBill, reset } = renaissanceSlice.actions;
 
-export const selectTraders = (state: { players: { traders: any } }) =>
-  state.players.traders;
-export const selectBankers = (state: { players: { bankers: any } }) =>
-  state.players.bankers;
-export const selectState = (state: { players: any }) => state.players;
-export const selectRecords = (state: { players: { records: any } }) =>
-  state.players.records;
-export const selectConditions = (state: { players: { conditions: any } }) =>
-  state.players.conditions;
+export const selectTraders = (state) => state.renaissance.traders;
+export const selectBankers = (state) => state.renaissance.bankers;
+export const selectState = (state) => state.renaissance;
+export const selectRecords = (state) => state.renaissance.records;
+export const selectConditions = (state) => state.renaissance.conditions;
 
 export default renaissanceSlice.reducer;
