@@ -8,6 +8,7 @@ import RuleOf72Formula from "./rule-of-72-formula";
 import RuleOf72Comparison from "./rule-of-72-comparison";
 import Inversions from "./inversions";
 import ExactDoublingFormula from "./exact-doubling-formula";
+import ExactDoublingIntervals from "./exact-doubling-intervals";
 import ExactDoublingComparison from "./exact-doubling-comparison";
 
 export default function CompoundInterestPage() {
@@ -115,6 +116,7 @@ export default function CompoundInterestPage() {
         </span>{" "}
       </Text>
       <ExactDoublingFormula />
+
       <Text>
         Notice how the exact answer is almost always a decimal number. To figure
         out what this number would be in years, months and weeks etc, we can
@@ -123,6 +125,12 @@ export default function CompoundInterestPage() {
         sum total of compound interest x amount of years.
       </Text>
       <ExactDoublingComparison />
+      <Text>
+        If we factor in compound intervals then we divide the interest rate by
+        the number of compound intervals a year, and then divide the formula
+        output by that same number.
+      </Text>
+      <ExactDoublingIntervals />
       <Text>
         Have you noticed that the way we measure time often involves the number
         60? 60 seconds in a minute and 60 minutes in an hour etc. This way of

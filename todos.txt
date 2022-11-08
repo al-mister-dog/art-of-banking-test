@@ -6,3 +6,10 @@ a borrower will not be able to pay the loan, and thus the loan is disincentivise
 
 if there is more money then interest rates will be lower, because there is more confidence that
 a borrower will be able to pay back the loan, and thus the loan is incentivised
+
+
+
+
+//SITE
+Like a more interactive investopedia
+In articles add written by and 'software by'

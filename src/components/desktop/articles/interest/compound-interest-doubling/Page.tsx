@@ -10,6 +10,7 @@ import { Bold } from "tabler-icons-react";
 import Inversions from "./inversions";
 import ExactDoublingFormula from "./exact-doubling-formula";
 import ExactDoublingComparison from "./exact-doubling-comparison";
+import ExactDoublingInterval from "./exact-doubling-intervals";
 
 export default function CompoundInterestDoubling() {
   const theme = useMantineTheme();
@@ -124,6 +125,12 @@ export default function CompoundInterestDoubling() {
         sum total of compound interest x amount of years.
       </ArticleText>
       <ExactDoublingComparison />
+      <ArticleText>
+        If we factor in compound intervals then we divide the interest rate by
+        the number of compound intervals a year, and then divide the formula
+        output by that same number.
+      </ArticleText>
+      <ExactDoublingInterval />
       <ArticleText>
         Have you noticed that the way we measure time often involves the number
         60? 60 seconds in a minute and 60 minutes in an hour etc. This way of

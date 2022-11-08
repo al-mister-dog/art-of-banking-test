@@ -20,7 +20,7 @@ export default function ExactDoublingComparison() {
 
   function getDoublingTime(r: number) {
     const rate = r / 100;
-    return (Math.log(2) / Math.log(1 + rate)).toFixed(2);
+    return Math.log(2) / Math.log(1 + rate);
   }
 
   function parseDate(value) {

@@ -16,7 +16,7 @@ export default function ExactDoublingFormula() {
 
   function getDoublingTime(r: number) {
     const rate = r / 100;
-    return (Math.log(2) / Math.log(1 + rate)).toFixed(2);
+    return Math.log(2) / Math.log(1 + rate);
   }
 
   const theme = useMantineTheme();
@@ -74,14 +74,14 @@ export default function ExactDoublingFormula() {
             <Center>
               <WidgetCaption>
                 <WidgetCaption>
-                  log(2) / log({rate}/100) = {output}
+                  log(2) / log({rate}/100) = {output.toFixed(2)}
                 </WidgetCaption>
               </WidgetCaption>
             </Center>
             <Center>
               <WidgetCaption>
-                At {rate}% interest ${principal} will double in exactly {output}{" "}
-                years
+                At {rate}% interest ${principal} will double in exactly{" "}
+                {output.toFixed(2)} years
               </WidgetCaption>
             </Center>
           </SimpleGrid>
