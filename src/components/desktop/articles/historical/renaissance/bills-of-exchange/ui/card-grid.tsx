@@ -10,7 +10,7 @@ export default function Layout({
     <>
       <Grid gutter="sm" grow>
         <Grid.Col span={1}>
-          <div style={{ height: "26rem", overflow: "auto" }}>
+          <div style={{ height: "30.5rem", overflow: "auto" }}>
             {florencePlayers.map((bank) => (
               <div key={bank.id} style={{ marginBottom: "10px" }}>
                 <Card bank={bank} selectPlayer={selectPlayer} />
@@ -19,7 +19,7 @@ export default function Layout({
           </div>
         </Grid.Col>
         <Grid.Col span={1}>
-          <div style={{ height: "26rem", overflow: "auto" }}>
+          <div style={{ height: "30.5rem", overflow: "auto" }}>
             {lyonsPlayers.map((bank) => (
               <div key={bank.id} style={{ marginBottom: "10px" }}>
                 <Card bank={bank} selectPlayer={selectPlayer} />

@@ -1,9 +1,16 @@
-import { Box, Center, useMantineTheme } from "@mantine/core";
+import { useAppSelector } from "../../../../../../app/hooks";
+import {
+  selectBankers,
+  selectTraders,
+} from "../../../../../../features/renaissance/renaissanceSlice";
+
+import { Box, useMantineTheme } from "@mantine/core";
 
 import Link from "next/link";
 import Title from "../../../../../shared-ui/texts/Title";
 import ArticleText from "../../../../../shared-ui/texts/Article-Text";
 import SubTitle from "../../../texts/Subtitle";
+import Board from "./ui/board";
 
 export const texts = {
   title: `Rechange: Part 2`,
@@ -25,6 +32,13 @@ export const texts = {
 
 export default function PartFive() {
   const theme = useMantineTheme();
+
+  const { me, salviati, federigo, piero } = useAppSelector(selectTraders);
+  const { you, tomasso } = useAppSelector(selectBankers);
+
+  const florencePlayers = [me, you, federigo];
+  const lyonsPlayers = [salviati, tomasso, piero];
+
   return (
     <>
       <Box ml={25} mt={200}>
@@ -34,7 +48,7 @@ export default function PartFive() {
       {texts.paragraphs.map((paragraph) => (
         <ArticleText key={paragraph}>{paragraph}</ArticleText>
       ))}
-
+      <Board florencePlayers={florencePlayers} lyonsPlayers={lyonsPlayers} />
       <Box p={25}>
         <SubTitle>
           Go to{" "}

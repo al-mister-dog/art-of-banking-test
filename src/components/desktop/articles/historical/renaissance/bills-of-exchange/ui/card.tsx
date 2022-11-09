@@ -20,7 +20,7 @@ export default function CardUI({ bank, selectPlayer }) {
       p="sm"
       radius="xs"
       style={{
-        height: "12.75rem",
+        height: "9.75rem",
         backgroundColor: theme.colors.violet[1],
         paddingBottom: "0px",
         cursor: "pointer",

@@ -1,170 +1,98 @@
-import { useAppSelector, useAppDispatch } from "../../../../../app/hooks";
 import {
   selectBankers,
   remitBill,
-} from "../../../../../features/players/playersSlice";
+} from "../../../../../../../../features/renaissance/renaissanceSlice";
 
-import {
-  Box,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Stack, Button, Select, Text, useMantineTheme } from "@mantine/core";
 
-import DrawBillDialog from "./dialogs/BillDialog";
-import ChoosePlayer from "./dialogs/ChoosePlayerDialog";
 import { useState } from "react";
-
-interface Banker {
-  id: string;
-  city: string;
-  type: string;
-  assets: any;
-  liabilities: any;
-  coins: any;
-  goods: number;
-  coinAsset: any;
-  coinLiability: any;
-}
-
-interface Accordions {
-  export: boolean;
-  import: boolean;
-  drawBill: boolean;
-  remitBill: boolean;
-}
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../../../../../app/hooks";
 
 const RemitBill: React.FunctionComponent<{
   selected: any;
-  accordionExpanded: Accordions;
-  setAccordionExpanded: (v: Accordions) => void;
-}> = ({ selected, accordionExpanded, setAccordionExpanded }) => {
+}> = ({ selected }) => {
   const dispatch = useAppDispatch();
   const { you, tomasso } = useAppSelector(selectBankers);
+
+  const theme = useMantineTheme();
+
   const bankersArray = [you, tomasso];
-  const selectedBankers = bankersArray.filter(
-    (t) => selected.id !== t.id && t.type === "banker"
-  );
+  const selectedBankers = bankersArray
+    .filter((t) => selected.id !== t.id && t.type === "banker")
+    .map((t) => {
+      return { value: t.id, label: t.id };
+    });
 
-  const [selectedValueTo, setSelectedValuePlayer] = useState<Banker | null>(
-    null
-  );
-  const [openTo, setOpenTo] = useState(false);
-  const handleClickOpenTo = () => {
-    setOpenTo(true);
-  };
-  const handleCloseTo = () => {
-    setOpenTo(false);
-  };
-
+  const [selectedValueTo, setSelectedValuePlayer] = useState(null);
   const [selectedBill, setSelectedBill] = useState<any>(null);
-  const [openAmount, setOpenAmount] = useState(false);
 
-  const handleClickOpenAmount = () => {
-    setOpenAmount(true);
-  };
-  const handleCloseAmount = () => {
-    setOpenAmount(false);
-  };
+  const bills = selected.assets
+    .filter((asset) => asset.paid !== true)
+    .map((b) => {
+      return {
+        value: b,
+        label: `${b.amount}: Due From ${b.dueFrom}, ${b.city}`,
+      };
+    });
 
   const onClickremitBill = () => {
     dispatch(
       remitBill({
         presenter: selected,
-        presentee: selectedValueTo,
+        presentee: bankersArray.find((t) => t.id === selectedValueTo),
         bill: selectedBill,
       })
     );
     setSelectedValuePlayer(null);
     setSelectedBill(null);
-    setAccordionExpanded({ ...accordionExpanded, remitBill: false });
   };
 
   return (
-    <Box>
+    <Stack>
       {selected.assets.length > 0 ? (
         <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Button
-                // disabled={selectedValueTo === null}
-                variant="contained"
-                onClick={handleClickOpenAmount}
-                sx={{ width: "150px", marginBottom: "5px" }}
-              >
+          <Select
+            size="xs"
+            label={
+              <Text size="xs" weight="bold" color={theme.colors.violet[9]}>
                 Bill To Remit
-              </Button>
-              <DrawBillDialog
-                selected={selected}
-                setSelectedBill={setSelectedBill}
-                open={openAmount}
-                onClose={handleCloseAmount}
-              />
-              <Button
-              variant="contained"
-                onClick={handleClickOpenTo}
-                sx={{ width: "150px" }}
-              >
+              </Text>
+            }
+            placeholder="Select Bill To Remit"
+            value={selectedBill}
+            onChange={(val) => setSelectedBill(val)}
+            data={bills}
+          />
+
+          <Select
+            size="xs"
+            label={
+              <Text size="xs" weight="bold" color={theme.colors.violet[9]}>
                 Remit Bill To
-              </Button>
-              <ChoosePlayer
-                onClose={handleCloseTo}
-                setSelectedValuePlayer={setSelectedValuePlayer}
-                open={openTo}
-                selectedBankers={selectedBankers}
-                info={{type: selected.type, action: "remitBill"}}
-              />
-            </div>
-            <div
-              style={{
-                alignSelf: "flex-end",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography sx={{ margin: 0.75 }}>
-                {selectedBill
-                  ? `${selectedBill.dueFrom}: ${selectedBill.amount}`
-                  : ` `}
-              </Typography>
-              <Typography sx={{ margin: 0.75 }}>
-                {selectedValueTo ? `${selectedValueTo.id}` : `_`}
-              </Typography>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end",
-            }}
+              </Text>
+            }
+            placeholder="Find Banker Willing to Take Your Bill"
+            value={selectedValueTo}
+            onChange={(val) => setSelectedValuePlayer(val)}
+            data={selectedBankers}
+          />
+
+          <Button
+            variant="filled"
+            disabled={!selectedValueTo || !selectedBill}
+            onClick={onClickremitBill}
           >
-            <Button
-              variant="contained"
-              disabled={!selectedValueTo || !selectedBill}
-              onClick={onClickremitBill}
-            >
-              Ok
-            </Button>
-          </div>
+            Ok
+          </Button>
         </>
       ) : (
-        <Typography>There are no bills to remit</Typography>
+        <Text>There are no bills to remit</Text>
       )}
-    </Box>
+    </Stack>
   );
 };
 
-export default ExportCard;
+export default RemitBill;

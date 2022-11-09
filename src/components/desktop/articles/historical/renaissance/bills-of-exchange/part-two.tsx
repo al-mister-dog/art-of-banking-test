@@ -4,14 +4,14 @@ import {
   selectBankers,
 } from "../../../../../../features/renaissance/renaissanceSlice";
 
-import { Box, Grid, useMantineTheme } from "@mantine/core";
+import { Box, useMantineTheme } from "@mantine/core";
 import Link from "next/link";
 import Title from "../../../../../shared-ui/texts/Title";
 import ArticleText from "../../../../../shared-ui/texts/Article-Text";
 import SubTitle from "../../../texts/Subtitle";
 import { useState } from "react";
-import CardGrid from "./ui/card-grid";
-import BankDetail from "./ui/bank-detail";
+
+import Board from "./ui/board";
 
 export const texts = {
   title: `Bills of Exchange and Units of Account`,
@@ -47,15 +47,12 @@ export const texts = {
 
 export default function PartTwo() {
   const theme = useMantineTheme();
-  const { me, salviati, federigo, piero } = useAppSelector(selectTraders);
-  const { you, tomasso } = useAppSelector(selectBankers);
+  const { me, salviati } = useAppSelector(selectTraders);
+  const { you } = useAppSelector(selectBankers);
 
-  const [selected, setSelected] = useState<string>("me");
   const florencePlayers = [me, you];
   const lyonsPlayers = [salviati];
-  function selectPlayer(player: any) {
-    setSelected(player.id);
-  }
+
   return (
     <>
       <Box ml={25} mt={200}>
@@ -66,23 +63,7 @@ export default function PartTwo() {
         <ArticleText key={paragraph}>{paragraph}</ArticleText>
       ))}
 
-      <Grid grow>
-        <Grid.Col span={4}>
-          <CardGrid
-            florencePlayers={florencePlayers}
-            lyonsPlayers={lyonsPlayers}
-            selectPlayer={selectPlayer}
-          />
-        </Grid.Col>
-        <Grid.Col span={1}>
-          {selected === "me" && <BankDetail player={me} />}
-          {selected === "you" && <BankDetail player={you} />}
-          {selected === "salviati" && <BankDetail player={salviati} />}
-          {selected === "tomasso" && <BankDetail player={tomasso} />}
-          {selected === "piero" && <BankDetail player={piero} />}
-          {selected === "federigo" && <BankDetail player={federigo} />}
-        </Grid.Col>
-      </Grid>
+      <Board florencePlayers={florencePlayers} lyonsPlayers={lyonsPlayers} />
 
       <Box p={25}>
         <SubTitle>

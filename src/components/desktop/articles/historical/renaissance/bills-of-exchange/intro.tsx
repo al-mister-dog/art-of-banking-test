@@ -50,7 +50,7 @@ export default function Intro() {
             target="_blank"
             style={{ color: theme.colors.cyan[9] }}
           >
-            Medieval Monetary Theory: Colin Drumm,{" "}
+            Medieval Monetary Theory - Colin Drumm,{" "}
           </a>
         </Source>
         <Source>

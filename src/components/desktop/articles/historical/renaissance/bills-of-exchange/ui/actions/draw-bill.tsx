@@ -1,10 +1,3 @@
-import * as React from "react";
-
-import { Box, Button, Typography } from "@mui/material";
-
-import { useState } from "react";
-import ToDialog from "./dialogs/ChoosePlayerDialog";
-import DrawBillDialog from "./dialogs/BillDialog";
 import {
   useAppDispatch,
   useAppSelector,
@@ -12,174 +5,111 @@ import {
 import {
   selectBankers,
   selectTraders,
+  drawBill,
 } from "../../../../../../../../features/renaissance/renaissanceSlice";
+import { useState } from "react";
+import { Stack, Button, Select, Text, useMantineTheme } from "@mantine/core";
 
-interface Banker {
-  id: string;
-  city: string;
-  type: string;
-  assets: any;
-  liabilities: any;
-  coins: any;
-  goods: number;
-  coinAsset: any;
-  coinLiability: any;
-}
-interface Accordions {
-  export: boolean;
-  import: boolean;
-  drawBill: boolean;
-  remitBill: boolean;
-}
-
-const DrawBillCard: React.FunctionComponent<{
+const DrawBill: React.FunctionComponent<{
   selected: any;
-  accordionExpanded: Accordions;
-  setAccordionExpanded: (v: Accordions) => void;
-}> = ({ selected, accordionExpanded, setAccordionExpanded }) => {
+}> = ({ selected }) => {
   const dispatch = useAppDispatch();
+  const theme = useMantineTheme();
+
   const { me, salviati, federigo, piero } = useAppSelector(selectTraders);
   const { you, tomasso } = useAppSelector(selectBankers);
 
-  const [selectedBill, setSelectedBill] = useState<any>(null);
-  const [selectedValuePlayer, setSelectedValuePlayer] = useState<Banker | null>(
-    null
-  );
-  const [openPlayer, setOpenPlayer] = useState(false);
-
-  const handleClickOpenPlayer = () => {
-    setOpenPlayer(true);
-  };
-  const handleCloseTo = () => {
-    setOpenPlayer(false);
-  };
-
-  const [openAmount, setOpenAmount] = useState(false);
-  const handleClickOpenAmount = () => {
-    setOpenAmount(true);
-  };
-  const handleCloseAmount = () => {
-    setOpenAmount(false);
-  };
+  const [selectedBill, setSelectedBill] = useState(null);
+  const [selectedValuePlayer, setSelectedValuePlayer] = useState(null);
 
   const bankersArray = [you, tomasso, salviati, me, federigo, piero];
-  const selectedBankers = bankersArray.filter((t) => {
-    if (selectedBill) {
-      return (
-        (selected.id !== t.id &&
+
+  const selectedBankers = bankersArray
+    .filter((t) => {
+      if (selectedBill) {
+        return (
+          (selected.id !== t.id &&
+            selected.city === t.city &&
+            selectedBill.dueFrom === t.id) ||
+          (selected.id !== t.id &&
+            selected.city === t.city &&
+            t.type === "banker")
+        );
+      } else {
+        return (
+          selected.id !== t.id &&
           selected.city === t.city &&
-          selectedBill.dueFrom === t.id) ||
-        (selected.id !== t.id &&
-          selected.city === t.city &&
-          t.type === "banker")
-      );
-    } else {
-      return (
-        selected.id !== t.id && selected.city === t.city && t.type === "banker"
-      );
-    }
-  });
+          t.type === "banker"
+        );
+      }
+    })
+    .map((t) => {
+      return { value: t.id, label: t.id };
+    });
+
+  const bills = selected.assets
+    .filter((asset) => asset.paid !== true)
+    .map((b) => {
+      return {
+        value: b,
+        label: `${b.amount}: Due From ${b.dueFrom}, ${b.city}`,
+      };
+    });
 
   const onClickDrawBill = () => {
     dispatch(
       drawBill({
         payee: selected,
-        drawee: selectedValuePlayer,
+        drawee: bankersArray.find((t) => t.id === selectedValuePlayer),
         bill: selectedBill,
       })
     );
     setSelectedValuePlayer(null);
     setSelectedBill(null);
-    setAccordionExpanded({ ...accordionExpanded, drawBill: false });
   };
 
   return (
-    <Box>
+    <Stack>
       {selected.assets.length > 0 ? (
         <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Button
-                // disabled={selectedValuePlayer === null}
-                variant="contained"
-                onClick={handleClickOpenAmount}
-                sx={{ width: "150px", marginBottom: "5px" }}
-              >
+          <Select
+            size="xs"
+            label={
+              <Text size="xs" weight="bold" color={theme.colors.violet[9]}>
                 Bill To Redeem
-              </Button>
-              <DrawBillDialog
-                selected={selected}
-                setSelectedBill={setSelectedBill}
-                open={openAmount}
-                onClose={handleCloseAmount}
-              />
-              <Button
-                variant="contained"
-                disabled={!selectedBill}
-                onClick={handleClickOpenPlayer}
-                sx={{ width: "150px" }}
-              >
+              </Text>
+            }
+            placeholder="Select Bill To Redeem"
+            value={selectedBill}
+            onChange={(val) => setSelectedBill(val)}
+            data={bills}
+          />
+          <Select
+            size="xs"
+            label={
+              <Text size="xs" weight="bold" color={theme.colors.violet[9]}>
                 Draw Bill On
-              </Button>
-              <ToDialog
-                onClose={handleCloseTo}
-                setSelectedValuePlayer={setSelectedValuePlayer}
-                open={openPlayer}
-                selectedBankers={selectedBankers}
-                info={{ type: selected.type, action: "drawBill" }}
-              />
-            </div>
-            <div
-              style={{
-                alignSelf: "flex-end",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography sx={{ margin: 0.75 }}>
-                {selectedBill
-                  ? `${selectedBill.dueFrom}: ${selectedBill.amount}`
-                  : ` `}
-              </Typography>
-              <Typography sx={{ margin: 0.75 }}>
-                {selectedValuePlayer ? `${selectedValuePlayer.id}` : `_`}
-              </Typography>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end",
-            }}
+              </Text>
+            }
+            placeholder="Local Exchange Banker, or Merchant If in Same City"
+            value={selectedValuePlayer}
+            onChange={(val) => setSelectedValuePlayer(val)}
+            data={selectedBankers}
+          />
+
+          <Button
+            variant="filled"
+            disabled={!selectedValuePlayer || !selectedBill}
+            onClick={onClickDrawBill}
           >
-            <Button
-              variant="contained"
-              disabled={!selectedValuePlayer || !selectedBill}
-              onClick={onClickDrawBill}
-            >
-              Ok
-            </Button>
-          </div>
+            Draw Bill
+          </Button>
         </>
       ) : (
-        <Typography>There are no bills to draw</Typography>
+        <Text>There are no bills to draw</Text>
       )}
-    </Box>
+    </Stack>
   );
 };
 
-export default DrawBillCard;
+export default DrawBill;
