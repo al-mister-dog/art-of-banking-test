@@ -45,7 +45,6 @@ export default function HeroDesktop() {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
             }}
           >
             Art of Banking
@@ -56,7 +55,6 @@ export default function HeroDesktop() {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
             }}
           >
             Your site to learn money and banking
@@ -69,7 +67,7 @@ export default function HeroDesktop() {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+
               fontStyle: "italic",
             }}
           >
@@ -96,7 +94,6 @@ export default function HeroDesktop() {
               style={{
                 color: colors.textColor,
                 letterSpacing: "3px",
-                textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
               }}
               size={40}
               align="center"
@@ -145,7 +142,6 @@ export default function HeroDesktop() {
               style={{
                 color: colors.textColor,
                 letterSpacing: "3px",
-                textShadow: `5px 10px 25px rgb(0 0 0 / 50%)`,
               }}
               size={40}
               align="center"

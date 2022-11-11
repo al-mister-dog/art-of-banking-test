@@ -14,7 +14,9 @@ export default function TabsUi({
         <Tabs.Tab value="lectures">
           <Link href="/lectures">Lectures</Link>
         </Tabs.Tab>
-        <Tabs.Tab value="articles">Articles</Tabs.Tab>
+        <Tabs.Tab value="articles">
+          <Link href="/articles">Articles</Link>
+        </Tabs.Tab>
       </Tabs.List>
       <Tabs.Panel value="lectures" pt="xs">
         <LecturesContent setMobileOpen={setMobileOpen} />

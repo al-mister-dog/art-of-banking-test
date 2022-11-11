@@ -39,7 +39,7 @@ export default function Example({ title, body, image, direction }) {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+              
             }}
             size={50}
             align="center"
@@ -51,7 +51,7 @@ export default function Example({ title, body, image, direction }) {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+              
             }}
           >
             {body}
@@ -76,7 +76,7 @@ export default function Example({ title, body, image, direction }) {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+              
             }}
             size={50}
             align="center"
@@ -88,7 +88,7 @@ export default function Example({ title, body, image, direction }) {
             style={{
               color: colors.textColor,
               letterSpacing: "3px",
-              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+              
             }}
           >
             {body}
