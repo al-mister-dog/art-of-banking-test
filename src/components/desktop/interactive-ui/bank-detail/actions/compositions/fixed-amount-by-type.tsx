@@ -58,7 +58,7 @@ export default function FixedAmount({
       <Select
         size="xs"
         label={
-          <Text size="xs" weight="bold" color={theme.colors[bank.color][9]}>
+          <Text size="xs" color={theme.colors[bank.color][9]}>
             {label}
           </Text>
         }

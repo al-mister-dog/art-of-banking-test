@@ -1,4 +1,5 @@
 import { Spoiler, Text } from "@mantine/core";
+import { colors } from "../../config/colorPalette";
 
 interface IntroProps {
   text: string[];
@@ -16,6 +17,7 @@ export default function SpoilerText({ text }: IntroProps) {
           sx={{
             letterSpacing: "1px",
             marginBottom: "25px",
+            color: colors.text
           }}
         >
           {t}

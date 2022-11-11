@@ -62,7 +62,7 @@ export default function SettleDues({ bank }: { bank: CardInfo }) {
       <Select
         size="xs"
         label={
-          <Text size="xs" weight="bold" color={theme.colors[bank.color][9]}>
+          <Text size="xs" color={theme.colors[bank.color][9]}>
             Settle Dues With
           </Text>
         }
@@ -181,7 +181,7 @@ function NextStep({ bank, selectedBank }) {
         onChange={setPaymentType}
         name="PaymentMethod"
         label={
-          <Text size="sm" weight="bold" color={`${bank.color}`}>
+          <Text size="sm" color={`${bank.color}`}>
             Payment Method
           </Text>
         }

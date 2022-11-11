@@ -14,6 +14,7 @@ import { CardInfo } from "../../types";
 import { Record } from "../../../../../domain/services/records";
 import BalanceSheetRowHeading from "../balances/balance-sheet-heading";
 import SpreadsheetList from "../balances/balance-displays/spreadsheet-list";
+import { colors } from "../../../../../config/colorPalette";
 
 interface Props {
   bank: CardInfo;
@@ -41,12 +42,11 @@ export default function CardUI({ bank, handleSetBankDetail }: Props) {
     <Card
       key={bank.cardInfo.id}
       ref={ref}
-      shadow="sm"
       p="sm"
       radius="xs"
       style={{
-        height: "12.75rem",
-        backgroundColor: theme.colors.violet[1],
+        height: "13rem",
+        backgroundColor: colors.background1,
         paddingBottom: "0px",
         cursor: "pointer",
         border: hovered ? `2px solid ${theme.colors[bank.color][2]}` : "",
@@ -55,9 +55,15 @@ export default function CardUI({ bank, handleSetBankDetail }: Props) {
     >
       <Card.Section style={{ padding: "3px", cursor: "pointer" }}>
         <Center>
-          <Title order={4} color={theme.colors[bank.color][9]}>
+          <h4
+            style={{
+              color: theme.colors[bank.color][9],
+              padding: 0,
+              margin: 0,
+            }}
+          >
             {bank.cardInfo.name}
-          </Title>
+          </h4>
         </Center>
       </Card.Section>
       <Card.Section>
@@ -70,7 +76,6 @@ export default function CardUI({ bank, handleSetBankDetail }: Props) {
         >
           <Text
             size="xs"
-            weight="bold"
             align="center"
             color={`${theme.colors[bank.color][9]}`}
           >
@@ -78,7 +83,6 @@ export default function CardUI({ bank, handleSetBankDetail }: Props) {
           </Text>
           <Text
             size="xs"
-            weight="bold"
             align="center"
             color={`${theme.colors[bank.color][9]}`}
           >

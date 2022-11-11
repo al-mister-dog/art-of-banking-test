@@ -30,7 +30,7 @@ export default function ColorsMenu() {
 
   return (
     <Box>
-      <Text size="sm" weight="bold" color="violet">
+      <Text size="sm" color="violet">
         Balancesheet Colors
       </Text>
       <Radio.Group

@@ -36,17 +36,24 @@ function SidePanel({ bank }: { bank: CardInfo }) {
     <Card
       p="sm"
       radius="xs"
+      shadow="sm"
       style={{
         paddingBottom: "0px",
-        height: "26rem",
-        backgroundColor: theme.colors.violet[1],
+        height: "27.5rem",
+        backgroundColor: theme.colors.violet[0],
       }}
     >
-      <Card.Section className={`${classes.header} ${classes[bank.color]}`}>
+      <Card.Section className={classes.header}>
         <Center>
-          <Title order={2} color="white">
+          <h2
+            style={{
+              color: theme.colors[bank.color][9],
+              margin: 0,
+              padding: 0,
+            }}
+          >
             {bank.cardInfo.name}
-          </Title>
+          </h2>
         </Center>
       </Card.Section>
       <Tabs color={`${bank.color}`} defaultValue="records">

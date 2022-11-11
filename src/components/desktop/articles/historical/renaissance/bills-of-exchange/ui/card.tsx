@@ -15,13 +15,13 @@ export default function CardUI({ bank, selectPlayer }) {
   return (
     <Card
       key={bank.id}
-      //   ref={ref}
+      ref={ref}
       shadow="sm"
       p="sm"
       radius="xs"
       style={{
         height: "9.75rem",
-        backgroundColor: theme.colors.violet[1],
+        backgroundColor: theme.colors.violet[0],
         paddingBottom: "0px",
         cursor: "pointer",
         border: hovered ? `2px solid ${theme.colors.violet[2]}` : "",
@@ -30,9 +30,9 @@ export default function CardUI({ bank, selectPlayer }) {
     >
       <Card.Section style={{ padding: "3px", cursor: "pointer" }}>
         <Center>
-          <Title order={4} color={theme.colors.violet[9]}>
+          <h4 style={{ color: theme.colors.violet[9], padding: 0, margin: 0 }}>
             {bank.id}
-          </Title>
+          </h4>
         </Center>
       </Card.Section>
       <Card.Section>
@@ -43,20 +43,10 @@ export default function CardUI({ bank, selectPlayer }) {
             height: "1.25rem",
           }}
         >
-          <Text
-            size="xs"
-            weight="bold"
-            align="center"
-            color={`${theme.colors.violet[9]}`}
-          >
+          <Text size="xs" align="center" color={`${theme.colors.violet[9]}`}>
             Assets
           </Text>
-          <Text
-            size="xs"
-            weight="bold"
-            align="center"
-            color={`${theme.colors.violet[9]}`}
-          >
+          <Text size="xs" align="center" color={`${theme.colors.violet[9]}`}>
             Liabilities
           </Text>
         </SimpleGrid>

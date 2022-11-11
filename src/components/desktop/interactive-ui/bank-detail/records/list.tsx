@@ -28,20 +28,19 @@ export default function RecordList({ bank, logs, order }) {
               key={uuid()}
               style={{
                 padding: "3px",
-                backgroundColor: `${index % 2 === 0 ? "rgba(0,0,0,0.1)" : ""}`,
+                backgroundColor: `${index % 2 === 0 ? "rgba(0,0,0,0.02)" : ""}`,
                 display: "flex",
                 justifyContent: "space-between",
               }}
             >
               <Text
                 size="xs"
-                color={log.aside ? "gray" : theme.colors[bank.color][9]}
+                color={log.aside ? "#696969" : theme.colors[bank.color][9]}
               >
                 <span>{index + 1}: </span> {log.action}
               </Text>
               <Text
                 size="sm"
-                weight="bold"
                 color={
                   log.aside
                     ? "gray"

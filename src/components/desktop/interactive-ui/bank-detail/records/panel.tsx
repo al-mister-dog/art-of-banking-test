@@ -6,7 +6,7 @@ import ToggleOrder from "./settings/orderby/desktop";
 
 const useStyles = createStyles(() => ({
   box: {
-    maxHeight: "15rem",
+    maxHeight: "14rem",
     overflowX: "auto",
   },
 }));
@@ -17,7 +17,7 @@ export default function RecordsPanel({ bank }) {
   const logs = Record.getLogs(bank.cardInfo.id);
 
   if (logs.length === 0) {
-    return <Text color={bank.color} weight="bold" size="sm">No Records</Text>;
+    return <Text color={bank.color} size="sm">No Records</Text>;
   }
   return (
     <>

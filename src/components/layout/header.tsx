@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { Burger, Header, MediaQuery, Text, useMantineTheme } from "@mantine/core";
+import {
+  Burger,
+  Header,
+  MediaQuery,
+  Text,
+  useMantineTheme,
+} from "@mantine/core";
 
 export default function HeaderUi({
   opened,
@@ -13,7 +19,7 @@ export default function HeaderUi({
     <Header
       height={50}
       p="md"
-      style={{ backgroundColor: `${theme.colors.violet[9]}` }}
+      style={{ backgroundColor: `${theme.colors.violet[5]}` }}
     >
       <div
         style={{

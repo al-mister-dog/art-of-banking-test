@@ -15,7 +15,7 @@ export default function ActionsPanel({ bank }: { bank: CardInfo }) {
   if (actionData === undefined || actionData.length === 0) {
     return (
       <Center>
-        <Text weight="bold" color={theme.colors[bank.color][9]}>
+        <Text color={theme.colors[bank.color][9]}>
           No Actions to Perform in This Lecture
         </Text>
       </Center>

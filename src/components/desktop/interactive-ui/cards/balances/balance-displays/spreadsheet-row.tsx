@@ -44,7 +44,6 @@ const SpreadsheetRow = ({ record, bank }) => {
   return (
     <Text
       size="xs"
-      weight="bold"
       align="left"
       className={classes[record.notationType]}
       style={{ borderBottom: `1px solid ${theme.colors[bank.color][2]}` }}

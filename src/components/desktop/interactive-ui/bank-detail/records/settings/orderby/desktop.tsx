@@ -1,10 +1,11 @@
 import { Box, Radio, Text, useMantineTheme } from "@mantine/core";
+import Pill from "../../../../../../shared-ui/components/Pill";
 
 export default function ToggleOrder({ bank, order, setOrder }) {
   const theme = useMantineTheme();
   return (
-    <Box mt={10}>
-      <Text size="xs" weight="bold" color={theme.colors[bank.color][9]}>
+    <Pill color={theme.colors[bank.color][1]}>
+      <Text size="xs" color={theme.colors[bank.color][9]}>
         Sort By
       </Text>
       <Radio.Group name="sortBy" value={order} onChange={setOrder}>
@@ -31,6 +32,6 @@ export default function ToggleOrder({ bank, order, setOrder }) {
           }
         />
       </Radio.Group>
-    </Box>
+    </Pill>
   );
 }

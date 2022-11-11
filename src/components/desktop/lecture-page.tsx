@@ -5,15 +5,16 @@ import Toolbar from "./interactive-ui/settings/toolbar";
 import KeyTerms from "../lectures/article/lecture-index/key-terms";
 import Article from "./lectures/article";
 import NextLectureLink from "../shared-ui/next-lecture-link";
+import { colors } from "../../config/colorPalette";
 
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
-    backgroundColor: theme.colors.violet[0],
-    paddingBottom: "200px",
-    marginBottom: -25,
+    backgroundColor: colors.background2,
+    // paddingBottom: "200px",
+    // marginBottom: -25,
   },
   keyTermsContainer: {
-    backgroundColor: theme.colors.red[0],
+    // backgroundColor: colors.background1,
     paddingBottom: "50px",
   },
   balanceSheets: {

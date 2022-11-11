@@ -19,7 +19,7 @@ export default function ActionSelections({
     <Select
       size="xs"
       label={
-        <Text size="xs" weight="bold" color={theme.colors[bank.color][9]}>
+        <Text size="xs" color={theme.colors[bank.color][9]}>
           Actions
         </Text>
       }

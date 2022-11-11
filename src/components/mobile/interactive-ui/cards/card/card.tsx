@@ -43,7 +43,7 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
         p="sm"
         radius="xs"
         style={{
-          backgroundColor: theme.colors.violet[1],
+          backgroundColor: theme.colors.violet[0],
           paddingBottom: "0px",
           width: "100%",
           height: "11.75rem",
@@ -54,9 +54,15 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
       >
         <Card.Section style={{ padding: "3px", cursor: "pointer" }}>
           <Center>
-            <Title order={4} color={theme.colors[bank.color][9]}>
+            <h4
+              style={{
+                color: theme.colors[bank.color][9],
+                padding: 0,
+                margin: 0,
+              }}
+            >
               {bank.cardInfo.name}
-            </Title>
+            </h4>
           </Center>
         </Card.Section>
         <Card.Section>
@@ -69,7 +75,6 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
           >
             <Text
               size="xs"
-              weight="bold"
               align="center"
               color={`${theme.colors[bank.color][9]}`}
             >
@@ -77,7 +82,6 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
             </Text>
             <Text
               size="xs"
-              weight="bold"
               align="center"
               color={`${theme.colors[bank.color][9]}`}
             >

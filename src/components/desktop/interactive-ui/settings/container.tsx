@@ -24,8 +24,9 @@ export default function Desktop() {
 
   return (
     <Card
+      shadow="sm"
       style={{
-        backgroundColor: theme.colors.violet[1],
+        backgroundColor: theme.colors.violet[0],
         overflow: "visible",
         height: "24.5rem",
       }}
@@ -36,15 +37,15 @@ export default function Desktop() {
         style={{ borderBottom: `1px solid ${theme.colors.violet[2]}` }}
       >
         <Center>
-          <Title order={4} color="violet">
+          <h4 style={{ margin: 0, padding: 0, color: theme.colors.violet[9] }}>
             Settings
-          </Title>
+          </h4>
         </Center>
       </Card.Section>
       <Box>
         <SimpleGrid style={{ height: "220px" }} cols={2}>
           <Box>
-            <Text size="sm" weight="bold" color="violet">
+            <Text size="sm" color="violet">
               Balancesheet Display
             </Text>
             <DisplayRadioGroup />
@@ -57,7 +58,7 @@ export default function Desktop() {
       <Box>
         <SimpleGrid cols={2}>
           <Box>
-            <Text size="sm" weight="bold" color="violet">
+            <Text size="sm" color="violet">
               Ranges
             </Text>
             <Box style={{ marginTop: "5px", paddingRight: "5px" }}>
@@ -71,7 +72,7 @@ export default function Desktop() {
             </Box>
           </Box>
           <Box>
-            <Text size="sm" weight="bold" color="violet"></Text>
+            {/* <Text size="sm" weight="bold" color="violet">XXXSXASXJKASNXKJ</Text> */}
           </Box>
         </SimpleGrid>
       </Box>

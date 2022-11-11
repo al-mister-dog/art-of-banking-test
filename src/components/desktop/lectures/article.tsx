@@ -15,7 +15,7 @@ export default function Article({
       <div
         style={{
           padding: `0px 200px 0px 50px`,
-          marginTop: "200px",
+          marginTop: "250px",
         }}
       >
         <Title slug={slug} title={title} />
@@ -23,11 +23,8 @@ export default function Article({
           <Main text={text} />
         </div>
       </div>
-      <div style={{ marginLeft: "50px", marginTop: "50px" }}>
-        <NextLectureLink nextLecture={nextLecture} />
-      </div>
 
-      <div style={{ marginTop: "100px" }}>
+      <div style={{ marginTop: "25px" }}>
         <Assignment assignment={assignment} nextLecture={nextLecture} />
       </div>
     </>

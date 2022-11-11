@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../../../app/hooks";
 import { selectActions } from "../../../../../features/actions/actionsSlice";
 import { useState, useCallback, useEffect } from "react";
-import { Grid } from "@mantine/core";
+import { Card, Grid } from "@mantine/core";
 import { CardInfo } from "../../types";
 import CardGrid from "./card-grid";
 import BankDetail from "../../bank-detail/panel";
@@ -24,7 +24,7 @@ export default function LayoutDesktop({
 
   return (
     <Grid grow>
-      <Grid.Col span={4}>
+      <Grid.Col span={6}>
         <CardGrid
           group={banksArray}
           handleSetBankDetail={handleSetBankDetail}

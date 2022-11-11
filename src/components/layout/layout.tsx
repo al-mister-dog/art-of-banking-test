@@ -18,7 +18,7 @@ export default function Layout(props: any) {
       <AppShell
         styles={{
           main: {
-            background: theme.colors.red[0],
+            background: "#fcfbfe",
             padding: 0,
           },
         }}

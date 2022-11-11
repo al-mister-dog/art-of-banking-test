@@ -36,7 +36,7 @@ export default function SpreadsheetMenu() {
   return (
     <>
       <Box>
-        <Text size="sm" weight="bold" color="violet">
+        <Text size="sm" color="violet">
           Spreadsheet Colors
         </Text>
         <Radio.Group

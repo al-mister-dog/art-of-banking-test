@@ -19,7 +19,7 @@ export default function Desktop() {
           <SettingsDesktop />
         </Grid.Col>
         <Grid.Col span={3}>
-          <Card style={{ backgroundColor: theme.colors.violet[1] }}>
+          <Card shadow="sm" style={{ backgroundColor: theme.colors.violet[0] }}>
             {charts[currentLectureId] === "balances" && <ChartBalances />}
             {charts[currentLectureId] === "credit" && <ChartCredit />}
             {charts[currentLectureId] === "private credit" && (

@@ -1,22 +1,12 @@
-import { createStyles } from "@mantine/core";
+import { createStyles, useMantineTheme } from "@mantine/core";
 import { Text, Title } from "@mantine/core";
-import Link from "next/link";
-import { useNextPage } from "../../../hooks/useNextPage";
+import { colors } from "../../../config/colorPalette";
 
 const useStyles = createStyles((theme) => ({
-  title: {
-    padding: 16,
-    marginBottom: 0,
-    display: "inline-block",
-    background: theme.colors.violet[0],
-    borderTop: `1px solid ${theme.colors.violet[1]}`,
-    borderRight: `1px solid ${theme.colors.violet[1]}`,
-    borderTopRightRadius: 5,
-  },
   card: {
     paddingTop: 25,
-    paddingBottom: 50,
-    background: theme.colors.violet[0],
+    // paddingBottom: 50,
+    backgroundColor: colors.background2,
   },
   desktopWidth: {
     width: "65%",
@@ -25,19 +15,40 @@ const useStyles = createStyles((theme) => ({
 }));
 export default function Assignment({ assignment, nextLecture }) {
   const { classes } = useStyles();
-  
+
   return (
     <div>
-      <Title
-        className={classes.title}
-        order={2}
-        style={{
-          paddingLeft: "50px",
-          paddingRight: "50px",
-        }}
-      >
-        Assignment
-      </Title>
+      <div style={{ display: "flex", marginTop: "150px" }}>
+        <div
+          style={{
+            borderTop: `1px solid #dee2e6`,
+            borderRight: `1px solid #dee2e6`,
+            borderTopRightRadius: 5,
+            padding: "5px 50px 0px 50px",
+            backgroundColor: "#fefbfb",
+          }}
+        >
+          <h1
+            style={{
+              margin: 0,
+              padding: 0,
+              fontWeight: "lighter",
+              letterSpacing: 1,
+            }}
+          >
+            Assignment
+          </h1>
+        </div>
+        <div
+          style={{
+            margin: 0,
+            padding: 0,
+            borderBottom: `1px solid #dee2e6`,
+            flexGrow: 1,
+          }}
+        ></div>
+      </div>
+
       <div className={`${classes.card}`}>
         <div
           style={{
@@ -54,13 +65,17 @@ export default function Assignment({ assignment, nextLecture }) {
                 .split(":")
                 .slice(1)
                 .map((src, i) => (
-                  <Text key={i} size="lg">{src}</Text>
+                  <Text key={i} size="lg">
+                    {src}
+                  </Text>
                 ))}
             </>
           ) : (
-            <Text size="lg" weight="bold" italic>
+            <p
+              style={{ color: colors.text, fontSize: "16px", letterSpacing: 1 }}
+            >
               {assignment}
-            </Text>
+            </p>
           )}
         </div>
       </div>
