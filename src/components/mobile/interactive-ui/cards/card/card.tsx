@@ -17,6 +17,7 @@ import BankDetail from "../../bank-detail/panel";
 import BalanceSheetRowHeading from "../balances/balance-sheet-heading";
 import SpreadsheetList from "../balances/balance-displays/spreadsheet-list";
 import { useHover } from "@mantine/hooks";
+import { colors } from "../../../../../config/colorPalette";
 
 export const DrawerContext = createContext((v: boolean) => {});
 
@@ -43,7 +44,7 @@ export default function CardUI({ bank }: { bank: CardInfo }) {
         p="sm"
         radius="xs"
         style={{
-          backgroundColor: theme.colors.violet[0],
+          backgroundColor: colors.background2,
           paddingBottom: "0px",
           width: "100%",
           height: "11.75rem",

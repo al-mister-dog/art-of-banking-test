@@ -7,9 +7,10 @@ import Charts from "./charts";
 import NextLectureLink from "../shared-ui/next-lecture-link";
 
 import { useNextPage } from "../../hooks/useNextPage";
+import { colors } from "../../config/colorPalette";
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
-    backgroundColor: theme.colors.violet[0],
+    backgroundColor: colors.background3,
     paddingBottom: "200px",
     marginBottom: -25,
   },

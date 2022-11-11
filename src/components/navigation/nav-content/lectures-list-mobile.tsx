@@ -16,11 +16,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function LecturesContent({
-  setMobileOpen,
-}: {
-  setMobileOpen?: (v: boolean) => void;
-}) {
+export default function LecturesContent({ closeDrawer }) {
   const { currentLectureId } = useAppSelector(selectActions);
   const { classes } = useStyles();
   const theme = useMantineTheme();
@@ -49,22 +45,15 @@ export default function LecturesContent({
                   const { id, title, path } = route;
 
                   return (
-                    <div
-                      key={id}
-                      onClick={() => {
-                        if (setMobileOpen) {
-                          setTimeout(() => {
-                            setMobileOpen(false);
-                          }, 30); //hack
-                        }
-                      }}
-                    >
+                    <div key={id} onClick={closeDrawer}>
                       <List.Item
                         className={classes.listItem}
                         style={{
                           cursor: "pointer",
                           background:
-                            currentLectureId === id ? theme.colors.violet[1] : "",
+                            currentLectureId === id
+                              ? theme.colors.violet[1]
+                              : "",
                         }}
                       >
                         <Link

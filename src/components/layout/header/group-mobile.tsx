@@ -17,8 +17,8 @@ import {
 import { IconChevronDown } from "@tabler/icons";
 
 import Link from "next/link";
-import LecturesContent from "../../navigation/nav-content/lectures-list";
-import ArticlesContent from "../../navigation/nav-content/articles-list";
+import LecturesContent from "../../navigation/nav-content/lectures-list-mobile";
+import ArticlesContent from "../../navigation/nav-content/articles-list-mobile";
 import { features } from "./features-data";
 
 const useStyles = createStyles((theme) => ({
@@ -130,7 +130,7 @@ export default function HeaderGroup({
           </Center>
         </UnstyledButton>
         <Collapse in={lecturesOpened}>
-          <LecturesContent />
+          <LecturesContent closeDrawer={closeDrawer}/>
         </Collapse>
         <UnstyledButton className={classes.link} onClick={toggleArticles}>
           <Center inline>
@@ -141,7 +141,7 @@ export default function HeaderGroup({
           </Center>
         </UnstyledButton>
         <Collapse in={articlesOpened}>
-          <ArticlesContent />
+          <ArticlesContent closeDrawer={closeDrawer}/>
         </Collapse>
         <UnstyledButton className={classes.link} onClick={toggleLinks}>
           <Center inline>

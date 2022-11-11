@@ -1,4 +1,4 @@
-import { SimpleGrid, Text, Title, useMantineTheme } from "@mantine/core";
+import { Box, SimpleGrid, Text, Title, useMantineTheme } from "@mantine/core";
 import example1 from "../../../public/aob_example2_cropped.png";
 import example2 from "../../../public/aob_example3.png";
 import Divide from "./divide";
@@ -6,11 +6,11 @@ import LazyShow from "./transitions/lazy-show";
 import Example from "./example";
 import SlideIn from "./transitions/slide-in";
 import Image from "next/image";
+import { colors } from "../../config/colorPalette";
+import FooterMobile from "./footer-mobile";
 
 export default function HeroDesktop() {
   const theme = useMantineTheme();
-  const backgroundViolet = theme.colors.violet[0];
-  const backgroundRed = theme.colors.red[0];
 
   const examples = {
     example1: {
@@ -29,7 +29,7 @@ export default function HeroDesktop() {
     <>
       <div
         style={{
-          background: `linear-gradient(35deg, ${backgroundViolet} 50%, ${backgroundRed} 50%)`,
+          background: colors.background1,
           height: "100vh",
         }}
       >
@@ -91,7 +91,7 @@ export default function HeroDesktop() {
       <div
         style={{
           height: "100vh",
-          backgroundColor: backgroundViolet,
+          backgroundColor: colors.background1,
         }}
       >
         <div
@@ -116,12 +116,13 @@ export default function HeroDesktop() {
           </LazyShow>
         </div>
       </div>
-      <div style={{ background: backgroundRed, height: "130vh", overflowX: "hidden" }}>
-        <Divide
-          direction="right bottom"
-          colorOne={backgroundViolet}
-          colorTwo={backgroundRed}
-        >
+      <div
+        style={{
+          background: colors.background1,
+          height: "130vh",
+        }}
+      >
+        <Divide>
           <SlideIn direction="right">
             <div
               style={{
@@ -193,12 +194,19 @@ export default function HeroDesktop() {
           </div>
         </Divide>
       </div>
-      <div
-        style={{
-          height: "100vh",
-          backgroundColor: backgroundRed,
-        }}
-      ></div>
+      <Box mt={500}></Box>
+      <FooterMobile />
+      <Box>
+        <Text size={8} color="dimmed" p="md">
+          This site is for educational purposes only!! **FAIR USE** Copyright
+          Disclaimer under section 107 of the Copyright Act 1976, allowance is
+          made for “fair use” for purposes such as criticism, comment, news
+          reporting, teaching, scholarship, education and research. Fair use is
+          a use permitted by copyright statute that might otherwise be
+          infringing. Non-profit, educational or personal use tips the balance
+          in favor of fair use.
+        </Text>
+      </Box>
     </>
   );
 }

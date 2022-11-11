@@ -22,12 +22,7 @@ export default function BalanceSheetRowHeading({ side, id, textColor, bank }) {
 
   return (
     <div style={{ marginBottom: "1.5px" }}>
-      <Text
-        size="sm"
-        weight="bold"
-        align="left"
-        color={theme.colors[textColor][9]}
-      >
+      <Text size="sm" align="left" color={theme.colors[textColor][9]}>
         {displaySettings.taccounts ? "" : `${side.instrument}`}
       </Text>
       {side.accounts.map((account, i) => {

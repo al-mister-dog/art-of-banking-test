@@ -16,11 +16,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function LecturesContent({
-  setMobileOpen,
-}: {
-  setMobileOpen?: (v: boolean) => void;
-}) {
+export default function LecturesContent({ closeDrawer }) {
   const { classes } = useStyles();
 
   return (
@@ -44,7 +40,7 @@ export default function LecturesContent({
                     return (
                       <NestedRoutes
                         key={id}
-                        setMobileOpen={setMobileOpen}
+                        closeDrawer={closeDrawer}
                         title={title}
                         path={path}
                         id={id}
@@ -53,16 +49,7 @@ export default function LecturesContent({
                     );
                   }
                   return (
-                    <div
-                      key={id}
-                      onClick={() => {
-                        if (setMobileOpen) {
-                          setTimeout(() => {
-                            setMobileOpen(false);
-                          }, 30); //hack
-                        }
-                      }}
-                    >
+                    <div key={id} onClick={closeDrawer}>
                       <List.Item
                         className={classes.listItem}
                         style={{ cursor: "pointer" }}
@@ -90,19 +77,13 @@ export default function LecturesContent({
   );
 }
 
-function NestedRoutes({ setMobileOpen, title, path, id, routes }) {
+function NestedRoutes({ closeDrawer, title, path, id, routes }) {
   const { classes } = useStyles();
 
   return (
     <div
       key={id}
-      onClick={() => {
-        if (setMobileOpen) {
-          setTimeout(() => {
-            setMobileOpen(false);
-          }, 30); //hack
-        }
-      }}
+      onClick={closeDrawer}
     >
       <List.Item className={classes.listItem} style={{ cursor: "pointer" }}>
         <Link

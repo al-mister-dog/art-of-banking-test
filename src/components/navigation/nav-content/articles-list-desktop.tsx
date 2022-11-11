@@ -1,9 +1,7 @@
 import { createStyles } from "@mantine/core";
 import { articleRoutes } from "../../../config/routes/articleRoutes";
 import { Accordion, List, Text } from "@mantine/core";
-
 import Link from "next/link";
-import { ListItem } from "@mantine/core/lib/List/ListItem/ListItem";
 
 const useStyles = createStyles((theme) => ({
   listItem: {
@@ -44,7 +42,6 @@ export default function LecturesContent({
                     return (
                       <NestedRoutes
                         key={id}
-                        setMobileOpen={setMobileOpen}
                         title={title}
                         path={path}
                         id={id}
@@ -53,16 +50,7 @@ export default function LecturesContent({
                     );
                   }
                   return (
-                    <div
-                      key={id}
-                      onClick={() => {
-                        if (setMobileOpen) {
-                          setTimeout(() => {
-                            setMobileOpen(false);
-                          }, 30); //hack
-                        }
-                      }}
-                    >
+                    <div key={id}>
                       <List.Item
                         className={classes.listItem}
                         style={{ cursor: "pointer" }}
@@ -90,19 +78,12 @@ export default function LecturesContent({
   );
 }
 
-function NestedRoutes({ setMobileOpen, title, path, id, routes }) {
+function NestedRoutes({ title, path, id, routes }) {
   const { classes } = useStyles();
 
   return (
     <div
       key={id}
-      onClick={() => {
-        if (setMobileOpen) {
-          setTimeout(() => {
-            setMobileOpen(false);
-          }, 30); //hack
-        }
-      }}
     >
       <List.Item className={classes.listItem} style={{ cursor: "pointer" }}>
         <Link

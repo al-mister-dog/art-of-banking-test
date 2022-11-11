@@ -41,7 +41,6 @@ export default function HeaderMenu({
 
           <GroupDesktop />
           <Auth />
-
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}

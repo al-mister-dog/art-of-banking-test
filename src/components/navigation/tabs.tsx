@@ -1,6 +1,6 @@
 import { Tabs } from "@mantine/core";
-import LecturesContent from "./nav-content/lectures-list";
-import ArticlesContent from "./nav-content/articles-list";
+import LecturesContent from "./nav-content/lectures-list-desktop";
+import ArticlesContent from "./nav-content/articles-list-desktop";
 import Link from "next/link";
 
 export default function TabsUi({
@@ -19,10 +19,10 @@ export default function TabsUi({
         </Tabs.Tab>
       </Tabs.List>
       <Tabs.Panel value="lectures" pt="xs">
-        <LecturesContent setMobileOpen={setMobileOpen} />
+        <LecturesContent />
       </Tabs.Panel>
       <Tabs.Panel value="articles" pt="xs">
-        <ArticlesContent setMobileOpen={setMobileOpen} />
+        <ArticlesContent />
       </Tabs.Panel>
     </Tabs>
   );

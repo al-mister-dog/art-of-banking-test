@@ -138,9 +138,6 @@ export default function HeaderGroup() {
         <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
           <Group position="apart" px="md">
             <Text weight={500}>Features</Text>
-            <Anchor href="#" size="xs">
-              View all
-            </Anchor>
           </Group>
 
           <Divider

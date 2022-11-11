@@ -7,6 +7,7 @@ import ChartCredit from "./interactive-ui/charts/linechart-credit";
 
 import { charts } from "../../config/charts";
 import EffectiveRate from "./interactive-ui/charts/effective-rate-beta";
+import { colors } from "../../config/colorPalette";
 
 export default function Desktop() {
   const { currentLectureId } = useAppSelector(selectActions);
@@ -16,6 +17,7 @@ export default function Desktop() {
         position: "relative",
         height: `50vh`,
         marginTop: "30px",
+        // backgroundColor: colors.background2,
       }}
     >
       {charts[currentLectureId] === "balances" && <ChartBalances />}

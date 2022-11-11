@@ -1,5 +1,6 @@
 import { createStyles } from "@mantine/core";
 import { Text, Title } from "@mantine/core";
+import { colors } from "../../../config/colorPalette";
 import { useNextPage } from "../../../hooks/useNextPage";
 import NextLectureLink from "../../shared-ui/next-lecture-link";
 
@@ -8,14 +9,14 @@ const useStyles = createStyles((theme) => ({
     padding: 16,
     marginBottom: 0,
     display: "inline-block",
-    background: theme.colors.violet[0],
+    backgroundColor: colors.background3,
     borderTop: `1px solid ${theme.colors.violet[1]}`,
     borderRight: `1px solid ${theme.colors.violet[1]}`,
     borderTopRightRadius: 5,
   },
   card: {
     paddingTop: 25,
-    background: theme.colors.violet[0],
+    backgroundColor: colors.background3,
   },
 }));
 export default function Assignment({ assignment, nextLecture }) {
