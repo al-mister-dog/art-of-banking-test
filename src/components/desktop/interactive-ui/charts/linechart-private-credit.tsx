@@ -50,6 +50,13 @@ export default function LineChart() {
 
   const options = {
     // responsive: true,
+    elements: {
+      line: {
+        borderWidth: 1,
+        // tension: 1,
+        // borderJoinStyle: "bevel" as const,
+      },
+    },
     scales: {
       y: {
         beginAtZero: true,

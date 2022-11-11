@@ -26,6 +26,13 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
+  elements: {
+    line: {
+      borderWidth: 1,
+      // tension: 1,
+      // borderJoinStyle: "bevel" as const,
+    },
+  },
   plugins: {
     legend: {
       position: "top" as const,

@@ -36,15 +36,15 @@ export default function LayoutDesktop() {
   const { currentLectureId } = useAppSelector(selectActions);
   const { banks } = useAppSelector(selectBanks);
   const colors: Colors = {
-    customer: "grape",
-    bank: "violet",
-    centralbank: "blue",
-    clearinghouse: "blue",
+    customer: "pink",
+    bank: "orange",
+    centralbank: "teal",
+    clearinghouse: "teal",
   };
 
   function getCardInfo(bank: Bank): CardInfo {
     const cardInfo = { ...bank };
-    // const balanceSheet = Display.balanceSheet(cardInfo);
+
     const balanceSheet = Balancesheets.get(bank.id);
     const color = colors[`${bank.type}`] as keyof Colors;
     return { cardInfo, balanceSheet, color };

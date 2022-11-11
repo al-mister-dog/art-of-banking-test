@@ -1,4 +1,3 @@
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -44,6 +43,13 @@ export default function LineChart() {
   const options = {
     // responsive: true,
     maintainAspectRatio: false,
+    elements: {
+      line: {
+        borderWidth: 1,
+        // tension: 1,
+        // borderJoinStyle: "bevel" as const,
+      },
+    },
     scales: {
       y: {
         beginAtZero: true,

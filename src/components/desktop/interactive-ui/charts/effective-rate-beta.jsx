@@ -17,6 +17,13 @@ export default function EffectiveRate() {
   const labels = loanData.associatedData.map((data) => `${data.rate}%`);
   const options = {
     maintainAspectRatio: true,
+    elements: {
+      line: {
+        borderWidth: 10,
+        // tension: 1,
+        // borderJoinStyle: "bevel" as const,
+      },
+    },
     scales: {
       y: {
         // beginAtZero: true,
@@ -75,7 +82,7 @@ export default function EffectiveRate() {
         backgroundColor: theme.colors.blue[7],
         data: loanData.associatedData.map((data) => data.volume),
         borderColor: theme.colors.blue[0],
-        borderWidth: 2,
+        borderWidth: 1,
       },
       {
         type: "line",
@@ -83,14 +90,14 @@ export default function EffectiveRate() {
         backgroundColor: theme.colors.violet[7],
         data: loanData.associatedData.map((data) => data.cumulativeFrequency),
         borderColor: theme.colors.violet[7],
-        borderWidth: 2,
+        borderWidth: 1,
       },
     ],
   };
 
   return (
     <ChartContainer>
-      <Bar options={options} data={data} height={180} />
+      <Bar options={options} data={data}   />
     </ChartContainer>
   );
 }
