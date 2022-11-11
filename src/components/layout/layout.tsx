@@ -3,7 +3,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { AppShell, useMantineTheme } from "@mantine/core";
 import NavbarDesktop from "./navbar-desktop";
 import NavbarMobile from "./navbar-mobile";
-import HeaderUi from "./header";
+import HeaderUi from "./header-beta";
 import { mediaQuery } from "../../config/media-query";
 import { useLoaded } from "../../hooks/useLoaded";
 
