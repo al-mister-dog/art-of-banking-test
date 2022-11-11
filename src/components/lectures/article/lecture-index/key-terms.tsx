@@ -47,7 +47,8 @@ export default function KeyTerms({ ids }) {
             borderRight: `1px solid #dee2e6`,
             borderTopRightRadius: 5,
             padding: "5px 50px 0px 50px",
-            backgroundColor: "#fefbfb",
+            // backgroundColor: "#fefbfb",
+            backgroundColor: "#FFD9E5",
           }}
         >
           <h1 style={{ margin: 0, padding: 0, fontWeight: "lighter" }}>
@@ -64,7 +65,7 @@ export default function KeyTerms({ ids }) {
         ></div>
       </div>
 
-      <div style={{ padding: "25px" }}>
+      <div style={{ padding: "25px", backgroundColor: "#FFD9E5" }}>
         {keyTermsArray.map((keyTerm) => (
           <Button
             key={keyTerm.key}
@@ -84,7 +85,7 @@ export default function KeyTerms({ ids }) {
         ))}
       </div>
 
-      <div style={{ padding: "0px 50px" }}>
+      <div style={{ padding: "0px 50px", backgroundColor: "#FFD9E5" }}>
         <h2 style={{ padding: 0, margin: 0, letterSpacing: 1 }}>
           {selectedTerm.title}
         </h2>

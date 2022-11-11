@@ -12,6 +12,7 @@ import ActionsPanel from "./actions/panel";
 import React from "react";
 import RecordsPanel from "./records/panel";
 import AccountsPanel from "./accounts/panel";
+import { colors } from "../../../../config/colorPalette";
 
 const useStyles = createStyles((theme) => ({
   header: { padding: "5px" },
@@ -39,8 +40,8 @@ function SidePanel({ bank }: { bank: CardInfo }) {
       shadow="sm"
       style={{
         paddingBottom: "0px",
-        height: "27.5rem",
-        backgroundColor: theme.colors.violet[0],
+        height: "26.35rem",
+        backgroundColor: colors.background2,
       }}
     >
       <Card.Section className={classes.header}>

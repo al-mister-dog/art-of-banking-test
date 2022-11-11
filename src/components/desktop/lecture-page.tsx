@@ -9,14 +9,15 @@ import { colors } from "../../config/colorPalette";
 
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
-    backgroundColor: colors.background2,
-    // paddingBottom: "200px",
-    // marginBottom: -25,
-  },
-  keyTermsContainer: {
-    // backgroundColor: colors.background1,
+    backgroundColor: colors.background3,
     paddingBottom: "50px",
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    boxShadow:
+      "0 1px 3px rgb(0 0 0 / 5%), rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px",
+    zIndex: 99999,
   },
+
   balanceSheets: {
     padding: 16,
   },
@@ -59,15 +60,15 @@ export default function LecturePath({
               <ChartsAndSettings />
             </div>
             {keyTermsIds.length === 0 && (
-              <div style={{ padding: "50px", backgroundColor: "inherit" }}>
+              <div style={{ padding: "50px", backgroundColor: "#FFD9E5" }}>
                 <NextLectureLink nextLecture={nextLecture} />
               </div>
             )}
           </div>
           {keyTermsIds.length > 0 && (
-            <div className={classes.keyTermsContainer}>
+            <div>
               <KeyTerms ids={keyTermsIds} />
-              <div style={{ padding: "50px", backgroundColor: "inherit" }}>
+              <div style={{ padding: "50px", backgroundColor: "#FFD9E5" }}>
                 <NextLectureLink nextLecture={nextLecture} />
               </div>
             </div>

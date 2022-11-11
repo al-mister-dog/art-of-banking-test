@@ -7,6 +7,7 @@ import SettingsDesktop from "./interactive-ui/settings/container";
 import EffectiveRate from "./interactive-ui/charts/effective-rate-beta";
 import { charts } from "../../config/charts";
 import { useAppSelector } from "../../app/hooks";
+import { colors } from "../../config/colorPalette";
 
 export default function Desktop() {
   const { currentLectureId } = useAppSelector(selectActions);
@@ -19,7 +20,7 @@ export default function Desktop() {
           <SettingsDesktop />
         </Grid.Col>
         <Grid.Col span={3}>
-          <Card shadow="sm" style={{ backgroundColor: theme.colors.violet[0] }}>
+          <Card shadow="sm" style={{ backgroundColor: colors.background2 }}>
             {charts[currentLectureId] === "balances" && <ChartBalances />}
             {charts[currentLectureId] === "credit" && <ChartCredit />}
             {charts[currentLectureId] === "private credit" && (

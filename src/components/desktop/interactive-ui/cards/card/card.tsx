@@ -42,11 +42,12 @@ export default function CardUI({ bank, handleSetBankDetail }: Props) {
     <Card
       key={bank.cardInfo.id}
       ref={ref}
+      shadow="sm"
       p="sm"
       radius="xs"
       style={{
         height: "13rem",
-        backgroundColor: colors.background1,
+        backgroundColor: colors.background2,
         paddingBottom: "0px",
         cursor: "pointer",
         border: hovered ? `2px solid ${theme.colors[bank.color][2]}` : "",

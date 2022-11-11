@@ -17,7 +17,8 @@ function AccountsDisplay({ bank, label, children }) {
       <Button
         style={{ width: "100%", marginTop: "5px" }}
         color={bank.color}
-        variant={opened ? "filled" : "outline"}
+        // variant={opened ? "filled" : "outline"}
+        variant="outline"
         radius="xs"
         onClick={() => setOpened((o) => !o)}
       >

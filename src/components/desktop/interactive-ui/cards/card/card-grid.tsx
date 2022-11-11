@@ -10,16 +10,14 @@ function CardGrid({ group, handleSetBankDetail }) {
   const theme = useMantineTheme();
   return (
     <Card
-      style={{ background: theme.colors.violet[0], padding: 0 }}
-      shadow="sm"
-      radius="xs"
+      style={{ backgroundColor: colors.background3, padding: 0 }}
+      // shadow="sm"
     >
-      <div
+      {/* <div
         style={{
           paddingTop: 5,
           paddingBottom: 5,
           position: "relative",
-          backgroundColor: theme.colors.violet[9],
           // boxShadow: "0 2px 4px rgb(208, 191, 255 / 50%)",
           borderBottom: "1px solid rgb(208, 191, 255)",
           boxShadow:
@@ -28,17 +26,17 @@ function CardGrid({ group, handleSetBankDetail }) {
         }}
       >
         <Center>
-          <Text color="white" weight="bold">
+          <Text color="violet" weight="bold">
             Balancesheets
           </Text>
         </Center>
-      </div>
+      </div> */}
 
-      <Grid gutter={5} grow style={{ margin: 0, paddingBottom: 5 }}>
+      <Grid gutter="sm" grow style={{ margin: 0, paddingBottom: 5 }}>
         <Grid.Col span={1} style={{ paddingTop: 0, paddingBottom: 0 }}>
           <div
             style={{
-              height: "25rem",
+              maxHeight: "40rem",
               overflow: "auto",
             }}
           >
@@ -53,7 +51,7 @@ function CardGrid({ group, handleSetBankDetail }) {
           </div>
         </Grid.Col>
         <Grid.Col span={1} style={{ paddingTop: 0, paddingBottom: 0 }}>
-          <div style={{ height: "25rem", overflow: "auto" }}>
+          <div style={{ maxHeight: "40rem", overflow: "auto" }}>
             {group2.map((bank) => (
               <div key={bank.cardInfo.id} style={{ marginBottom: "5px" }}>
                 <BankCard

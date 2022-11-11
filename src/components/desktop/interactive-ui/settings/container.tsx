@@ -14,6 +14,7 @@ import ColorsMenu from "./menu-colors";
 import { useAppSelector } from "../../../../app/hooks";
 import { selectActions } from "../../../../features/actions/actionsSlice";
 import { sliderSettings } from "../../../../features/settings/initialState";
+import { colors } from "../../../../config/colorPalette";
 
 export default function Desktop() {
   const { currentLectureId } = useAppSelector(selectActions);
@@ -26,7 +27,7 @@ export default function Desktop() {
     <Card
       shadow="sm"
       style={{
-        backgroundColor: theme.colors.violet[0],
+        backgroundColor: colors.background2,
         overflow: "visible",
         height: "24.5rem",
       }}

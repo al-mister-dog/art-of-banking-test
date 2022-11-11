@@ -5,8 +5,8 @@ import { colors } from "../../../config/colorPalette";
 const useStyles = createStyles((theme) => ({
   card: {
     paddingTop: 25,
-    // paddingBottom: 50,
-    backgroundColor: colors.background2,
+    paddingBottom: 10,
+    backgroundColor: colors.background3,
   },
   desktopWidth: {
     width: "65%",
@@ -23,9 +23,9 @@ export default function Assignment({ assignment, nextLecture }) {
           style={{
             borderTop: `1px solid #dee2e6`,
             borderRight: `1px solid #dee2e6`,
-            borderTopRightRadius: 5,
+            borderTopRightRadius: 15,
             padding: "5px 50px 0px 50px",
-            backgroundColor: "#fefbfb",
+            backgroundColor: colors.background3,
           }}
         >
           <h1
