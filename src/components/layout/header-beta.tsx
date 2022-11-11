@@ -28,7 +28,7 @@ import {
   IconCoin,
   IconChevronDown,
 } from "@tabler/icons";
-import { Books } from "tabler-icons-react";
+import { Books, Abacus, Friends } from "tabler-icons-react";
 import Link from "next/link";
 import { colors } from "../../config/colorPalette";
 
@@ -104,14 +104,16 @@ const useStyles = createStyles((theme) => ({
 
 const mockdata = [
   {
-    icon: IconCode,
-    title: "Open source",
-    description: "This Pokémon’s cry is very loud and distracting",
+    icon: Abacus,
+    title: "Lectures",
+    description:
+      "Learn all about money and banking with our huge lecture series",
   },
   {
     icon: IconCoin,
-    title: "Free for everyone",
-    description: "The fluid of Smeargle’s tail secretions changes",
+    title: "Free for Everyone",
+    description:
+      "Our resources are for everyone regardless of education and background",
   },
   {
     icon: IconBook,
@@ -120,19 +122,19 @@ const mockdata = [
       "Learn the concepts of economics with our interactive examples",
   },
   {
-    icon: IconFingerprint,
-    title: "Security",
-    description: "The shell’s rounded shape and the grooves on its.",
+    icon: Friends,
+    title: "Community",
+    description: "Contribute to discussions, debates as well as features",
   },
   {
     icon: IconChartPie3,
     title: "Analytics",
-    description: "This Pokémon uses its flying ability to quickly chase",
+    description: "Get financial data as well as learn how to read it",
   },
   {
     icon: IconNotification,
     title: "Notifications",
-    description: "Combusken battles with the intensely hot flames it spews",
+    description: "Receive notifications about new features and articles",
   },
 ];
 
@@ -195,10 +197,7 @@ export default function HeaderMegaMenu({
                     <Box component="span" mr={5}>
                       Features
                     </Box>
-                    <IconChevronDown
-                      size={16}
-                      color="purple"
-                    />
+                    <IconChevronDown size={16} color="purple" />
                   </Center>
                 </a>
               </HoverCard.Target>
@@ -228,10 +227,10 @@ export default function HeaderMegaMenu({
                         Get started
                       </Text>
                       <Text size="xs" color="dimmed">
-                        Their food sources have decreased, and their numbers
+                        Sign in to join the discussion or head straight to learning
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button variant="default" >Get started</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>

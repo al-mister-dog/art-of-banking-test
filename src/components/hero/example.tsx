@@ -1,6 +1,7 @@
 import { Title, Text, SimpleGrid, useMantineTheme } from "@mantine/core";
 import SlideIn from "./transitions/slide-in";
 import Image from "next/image";
+import { colors } from "../../config/colorPalette";
 
 export default function Example({ title, body, image, direction }) {
   const theme = useMantineTheme();
@@ -36,15 +37,25 @@ export default function Example({ title, body, image, direction }) {
         <SlideIn direction={direction}>
           <Title
             style={{
-              color: "#312A45",
+              color: colors.textColor,
               letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
             }}
             size={50}
             align="center"
           >
             {title}
           </Title>
-          <Text align="center">{body}</Text>
+          <Text
+            align="center"
+            style={{
+              color: colors.textColor,
+              letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+            }}
+          >
+            {body}
+          </Text>
         </SlideIn>
       </SimpleGrid>
     );
@@ -63,15 +74,25 @@ export default function Example({ title, body, image, direction }) {
         <SlideIn direction={direction}>
           <Title
             style={{
-              color: "#312A45",
+              color: colors.textColor,
               letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
             }}
             size={50}
             align="center"
           >
             {title}
           </Title>
-          <Text align="center">{body}</Text>
+          <Text
+            align="center"
+            style={{
+              color: colors.textColor,
+              letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+            }}
+          >
+            {body}
+          </Text>
         </SlideIn>
         <SlideIn direction={direction}>
           <div

@@ -4,6 +4,7 @@ import example2 from "../../../public/aob_example3.png";
 import Divide from "./divide";
 import LazyShow from "./transitions/lazy-show";
 import Example from "./example";
+import { colors } from "../../config/colorPalette";
 
 export default function HeroDesktop() {
   const theme = useMantineTheme();
@@ -24,107 +25,78 @@ export default function HeroDesktop() {
   };
   return (
     <>
-      <SimpleGrid cols={2} spacing={0}>
-        <div
-          style={{
-            background: `linear-gradient(to left bottom, ${backgroundRed} 50%, ${backgroundViolet} 50%)`,
-            height: "50vh",
-          }}
-        ></div>
-        <div
-          style={{
-            background: backgroundRed,
-            height: "50vh",
-            position: "relative",
-          }}
-        >
-          <Title
-            style={{
-              color: "#312A45",
-              letterSpacing: "3px",
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              paddingRight: "50px",
-            }}
-            size={50}
-            align="right"
-            className="hero-headline"
-          >
-            Art of Banking
-          </Title>
-        </div>
-      </SimpleGrid>
-      <SimpleGrid cols={2} spacing={0}>
-        <div
-          style={{
-            background: backgroundViolet,
-            height: "50vh",
-            position: "relative",
-          }}
-        ></div>
-        <div
-          style={{
-            background: `linear-gradient(to left bottom, ${backgroundRed} 50%, ${backgroundViolet} 50%)`,
-            height: "50vh",
-            paddingRight: "50px",
-          }}
-        >
-          <Text
-            className="hero-text-1"
-            size="lg"
-            weight="bold"
-            style={{ color: "#312A45" }}
-            align="right"
-          >
-            The world economy is made from the fabric of global
-          </Text>
-          <Text
-            className="hero-text-2"
-            size="lg"
-            style={{ color: "#312A45" }}
-            align="right"
-          >
-            <span style={{ fontWeight: "bold" }}>finance.</span> The fabric of
-            global finance is an
-          </Text>
-          <Text
-            className="hero-text-3"
-            size="lg"
-            style={{ color: "#312A45" }}
-            align="right"
-          >
-            interlocking matrix of corporate
-          </Text>
-          <Text
-            className="hero-text-4"
-            size="lg"
-            style={{ color: "#312A45" }}
-            align="right"
-          >
-            balance sheets.
-          </Text>
-        </div>
-      </SimpleGrid>
       <div
         style={{
           height: "100vh",
-          backgroundColor: backgroundViolet,
         }}
       >
         <div
           style={{
             position: "relative",
             top: "50%",
-            // -ms-transform: translateY(-50%);
+            transform: "translateY(-50%)",
+            width: "60%",
+            margin: "auto",
+          }}
+        >
+          <Title
+            size={50}
+            className="hero-headline"
+            style={{
+              color: colors.textColor,
+              letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+            }}
+          >
+            Art of Banking
+          </Title>
+          <Title
+            className="hero-text-1"
+            weight="bold"
+            style={{
+              color: colors.textColor,
+              letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+            }}
+          >
+            Your site to learn money and banking
+          </Title>
+          <Text
+            mt={15}
+            className="hero-text-4"
+            size="sm"
+            weight="bold"
+            style={{
+              color: colors.textColor,
+              letterSpacing: "3px",
+              textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
+              fontStyle: "italic",
+            }}
+          >
+            "The world economy is made from the fabric of global finance. The
+            fabric of global finance is an interlocking matrix of corporate
+            balance sheets."
+          </Text>
+        </div>
+      </div>
+      <div
+        style={{
+          height: "100vh",
+        }}
+      >
+        <div
+          style={{
+            position: "relative",
+            top: "50%",
             transform: "translateY(-50%)",
           }}
         >
           <LazyShow>
             <Title
               style={{
-                color: "#312A45",
+                color: colors.textColor,
                 letterSpacing: "3px",
+                textShadow: `5px 10px 50px rgb(0 0 0 / 50%)`,
               }}
               size={40}
               align="center"
@@ -136,16 +108,11 @@ export default function HeroDesktop() {
       </div>
       <div
         style={{
-          background: backgroundRed,
           height: "200vh",
           overflowX: "hidden",
         }}
       >
-        <Divide
-          direction="right bottom"
-          colorOne={backgroundViolet}
-          colorTwo={backgroundRed}
-        >
+        <Divide>
           <Example
             title={examples.example1.title}
             body={examples.example1.text}
@@ -164,7 +131,6 @@ export default function HeroDesktop() {
       <div
         style={{
           height: "50vh",
-          backgroundColor: backgroundRed,
         }}
       >
         <div
@@ -177,8 +143,9 @@ export default function HeroDesktop() {
           <LazyShow>
             <Title
               style={{
-                color: "#312A45",
+                color: colors.textColor,
                 letterSpacing: "3px",
+                textShadow: `5px 10px 25px rgb(0 0 0 / 50%)`,
               }}
               size={40}
               align="center"

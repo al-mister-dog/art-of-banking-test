@@ -1,9 +1,8 @@
-export default function Divide({ direction, colorOne, colorTwo, children }) {
+export default function Divide({ children }) {
   return (
     <div
       style={{
         height: "100vh",
-        background: `linear-gradient(to ${direction}, ${colorOne} 50%, ${colorTwo} 50%)`,
       }}
     >
       {children}
