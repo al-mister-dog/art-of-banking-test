@@ -12,7 +12,7 @@ export const lectureRoutes = {
           title: "Introduction",
           path: "/fundamentals/introduction",
           lectureId: 0,
-          keyTermsIds: [0, 1, 2],
+          keyTermsIds: [],
         },
         {
           id: 1,

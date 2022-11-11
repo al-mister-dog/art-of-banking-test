@@ -27,7 +27,7 @@ export default function OverdraftSlider({
   }, []);
   return (
     <Box>
-      <Text size="xs">Overdraft Limit</Text>
+      <Text size="xs" color="violet">Overdraft Limit</Text>
       <Slider
         color="violet"
         size="md"

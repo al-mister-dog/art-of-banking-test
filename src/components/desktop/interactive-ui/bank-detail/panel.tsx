@@ -42,6 +42,7 @@ function SidePanel({ bank }: { bank: CardInfo }) {
         paddingBottom: "0px",
         height: "26.35rem",
         backgroundColor: colors.background2,
+        
       }}
     >
       <Card.Section className={classes.header}>

@@ -9,61 +9,31 @@ function CardGrid({ group, handleSetBankDetail }) {
   const [group1, group2] = splitArray(group);
   const theme = useMantineTheme();
   return (
-    <Card
-      style={{ backgroundColor: colors.background3, padding: 0 }}
-      // shadow="sm"
-    >
-      {/* <div
-        style={{
-          paddingTop: 5,
-          paddingBottom: 5,
-          position: "relative",
-          // boxShadow: "0 2px 4px rgb(208, 191, 255 / 50%)",
-          borderBottom: "1px solid rgb(208, 191, 255)",
-          boxShadow:
-            "0 1px 3px rgb(0 0 0 / 5%), rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px -5px",
-          zIndex: 99999,
-        }}
-      >
-        <Center>
-          <Text color="violet" weight="bold">
-            Balancesheets
-          </Text>
-        </Center>
-      </div> */}
-
-      <Grid gutter="sm" grow style={{ margin: 0, paddingBottom: 5 }}>
-        <Grid.Col span={1} style={{ paddingTop: 0, paddingBottom: 0 }}>
-          <div
-            style={{
-              maxHeight: "40rem",
-              overflow: "auto",
-            }}
-          >
-            {group1.map((bank) => (
-              <div key={bank.cardInfo.id} style={{ marginBottom: "5px" }}>
-                <BankCard
-                  bank={bank}
-                  handleSetBankDetail={handleSetBankDetail}
-                />
-              </div>
-            ))}
-          </div>
-        </Grid.Col>
-        <Grid.Col span={1} style={{ paddingTop: 0, paddingBottom: 0 }}>
-          <div style={{ maxHeight: "40rem", overflow: "auto" }}>
-            {group2.map((bank) => (
-              <div key={bank.cardInfo.id} style={{ marginBottom: "5px" }}>
-                <BankCard
-                  bank={bank}
-                  handleSetBankDetail={handleSetBankDetail}
-                />
-              </div>
-            ))}
-          </div>
-        </Grid.Col>
-      </Grid>
-    </Card>
+    <Grid gutter="sm" grow>
+      <Grid.Col span={1}>
+        <div
+          style={{
+            maxHeight: "40rem",
+            overflow: "auto",
+          }}
+        >
+          {group1.map((bank) => (
+            <div key={bank.cardInfo.id} style={{ marginBottom: "5px" }}>
+              <BankCard bank={bank} handleSetBankDetail={handleSetBankDetail} />
+            </div>
+          ))}
+        </div>
+      </Grid.Col>
+      <Grid.Col span={1}>
+        <div style={{ maxHeight: "40rem", overflow: "auto" }}>
+          {group2.map((bank) => (
+            <div key={bank.cardInfo.id} style={{ marginBottom: "5px" }}>
+              <BankCard bank={bank} handleSetBankDetail={handleSetBankDetail} />
+            </div>
+          ))}
+        </div>
+      </Grid.Col>
+    </Grid>
   );
 }
 

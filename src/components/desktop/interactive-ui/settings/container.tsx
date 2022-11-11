@@ -29,7 +29,8 @@ export default function Desktop() {
       style={{
         backgroundColor: colors.background2,
         overflow: "visible",
-        height: "24.5rem",
+        
+        // height: "24.5rem",
       }}
     >
       <Card.Section
@@ -39,43 +40,25 @@ export default function Desktop() {
       >
         <Center>
           <h4 style={{ margin: 0, padding: 0, color: theme.colors.violet[9] }}>
-            Settings
+            Display Settings
           </h4>
         </Center>
       </Card.Section>
-      <Box>
-        <SimpleGrid style={{ height: "220px" }} cols={2}>
-          <Box>
-            <Text size="sm" color="violet">
-              Balancesheet Display
-            </Text>
-            <DisplayRadioGroup />
-          </Box>
+      <Box
+        style={{
+          width: "70%",
+          margin: "auto",
+          marginTop: "1rem",
+        }}
+      >
+        <Box>
+          <Text size="sm" color="violet">
+            Balancesheet Display
+          </Text>
+          <DisplayRadioGroup />
+        </Box>
 
-          <ColorsMenu />
-        </SimpleGrid>
-      </Box>
-
-      <Box>
-        <SimpleGrid cols={2}>
-          <Box>
-            <Text size="sm" color="violet">
-              Ranges
-            </Text>
-            <Box style={{ marginTop: "5px", paddingRight: "5px" }}>
-              <OverdraftSlider
-                disabled={slidersDisabled.overdraft}
-                overdraftValue={overdraftValue}
-              />
-              <ReserveRequirementSlider
-                disabled={slidersDisabled.reserveRequirement}
-              />
-            </Box>
-          </Box>
-          <Box>
-            {/* <Text size="sm" weight="bold" color="violet">XXXSXASXJKASNXKJ</Text> */}
-          </Box>
-        </SimpleGrid>
+        <ColorsMenu />
       </Box>
     </Card>
   );

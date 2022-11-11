@@ -36,12 +36,12 @@ export default function DisplayRadioGroup() {
           label={<Text size="xs">Balances</Text>}
         />
 
-        <Radio
+        {/* <Radio
           styles={{ labelWrapper: { display: "flex" } }}
           color="violet"
           value="taccounts"
           label={<Text size="xs">T-Accounts</Text>}
-        />
+        /> */}
 
         <Radio
           styles={{ labelWrapper: { display: "flex" } }}
