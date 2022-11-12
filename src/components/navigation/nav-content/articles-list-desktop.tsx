@@ -2,23 +2,20 @@ import { createStyles } from "@mantine/core";
 import { articleRoutes } from "../../../config/routes/articleRoutes";
 import { Accordion, List, Text } from "@mantine/core";
 import Link from "next/link";
+import { colors } from "../../../config/colorPalette";
 
 const useStyles = createStyles((theme) => ({
   listItem: {
     borderLeft: "1px solid gray",
     padding: "5px 0px 5px 20px",
     "&:hover": {
-      backgroundColor: theme.colors.blue[1],
+      backgroundColor: theme.colors.violet[1],
       borderLeft: "1px solid blue",
     },
   },
 }));
 
-export default function LecturesContent({
-  setMobileOpen,
-}: {
-  setMobileOpen?: (v: boolean) => void;
-}) {
+export default function LecturesContent() {
   const { classes } = useStyles();
 
   return (
@@ -53,7 +50,9 @@ export default function LecturesContent({
                     <div key={id}>
                       <List.Item
                         className={classes.listItem}
-                        style={{ cursor: "pointer" }}
+                        style={{
+                          cursor: "pointer",
+                        }}
                       >
                         <Link
                           href={{
@@ -82,9 +81,7 @@ function NestedRoutes({ title, path, id, routes }) {
   const { classes } = useStyles();
 
   return (
-    <div
-      key={id}
-    >
+    <div key={id}>
       <List.Item className={classes.listItem} style={{ cursor: "pointer" }}>
         <Link
           href={{

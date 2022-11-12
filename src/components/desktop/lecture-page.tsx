@@ -12,6 +12,7 @@ import NextLectureLink from "../shared-ui/next-lecture-link";
 import LayoutDesktop from "./interactive-ui/layout";
 import { colors } from "../../config/colorPalette";
 import NextLectureCard from "../shared-ui/next-lecture-card";
+import Introduction from "./lectures/introduction";
 
 const useStyles = createStyles((theme) => ({
   interactiveUiContainer: {
@@ -37,20 +38,23 @@ export default function LecturePath({
 
   return (
     <>
-      <Article
-        slug={slug}
-        title={title}
-        text={text}
-        assignment={assignment}
-        nextLecture={nextLecture}
-      />
-      {keyTermsIds.length === 0 && (
-        <div style={{ padding: "50px", backgroundColor: colors.background3 }}>
-          <NextLectureLink nextLecture={nextLecture} />
-        </div>
-      )}
-      {title !== "Introduction" && (
+      {title === "Introduction" ? (
+        <Introduction
+          slug={slug}
+          title={title}
+          text={text}
+          assignment={assignment}
+          nextLecture={nextLecture}
+        />
+      ) : (
         <>
+          <Article
+            slug={slug}
+            title={title}
+            text={text}
+            assignment={assignment}
+            nextLecture={nextLecture}
+          />
           <div className={classes.interactiveUiContainer}>
             <LayoutDesktop />
           </div>

@@ -1,4 +1,5 @@
-import { Title, Text } from "@mantine/core";
+import Title from "../../components/shared-ui/texts/Title";
+import {Text} from "@mantine/core"
 
 export default function ArticlesIndexPage() {
   return (

@@ -4,6 +4,7 @@ import { createStyles, useMantineTheme } from "@mantine/core";
 import { lectureRoutes } from "../../../config/routes/lectureRoutes";
 import { Accordion, List, Text } from "@mantine/core";
 import Link from "next/link";
+import { colors } from "../../../config/colorPalette";
 
 const useStyles = createStyles((theme) => ({
   listItem: {
@@ -52,7 +53,7 @@ export default function LecturesContent({}: {}) {
                           cursor: "pointer",
                           background:
                             currentLectureId === id
-                              ? theme.colors.violet[1]
+                              ? colors.background3
                               : "",
                         }}
                       >
