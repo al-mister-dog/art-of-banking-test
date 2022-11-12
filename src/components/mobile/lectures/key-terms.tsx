@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
     letterSpacing: 1,
     fontWeight: "bold",
     display: "inline-block",
-    background: theme.colors.red[0],
+    backgroundColor: colors.background1,
     borderTop: `1px solid ${theme.colors.red[1]}`,
     borderRight: `1px solid ${theme.colors.red[1]}`,
     borderTopRightRadius: 5,
@@ -26,7 +26,7 @@ const useStyles = createStyles((theme) => ({
   },
   card: {
     padding: 16,
-    background: theme.colors.red[0],
+    backgroundColor: colors.background1
   },
   desktopWidth: {
     width: "65%",
@@ -58,7 +58,7 @@ export default function KeyTerms({ ids }) {
 
   return (
     <>
-      <div style={{ backgroundColor: theme.colors.violet[0] }}>
+      <div style={{ backgroundColor: colors.background1 }}>
         <h2 className={classes.title}>Key Terms</h2>
       </div>
 

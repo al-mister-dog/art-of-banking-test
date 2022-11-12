@@ -9,14 +9,14 @@ const useStyles = createStyles((theme) => ({
     padding: 16,
     marginBottom: 0,
     display: "inline-block",
-    backgroundColor: colors.background3,
+    backgroundColor: colors.background1,
     borderTop: `1px solid ${theme.colors.violet[1]}`,
     borderRight: `1px solid ${theme.colors.violet[1]}`,
     borderTopRightRadius: 5,
   },
   card: {
     paddingTop: 25,
-    backgroundColor: colors.background3,
+    backgroundColor: colors.background1,
   },
 }));
 export default function Assignment({ assignment, nextLecture }) {

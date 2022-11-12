@@ -10,12 +10,12 @@ import { useNextPage } from "../../hooks/useNextPage";
 import { colors } from "../../config/colorPalette";
 const useStyles = createStyles((theme) => ({
   assignmentContainer: {
-    backgroundColor: colors.background3,
+    backgroundColor: colors.background1,
     paddingBottom: "200px",
     marginBottom: -25,
   },
   keyTermsContainer: {
-    backgroundColor: theme.colors.red[0],
+    backgroundColor: colors.background1,
     paddingBottom: "50px",
   },
   balanceSheets: {
