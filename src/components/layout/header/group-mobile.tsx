@@ -130,7 +130,7 @@ export default function HeaderGroup({
           </Center>
         </UnstyledButton>
         <Collapse in={lecturesOpened}>
-          <LecturesContent closeDrawer={closeDrawer}/>
+          <LecturesContent closeDrawer={closeDrawer} />
         </Collapse>
         <UnstyledButton className={classes.link} onClick={toggleArticles}>
           <Center inline>
@@ -141,7 +141,7 @@ export default function HeaderGroup({
           </Center>
         </UnstyledButton>
         <Collapse in={articlesOpened}>
-          <ArticlesContent closeDrawer={closeDrawer}/>
+          <ArticlesContent closeDrawer={closeDrawer} />
         </Collapse>
         <UnstyledButton className={classes.link} onClick={toggleLinks}>
           <Center inline>
@@ -158,8 +158,17 @@ export default function HeaderGroup({
         />
 
         <Group position="center" grow pb="xl" px="md">
-          <Button variant="default">Log in</Button>
-          <Button>Sign up</Button>
+          <Link href="/registration/login" passHref>
+            <Button color="violet" variant="default" onClick={closeDrawer}>
+              Log in
+            </Button>
+          </Link>
+
+          <Link href="/registration/signup" passHref>
+            <Button color="violet" onClick={closeDrawer}>
+              Sign up
+            </Button>
+          </Link>
         </Group>
       </ScrollArea>
     </Drawer>

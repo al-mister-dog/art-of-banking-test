@@ -1,4 +1,5 @@
 import { createStyles, Group, Button } from "@mantine/core";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   hiddenMobile: {
@@ -12,10 +13,15 @@ export default function Auth() {
 
   return (
     <Group className={classes.hiddenMobile}>
-      <Button color="violet" variant="default">
-        Log in
-      </Button>
-      <Button color="violet">Sign up</Button>
+      <Link href="/registration/login" passHref>
+        <Button color="violet" variant="default">
+          Log in
+        </Button>
+      </Link>
+
+      <Link href="/registration/signup" passHref>
+        <Button color="violet">Sign up</Button>
+      </Link>
     </Group>
   );
 }

@@ -9,7 +9,7 @@ import NextLectureLink from "../shared-ui/next-lecture-link";
 import { useNextPage } from "../../hooks/useNextPage";
 import { colors } from "../../config/colorPalette";
 const useStyles = createStyles((theme) => ({
-  assignmentContainer: {
+  interactiveUiContainer: {
     backgroundColor: colors.background1,
     paddingBottom: "200px",
     marginBottom: -25,
@@ -44,7 +44,7 @@ export default function LecturePageMobile({
       />
       {title !== "Introduction" && (
         <>
-          <div className={classes.assignmentContainer}>
+          <div className={classes.interactiveUiContainer}>
             <div className={classes.balanceSheets}>
               <div
                 style={{

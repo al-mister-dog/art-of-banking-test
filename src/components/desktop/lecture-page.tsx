@@ -1,12 +1,20 @@
-import { createStyles } from "@mantine/core";
+import {
+  Box,
+  Card,
+  Center,
+  createStyles,
+  SimpleGrid,
+  Title,
+} from "@mantine/core";
 import KeyTerms from "../lectures/article/lecture-index/key-terms";
 import Article from "./lectures/article";
 import NextLectureLink from "../shared-ui/next-lecture-link";
 import LayoutDesktop from "./interactive-ui/layout";
 import { colors } from "../../config/colorPalette";
+import NextLectureCard from "../shared-ui/next-lecture-card";
 
 const useStyles = createStyles((theme) => ({
-  assignmentContainer: {
+  interactiveUiContainer: {
     backgroundColor: colors.background3,
     paddingBottom: "25px",
     borderBottomLeftRadius: 15,
@@ -43,23 +51,31 @@ export default function LecturePath({
       )}
       {title !== "Introduction" && (
         <>
-          <div className={classes.assignmentContainer}>
+          <div className={classes.interactiveUiContainer}>
             <LayoutDesktop />
           </div>
-
-          {keyTermsIds.length > 0 && (
-            <div>
-              <KeyTerms ids={keyTermsIds} />
-              <div
+          {keyTermsIds.length > 0 ? (
+            <SimpleGrid cols={2}>
+              <Card
+                mt={50}
+                mb={150}
+                ml={25}
+                shadow="sm"
                 style={{
-                  padding: "50px",
-
-                  backgroundColor: "#FFD9E5",
+                  maxWidth: "40vw",
+                  backgroundColor: colors.background2,
+                  cursor: "pointer",
                 }}
               >
-                <NextLectureLink nextLecture={nextLecture} />
-              </div>
-            </div>
+                <KeyTerms ids={keyTermsIds} />
+              </Card>
+              <NextLectureCard nextLecture={nextLecture} />
+            </SimpleGrid>
+          ) : (
+            <SimpleGrid cols={2}>
+              <div></div>
+              <NextLectureCard nextLecture={nextLecture} />
+            </SimpleGrid>
           )}
         </>
       )}
