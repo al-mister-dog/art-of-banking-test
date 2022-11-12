@@ -101,7 +101,7 @@ export const clearinghouseText = {
       the next step.
       `,
     ],
-    assignment: `Assignment: There are two banks each with two customers who have made various transfers.
+    assignment: `There are two banks each with two customers who have made various transfers.
     One bank owes another bank. Net the payments and settle using corresponding accounts. Corresponding
     accounts contain "Bank Deposits".`,
   },

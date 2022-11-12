@@ -1,24 +1,30 @@
 import { createStyles, useMantineTheme } from "@mantine/core";
 import { Text, Title } from "@mantine/core";
+import Link from "next/link";
 import { colors } from "../../../config/colorPalette";
+import Pill from "../../shared-ui/components/Pill";
 
 const useStyles = createStyles((theme) => ({
   card: {
     paddingTop: 25,
     paddingBottom: 10,
+    paddingLeft: 50,
     backgroundColor: colors.background3,
-  },
-  desktopWidth: {
-    width: "65%",
-    paddingLeft: "50px",
+    display: "flex",
+    justifyContent: "space-around",
   },
 }));
 export default function Assignment({ assignment, nextLecture }) {
   const { classes } = useStyles();
-
+  const theme = useMantineTheme();
   return (
     <div>
-      <div style={{ display: "flex", marginTop: "150px" }}>
+      <div
+        style={{
+          display: "flex",
+          marginTop: "80px",
+        }}
+      >
         <div
           style={{
             borderTop: `1px solid #dee2e6`,
@@ -52,8 +58,7 @@ export default function Assignment({ assignment, nextLecture }) {
       <div className={`${classes.card}`}>
         <div
           style={{
-            paddingLeft: "50px",
-            paddingRight: "25rem",
+            width: "50%",
           }}
         >
           {assignment.slice(0, 7) === "Sources" ? (
@@ -77,6 +82,24 @@ export default function Assignment({ assignment, nextLecture }) {
               {assignment}
             </p>
           )}
+        </div>
+        <div style={{ width: "40%" }}>
+          <p
+            style={{
+              color: colors.text,
+              fontSize: "14px",
+              letterSpacing: 1,
+              fontStyle: "italic",
+            }}
+          >
+            Instructions: Click on a bank or customer's balance sheet to show
+            more details in the selected bank panel on the right hand side. Here
+            you can perform actions such as depositing cash. For more detailed
+            instructions{" "}
+            <span style={{color: "purple"}}>
+              <Link href="/lectures/instructions">click here</Link>
+            </span>
+          </p>
         </div>
       </div>
     </div>

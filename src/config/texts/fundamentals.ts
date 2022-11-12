@@ -127,7 +127,7 @@ export const fundamentalsText = {
       this is a good starting point.
       `,
     ],
-    assignment: `Assignment: There are two customers with the same bank, each with $100 in an account.
+    assignment: `There are two customers with the same bank, each with $100 in an account.
     Expand the credit in the system by $50 and then contract it to $0. You can alter the overdraft limit in
     the settings panel.`,
   },
@@ -154,7 +154,7 @@ export const fundamentalsText = {
       to pay, given enough cases, can result in economic catastrophe, as seen in the financial crisis
       of 2008, in which one of the main factors was the inability to settle payments for various reasons.`,
     ],
-    assignment: `Assignment: Have a customer take out a loan. Is there a way for this customer to pay it back?`,
+    assignment: `Have a customer take out a loan. Is there a way for this customer to pay it back?`,
   },
   step6: {
     lectureTitle: `fundamentals`,

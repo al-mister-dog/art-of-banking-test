@@ -12,16 +12,17 @@ export default function SpoilerText({ text }: IntroProps) {
       hideLabel={<Text color="violet">Hide</Text>}
     >
       {text.map((t) => (
-        <Text
+        <p
           key={t}
-          sx={{
+          style={{
             letterSpacing: "1px",
             marginBottom: "25px",
-            color: colors.text
+            
+            color: colors.text,
           }}
         >
           {t}
-        </Text>
+        </p>
       ))}
     </Spoiler>
   );

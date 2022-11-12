@@ -58,7 +58,7 @@ function SidePanel({ bank }: { bank: CardInfo }) {
           </h2>
         </Center>
       </Card.Section>
-      <Tabs color={`${bank.color}`} defaultValue="records">
+      <Tabs color={`${bank.color}`} defaultValue="actions">
         <Tabs.List grow>
           <Tabs.Tab value="records">
             <Text color={theme.colors[bank.color][9]}>Records</Text>
