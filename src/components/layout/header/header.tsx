@@ -17,13 +17,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function HeaderMenu({
-  opened,
-  setOpened,
-  isMobile,
-  mobileOpen,
-  setMobileOpen,
-}) {
+export default function HeaderMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);

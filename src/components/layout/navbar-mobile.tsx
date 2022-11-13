@@ -1,7 +1,7 @@
 import { Navbar } from "@mantine/core";
 import TabsUi from "../navigation/tabs";
 
-export default function NavbarUi({mobileOpen, setMobileOpen}) {
+export default function NavbarUi({ mobileOpen }) {
   return (
     <Navbar
       p="md"
@@ -9,7 +9,7 @@ export default function NavbarUi({mobileOpen, setMobileOpen}) {
       hidden={!mobileOpen}
       width={{ sm: 200, lg: 300 }}
     >
-      <TabsUi setMobileOpen={setMobileOpen}/>
+      <TabsUi />
     </Navbar>
   );
 }
