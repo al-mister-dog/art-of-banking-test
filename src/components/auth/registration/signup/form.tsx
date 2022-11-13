@@ -2,10 +2,12 @@ import { TextInput, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { PasswordInput } from "@mantine/core";
+import { colors } from "../../../../config/colorPalette";
+import { useState } from "react";
 
 export default function SignupForm() {
   const [visible, { toggle }] = useDisclosure(false);
-
+  const [signupStatus, setSignupStatus] = useState("");
   const form = useForm({
     initialValues: {
       username: "",
@@ -32,17 +34,34 @@ export default function SignupForm() {
     },
   });
 
+  async function createUser(values) {
+    const response = await fetch("/api/auth/signup", {
+      method: "POST",
+      body: JSON.stringify({ values }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setSignupStatus(data.message);
+    }
+
+    setSignupStatus(data.message);
+  }
+
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <h1 style={{ color: colors.textColor }}>Sign up</h1>
+      <form onSubmit={form.onSubmit((values) => createUser(values))}>
         <TextInput
-          withAsterisk
           label="Username"
           placeholder="username"
           {...form.getInputProps("username")}
         />
         <TextInput
-          withAsterisk
           label="Email"
           placeholder="your@email.com"
           {...form.getInputProps("email")}
@@ -68,6 +87,7 @@ export default function SignupForm() {
             Sign up
           </Button>
         </Group>
+        <p>{signupStatus}</p>
       </form>
     </Box>
   );

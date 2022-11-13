@@ -1,6 +1,6 @@
 import "../styles/globals.css";
-
-import { Provider } from "react-redux";
+import { Provider as AuthProvider } from "next-auth/client";
+import { Provider as StateProvider } from "react-redux";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
@@ -18,20 +18,22 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <Provider store={store}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            colorScheme: "light",
-            fontFamily: "Poppins, EB Garamond, Roboto",
-          }}
-        >
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </MantineProvider>
-      </Provider>
+      {/* <AuthProvider> */}
+        <StateProvider store={store}>
+          <MantineProvider
+            withGlobalStyles
+            withNormalizeCSS
+            theme={{
+              colorScheme: "light",
+              fontFamily: "Poppins, EB Garamond, Roboto",
+            }}
+          >
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </MantineProvider>
+        </StateProvider>
+      {/* </AuthProvider> */}
     </>
   );
 }

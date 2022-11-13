@@ -1,5 +1,6 @@
-import { Text, Title } from "@mantine/core";
+import { Text } from "@mantine/core";
 import Link from "next/link";
+import Title from "../../components/shared-ui/texts/Title";
 
 export default function LecturesPage() {
   return (

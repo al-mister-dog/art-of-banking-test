@@ -3,11 +3,7 @@ import LecturesContent from "./nav-content/lectures-list-desktop";
 import ArticlesContent from "./nav-content/articles-list-desktop";
 import Link from "next/link";
 
-export default function TabsUi({
-  setMobileOpen,
-}: {
-  setMobileOpen?: (v: boolean) => void;
-}) {
+export default function TabsUi() {
   return (
     <Tabs variant="outline" defaultValue="lectures">
       <Tabs.List>

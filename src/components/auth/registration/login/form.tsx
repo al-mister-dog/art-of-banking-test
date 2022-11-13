@@ -1,11 +1,14 @@
-import { TextInput, Checkbox, Button, Group, Box } from "@mantine/core";
+import { signIn } from "next-auth/client";
+import { useRouter } from "next/router";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { PasswordInput, Stack } from "@mantine/core";
+import { Box, Group, PasswordInput, TextInput, Button } from "@mantine/core";
+import { colors } from "../../../../config/colorPalette";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [visible, { toggle }] = useDisclosure(false);
-
+  
   const form = useForm({
     initialValues: {
       email: "",
@@ -26,9 +29,25 @@ export default function LoginForm() {
     },
   });
 
+  async function handleSubmit(values) {
+    const { email, password } = values;
+
+    const result = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+    alert(JSON.stringify(result));
+    if (!result.error) {
+      // set some auth state
+      router.replace("/profile");
+    }
+  }
+
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <h1 style={{ color: colors.textColor }}>Log in</h1>
+      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <TextInput
           withAsterisk
           label="Email"
