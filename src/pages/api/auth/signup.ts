@@ -1,5 +1,6 @@
 import { hashPassword } from "../../../lib/auth";
-import { connectToDatabase } from "../../../lib/db";
+import { NextApiRequest, NextApiResponse } from "next";
+import { prisma } from "../../../lib/prisma";
 import * as yup from "yup";
 import YupPassword from "yup-password";
 YupPassword(yup);
@@ -10,11 +11,14 @@ const userSchema = yup.object().shape({
   password: yup.string().password().min(6).max(24).required(),
 });
 
-async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     return;
   }
-
+  
   const data = req.body;
 
   try {
@@ -27,31 +31,17 @@ async function handler(req, res) {
   }
 
   const { username, email, password } = data.values;
-
-  const client = await connectToDatabase();
-
-  const db = client.db();
-
-  const existingUser = await db
-    .collection("aobusers")
-    .findOne({ email: email });
-
-  if (existingUser) {
-    res.status(422).json({ message: "User exists already!" });
-    client.close();
-    return;
-  }
-
   const hashedPassword = await hashPassword(password);
-
-  await db.collection("aobusers").insertOne({
-    username: username,
-    email: email,
-    password: hashedPassword,
-  });
-
-  res.status(201).json({ message: "Created user!" });
-  client.close();
+  try {
+    await prisma.user.create({
+      data: {
+        username,
+        email,
+        password: hashedPassword,
+      },
+    });
+    res.status(200).json({ message: "All Signed Up" });
+  } catch (error) {
+    res.status(405).json({ message: "Something Went Wrong. Please Try Again" });
+  }
 }
-
-export default handler;
