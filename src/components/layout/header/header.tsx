@@ -5,7 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
 import { colors } from "../../../config/colorPalette";
 import GroupDesktop from "./group-desktop";
-import Auth from "./auth";
+import Auth from "./auth-desktop";
 import GroupMobile from "./group-mobile";
 
 const useStyles = createStyles((theme) => ({

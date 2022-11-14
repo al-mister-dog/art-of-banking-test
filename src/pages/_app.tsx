@@ -1,6 +1,7 @@
 import "../styles/globals.css";
-import { Provider as AuthProvider } from "next-auth/client";
+
 import { Provider as StateProvider } from "react-redux";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
@@ -8,7 +9,10 @@ import { MantineProvider } from "@mantine/core";
 import store from "../app/store";
 import Layout from "../components/layout/layout";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
     <>
       <Head>
@@ -18,7 +22,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      {/* <AuthProvider> */}
+      <SessionProvider session={session}>
         <StateProvider store={store}>
           <MantineProvider
             withGlobalStyles
@@ -33,7 +37,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             </Layout>
           </MantineProvider>
         </StateProvider>
-      {/* </AuthProvider> */}
+      </SessionProvider>
     </>
   );
 }

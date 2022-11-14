@@ -1,14 +1,29 @@
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { Box, Group, PasswordInput, TextInput, Button } from "@mantine/core";
+import {
+  Box,
+  Group,
+  PasswordInput,
+  TextInput,
+  Button,
+  Stack,
+  Divider,
+  Center,
+} from "@mantine/core";
 import { colors } from "../../../../config/colorPalette";
+import {
+  BrandGithub,
+  BrandGoogle,
+  BrandReddit,
+  BrandTwitter,
+} from "tabler-icons-react";
 
 export default function LoginForm() {
   const router = useRouter();
   const [visible, { toggle }] = useDisclosure(false);
-  
+
   const form = useForm({
     initialValues: {
       email: "",
@@ -37,38 +52,78 @@ export default function LoginForm() {
       email,
       password,
     });
+
     alert(JSON.stringify(result));
     if (!result.error) {
-      // set some auth state
-      router.replace("/profile");
+      router.replace("/");
     }
   }
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto">
-      <h1 style={{ color: colors.textColor }}>Log in</h1>
-      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
-        <TextInput
-          withAsterisk
-          label="Email"
-          placeholder="your@email.com"
-          {...form.getInputProps("email")}
-        />
+    <>
+      <Box sx={{ maxWidth: 300 }} mx="auto">
+        <h1 style={{ color: colors.textColor }}>Log in</h1>
+        <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
+          <TextInput
+            withAsterisk
+            label="Email"
+            placeholder="your@email.com"
+            {...form.getInputProps("email")}
+          />
 
-        <PasswordInput
-          label="Password"
-          defaultValue="secret"
-          visible={visible}
-          onVisibilityChange={toggle}
-          {...form.getInputProps("password")}
-        />
+          <PasswordInput
+            label="Password"
+            visible={visible}
+            onVisibilityChange={toggle}
+            {...form.getInputProps("password")}
+          />
 
-        <Group position="right" mt="md">
-          <Button type="submit" color="violet">
-            Log in
-          </Button>
-        </Group>
-      </form>
-    </Box>
+          <Group position="right" mt="md">
+            <Button type="submit" color="violet">
+              Log in
+            </Button>
+          </Group>
+        </form>
+      </Box>
+      <Box sx={{ maxWidth: 550, margin: "auto" }}>
+        <Divider my="xs" label="Or Sign in with" labelPosition="center" />
+        <Center>
+          <Group mt={25}>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandGithub />}
+              onClick={() => signIn()}
+            >
+              Github
+            </Button>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandGoogle />}
+              onClick={() => signIn()}
+            >
+              Google
+            </Button>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandTwitter />}
+              onClick={() => signIn()}
+            >
+              Twitter
+            </Button>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandReddit />}
+              onClick={() => signIn()}
+            >
+              Reddit
+            </Button>
+          </Group>
+        </Center>
+      </Box>
+    </>
   );
 }

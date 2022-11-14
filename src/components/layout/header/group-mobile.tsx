@@ -20,6 +20,7 @@ import Link from "next/link";
 import LecturesContent from "../../navigation/nav-content/lectures-list-mobile";
 import ArticlesContent from "../../navigation/nav-content/articles-list-mobile";
 import { features } from "./features-data";
+import Auth from "./auth-mobile";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -157,19 +158,7 @@ export default function HeaderGroup({
           color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
         />
 
-        <Group position="center" grow pb="xl" px="md">
-          <Link href="/registration/login" passHref>
-            <Button color="violet" variant="default" onClick={closeDrawer}>
-              Log in
-            </Button>
-          </Link>
-
-          <Link href="/registration/signup" passHref>
-            <Button color="violet" onClick={closeDrawer}>
-              Sign up
-            </Button>
-          </Link>
-        </Group>
+        <Auth closeDrawer={closeDrawer} />
       </ScrollArea>
     </Drawer>
   );

@@ -1,36 +1,21 @@
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
-import { verifyPassword } from "../../../lib/auth";
-
-export default NextAuth({
-  session: {
-    jwt: true,
-  },
+export const authOptions = {
+  // Configure one or more authentication providers
   providers: [
-    Providers.Credentials({
-      async authorize(credentials) {
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email,
-          },
-        });
-
-        if (!user) {
-          throw new Error("No user found!");
-        }
-
-        const isValid = await verifyPassword(
-          credentials.password,
-          user.password
-        );
-
-        if (!isValid) {
-          throw new Error("Could not log you in!");
-        }
-        console.log("HELLO")
-        return { email: user.email };
-      },
+    GithubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
+    // ...add more providers here
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-});
+  secret: process.env.JWT_SECRET,
+};
+
+export default NextAuth(authOptions);

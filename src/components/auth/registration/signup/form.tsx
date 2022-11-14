@@ -1,9 +1,24 @@
-import { TextInput, Button, Group, Box } from "@mantine/core";
+import {
+  TextInput,
+  Button,
+  Group,
+  Box,
+  Stack,
+  Divider,
+  Center,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { PasswordInput } from "@mantine/core";
 import { colors } from "../../../../config/colorPalette";
 import { useState } from "react";
+import {
+  BrandGithub,
+  BrandGoogle,
+  BrandReddit,
+  BrandTwitter,
+} from "tabler-icons-react";
+import { signIn } from "next-auth/react";
 
 export default function SignupForm() {
   const [visible, { toggle }] = useDisclosure(false);
@@ -53,42 +68,83 @@ export default function SignupForm() {
   }
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto">
-      <h1 style={{ color: colors.textColor }}>Sign up</h1>
-      <form onSubmit={form.onSubmit((values) => createUser(values))}>
-        <TextInput
-          label="Username"
-          placeholder="username"
-          {...form.getInputProps("username")}
-        />
-        <TextInput
-          label="Email"
-          placeholder="your@email.com"
-          {...form.getInputProps("email")}
-        />
+    <>
+      <Box sx={{ maxWidth: 300 }} mx="auto">
+        <h1 style={{ color: colors.textColor }}>Sign up</h1>
+        <form onSubmit={form.onSubmit((values) => createUser(values))}>
+          <TextInput
+            label="Username"
+            placeholder="username"
+            {...form.getInputProps("username")}
+          />
+          <TextInput
+            label="Email"
+            placeholder="your@email.com"
+            {...form.getInputProps("email")}
+          />
 
-        <PasswordInput
-          label="Password"
-          defaultValue="secret"
-          visible={visible}
-          onVisibilityChange={toggle}
-          {...form.getInputProps("password")}
-        />
-        <PasswordInput
-          label="Confirm password"
-          defaultValue="secret"
-          visible={visible}
-          onVisibilityChange={toggle}
-          {...form.getInputProps("confirmpassword")}
-        />
+          <PasswordInput
+            label="Password"
+            defaultValue="secret"
+            visible={visible}
+            onVisibilityChange={toggle}
+            {...form.getInputProps("password")}
+          />
+          <PasswordInput
+            label="Confirm password"
+            defaultValue="secret"
+            visible={visible}
+            onVisibilityChange={toggle}
+            {...form.getInputProps("confirmpassword")}
+          />
 
-        <Group position="right" mt="md">
-          <Button type="submit" color="violet">
-            Sign up
-          </Button>
-        </Group>
-        <p>{signupStatus}</p>
-      </form>
-    </Box>
+          <Group position="right" mt="md">
+            <Button type="submit" color="violet">
+              Sign up
+            </Button>
+          </Group>
+          <p>{signupStatus}</p>
+        </form>
+      </Box>
+      <Box sx={{ maxWidth: 550, margin: "auto" }}>
+        <Divider my="xs" label="Or Sign in with" labelPosition="center" />
+        <Center>
+          <Group mt={25}>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandGithub />}
+              onClick={() => signIn()}
+            >
+              Github
+            </Button>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandGoogle />}
+              onClick={() => signIn()}
+            >
+              Google
+            </Button>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandTwitter />}
+              onClick={() => signIn()}
+            >
+              Twitter
+            </Button>
+            <Button
+              variant="outline"
+              color="violet"
+              leftIcon={<BrandReddit />}
+              onClick={() => signIn()}
+            >
+              Reddit
+            </Button>
+          </Group>
+        </Center>
+      </Box>
+    </>
   );
 }
