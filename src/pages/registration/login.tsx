@@ -1,18 +1,18 @@
 import { Box } from "@mantine/core";
-import { getSession } from "next-auth/react";
+import { getProviders, getSession } from "next-auth/react";
 import LoginForm from "../../components/auth/registration/login/form";
 
-export default function login() {
+export default function login({ providers }) {
   return (
     <Box mt={100}>
-      <LoginForm />
+      <LoginForm providers={providers} />
     </Box>
   );
 }
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-
+  const providers = await getProviders();
   if (session) {
     return {
       redirect: {
@@ -21,6 +21,6 @@ export async function getServerSideProps(context) {
     };
   }
   return {
-    props: { session },
+    props: { providers },
   };
 }

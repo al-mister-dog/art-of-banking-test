@@ -39,11 +39,13 @@ export const authOptions = {
         if (!isValid) {
           throw new Error("Could not log you in!");
         }
-        console.log(user.email)
         return { email: user.email };
       },
     }),
   ],
+  pages: {
+    signIn: "/registration/login",
+  },
   secret: process.env.JWT_SECRET,
 };
 

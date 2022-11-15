@@ -9,11 +9,18 @@ import {
   BrandGoogle,
   BrandReddit,
   BrandTwitter,
+  Login,
 } from "tabler-icons-react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
-export default function SignupForm() {
+const icons = {
+  GitHub: <BrandGithub />,
+  Google: <BrandGoogle />,
+  Credentials: <Login />,
+};
+
+export default function SignupForm({ providers }) {
   const router = useRouter();
   const [visible, { toggle }] = useDisclosure(false);
   const [signupStatus, setSignupStatus] = useState("");
@@ -102,38 +109,18 @@ export default function SignupForm() {
         <Divider my="xs" label="Or Sign in with" labelPosition="center" />
         <Center>
           <Group mt={25}>
-            <Button
-              variant="outline"
-              color="violet"
-              leftIcon={<BrandGithub />}
-              onClick={() => signIn()}
-            >
-              Github
-            </Button>
-            <Button
-              variant="outline"
-              color="violet"
-              leftIcon={<BrandGoogle />}
-              onClick={() => signIn()}
-            >
-              Google
-            </Button>
-            <Button
-              variant="outline"
-              color="violet"
-              leftIcon={<BrandTwitter />}
-              onClick={() => signIn()}
-            >
-              Twitter
-            </Button>
-            <Button
-              variant="outline"
-              color="violet"
-              leftIcon={<BrandReddit />}
-              onClick={() => signIn()}
-            >
-              Reddit
-            </Button>
+            {Object.values(providers).map((provider: any) => (
+              <div key={provider.name}>
+                <Button
+                  onClick={() => signIn(provider.id)}
+                  variant="outline"
+                  color="violet"
+                  leftIcon={icons[provider.name]}
+                >
+                  {provider.name}
+                </Button>
+              </div>
+            ))}
           </Group>
         </Center>
       </Box>
