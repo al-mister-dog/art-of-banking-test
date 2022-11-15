@@ -19,11 +19,12 @@ import {
   BrandReddit,
   BrandTwitter,
 } from "tabler-icons-react";
+import { useState } from "react";
 
 export default function LoginForm() {
   const router = useRouter();
   const [visible, { toggle }] = useDisclosure(false);
-
+  const [loginStatus, setLoginStatus] = useState("");
   const form = useForm({
     initialValues: {
       email: "",
@@ -53,9 +54,10 @@ export default function LoginForm() {
       password,
     });
 
-    alert(JSON.stringify(result));
     if (!result.error) {
-      router.replace("/");
+      router.replace("/community");
+    } else {
+      setLoginStatus(result.error);
     }
   }
 
@@ -84,6 +86,7 @@ export default function LoginForm() {
             </Button>
           </Group>
         </form>
+        <p>{loginStatus}</p>
       </Box>
       <Box sx={{ maxWidth: 550, margin: "auto" }}>
         <Divider my="xs" label="Or Sign in with" labelPosition="center" />

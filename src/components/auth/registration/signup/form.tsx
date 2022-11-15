@@ -1,12 +1,4 @@
-import {
-  TextInput,
-  Button,
-  Group,
-  Box,
-  Stack,
-  Divider,
-  Center,
-} from "@mantine/core";
+import { TextInput, Button, Group, Box, Divider, Center } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { PasswordInput } from "@mantine/core";
@@ -19,8 +11,10 @@ import {
   BrandTwitter,
 } from "tabler-icons-react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function SignupForm() {
+  const router = useRouter();
   const [visible, { toggle }] = useDisclosure(false);
   const [signupStatus, setSignupStatus] = useState("");
   const form = useForm({
@@ -62,9 +56,9 @@ export default function SignupForm() {
 
     if (!response.ok) {
       setSignupStatus(data.message);
+    } else {
+      router.replace("/registration/login");
     }
-
-    setSignupStatus(data.message);
   }
 
   return (
@@ -85,14 +79,12 @@ export default function SignupForm() {
 
           <PasswordInput
             label="Password"
-            defaultValue="secret"
             visible={visible}
             onVisibilityChange={toggle}
             {...form.getInputProps("password")}
           />
           <PasswordInput
             label="Confirm password"
-            defaultValue="secret"
             visible={visible}
             onVisibilityChange={toggle}
             {...form.getInputProps("confirmpassword")}

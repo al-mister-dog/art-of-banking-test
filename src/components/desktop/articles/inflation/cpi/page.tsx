@@ -13,6 +13,7 @@ import RateDynamic from "./charts/rate-dynamic";
 import CpiPrice from "./cpi-price";
 import CpiPriceWeight from "./cpi-price-weight";
 import CpiWeight from "./cpi-weight";
+import { signIn } from "next-auth/react";
 
 export default function CPI() {
   const [inflationRate, setInflationRate] = useState(inflationByYear);
@@ -29,7 +30,7 @@ export default function CPI() {
       <Box ml={25} mt={200}>
         <Title>Consumer Price Index</Title>
       </Box>
-
+      
       <Box
         mt={100}
         mb={50}

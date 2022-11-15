@@ -1,5 +1,5 @@
 import { createStyles, Group, Button, Avatar } from "@mantine/core";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut, getSession } from "next-auth/react";
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({

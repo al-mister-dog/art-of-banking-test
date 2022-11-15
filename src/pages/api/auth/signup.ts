@@ -11,14 +11,11 @@ const userSchema = yup.object().shape({
   password: yup.string().password().min(6).max(24).required(),
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
     return;
   }
-  
+
   const data = req.body;
 
   try {
@@ -35,7 +32,7 @@ export default async function handler(
   try {
     await prisma.user.create({
       data: {
-        username,
+        name: username,
         email,
         password: hashedPassword,
       },
@@ -44,4 +41,4 @@ export default async function handler(
   } catch (error) {
     res.status(405).json({ message: "Something Went Wrong. Please Try Again" });
   }
-}
+};
