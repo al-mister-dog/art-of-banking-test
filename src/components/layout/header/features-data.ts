@@ -31,7 +31,7 @@ export const features = [
   {
     icon: Friends,
     title: "Community",
-    path: "/#",
+    path: "/community",
     description: "Contribute to discussions, debates as well as features",
   },
   {

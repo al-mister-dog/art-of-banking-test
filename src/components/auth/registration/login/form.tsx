@@ -19,6 +19,7 @@ import {
   BrandReddit,
   BrandTwitter,
   Login,
+  Mail,
 } from "tabler-icons-react";
 import { useState } from "react";
 
@@ -26,6 +27,7 @@ const icons = {
   GitHub: <BrandGithub />,
   Google: <BrandGoogle />,
   Credentials: <Login />,
+  Email: <Mail />,
 };
 
 export default function LoginForm({ providers }) {
@@ -74,7 +76,6 @@ export default function LoginForm({ providers }) {
         <h1 style={{ color: colors.textColor }}>Log in</h1>
         <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
           <TextInput
-            withAsterisk
             label="Email"
             placeholder="your@email.com"
             {...form.getInputProps("email")}
@@ -101,19 +102,59 @@ export default function LoginForm({ providers }) {
           <Group mt={25}>
             {Object.values(providers).map((provider: any) => (
               <div key={provider.name}>
-                <Button
-                  onClick={() => signIn(provider.id)}
-                  variant="outline"
-                  color="violet"
-                  leftIcon={icons[provider.name]}
-                >
-                  {provider.name}
-                </Button>
+                {provider.name === "Email" ? (
+                  <EmailInput provider={provider} />
+                ) : (
+                  <Button
+                    onClick={() => signIn(provider.id)}
+                    variant="outline"
+                    color="violet"
+                    leftIcon={icons[provider.name]}
+                  >
+                    {provider.name}
+                  </Button>
+                )}
               </div>
             ))}
           </Group>
         </Center>
       </Box>
     </>
+  );
+}
+
+function EmailInput({ provider }) {
+  const form = useForm({
+    initialValues: {
+      email: "",
+    },
+
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    },
+  });
+
+  async function handleSubmit(values) {
+    const { email } = values;
+    const result = await signIn("email", { email: email });
+    alert(JSON.stringify(result));
+  }
+  return (
+    <Stack>
+      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
+        <TextInput
+          label="Email"
+          placeholder="your@email.com"
+          {...form.getInputProps("email")}
+        />
+        <Button
+          variant="outline"
+          color="violet"
+          leftIcon={icons[provider.name]}
+        >
+          Sign in with Email
+        </Button>
+      </form>
+    </Stack>
   );
 }

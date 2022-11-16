@@ -1,5 +1,5 @@
 import { createStyles, Group, Button, Avatar } from "@mantine/core";
-import { useSession, signOut, getSession } from "next-auth/react";
+import { useSession, signOut, getSession, signIn } from "next-auth/react";
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
@@ -35,7 +35,7 @@ export default function Auth() {
   }
   return (
     <Group className={classes.hiddenMobile}>
-      <Link href="/registration/login" passHref>
+      {/* <Link href="/registration/login" passHref>
         <Button color="violet" variant="default">
           Log in
         </Button>
@@ -43,6 +43,9 @@ export default function Auth() {
 
       <Link href="/registration/signup" passHref>
         <Button color="violet">Sign up</Button>
+      </Link> */}
+      <Link href="/registration/signin" passHref>
+        <Button color="violet">Sign in</Button>
       </Link>
     </Group>
   );
