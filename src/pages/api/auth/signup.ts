@@ -34,7 +34,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       data: {
         name: username,
         email,
-        password: hashedPassword,
       },
     });
     res.status(200).json({ message: "All Signed Up" });
