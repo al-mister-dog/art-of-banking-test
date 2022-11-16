@@ -8,7 +8,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { verifyPassword } from "../../../lib/auth";
 
-const prisma = new PrismaClient();
+
 
 function html({ url, host, email }) {
   const escapedEmail = `${email.replace(/\./g, "&#8203;.")}`;
