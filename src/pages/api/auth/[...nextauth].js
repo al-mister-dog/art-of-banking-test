@@ -27,7 +27,7 @@ function text({ url, host }) {
 }
 export const authOptions = {
   // Store provider details to database
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
     // EmailProvider({
@@ -60,10 +60,10 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
+    // GoogleProvider({
+    //   clientId: process.env.GOOGLE_CLIENT_ID,
+    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    // }),
     // CredentialsProvider({
     //   async authorize(credentials) {
     //     const user = await prisma.user.findUnique({
@@ -91,10 +91,11 @@ export const authOptions = {
   pages: {
     signIn: "/registration/login",
   },
-  secret: process.env.JWT_SECRET,
-  session: {
-    jwt: true,
-  },
+  // secret: process.env.JWT_SECRET,
+  // session: {
+  //   jwt: true,
+  // },
+  // debug: true,
 };
 
 export default NextAuth(authOptions);
