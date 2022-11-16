@@ -6,7 +6,7 @@ export default function ArticlesIndexPage() {
     <div style={{ padding: 16, marginTop: "150px" }}>
       <Title>Articles</Title>
       <Text size="lg" mt={15} p="10">
-        The articles section of this seeks to explain complex concepts in a way
+        The articles section of this site seeks to explain complex concepts in a way
         that anyone can understand, using interactive interfaces to grasp
         concepts and analysis that are often shrouded in jargon. The interactive
         calculators and graphs allow the reader to see whats going on under the

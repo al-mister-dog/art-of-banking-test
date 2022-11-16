@@ -114,7 +114,7 @@ export default function HeaderGroup() {
   ));
   return (
     <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
-      <a href="#" className={classes.link}>
+      <a href="/" className={classes.link}>
         Home
       </a>
       <HoverCard
@@ -165,10 +165,10 @@ export default function HeaderGroup() {
           </div>
         </HoverCard.Dropdown>
       </HoverCard>
-      <a href="#" className={classes.link}>
+      <a href="/lectures" className={classes.link}>
         Learn
       </a>
-      <a href="#" className={classes.link}>
+      <a href="/articles" className={classes.link}>
         Articles
       </a>
     </Group>

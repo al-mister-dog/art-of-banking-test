@@ -17,8 +17,8 @@ import {
 import { IconChevronDown } from "@tabler/icons";
 
 import Link from "next/link";
-import LecturesContent from "../../navigation/nav-content/lectures-list-mobile";
-import ArticlesContent from "../../navigation/nav-content/articles-list-mobile";
+import LecturesContent from "../../navigation/nav-learn-content/lectures-list-mobile";
+import ArticlesContent from "../../navigation/nav-learn-content/articles-list-mobile";
 import { features } from "./features-data";
 import Auth from "./auth-mobile";
 
@@ -118,7 +118,7 @@ export default function HeaderGroup({
           color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
         />
 
-        <a href="#" className={classes.link}>
+        <a href="/" className={classes.link}>
           Home
         </a>
 
