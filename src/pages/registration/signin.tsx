@@ -1,29 +1,3 @@
-// import { Box } from "@mantine/core";
-// import { getProviders, getSession } from "next-auth/react";
-// import LoginForm from "../../components/auth/registration/login/form";
-
-// export default function login({ providers }) {
-//   return (
-//     <Box mt={100}>
-//       <LoginForm providers={providers} />
-//     </Box>
-//   );
-// }
-
-// export async function getServerSideProps(context) {
-//   const session = await getSession(context);
-//   const providers = await getProviders();
-//   if (session) {
-//     return {
-//       redirect: {
-//         destination: "/",
-//       },
-//     };
-//   }
-//   return {
-//     props: { providers },
-//   };
-// }
 import {
   getCsrfToken,
   getProviders,
@@ -102,6 +76,14 @@ export default function LoginForm({ providers }) {
     }
   }
 
+  async function handleSignIn(id) {
+    try {
+      await signIn(id);
+    } catch (error) {
+      setLoginStatus(error);
+    }
+  }
+
   return (
     <>
       <Box sx={{ maxWidth: 300 }} mx="auto" mt={100}>
@@ -124,7 +106,7 @@ export default function LoginForm({ providers }) {
                   </>
                 ) : (
                   <Button
-                    onClick={() => signIn(provider.id)}
+                    onClick={() => handleSignIn(provider.id)}
                     style={{ width: "100%" }}
                     variant="outline"
                     color="violet"
