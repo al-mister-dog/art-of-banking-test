@@ -100,7 +100,7 @@ export const authOptions = {
     // }),
   ],
   pages: {
-    signIn: "/registration/login",
+    signIn: "/registration/signin",
   },
   secret: process.env.JWT_SECRET,
   session: {

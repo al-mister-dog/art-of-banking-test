@@ -23,15 +23,9 @@ export default function Auth({ closeDrawer }) {
 
   return (
     <Group position="center" grow pb="xl" px="md">
-      <Link href="/registration/login" passHref>
+      <Link href="/registration/signin" passHref>
         <Button color="violet" variant="default" onClick={closeDrawer}>
-          Log in
-        </Button>
-      </Link>
-
-      <Link href="/registration/signup" passHref>
-        <Button color="violet" onClick={closeDrawer}>
-          Sign up
+          Sign in
         </Button>
       </Link>
     </Group>

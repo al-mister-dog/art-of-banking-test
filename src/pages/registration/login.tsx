@@ -154,9 +154,7 @@ function EmailInput({ provider }) {
   });
 
   async function handleSubmit(email) {
-    console.log("FOO");
     const result = await signIn("email", { email, redirect: false });
-    console.log(result);
   }
   return (
     <Stack>

@@ -35,15 +35,6 @@ export default function Auth() {
   }
   return (
     <Group className={classes.hiddenMobile}>
-      {/* <Link href="/registration/login" passHref>
-        <Button color="violet" variant="default">
-          Log in
-        </Button>
-      </Link>
-
-      <Link href="/registration/signup" passHref>
-        <Button color="violet">Sign up</Button>
-      </Link> */}
       <Link href="/registration/signin" passHref>
         <Button color="violet">Sign in</Button>
       </Link>

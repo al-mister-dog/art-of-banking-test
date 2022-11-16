@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
   if (!session) {
     return {
       redirect: {
-        destination: "/registration/signup",
+        destination: "/registration/signin",
       },
     };
   }
