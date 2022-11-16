@@ -104,7 +104,7 @@ export default function LoginForm({ providers, csrfToken }) {
 
   return (
     <>
-      <Box sx={{ maxWidth: 300 }} mx="auto" mt={100}>
+      <Box sx={{ maxWidth: 300,  }} mx="auto" mt={100}>
         <Center>
           <h1 style={{ color: colors.textColor }}>Sign in</h1>
         </Center>
