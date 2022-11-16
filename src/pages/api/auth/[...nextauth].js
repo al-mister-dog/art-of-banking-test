@@ -4,9 +4,12 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { prisma } from "../../../lib/prisma";
+// import { prisma } from "../../../lib/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { verifyPassword } from "../../../lib/auth";
+
+const prisma = new PrismaClient();
+
 function html({ url, host, email }) {
   const escapedEmail = `${email.replace(/\./g, "&#8203;.")}`;
   const escapedHost = `${host.replace(/\./g, "&#8203;.")}`;
