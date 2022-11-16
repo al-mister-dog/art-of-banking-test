@@ -88,9 +88,9 @@ export const authOptions = {
     //   },
     // }),
   ],
-  // pages: {
-  //   signIn: "/registration/login",
-  // },
+  pages: {
+    signIn: "/registration/login",
+  },
   secret: process.env.JWT_SECRET,
   session: {
     jwt: true,
