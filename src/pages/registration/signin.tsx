@@ -62,7 +62,7 @@ const icons = {
   Email: <Mail />,
 };
 
-export default function LoginForm({ providers, csrfToken }) {
+export default function LoginForm({ providers }) {
   const router = useRouter();
   const [visible, { toggle }] = useDisclosure(false);
   const [loginStatus, setLoginStatus] = useState("");
@@ -154,9 +154,7 @@ function EmailInput({ provider }) {
   });
 
   async function handleSubmit(email) {
-    console.log("FOO");
     const result = await signIn("email", { email, redirect: false });
-    console.log(result);
   }
   return (
     <Stack>
@@ -178,7 +176,7 @@ function EmailInput({ provider }) {
 }
 
 export async function getServerSideProps(context) {
-  const csrfToken = await getCsrfToken(context);
+  // const csrfToken = await getCsrfToken(context);
   const session = await getSession(context);
   const providers = await getProviders();
   if (session) {
@@ -189,6 +187,6 @@ export async function getServerSideProps(context) {
     };
   }
   return {
-    props: { providers, csrfToken },
+    props: { providers },
   };
 }
