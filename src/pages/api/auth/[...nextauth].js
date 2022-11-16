@@ -30,7 +30,7 @@ function text({ url, host }) {
 }
 export const authOptions = {
   // Store provider details to database
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
     // EmailProvider({
