@@ -30,32 +30,32 @@ export const authOptions = {
   adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
-    EmailProvider({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST,
-        port: process.env.EMAIL_SERVER_PORT,
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
-        },
-      },
-      from: process.env.EMAIL_FROM,
-      async sendVerificationRequest({
-        identifier: email,
-        url,
-        provider: { server, from },
-      }) {
-        const { host } = new URL(url);
-        const transport = nodemailer.createTransport(server);
-        await transport.sendMail({
-          to: email,
-          from,
-          subject: `Sign in to ${host}`,
-          text: text({ url, host }),
-          html: html({ url, host, email }),
-        });
-      },
-    }),
+    // EmailProvider({
+    //   server: {
+    //     host: process.env.EMAIL_SERVER_HOST,
+    //     port: process.env.EMAIL_SERVER_PORT,
+    //     auth: {
+    //       user: process.env.EMAIL_SERVER_USER,
+    //       pass: process.env.EMAIL_SERVER_PASSWORD,
+    //     },
+    //   },
+    //   from: process.env.EMAIL_FROM,
+    //   async sendVerificationRequest({
+    //     identifier: email,
+    //     url,
+    //     provider: { server, from },
+    //   }) {
+    //     const { host } = new URL(url);
+    //     const transport = nodemailer.createTransport(server);
+    //     await transport.sendMail({
+    //       to: email,
+    //       from,
+    //       subject: `Sign in to ${host}`,
+    //       text: text({ url, host }),
+    //       html: html({ url, host, email }),
+    //     });
+    //   },
+    // }),
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
